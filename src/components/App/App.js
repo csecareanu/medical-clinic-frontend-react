@@ -11,6 +11,8 @@ import ClinicAboutView from '../pages/Clinic/ClinicAboutView/ClinicAboutView';
 import ClinicContactView from '../pages/Clinic/ClinicContactView/ClinicContactView';
 import ClinicDoctorsView from '../pages/Clinic/ClinicDoctorsView/ClinicDoctorsView';
 import ClinicPricesView from '../pages/Clinic/ClinicPricesView/ClinicPricesView';
+import ClinicUserLoginView from '../pages/Clinic/ClinicUserLoginView/ClinicUserLoginView';
+import ClinicUserLogoutView from '../pages/Clinic/ClinicUserLogoutView/ClinicUserLogoutView';
 
 import DoctorView from '../pages/Doctor/DoctorView';
 import DoctorMyAccountView from '../pages/Doctor/DoctorMyAccountView/DoctorMyAccountView';
@@ -33,6 +35,8 @@ function App() {
     <div>
       <Switch>
         <Route path="/" exact component={ClinicView} />
+        <Route path="/login" component={ClinicUserLoginView} />
+        <Route path="/logout" component={ClinicUserLogoutView} />
         <Route path="/appointment" component={PatientNewApptView} />
         <Route path ="/my_account" component={PatientAccountView} />
         <Route path="/doctors" component={ClinicDoctorsView} />

@@ -13,5 +13,7 @@ export default () => (
         <NavItemView link="/prices">PRICES</NavItemView>
         <NavItemView link="/appointment">NEW APPOINTMENT</NavItemView>
         <NavItemView link="/my_account">MY ACCOUNT</NavItemView>
+        <NavItemView link="/login">LOGIN</NavItemView>
+        <NavItemView link="/logout">LOGOUT</NavItemView>
     </NavListView>
 );
