@@ -1,0 +1,19 @@
+/*
+How to keep your footer where it belongs:
+https://www.freecodecamp.org/news/how-to-keep-your-footer-where-it-belongs-59c6aa05c59c/
+*/
+.Layout {
+    position: relative;
+    min-height: 100vh; /* 100% from view port */
+  }
+
+  .PageContainer {
+    padding-bottom: 14rem;    /* Footer height */
+  }
+
+  .FooterContainer {
+    position: absolute;
+    bottom: 0;
+    height: 14rem;  /* Footer height. Must be the same with 'padding-bottom' from .PageContainer */
+    width: 100%;
+  }

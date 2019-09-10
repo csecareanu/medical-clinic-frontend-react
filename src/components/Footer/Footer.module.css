@@ -1,0 +1,61 @@
+.Footer {
+    width: 100%;
+    height: 100%;
+    background-color: #6B2022;
+}
+.Footer a {
+   color: #F4BF8B;
+   text-decoration: none;
+}
+.Footer a:hover,
+.Footer a:active,
+.Footer a.active {
+   color: #bbbbbb;
+}
+
+.InfoContainer {
+   display: flex;
+   justify-content: space-around;;
+   align-items: flex-start;
+   color: #F4BF8B;
+   flex-wrap: wrap;
+   background-color: #6B2022;
+}
+
+.InfoBox {
+   margin-left: 1rem;
+   margin-right: 1rem;
+   font-size: small;
+}
+
+.InfoBoxTitle {
+   color: #bbbbbb;
+   font-weight: normal;
+   font-size: large;
+}
+
+.GDPR {
+   display: flex;
+   margin: auto;
+}
+
+.HorizLine {
+   display: block; 
+   height: 1px;
+   border: 0; 
+   border-top: 1px solid #bbbbbb;
+   margin: 0; 
+   padding: 0;
+ }
+
+.CopyrightBox {
+   color: #F4BF8B;
+   background-color: #6B2022; 
+}
+
+.CopyrightBox p {
+   margin-left: 10%;
+   padding: 0.5rem;
+   display:inline-block;
+   font-size: small;
+}
