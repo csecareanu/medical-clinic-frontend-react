@@ -2,10 +2,10 @@
 import React from 'react';
 
 import MainLayout from '../../../layouts/MainLayout/MainLayout';
-import DoctorHdrView from '../../../headers/DoctorHdrView/DoctorHdrView';
+import DoctorAdminHdrView from '../../../headers/DoctorAdminHdrView/DoctorAdminHdrView';
 
 export default () => (
-    <MainLayout header={<DoctorHdrView />}>
+    <MainLayout header={<DoctorAdminHdrView />}>
         <h1>Notification Messages Page</h1>
     </MainLayout>
 );

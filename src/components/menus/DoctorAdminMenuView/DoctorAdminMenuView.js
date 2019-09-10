@@ -11,6 +11,7 @@ export default () => (
         </NavListView>
         <NavListView>
             */}
+            <NavItemView link="/doctor/my_account">MY ACCOUNT</NavItemView>
             <NavItemView link="/doctor/appointments">APPOINTMENTS INFO</NavItemView>
             <NavItemView link="/doctor/working_time">WORKING TIME</NavItemView>
             <NavItemView link="/doctor/log_events">LOG EVENTS</NavItemView>

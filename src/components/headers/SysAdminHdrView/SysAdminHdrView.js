@@ -1,11 +1,11 @@
 import React from 'react';
-import AdminMenuView from '../../menus/AdminMenuView/AdminMenuView';
+import SysAdminMenuView from '../../menus/SysAdminMenuView/SysAdminMenuView';
 
 export default () => (
     <header>
         <h1>Admin Header</h1>
         <nav>
-            <AdminMenuView />
+            <SysAdminMenuView />
         </nav>
     </header>
 );
