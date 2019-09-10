@@ -44,7 +44,7 @@ export default () => (
                 <p>
                     <FormattedMessage 
                         id="short_address" 
-                        defaultMessage={'19-21 Ion Heliade Radulescu Street, Targoviste, Dambovita'}
+                        defaultMessage={'19-21 Ion Heliade Radulescu Street, Targoviste, Dambovita County'}
                     />
                 </p>
                 <p></p>
