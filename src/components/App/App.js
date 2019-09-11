@@ -6,35 +6,35 @@ import './App.css';
 import PatientNewApptView from '../pages/patient/PatientNewApptView/PatientNewApptView';
 import PatientAccountView from '../pages/patient/PatientAccountView/PatientAccountView';
 
-import ClinicView from '../pages/Clinic/ClinicView';
-import ClinicAboutView from '../pages/Clinic/ClinicAboutView/ClinicAboutView';
-import ClinicContactView from '../pages/Clinic/ClinicContactView/ClinicContactView';
-import ClinicDoctorsView from '../pages/Clinic/ClinicDoctorsView/ClinicDoctorsView';
-import ClinicPricesView from '../pages/Clinic/ClinicPricesView/ClinicPricesView';
-import ClinicUserLoginView from '../pages/Clinic/ClinicUserLoginView/ClinicUserLoginView';
-import ClinicUserLogoutView from '../pages/Clinic/ClinicUserLogoutView/ClinicUserLogoutView';
+import ClinicMainView from '../pages/clinic/ClinicMainView/ClinicMainView';
+import ClinicAboutView from '../pages/clinic/ClinicAboutView/ClinicAboutView';
+import ClinicContactView from '../pages/clinic/ClinicContactView/ClinicContactView';
+import ClinicDoctorsView from '../pages/clinic/ClinicDoctorsView/ClinicDoctorsView';
+import ClinicPricesView from '../pages/clinic/ClinicPricesView/ClinicPricesView';
+import ClinicUserLoginView from '../pages/clinic/ClinicUserLoginView/ClinicUserLoginView';
+import ClinicUserLogoutView from '../pages/clinic/ClinicUserLogoutView/ClinicUserLogoutView';
 
-import DoctorView from '../pages/Doctor/DoctorView';
-import DoctorMyAccountView from '../pages/Doctor/DoctorMyAccountView/DoctorMyAccountView';
-import DoctorApptsInfoView from '../pages/Doctor/DoctorApptsInfoView/DoctorApptsInfoView';
-import DoctorLogEventsView from '../pages/Doctor/DoctorLogEventsView/DoctorLogEventsView';
-import DoctorNotifMsgsView from '../pages/Doctor/DoctorNotifMsgsView/DoctorNotifMsgsView';
-import DoctorWorkingTimeView from '../pages/Doctor/DoctorWorkingTimeView/DoctorWorkingTimeView';
-import DoctorPatientLoginView from '../pages/Doctor/DoctorPatientLoginView/DoctorPatientLoginView';
+import DoctorMainView from '../pages/doctor/DoctorMainView/DoctorMainView';
+import DoctorMyAccountView from '../pages/doctor/DoctorMyAccountView/DoctorMyAccountView';
+import DoctorApptsInfoView from '../pages/doctor/DoctorApptsInfoView/DoctorApptsInfoView';
+import DoctorLogEventsView from '../pages/doctor/DoctorLogEventsView/DoctorLogEventsView';
+import DoctorNotifMsgsView from '../pages/doctor/DoctorNotifMsgsView/DoctorNotifMsgsView';
+import DoctorWorkingTimeView from '../pages/doctor/DoctorWorkingTimeView/DoctorWorkingTimeView';
+import DoctorPatientLoginView from '../pages/doctor/DoctorPatientLoginView/DoctorPatientLoginView';
 
-import SysAdminView from '../pages/SysAdmin/SysAdminView';
-import SysAdminDoctorsView from '../pages/SysAdmin/SysAdminDoctorsView/SysAdminDoctorsView';
-import SysAdminDoctorToSvcsView from '../pages/SysAdmin/SysAdminDoctorToSvcsView/SysAdminDoctorToSvcsView';
-import SysAdminLogEventsView from '../pages/SysAdmin/SysAdminLogEventsView/SysAdminLogEventsView';
-import SysAdminServicesView from '../pages/SysAdmin/SysAdminServicesView/SysAdminServicesView';
-import SysAdminSettingsView from '../pages/SysAdmin/SysAdminSettingsView/SysAdminSettingsView';
-import SysAdminSpecialtiesView from '../pages/SysAdmin/SysAdminSpecialtiesView/SysAdminSpecialtiesView';
+import SysAdminMainView from '../pages/sysAdmin/SysAdminMainView/SysAdminMainView';
+import SysAdminDoctorsView from '../pages/sysAdmin/SysAdminDoctorsView/SysAdminDoctorsView';
+import SysAdminDoctorToSvcsView from '../pages/sysAdmin/SysAdminDoctorToSvcsView/SysAdminDoctorToSvcsView';
+import SysAdminLogEventsView from '../pages/sysAdmin/SysAdminLogEventsView/SysAdminLogEventsView';
+import SysAdminServicesView from '../pages/sysAdmin/SysAdminServicesView/SysAdminServicesView';
+import SysAdminSettingsView from '../pages/sysAdmin/SysAdminSettingsView/SysAdminSettingsView';
+import SysAdminSpecialtiesView from '../pages/sysAdmin/SysAdminSpecialtiesView/SysAdminSpecialtiesView';
 
 function App() {
   return (
     <div>
       <Switch>
-        <Route path="/" exact component={ClinicView} />
+        <Route path="/" exact component={ClinicMainView} />
         <Route path="/login" component={ClinicUserLoginView} />
         <Route path="/logout" component={ClinicUserLogoutView} />
         <Route path="/appointment" component={PatientNewApptView} />
@@ -44,7 +44,7 @@ function App() {
         <Route path="/about" component={ClinicAboutView} />
         <Route path="/contact" component={ClinicContactView} />
 
-        <Route path="/doctor" exact component={DoctorView} />
+        <Route path="/doctor" exact component={DoctorMainView} />
         <Route path="/doctor/patient_login" component={DoctorPatientLoginView} />
         <Route path="/doctor/my_account" exact component={DoctorMyAccountView} />
         <Route path="/doctor/appointments" component={DoctorApptsInfoView} />
@@ -52,7 +52,7 @@ function App() {
         <Route path="/doctor/notification_msgs" component={DoctorNotifMsgsView} />
         <Route path="/doctor/log_events" component={DoctorLogEventsView} />
 
-        <Route path="/admin" exact component={SysAdminView} />
+        <Route path="/admin" exact component={SysAdminMainView} />
         <Route path="/admin/doctors" component={SysAdminDoctorsView} />
         <Route path="/admin/specialties" component={SysAdminSpecialtiesView} />
         <Route path="/admin/services" component={SysAdminServicesView} />

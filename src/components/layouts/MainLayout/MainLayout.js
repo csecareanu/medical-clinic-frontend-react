@@ -1,7 +1,7 @@
 import React from 'react';
 
 import classes from './MainLayout.module.css';
-import Footer from '../../Footer/Footer'; 
+import FooterView from '../../FooterView/FooterView'; 
 
 class Layout extends React.Component {
     render() {
@@ -13,7 +13,7 @@ class Layout extends React.Component {
                 {this.props.children}
               </div>
               <div className={classes.FooterContainer}>
-                <Footer />
+                <FooterView />
               </div>
             </main>
           </React.Fragment>
