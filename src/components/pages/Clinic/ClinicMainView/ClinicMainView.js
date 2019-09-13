@@ -1,7 +1,7 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
-
+import commonClasses from '../../../../common.module.css'
 import classes from './ClinicMainView.module.css';
 import MainLayout from '../../../layouts/MainLayout/MainLayout';
 import MainHdrView from '../../../headers/MainHdrView/MainHdrView';
@@ -16,8 +16,8 @@ export default () => {
                 <h1 className={classes.Title}>TAI CHI MEDICAL</h1>
 
                 <div className={classes.ClinicDesc}>
-                    <p>{clinicDescP1}</p>
-                    <p>{clinicDescP2}</p>
+                    <p className={commonClasses.ParagraphTextIndent}>{clinicDescP1}</p>
+                    <p className={commonClasses.ParagraphTextIndent}>{clinicDescP2}</p>
                 </div>
 
                 <h1 className={classes.Title}><FormattedMessage id="main_page_clinic_desc_1" defaultMessage={'OUR SERVICES'} /></h1>
