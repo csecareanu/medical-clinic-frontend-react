@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
 
 import classes from './Footer.module.css';
-import gdprImg from '../../static/images/gdpr.jpg';
 
 
 export default () => (
@@ -13,9 +12,21 @@ export default () => (
                 <p className={classes.InfoBoxTitle}>
                     <FormattedMessage id="data_protection" defaultMessage={'Data Protection'}/>
                 </p>
-                <NavLink to="/about">
-                    <img className={classes.GDPR} src={gdprImg} alt="GDPR"/>
-                </NavLink>
+                <p>
+                    <NavLink to="/">
+                        <FormattedMessage id="privacy_policy" defaultMessage={'Privacy policy'}/>
+                    </NavLink>
+                </p>
+                <p>
+                    <NavLink to="/">
+                        <FormattedMessage id="data_security" defaultMessage={'Data security'}/>
+                    </NavLink>
+                </p>
+                <p>
+                    <NavLink to="/">
+                        <FormattedMessage id="terms_and_conditions" defaultMessage={'Terms and Conditions'}/>
+                    </NavLink>
+                </p>
             </div>
             <div className={classes.InfoBox}>
                 <p className={classes.InfoBoxTitle}>

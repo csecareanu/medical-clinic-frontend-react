@@ -1,0 +1,22 @@
+.ServiceContainer {
+    position: relative;
+    color: #6B2022;
+}
+
+.Image {
+    /* make the image resizable */
+    width: 100%;
+}
+
+.TitleContainer {
+    position:absolute; 
+    bottom:0; 
+    left:0;
+    padding-left: 1rem;
+}
+
+.Title {
+    display: inline-block;
+    color: #6B2022;
+    border-bottom: 1px solid #4ECC7D;
+}
