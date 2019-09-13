@@ -2,15 +2,15 @@
 import React from 'react';
 
 import NavListView from '../../UI/NavListView/NavListView';
-import NavItemView from '../../UI/NavListView/NavItemButton/NavItemButton';
+import NavItemButton from '../../UI/NavListView/NavItemButton/NavItemButton';
 
 export default () => (
     <NavListView>
-        <NavItemView link="/admin/doctors">DOCTORS</NavItemView>
-        <NavItemView link="/admin/specialties">SPECIALTIES</NavItemView>
-        <NavItemView link="/admin/services">SERVICES</NavItemView>
-        <NavItemView link="/admin/doctor_to_svcs">ATTACHING SERVICES</NavItemView>
-        <NavItemView link="/admin/log_events">LOG EVENTS</NavItemView>
-        <NavItemView link="/admin/settings">SETTINGS</NavItemView>
+        <NavItemButton link="/admin/doctors">DOCTORS</NavItemButton>
+        <NavItemButton link="/admin/specialties">SPECIALTIES</NavItemButton>
+        <NavItemButton link="/admin/services">SERVICES</NavItemButton>
+        <NavItemButton link="/admin/doctor_to_svcs">ATTACHING SERVICES</NavItemButton>
+        <NavItemButton link="/admin/log_events">LOG EVENTS</NavItemButton>
+        <NavItemButton link="/admin/settings">SETTINGS</NavItemButton>
     </NavListView>
 );

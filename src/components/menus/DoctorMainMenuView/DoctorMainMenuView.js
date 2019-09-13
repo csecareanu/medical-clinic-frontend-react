@@ -1,11 +1,12 @@
 import React from 'react';
 
+import desktopMenuStyle from '../desktop.m'
 import NavListView from '../../UI/NavListView/NavListView';
-import NavItemView from '../../UI/NavListView/NavItemButton/NavItemButton';
+import NavItemButton from '../../UI/NavListView/NavItemButton/NavItemButton';
 
 export default () => (
     <NavListView>
-        <NavItemView link="/doctor">ADMINISTRATION</NavItemView>
-        <NavItemView link="/doctor/patient_login">LOG IN PATIENT ACCOUNT</NavItemView>
+        <NavItemButton link="/doctor">ADMINISTRATION</NavItemButton>
+        <NavItemButton link="/doctor/patient_login">LOG IN PATIENT ACCOUNT</NavItemButton>
     </NavListView>
 );
