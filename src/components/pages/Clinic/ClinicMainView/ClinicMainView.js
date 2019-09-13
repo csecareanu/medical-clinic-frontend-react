@@ -1,7 +1,7 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
-import commonClasses from '../../../../common.module.css'
+import classesCommon from '../../../../common.module.css'
 import classes from './ClinicMainView.module.css';
 import MainLayout from '../../../layouts/MainLayout/MainLayout';
 import MainHdrView from '../../../headers/MainHdrView/MainHdrView';
@@ -14,15 +14,17 @@ export default () => {
         <MainLayout header={<MainHdrView />}>
             <div className={classes.PageContainer}>
                 <h1 className={classes.Title}>TAI CHI MEDICAL</h1>
-
                 <div className={classes.ClinicDesc}>
-                    <p className={commonClasses.ParagraphTextIndent}>{clinicDescP1}</p>
-                    <p className={commonClasses.ParagraphTextIndent}>{clinicDescP2}</p>
+                    <p className={classesCommon.ParagraphTextIndent}>{clinicDescP1}</p>
+                    <p className={classesCommon.ParagraphTextIndent}>{clinicDescP2}</p>
                 </div>
 
-                <h1 className={classes.Title}><FormattedMessage id="main_page_clinic_desc_1" defaultMessage={'OUR SERVICES'} /></h1>
+                <div className={classes.SectionSep}></div>
 
+                <h1 className={classes.Title}><FormattedMessage id="main_page_clinic_desc_1" defaultMessage={'OUR SERVICES'} /></h1>
                 <ClinicServicesView />
+
+                <div className={classes.SectionSep}></div>
             </div>
         </MainLayout>
     );

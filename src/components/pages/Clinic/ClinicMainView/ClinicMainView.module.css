@@ -16,3 +16,8 @@
     background-color: #F8E8B7;
     border-radius: 20px;
 }
+
+/* Separator between sections */
+.SectionSep {
+    margin-bottom: 6em;
+}
