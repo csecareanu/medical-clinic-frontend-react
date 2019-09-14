@@ -6,7 +6,7 @@ import FooterView from '../../FooterView/FooterView';
 class Layout extends React.Component {
     render() {
         return (
-          <main className={classes.Layout}>
+          <main className={classes.LayoutContainer}>
             <div className={classes.HeaderContainer}>
               {this.props.header}
             </div>

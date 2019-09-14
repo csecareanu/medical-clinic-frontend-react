@@ -1,16 +1,23 @@
 import React from 'react';
 
 import classes from './MainHdrView.module.css';
-import mainImg from '../../../static/images/main_hdr.jpg'
+import imgMain from '../../../static/images/main_hdr.jpg'
+import imgLogo from '../../../static/images/logo.jpg'
 import PatientMainMenuView from '../../menus/PatientMainMenuView/PatientMainMenuView';
-import DoctorMainMenuView from '../../menus/DoctorMainMenuView/DoctorMainMenuView';
+//import DoctorMainMenuView from '../../menus/DoctorMainMenuView/DoctorMainMenuView';
+
 
 export default () => (
-    <header>
+    <header className={classes.HeaderContainer}>
         <nav>
-            <DoctorMainMenuView />
-            <PatientMainMenuView />
-            <img className={classes.MainImg} src={mainImg} alt=""/>
+            <div className={classes.LogoContainer}>
+                <img  src={imgLogo} alt="site_logo"/>
+            </div>
+            <div className={classes.MenuContainer}>
+                {/* <DoctorMainMenuView /> */}
+                <PatientMainMenuView />
+            </div>
+            <img className={classes.MainImg} src={imgMain} alt=""/>
         </nav>
     </header>
 );

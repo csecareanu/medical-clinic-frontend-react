@@ -2,7 +2,7 @@
 How to keep your footer where it belongs:
 https://www.freecodecamp.org/news/how-to-keep-your-footer-where-it-belongs-59c6aa05c59c/
 */
-.Layout {
+.LayoutContainer {
     position: relative;
     min-height: 100vh; /* 100% from view port */
   }
@@ -18,7 +18,10 @@ https://www.freecodecamp.org/news/how-to-keep-your-footer-where-it-belongs-59c6a
     display: flex;
     justify-content: center;
     max-width: 1100px;
+    box-sizing: border-box;
     margin: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
     padding-bottom: 14rem;    /* Footer height */
   }
 

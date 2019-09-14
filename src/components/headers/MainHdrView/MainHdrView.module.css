@@ -1,3 +1,17 @@
+
+.HeaderContainer {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.LogoContainer {
+    margin: 0 2rem 2rem 2rem;
+}
+
+.MenuContainer {
+    margin: 0 2rem 0 2rem;
+}
+
 .MainImg {
     border-radius: 0 0 20px 20px;
     max-width: 1420px;
@@ -5,5 +19,5 @@
     /* make the item resizable but no longer than max-width */
     width: 100%;
     padding: 0;
-    margin: 0;
+    margin: 2rem 0 0 0;
 }
