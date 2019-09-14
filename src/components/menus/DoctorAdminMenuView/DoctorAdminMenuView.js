@@ -1,4 +1,5 @@
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
 
 import classesMenu from '../menu.module.css';
 import NavListView from '../../UI/NavListView/NavListView';
@@ -26,11 +27,21 @@ export default () => (
         </NavListView>
 
         <NavListView style={classesMenu.Menu}>
-            <NavItemButtonAdmin link="/doctor/my_account">MY ACCOUNT</NavItemButtonAdmin>
-            <NavItemButtonAdmin link="/doctor/appointments">APPOINTMENTS INFO</NavItemButtonAdmin>
-            <NavItemButtonAdmin link="/doctor/working_time">WORKING TIME</NavItemButtonAdmin>
-            <NavItemButtonAdmin link="/doctor/log_events">LOG EVENTS</NavItemButtonAdmin>
-            <NavItemButtonAdmin link="/doctor/notification_msgs">NOTIFICATION MESSAGES</NavItemButtonAdmin>
+            <NavItemButtonAdmin link="/doctor/my_account">
+                <FormattedMessage id="menu_doctor_admin_my_account" defaultMessage={'MY ACCOUNT'}/>
+            </NavItemButtonAdmin>
+            <NavItemButtonAdmin link="/doctor/appointments">
+                <FormattedMessage id="menu_doctor_admin_appts_info" defaultMessage={' APPOINTMENTS INFO'}/>
+            </NavItemButtonAdmin>
+            <NavItemButtonAdmin link="/doctor/working_time">
+                <FormattedMessage id="menu_doctor_admin_working_time" defaultMessage={'WORKING TIME'}/>
+            </NavItemButtonAdmin>
+            <NavItemButtonAdmin link="/doctor/log_events">
+                <FormattedMessage id="menu_doctor_admin_log_events" defaultMessage={'LOG EVENTS'}/>
+            </NavItemButtonAdmin>
+            <NavItemButtonAdmin link="/doctor/notification_msgs">
+                <FormattedMessage id="menu_doctor_admin_notif_msgs" defaultMessage={'NOTIFICATION MESSAGES'}/>
+            </NavItemButtonAdmin>
         </NavListView>
     </React.Fragment>
 );
