@@ -3,8 +3,8 @@ import React from 'react';
 import classes from './MainHdrView.module.css';
 import imgMain from '../../../static/images/main_hdr.jpg'
 import imgLogo from '../../../static/images/logo.jpg'
-import PatientMainMenuView from '../../menus/PatientMainMenuView/PatientMainMenuView';
-import DoctorMainMenuView from '../../menus/DoctorMainMenuView/DoctorMainMenuView';
+import ClinicMenuView from '../../menus/ClinicMenuView/ClinicMenuView';
+import DoctorMenuView from '../../menus/DoctorMenuView/DoctorMenuView';
 
 
 export default () => (
@@ -14,8 +14,8 @@ export default () => (
                 <img  src={imgLogo} alt="site_logo"/>
             </div>
             <div className={classes.MenuContainer}>
-                <DoctorMainMenuView />
-                <PatientMainMenuView />
+                <DoctorMenuView />
+                <ClinicMenuView />
             </div>
             <img className={classes.MainImg} src={imgMain} alt=""/>
         </nav>
