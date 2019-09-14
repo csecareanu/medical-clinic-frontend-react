@@ -22,6 +22,8 @@ export default (props) =>
                 <ClinicServiceView img={imgCupping} title={cuppingTherapyText} />
             </div>
 
+
+
             <div className={classes.Container}>
                 <ClinicServiceView img={imgLaser} title={laserTherapyText} />
                 <ClinicServiceView img={imgMassage} title={massageText} />

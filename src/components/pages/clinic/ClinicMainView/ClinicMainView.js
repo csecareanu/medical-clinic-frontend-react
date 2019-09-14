@@ -21,7 +21,9 @@ export default () => {
 
                 <div className={classes.SectionSep}></div>
 
-                <h1 className={classes.Title}><FormattedMessage id="main_page_clinic_desc_1" defaultMessage={'OUR SERVICES'} /></h1>
+                <h1 className={classes.Title}>
+                    <FormattedMessage id="main_page_clinic_desc_1" defaultMessage={'OUR SERVICES'} />
+                </h1>
                 <ClinicServicesView />
 
                 <div className={classes.SectionSep}></div>
