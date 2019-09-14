@@ -4,7 +4,7 @@ import classes from './MainHdrView.module.css';
 import imgMain from '../../../static/images/main_hdr.jpg'
 import imgLogo from '../../../static/images/logo.jpg'
 import PatientMainMenuView from '../../menus/PatientMainMenuView/PatientMainMenuView';
-//import DoctorMainMenuView from '../../menus/DoctorMainMenuView/DoctorMainMenuView';
+import DoctorMainMenuView from '../../menus/DoctorMainMenuView/DoctorMainMenuView';
 
 
 export default () => (
@@ -14,7 +14,7 @@ export default () => (
                 <img  src={imgLogo} alt="site_logo"/>
             </div>
             <div className={classes.MenuContainer}>
-                {/* <DoctorMainMenuView /> */}
+                <DoctorMainMenuView />
                 <PatientMainMenuView />
             </div>
             <img className={classes.MainImg} src={imgMain} alt=""/>

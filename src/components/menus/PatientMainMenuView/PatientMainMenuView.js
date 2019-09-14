@@ -1,16 +1,20 @@
-
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
-import classesMenuDesktop from '../desktop.module.css';
+import classesMenu from '../menu.module.css';
 import NavListView from '../../UI/NavListView/NavListView';
-import NavItem from '../../UI/NavListView/NavItemButton/NavItemButton';
+import NavItemButton_NoStyle from '../../UI/NavListView/NavItemButton/NavItemButton';
 import withProps from '../../hoc/withProps';
 
-const NavItemButton = withProps(NavItem, {style: classesMenuDesktop});
+const NavItemButton = withProps(NavItemButton_NoStyle, 
+    {
+        styleItem: classesMenu.MenuItem, 
+        styleText: classesMenu.MenuText, 
+        styleTextActive: classesMenu.Active
+    });
 
 export default () => (
-    <NavListView style={classesMenuDesktop}>
+    <NavListView style={classesMenu.Menu}>
         <NavItemButton link="/" exact >
             <FormattedMessage id="menu_home" defaultMessage={'HOME'}/>
         </NavItemButton>
