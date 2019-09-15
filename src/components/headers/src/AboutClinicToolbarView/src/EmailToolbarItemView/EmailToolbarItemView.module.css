@@ -1,0 +1,14 @@
+.Email {
+    display: flex;
+    flex-flow: row;
+}
+
+.EmailText {
+    color: #6B2022;
+}
+
+.ImgEmail {
+    margin-right: 0.5rem;
+    object-fit: none;
+    object-position: 50% 50%;
+}

@@ -1,0 +1,20 @@
+.Phone {
+    display: flex;
+    flex-flow: row;
+}
+
+.ImgPhone {
+    margin-right: 0.5rem;
+    object-fit: none;
+    object-position: 50% 50%;
+}
+
+.PhoneTitle {
+    margin-right: 0.5rem;
+    color: #6B2022;
+}
+
+.PhoneNo {
+    margin-right: 2rem;
+    color: #6B2022;
+}

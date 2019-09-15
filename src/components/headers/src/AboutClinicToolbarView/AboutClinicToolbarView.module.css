@@ -1,0 +1,29 @@
+.Toolbar {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 2rem 0 2rem;
+
+}
+
+.LeftItems {
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-end;
+}
+
+
+.RightItems {
+    display: flex;
+    flex-flow: column;
+}
+
+.RightUp {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.RightDown{
+    display: flex;
+    justify-content: flex-end;
+}
