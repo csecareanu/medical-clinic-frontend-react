@@ -1,29 +1,27 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
-import classesCommon from '../../../../common.module.css'
 import classes from './ClinicMainView.module.css';
 import MainLayout from '../../../layouts/MainLayout/MainLayout';
 import MainHdrView from '../../../headers/MainHdrView/MainHdrView';
-import ClinicServicesView from '../../../ClinicServicesView/ClinicServicesView';
+import ClinicServicesView from './src/ClinicServicesView/ClinicServicesView';
+import ClinicDescView from './src/ClinicDescView/ClinicDescView';
+import ClinicMainTitleView from './src/ClinicMainTitleView/ClinicMainTitleView';
 
 export default () => {
-    const clinicDescP1 = <FormattedMessage id="main_page_clinic_desc_1" defaultMessage={'Acupuncture is a complementary medical practice that entails stimulating certain points on the body, most often with a needle penetrating the skin, to alleviate pain or to help treat various health conditions.'}/>
-    const clinicDescP2 = <FormattedMessage id="main_page_clinic_desc_w" defaultMessage={'Acupuncture dates back to at least 100 B.C., which is when an organized system of diagnosis and treatment using needles was first described in writing in China.'}/>
+    const clinicNameText =  <FormattedMessage id="main_page_clinic_name" defaultMessage={'TAI CHI MEDICAL'} />;
+    const clinicOurServicesText =  <FormattedMessage id="main_page_our_services" defaultMessage={'OUR SERVICES'} />;
     return (
         <MainLayout header={<MainHdrView />}>
-            <div className={classes.PageContainer}>
-                <h1 className={classes.Title}>TAI CHI MEDICAL</h1>
-                <div className={classes.ClinicDesc}>
-                    <p className={classesCommon.ParagraphTextIndent}>{clinicDescP1}</p>
-                    <p className={classesCommon.ParagraphTextIndent}>{clinicDescP2}</p>
-                </div>
+
+            <div className={classes.MainView}>
+                
+                <ClinicMainTitleView text={clinicNameText} />
+                <ClinicDescView />
 
                 <div className={classes.SectionSep}></div>
 
-                <h1 className={classes.Title}>
-                    <FormattedMessage id="main_page_clinic_desc_1" defaultMessage={'OUR SERVICES'} />
-                </h1>
+                <ClinicMainTitleView text={clinicOurServicesText} />
                 <ClinicServicesView />
 
                 <div className={classes.SectionSep}></div>

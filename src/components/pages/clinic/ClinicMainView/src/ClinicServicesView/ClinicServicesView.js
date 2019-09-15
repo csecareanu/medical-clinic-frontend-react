@@ -1,12 +1,12 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
-import ClinicServiceView from './ClinicServiceView/ClinicServiceView';
+import ClinicServiceView from './src/ClinicServiceView/ClinicServiceView';
 import classes from './ClinicServicesView.module.css'
-import imgAcupuncture from '../../static/images/clinic_services/acupuncture.jpg'
-import imgCupping from '../../static/images/clinic_services/cupping.jpg'
-import imgLaser from '../../static/images/clinic_services/laser.jpg'
-import imgMassage from '../../static/images/clinic_services/massage.jpg'
+import imgAcupuncture from '../../../../../../static/images/clinic_services/acupuncture.jpg'
+import imgCupping from '../../../../../../static/images/clinic_services/cupping.jpg'
+import imgLaser from '../../../../../../static/images/clinic_services/laser.jpg'
+import imgMassage from '../../../../../../static/images/clinic_services/massage.jpg'
 
 export default (props) => 
 {

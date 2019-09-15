@@ -1,7 +1,7 @@
 import React from 'react';
 
 import classes from './EmailToolbarItemView.module.css';
-import imgEmail from '../../../../../../static/images/email.jpg';
+import imgEmail from '../../../../../static/images/email.jpg';
 
 export default () => (
     <div className={classes.Email}>

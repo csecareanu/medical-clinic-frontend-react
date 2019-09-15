@@ -1,21 +1,7 @@
-.PageContainer {
+.MainView {
     float:left;
     width:100%;
     margin: 0;
-}
-
-.Title {
-    width: 100%;
-    color: #6B2022;
-    border-bottom: 1px solid #4ECC7D;
-}
-
-.ClinicDesc {
-    padding: 0.5rem;
-    flex-basis: 100%;
-    color: #6B2022;
-    background-color: #F8E8B7;
-    border-radius: 20px;
 }
 
 /* Separator between sections */

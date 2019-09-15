@@ -2,9 +2,9 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import classes from './MyAccountToolbarItemView.module.css';
-import NavListView from '../../../../../UI/NavListView/NavListView';
-import NavItemButton_NoStyle from '../../../../../UI/NavListView/NavItemButton/NavItemButton';
-import withProps from '../../../../../hoc/withProps';
+import NavListView from '../../../../UI/NavListView/NavListView';
+import NavItemButton_NoStyle from '../../../../UI/NavListView/NavItemButton/NavItemButton';
+import withProps from '../../../../hoc/withProps';
 
 const NavItemButton = withProps(NavItemButton_NoStyle, 
     {
