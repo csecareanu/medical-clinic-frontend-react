@@ -5,18 +5,19 @@ import imgMain from '../../../static/images/main_hdr.jpg';
 import MenuToolbarView from '../src/MenuToolbarView/MenuToolbarView';
 import MainImageView from '../src/MainImageView/MainImageView';
 import ClinicMenuView from '../../menus/ClinicMenuView/ClinicMenuView';
-import DoctorMenuView from '../../menus/DoctorMenuView/DoctorMenuView';
+//import DoctorMenuView from '../../menus/DoctorMenuView/DoctorMenuView';
 import AboutClinicToolbarView from '../src/AboutClinicToolbarView/AboutClinicToolbarView';
-import PatientToolbarView from '../src/PatientToolbarView/PatientToolbarView';
+import AccountToolbarView from '../src/AccountToolbarView/AccountToolbarView';
 
 
 export default () => (
     <header className={classes.Header}>
         <nav>
             <AboutClinicToolbarView />
-            <PatientToolbarView />
+            <div className={classes.ToolbarDistance} />
+            <AccountToolbarView />
             <MenuToolbarView>
-                <DoctorMenuView />
+               {/* <DoctorMenuView /> */}
                 <ClinicMenuView />
             </MenuToolbarView>
             <MainImageView src={imgMain} />

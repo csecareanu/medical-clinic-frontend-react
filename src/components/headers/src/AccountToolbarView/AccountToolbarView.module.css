@@ -1,0 +1,12 @@
+.Toolbar {
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-end;
+    margin: 0 4rem 0 4rem;
+    padding: 0;
+}
+
+.RightItems {
+    display: flex;
+    flex-flow: column;
+}
