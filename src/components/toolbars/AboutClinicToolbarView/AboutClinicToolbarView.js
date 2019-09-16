@@ -1,10 +1,10 @@
 import React from 'react';
 
 import classes from './AboutClinicToolbarView.module.css';
-import PhoneToolbarItemView from './src/PhoneToolbarItemView/PhoneToolbarItemView';
-import EmailToolbarItemView from './src/EmailToolbarItemView/EmailToolbarItemView';
-import BrandLargeToolbarItemView from './src/BrandLargeToolbarItemView/BrandLargeToolbarItemView';
-import BrandSmallToolbarItemView from './src/BrandSmallToolbarItemView/BrandSmallToolbarItemView';
+import PhoneToolbarItemView from './PhoneToolbarItemView/PhoneToolbarItemView';
+import EmailToolbarItemView from './EmailToolbarItemView/EmailToolbarItemView';
+import BrandLargeToolbarItemView from './BrandLargeToolbarItemView/BrandLargeToolbarItemView';
+import BrandSmallToolbarItemView from './BrandSmallToolbarItemView/BrandSmallToolbarItemView';
 
 export default () => (
 

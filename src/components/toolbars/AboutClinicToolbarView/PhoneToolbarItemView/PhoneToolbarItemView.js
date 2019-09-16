@@ -2,7 +2,7 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import classes from './PhoneToolbarItemView.module.css';
-import imgPhone from '../../../../../static/images/phone.jpg';
+import imgPhone from '../../../../static/images/phone.jpg';
 
 export default () => (
     <div className={classes.Phone}>

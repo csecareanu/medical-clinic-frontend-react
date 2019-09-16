@@ -2,7 +2,7 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import classes from './BrandLargeToolbarItemView.module.css';
-import imgBrand from '../../../../../static/images/brand.jpg';
+import imgBrand from '../../../../static/images/brand.jpg';
 
 export default () => (
     <div>

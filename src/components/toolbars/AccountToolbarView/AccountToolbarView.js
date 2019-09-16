@@ -1,8 +1,8 @@
 import React from 'react';
 
 import classes from './AccountToolbarView.module.css';
-import NewAppointmentToolbarItemView from './src/NewAppointmentToolbarItemView/NewAppointmentToolbarItemView';
-import MyAccountToolbarItemView from './src/MyAccountToolbarItemView/MyAccountToolbarItemView';
+import NewAppointmentToolbarItemView from './NewAppointmentToolbarItemView/NewAppointmentToolbarItemView';
+import MyAccountToolbarItemView from './MyAccountToolbarItemView/MyAccountToolbarItemView';
 
 export default () => (
     <div className={classes.Toolbar}>

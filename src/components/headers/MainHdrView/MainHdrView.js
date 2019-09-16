@@ -2,7 +2,7 @@ import React from 'react';
 
 import classes from './MainHdrView.module.css';
 import imgMain from '../../../static/images/main_hdr.jpg';
-import MainImageView from '../src/MainImageView/MainImageView';
+import MainImageView from '../common/MainImageView/MainImageView';
 import ClinicMenuView from '../../menus/ClinicMenuView/ClinicMenuView';
 //import DoctorMenuView from '../../menus/DoctorMenuView/DoctorMenuView';
 import AboutClinicToolbarView from '../../toolbars/AboutClinicToolbarView/AboutClinicToolbarView';
