@@ -7,7 +7,7 @@ import MainImageView from '../common/MainImageView/MainImageView';
 import ClinicMenuView from '../../menus/ClinicMenuView/ClinicMenuView';
 import DoctorMenuView from '../../menus/DoctorMenuView/DoctorMenuView';
 import AboutClinicToolbarView from '../../toolbars/AboutClinicToolbarView/AboutClinicToolbarView';
-import UserAccountToolbarView from '../../toolbars/UserAccountToolbarView/UserAccountToolbarView';
+import UserToolbarView from '../../toolbars/UserToolbarView/UserToolbarView';
 import MenuToolbarView from '../../toolbars/MenuToolbarView/MenuToolbarView';
 import MenuToggleToolbarView from '../../toolbars/MenuToggleToolbarView/MenuToggleToolbarView';
 
@@ -20,7 +20,7 @@ export default () => (
                 <div className={commonClasses.SmallScreenOnly}>
                     <MenuToggleToolbarView />
                 </div>
-                <UserAccountToolbarView />
+                <UserToolbarView />
             </div>
             <div className={commonClasses.LargeScreenOnly} >
                 <MenuToolbarView>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import classes from './UserAccountToolbarView.module.css';
+import classes from './UserToolbarView.module.css';
 import NewAppointmentToolbarItemView from './NewAppointmentToolbarItemView/NewAppointmentToolbarItemView';
 import MyAccountToolbarItemView from './MyAccountToolbarItemView/MyAccountToolbarItemView';
 
