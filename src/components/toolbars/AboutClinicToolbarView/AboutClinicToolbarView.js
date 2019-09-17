@@ -34,7 +34,9 @@ export default () => {
                         </ToolbarGroupView>
                     </div>
                     <div className={classes.RightDown}>
-                        <BrandSmallToolbarItemView />
+                        <div className={classes.LargeScreensOnly} >
+                            <BrandSmallToolbarItemView/>
+                        </div>
                     </div>
                 </div>
         </div>
