@@ -21,10 +21,12 @@ export default () => (
                 </div>
                 <UserAccountToolbarView />
             </div>
-            <MenuToolbarView>
-                <DoctorMenuView />
-                <ClinicMenuView />
-            </MenuToolbarView>
+            <div className={classes.LargeScreenOnly} >
+                <MenuToolbarView>
+                    <DoctorMenuView />
+                    <ClinicMenuView />
+                </MenuToolbarView>
+            </div>
             <MainImageView src={imgMain} />
         </nav>
     </header>

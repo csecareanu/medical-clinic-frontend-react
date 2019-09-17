@@ -19,9 +19,17 @@
     display: none;
 }
 
+.LargeScreenOnly {
+    display: inline;
+}
+
 @media (max-width: 700px) {
     .SmallScreenOnly {
         display: inline;
+    }
+
+    .LargeScreenOnly {
+        display: none;
     }
 
     .MenuToggle_UserAccount_Toolbars {
