@@ -30,13 +30,3 @@
     display: flex;
     justify-content: flex-end;
 }
-
-.LargeScreenOnly {
-    display: inline;
-}
-
-@media (max-width: 700px) {
-    .LargeScreenOnly {
-        display: none;
-    }
-}

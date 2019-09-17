@@ -1,6 +1,7 @@
 import React from 'react';
 
 import classes from './AboutClinicToolbarView.module.css';
+import commonClasses from '../../../common.module.css';
 import PhoneToolbarItemView from './PhoneToolbarItemView/PhoneToolbarItemView';
 import EmailToolbarItemView from './EmailToolbarItemView/EmailToolbarItemView';
 import BrandLargeToolbarItemView from './BrandLargeToolbarItemView/BrandLargeToolbarItemView';
@@ -34,7 +35,7 @@ export default () => {
                         </ToolbarGroupView>
                     </div>
                     <div className={classes.RightDown}>
-                        <div className={classes.LargeScreenOnly} >
+                        <div className={commonClasses.LargeScreenOnly} >
                             <BrandSmallToolbarItemView/>
                         </div>
                     </div>

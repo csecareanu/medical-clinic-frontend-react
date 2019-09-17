@@ -3,3 +3,21 @@
 .ParagraphTextIndent {
     text-indent: 4ch;
 }
+
+.LargeScreenOnly {
+    display: block;
+}
+
+.SmallScreenOnly {
+    display: none;
+}
+
+@media (max-width: 700px) {
+    .LargeScreenOnly {
+        display: none;
+    }
+
+    .SmallScreenOnly {
+        display: block;
+    }
+}

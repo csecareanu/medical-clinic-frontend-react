@@ -1,6 +1,7 @@
 import React from 'react';
 
 import classes from './MainHdrView.module.css';
+import commonClasses from '../../../common.module.css';
 import imgMain from '../../../static/images/main_hdr.jpg';
 import MainImageView from '../common/MainImageView/MainImageView';
 import ClinicMenuView from '../../menus/ClinicMenuView/ClinicMenuView';
@@ -16,12 +17,12 @@ export default () => (
             <AboutClinicToolbarView />
             <div className={classes.ToolbarVSeparator} />
             <div className={classes.MenuToggle_UserAccount_Toolbars}>
-                <div className={classes.SmallScreenOnly}>
+                <div className={commonClasses.SmallScreenOnly}>
                     <MenuToggleToolbarView />
                 </div>
                 <UserAccountToolbarView />
             </div>
-            <div className={classes.LargeScreenOnly} >
+            <div className={commonClasses.LargeScreenOnly} >
                 <MenuToolbarView>
                     <DoctorMenuView />
                     <ClinicMenuView />
