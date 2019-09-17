@@ -1,3 +1,10 @@
+
+.Brand {
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-end;
+}
+
 .ClinicIncentive {
     text-align: center;
     width: 100%;

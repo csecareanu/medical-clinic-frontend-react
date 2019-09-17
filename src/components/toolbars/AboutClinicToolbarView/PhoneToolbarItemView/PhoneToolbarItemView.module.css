@@ -1,6 +1,7 @@
 .Phone {
     display: flex;
     flex-flow: row;
+    flex-wrap: nowrap;
 }
 
 .ImgPhone {
@@ -9,12 +10,18 @@
     object-position: 50% 50%;
 }
 
-.PhoneTitle {
+.PhoneLabel {
     margin-right: 0.5rem;
     color: #6B2022;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .PhoneNo {
-    margin-right: 2rem;
     color: #6B2022;
+    white-space: nowrap;
+}
+
+@media (max-width: 800px) {
+
 }

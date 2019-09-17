@@ -5,6 +5,7 @@
 
 .EmailText {
     color: #6B2022;
+    white-space: nowrap;
 }
 
 .ImgEmail {

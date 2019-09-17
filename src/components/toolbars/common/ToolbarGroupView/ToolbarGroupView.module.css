@@ -1,0 +1,17 @@
+.ColSep {
+    display: flex;
+    flex-flow: column;
+}
+.ColSepContent {
+    padding: 0;
+    margin: 1rem 0 0 0;
+}
+
+.RowSep {
+    display: flex;
+    flex-flow: row;
+}
+.RowSepContent {
+    padding: 0;
+    margin-right: 1rem;
+}

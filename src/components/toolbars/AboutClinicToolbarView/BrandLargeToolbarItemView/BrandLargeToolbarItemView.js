@@ -5,7 +5,7 @@ import classes from './BrandLargeToolbarItemView.module.css';
 import imgBrand from '../../../../static/images/brand.jpg';
 
 export default () => (
-    <div>
+    <div className={classes.Brand}>
         <img  src={imgBrand} alt="brand"/>
         <div className={classes.ClinicIncentive}>
             <FormattedMessage id="clinic_incentive" defaultMessage={'Traditional Chinese Medicine'}/>

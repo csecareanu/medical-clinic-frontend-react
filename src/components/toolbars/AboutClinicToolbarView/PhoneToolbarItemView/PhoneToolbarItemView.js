@@ -7,7 +7,7 @@ import imgPhone from '../../../../static/images/phone.jpg';
 export default () => (
     <div className={classes.Phone}>
         <img  src={imgPhone} alt="" className={classes.ImgPhone}/>
-        <div className={classes.PhoneTitle}>
+        <div className={classes.PhoneLabel}>
             <FormattedMessage id="contact_us" defaultMessage={'Contact us:'}/>
         </div>
         <div className={classes.PhoneNo}>

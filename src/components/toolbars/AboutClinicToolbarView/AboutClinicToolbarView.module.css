@@ -2,27 +2,35 @@
     display: flex;
     justify-content: space-between;
     margin: 0 2rem 0 2rem;
+    flex-wrap: wrap;
 }
 
 .LeftItems {
     display: flex;
-    flex-flow: column;
-    justify-content: flex-end;
+    flex-flow: row;
 }
-
 
 .RightItems {
     display: flex;
     flex-flow: column;
+    flex: 1;
 }
 
+/*Contact and Email items*/
 .RightUp {
     display: flex;
+    justify-content: flex-end;
     align-items: center;
+    flex-wrap: wrap;
     margin-bottom: 1rem;
 }
 
+/*Small logo item*/
 .RightDown{
     display: flex;
     justify-content: flex-end;
+}
+
+@media (max-width: 800px) {
+
 }
