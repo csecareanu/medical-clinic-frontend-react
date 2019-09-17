@@ -8,14 +8,19 @@ import DoctorMenuView from '../../menus/DoctorMenuView/DoctorMenuView';
 import AboutClinicToolbarView from '../../toolbars/AboutClinicToolbarView/AboutClinicToolbarView';
 import UserAccountToolbarView from '../../toolbars/UserAccountToolbarView/UserAccountToolbarView';
 import MenuToolbarView from '../../toolbars/MenuToolbarView/MenuToolbarView';
-
+import MenuToggleToolbarView from '../../toolbars/MenuToggleToolbarView/MenuToggleToolbarView';
 
 export default () => (
     <header className={classes.Header}>
         <nav>
             <AboutClinicToolbarView />
-            <div className={classes.ToolbarDistance} />
-            <UserAccountToolbarView />
+            <div className={classes.ToolbarVSeparator} />
+            <div className={classes.MenuToggle_UserAccount_Toolbars}>
+                <div className={classes.SmallScreenOnly}>
+                    <MenuToggleToolbarView />
+                </div>
+                <UserAccountToolbarView />
+            </div>
             <MenuToolbarView>
                 <DoctorMenuView />
                 <ClinicMenuView />
