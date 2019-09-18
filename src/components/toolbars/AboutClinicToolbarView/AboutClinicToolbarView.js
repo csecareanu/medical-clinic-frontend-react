@@ -4,8 +4,8 @@ import classes from './AboutClinicToolbarView.module.css';
 import commonClasses from '../../../common.module.css';
 import PhoneToolbarItemView from './PhoneToolbarItemView/PhoneToolbarItemView';
 import EmailToolbarItemView from './EmailToolbarItemView/EmailToolbarItemView';
-import BrandLargeToolbarItemView from './BrandLargeToolbarItemView/BrandLargeToolbarItemView';
-import BrandSmallToolbarItemView from './BrandSmallToolbarItemView/BrandSmallToolbarItemView';
+import BrandLargeToolbarItemView from '../../UI/BrandLargeView/BrandLargeView';
+import BrandSmallToolbarItemView from '../../UI/SecondBrandView/SecondBrandView';
 import ToolbarGroupView, { ToolbarSepPos } from '../common/ToolbarGroupView/ToolbarGroupView';
 
 

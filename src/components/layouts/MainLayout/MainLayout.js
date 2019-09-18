@@ -1,7 +1,8 @@
 import React from 'react';
 
 import classes from './MainLayout.module.css';
-import FooterView from '../../FooterView/FooterView'; 
+import FooterView from '../../FooterView/FooterView';
+import SideDrawer from '../../menus/SideDrawer/SideDrawer';
 
 class Layout extends React.Component {
     render() {
@@ -11,6 +12,7 @@ class Layout extends React.Component {
               {this.props.header}
             </div>
             <div className={classes.BodyContainer}>
+              <SideDrawer open={false}/>
               {this.props.children}
             </div>
             <div className={classes.FooterContainer}>
