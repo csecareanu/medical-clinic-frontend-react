@@ -1,7 +1,5 @@
 
 .SideDrawer {
-    display: flex;
-    flex-flow: column;
     position: fixed;
     overflow: auto;
     width: 20rem;

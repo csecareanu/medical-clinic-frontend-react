@@ -21,6 +21,7 @@
 }
 
 .MenuText a {
+    white-space: nowrap;
     text-decoration: none;
     display: block;
     font-weight: bold;
