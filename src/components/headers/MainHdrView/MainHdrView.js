@@ -32,9 +32,9 @@ export default () => {
                     <UserToolbarView />
                 </div>
                 <div className={commonClasses.SmallScreenOnly}>
-                    <SideDrawer open={true}>
+                    <SideDrawerView open={true}>
                         {menuContent}
-                    </SideDrawer>
+                    </SideDrawerView>
                 </div>
                 <div className={commonClasses.LargeScreenOnly} >
                     <MenuToolbarView>

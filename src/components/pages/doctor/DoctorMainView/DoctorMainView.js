@@ -1,10 +1,10 @@
 
 import React from 'react';
 
-import MainLayout from '../../../layouts/MainLayout/MainLayout';
+import MainLayoutView from '../../../layouts/MainLayoutView/MainLayoutView';
 import DoctorAdminHdrView from '../../../headers/DoctorAdminHdrView/DoctorAdminHdrView';
 
 export default () => (
-    <MainLayout header={<DoctorAdminHdrView />}>
-    </MainLayout>
+    <MainLayoutView header={<DoctorAdminHdrView />}>
+    </MainLayoutView>
 );

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import classes from './MainLayout.module.css';
+import classes from './MainLayoutView.module.css';
 import FooterView from '../../FooterView/FooterView';
 
 class Layout extends React.Component {
