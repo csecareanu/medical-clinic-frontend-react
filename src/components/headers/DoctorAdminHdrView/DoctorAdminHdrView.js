@@ -6,7 +6,7 @@ import DoctorAdminMenuView from '../../menus/DoctorAdminMenuView/DoctorAdminMenu
 import AboutClinicToolbarView from '../../toolbars/AboutClinicToolbarView/AboutClinicToolbarView';
 import UserToolbarView from '../../toolbars/UserToolbarView/UserToolbarView';
 import MenuToolbarView from '../../toolbars/MenuToolbarView/MenuToolbarView';
-import MenuToggleToolbarView from '../../toolbars/MenuToggleToolbarView/MenuToggleToolbarView';
+import SideDrawerToolbarView from '../../toolbars/SideDrawerToolbarView/SideDrawerToolbarView';
 
 export default () => (
     <header className={classes.Header}>
@@ -15,7 +15,7 @@ export default () => (
             <div className={classes.ToolbarVSeparator} />
             <div className={classes.MenuToggle_UserAccount_Toolbars}>
                 <div className={commonClasses.SmallScreenOnly}>
-                    <MenuToggleToolbarView />
+                    <SideDrawerToolbarView />
                 </div>
                 <UserToolbarView />
             </div>
