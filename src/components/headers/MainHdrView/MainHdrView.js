@@ -10,25 +10,39 @@ import AboutClinicToolbarView from '../../toolbars/AboutClinicToolbarView/AboutC
 import UserToolbarView from '../../toolbars/UserToolbarView/UserToolbarView';
 import MenuToolbarView from '../../toolbars/MenuToolbarView/MenuToolbarView';
 import MenuToggleToolbarView from '../../toolbars/MenuToggleToolbarView/MenuToggleToolbarView';
+import SideDrawerView from '../../menus/SideDrawerView/SideDrawerView';
 
-export default () => (
-    <header className={classes.Header}>
-        <nav>
-            <AboutClinicToolbarView />
-            <div className={classes.ToolbarVSeparator} />
-            <div className={classes.MenuToggle_UserAccount_Toolbars}>
-                <div className={commonClasses.SmallScreenOnly}>
-                    <MenuToggleToolbarView />
+export default () => {
+    let menuContent = (
+        <React.Fragment>
+            <DoctorMenuView />
+            <ClinicMenuView />
+        </React.Fragment>
+    );
+    
+    return (
+        <header className={classes.Header}>
+            <nav>
+                <AboutClinicToolbarView />
+                <div className={classes.ToolbarVSeparator} />
+                <div className={classes.MenuToggle_UserAccount_Toolbars}>
+                    <div className={commonClasses.SmallScreenOnly}>
+                        <MenuToggleToolbarView />
+                    </div>
+                    <UserToolbarView />
                 </div>
-                <UserToolbarView />
-            </div>
-            <div className={commonClasses.LargeScreenOnly} >
-                <MenuToolbarView>
-                    <DoctorMenuView />
-                    <ClinicMenuView />
-                </MenuToolbarView>
-            </div>
-            <MainImageView src={imgMain} />
-        </nav>
-    </header>
-);
+                <div className={commonClasses.SmallScreenOnly}>
+                    <SideDrawer open={true}>
+                        {menuContent}
+                    </SideDrawer>
+                </div>
+                <div className={commonClasses.LargeScreenOnly} >
+                    <MenuToolbarView>
+                        {menuContent}
+                    </MenuToolbarView>
+                </div>
+                <MainImageView src={imgMain} />
+            </nav>
+        </header>
+    );
+}

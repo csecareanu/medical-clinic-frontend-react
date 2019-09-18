@@ -1,6 +1,7 @@
 
 .SideDrawer {
     position: fixed;
+    overflow: auto;
     width: 20rem;
     height: 100%;
     left: 0;

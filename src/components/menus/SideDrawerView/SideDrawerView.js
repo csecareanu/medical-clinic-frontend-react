@@ -1,15 +1,14 @@
 import React from 'react';
 
-import classes from './SideDrawer.module.css';
-import commonClasses from '../../../common.module.css';
+import classes from './SideDrawerView.module.css';
 import Backdrop from '../../UI/Backdrop/Backdrop';
 import BrandLargeView from '../../UI/BrandLargeView/BrandLargeView';
 
 export default (props) => {
     /* The SideDrawer is visible only on small screens */
-    var attachedClasses = [commonClasses.SmallScreenOnly, classes.SideDrawer, classes.Close];
+    var attachedClasses = [classes.SideDrawer, classes.Close];
     if (props.open) {
-        attachedClasses = [commonClasses.SmallScreenOnly, classes.SideDrawer, classes.Open];
+        attachedClasses = [classes.SideDrawer, classes.Open];
     }
     return (
         <React.Fragment>
