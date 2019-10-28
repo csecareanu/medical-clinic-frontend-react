@@ -19,8 +19,8 @@ export default () => (
         <NavItemButton link="/doctor">
             <FormattedMessage id="menu_administration" defaultMessage={'ADMINISTRATION'}/>
         </NavItemButton>
-        <NavItemButton link="/doctor/patient_login">
-            <FormattedMessage id="menu_log_in_patient_account" defaultMessage={'LOG IN PATIENT ACCOUNT'}/>
+        <NavItemButton link="/log_into_patient_account">
+            <FormattedMessage id="menu_log_into_patient_account" defaultMessage={'LOG INTO PATIENT ACCOUNT'}/>
         </NavItemButton>
     </NavListView>
 );

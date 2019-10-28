@@ -16,7 +16,8 @@ const NavItemButton = withProps(NavItemButton_NoStyle,
 export default () => (
     <div className={classes.MyAccount}>
         <NavListView style={classes.Menu}>
-        <NavItemButton link="/my_account" exact >
+        {/*<NavItemButton link="/my_account" >*/}
+        <NavItemButton link="/login" >
             <FormattedMessage id="toolbar_my_account" defaultMessage={'My Account'}/>
         </NavItemButton>
         </NavListView>

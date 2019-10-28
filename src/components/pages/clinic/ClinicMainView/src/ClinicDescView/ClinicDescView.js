@@ -2,7 +2,7 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import classes from './ClinicDescView.module.css';
-import commonClasses from '../../../../../../common.module.css'
+import commonClasses from '../../../../../../common.module.css';
 
 export default props => {
     const clinicDescP1 = <FormattedMessage id="main_page_clinic_desc_1" defaultMessage={'Acupuncture is a complementary medical practice that entails stimulating certain points on the body, most often with a needle penetrating the skin, to alleviate pain or to help treat various health conditions.'}/>

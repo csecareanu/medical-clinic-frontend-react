@@ -3,16 +3,17 @@ import { Route, Switch } from 'react-router-dom';
 
 
 import './App.css';
-import PatientNewApptView from '../pages/patient/PatientNewApptView/PatientNewApptView';
-import PatientAccountView from '../pages/patient/PatientAccountView/PatientAccountView';
+
+import UserLoginView from '../pages/connect/UserLoginView/UserLoginView';
+import UserLogoutView from '../pages/connect/UserLogoutView/UserLogoutView';
+import LogIntoPatientAccountView from '../pages/connect/LogIntoPatientAccountView/LogIntoPatientAccountView';
+import LogOutPatientAccountView from '../pages/connect/LogOutPatientAccountView/LogOutPatientAccountView';
 
 import ClinicMainView from '../pages/clinic/ClinicMainView/ClinicMainView';
 import ClinicAboutView from '../pages/clinic/ClinicAboutView/ClinicAboutView';
 import ClinicContactView from '../pages/clinic/ClinicContactView/ClinicContactView';
 import ClinicDoctorsView from '../pages/clinic/ClinicDoctorsView/ClinicDoctorsView';
 import ClinicPricesView from '../pages/clinic/ClinicPricesView/ClinicPricesView';
-import ClinicUserLoginView from '../pages/clinic/ClinicUserLoginView/ClinicUserLoginView';
-import ClinicUserLogoutView from '../pages/clinic/ClinicUserLogoutView/ClinicUserLogoutView';
 
 import DoctorMainView from '../pages/doctor/DoctorMainView/DoctorMainView';
 import DoctorMyAccountView from '../pages/doctor/DoctorMyAccountView/DoctorMyAccountView';
@@ -20,7 +21,9 @@ import DoctorApptsInfoView from '../pages/doctor/DoctorApptsInfoView/DoctorAppts
 import DoctorLogEventsView from '../pages/doctor/DoctorLogEventsView/DoctorLogEventsView';
 import DoctorNotifMsgsView from '../pages/doctor/DoctorNotifMsgsView/DoctorNotifMsgsView';
 import DoctorWorkingTimeView from '../pages/doctor/DoctorWorkingTimeView/DoctorWorkingTimeView';
-import DoctorPatientLoginView from '../pages/doctor/DoctorPatientLoginView/DoctorPatientLoginView';
+
+import PatientNewApptView from '../pages/patient/PatientNewApptView/PatientNewApptView';
+import PatientAccountView from '../pages/patient/PatientAccountView/PatientAccountView';
 
 import SysAdminMainView from '../pages/sysAdmin/SysAdminMainView/SysAdminMainView';
 import SysAdminDoctorsView from '../pages/sysAdmin/SysAdminDoctorsView/SysAdminDoctorsView';
@@ -35,8 +38,11 @@ function App() {
     <div>
       <Switch>
         <Route path="/" exact component={ClinicMainView} />
-        <Route path="/login" component={ClinicUserLoginView} />
-        <Route path="/logout" component={ClinicUserLogoutView} />
+        <Route path="/login" component={UserLoginView} />
+        <Route path="/logout" component={UserLogoutView} />
+        <Route path="/log_into_patient_account" component={LogIntoPatientAccountView} />
+        <Route path="/log_out_patient_account" component={LogOutPatientAccountView} />
+
         <Route path="/appointment" component={PatientNewApptView} />
         <Route path ="/my_account" component={PatientAccountView} />
         <Route path="/doctors" component={ClinicDoctorsView} />
@@ -45,7 +51,6 @@ function App() {
         <Route path="/contact" component={ClinicContactView} />
 
         <Route path="/doctor" exact component={DoctorMainView} />
-        <Route path="/doctor/patient_login" component={DoctorPatientLoginView} />
         <Route path="/doctor/my_account" exact component={DoctorMyAccountView} />
         <Route path="/doctor/appointments" component={DoctorApptsInfoView} />
         <Route path="/doctor/working_time" component={DoctorWorkingTimeView} />
