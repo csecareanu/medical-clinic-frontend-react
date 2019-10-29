@@ -1,5 +1,6 @@
 import React from 'react';
 
+import classes from './BirthdayElement.module.css';
 import Input from '../../../../UI/Input/Input';
 
 class BirthdayElement extends React.Component {
@@ -9,6 +10,7 @@ class BirthdayElement extends React.Component {
                 elementType: 'input',
                 elementConfig: {
                     type: 'text',
+                    size: 6,
                     placeholder: 'day'
                 },
                 value: '',
@@ -20,6 +22,7 @@ class BirthdayElement extends React.Component {
                 elementType: 'input',
                 elementConfig: {
                     type: 'text',
+                    size: 6,
                     placeholder: 'month'
                 },
                 value: '',
@@ -31,6 +34,7 @@ class BirthdayElement extends React.Component {
                 elementType: 'input',
                 elementConfig: {
                     type: 'text',
+                    size: 12,
                     placeholder: 'year'
                 },
                 value: '',
@@ -41,21 +45,44 @@ class BirthdayElement extends React.Component {
         }
     }
 
+    inputChangedHandler = (event, inputIdentifier) => {
+        const updatedForm = {
+            ...this.state.subElements
+        }
+
+        const updatedElement = {
+            ...updatedForm[inputIdentifier],
+            value: event.target.value
+        }
+
+        updatedForm[inputIdentifier] = updatedElement;
+        this.setState({subElements: updatedForm});
+    }
+
     render() {
         const content = [];
-        for (let elementName in this.state.subElements) {
+        for (const elementName in this.state.subElements) {
             const element = this.state.subElements[elementName];
             content.push(
-                <Input 
-                    key={elementName}
-                    elementType={element.elementType}
-                    elementConfig={element.elementConfig}
-                    value={element.value}
-                >
-                </Input>
+                <React.Fragment key={elementName}>
+                    <Input 
+                        elementType={element.elementType}
+                        elementConfig={element.elementConfig}
+                        label={element.label}
+                        value={element.value}
+                        shouldValidate={false}
+                        onChange={(event) => {this.inputChangedHandler(event, elementName)}}
+                    >
+                    </Input>
+                    <div className={classes.Sep}></div>
+                </React.Fragment>
             );
         }
-        return content;
+        return (
+            <div className={classes.Birthday}>
+                {content}
+            </div>
+        );
     }
 }
 

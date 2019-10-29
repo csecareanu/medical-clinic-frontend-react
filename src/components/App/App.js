@@ -4,7 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 
 import './App.css';
 
-import UserLoginView from '../pages/connect/UserLoginView/UserLoginView';
+import UserLogin from '../pages/connect/UserLogin/UserLogin';
 import UserLogoutView from '../pages/connect/UserLogoutView/UserLogoutView';
 import LogIntoPatientAccountView from '../pages/connect/LogIntoPatientAccountView/LogIntoPatientAccountView';
 import LogOutPatientAccountView from '../pages/connect/LogOutPatientAccountView/LogOutPatientAccountView';
@@ -38,7 +38,7 @@ function App() {
     <div>
       <Switch>
         <Route path="/" exact component={ClinicMainView} />
-        <Route path="/login" component={UserLoginView} />
+        <Route path="/login" component={UserLogin} />
         <Route path="/logout" component={UserLogoutView} />
         <Route path="/log_into_patient_account" component={LogIntoPatientAccountView} />
         <Route path="/log_out_patient_account" component={LogOutPatientAccountView} />

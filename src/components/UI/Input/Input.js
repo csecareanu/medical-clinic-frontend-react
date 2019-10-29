@@ -1,9 +1,15 @@
 import React from 'react';
 
+import classes from './Input.module.css';
+
+/*
+Callbacks: 
+    onChange
+*/
 export default (props) => {
     let inputElement = null;
     let validationError = null;
-    const inputClasses = [];
+    const inputClasses = [classes.InputElement];
 
     switch (props.elementType) {
         case ('input'):
@@ -11,16 +17,20 @@ export default (props) => {
                 className={inputClasses.join(' ')} 
                 {...props.elementConfig} 
                 value={props.value}
+                onChange={props.onChange}
                 />;
             break;
-        default:
+        case ('only_label'):
+            inputElement = null;
+            break;
+         default:
             //TODO
             console.log("Error. Unknown 'Input' element");
     }
 
     return (
-        <div>
-            {/*props.label? <label className={classes.Label}>{props.label}</label> : null*/}
+        <div className={classes.Input}>
+            { props.label? <label className={classes.Label}>{props.label}</label> : null }
             {inputElement}
             {validationError}
         </div>
