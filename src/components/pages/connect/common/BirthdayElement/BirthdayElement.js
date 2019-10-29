@@ -61,6 +61,7 @@ class BirthdayElement extends React.Component {
 
     render() {
         const content = [];
+        // eslint-disable-next-line
         for (const elementName in this.state.subElements) {
             const element = this.state.subElements[elementName];
             content.push(
