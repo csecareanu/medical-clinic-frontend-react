@@ -1,0 +1,58 @@
+.ContentPadding {
+    /* have some distance to any elements sitting above, beneath, left and right */
+    padding: 0.5em;
+}
+
+.Group {
+    display: flex;
+    color: #6B2022;
+    font-weight: bold;
+}
+
+.StressedName {
+    border-bottom: 1px solid #4ECC7D;
+}
+
+.TextElement {
+    outline: none;
+    border: 1px solid #ccc;
+    background-color: white;
+    font: inherit;
+    /* 0.3em from top an bottom and 1em from left and right */
+    padding: 0.3em 1em;
+    /* take the full width it can take */
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.TextElement:focus {
+    outline: none;
+    background-color: #ccc;
+}
+
+.RadioElement {
+    outline: none;
+    font: inherit;
+    color: #6B2022;
+}
+
+.ElementHrzSep {
+    display: block;
+    height: 0.5em;
+}
+
+.ElementVertSep {
+    margin: 0 0 0 0.5em;
+    padding: 0;
+}
+
+.Invalid {
+    border: 1px solid red;
+    background-color: #fda49a;
+}
+
+.ValidationError {
+    color: red;
+    margin: 5px 0;
+}

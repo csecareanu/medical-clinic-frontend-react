@@ -1,9 +1,6 @@
 .Birthday {
     display: inline-flex;
     flex-direction: row;
-}
-
-.Sep {
-    margin: 0 0 0 0.5rem;
+    margin: 0;
     padding: 0;
 }

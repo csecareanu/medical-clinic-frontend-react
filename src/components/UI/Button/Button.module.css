@@ -9,6 +9,10 @@
     margin: 0rem;
 }
 
+.FullWidth {
+    width: 100%;
+}
+
 /* TODO
 .Button:first-of-type {
     margin-left: 0;

@@ -13,9 +13,12 @@ export const ButtonType = {
  *  disabled: boolean
  *  clicked: callback function
  *  children: element array
+ *  fullWidth: specify it if you want the button to take all the available width
 */
 export default (props) => {
     let btnTypeClassName = null;
+    let fullWidthClassName = null;
+
     switch(props.type) {
         case ButtonType.SUCCESS:
                 btnTypeClassName = classes.Success;
@@ -24,13 +27,18 @@ export default (props) => {
                 btnTypeClassName = classes.Danger;
             break;
         default:
+            //TODO
             console.log('Button. [W] Unknown button type: ' + props.type);
             break;
+    }
+
+    if (props.fullWidth) {
+        fullWidthClassName = classes.FullWidth;
     }
     return (
         <button
             disabled={props.disabled}
-            className={[classes.Button, btnTypeClassName].join(' ')}
+            className={[classes.Button, btnTypeClassName, fullWidthClassName].join(' ')}
             onClick={props.clicked}
         >
             {props.children}

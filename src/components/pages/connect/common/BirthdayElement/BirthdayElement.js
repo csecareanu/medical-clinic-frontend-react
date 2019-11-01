@@ -1,88 +1,85 @@
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
 
 import classes from './BirthdayElement.module.css';
-import Input from '../../../../UI/Input/Input';
+import FormControlView from '../../../../UI/FormControlView/FormControlView';
+
+const ELEMENTS = {
+    BIRTH_DAY: 0,
+    BIRTH_MONTH: 1,
+    BIRTH_YEAR: 2
+};
 
 class BirthdayElement extends React.Component {
     state = {
-        subElements: {
-            birthDay: {
-                elementType: 'input',
-                elementConfig: {
-                    type: 'text',
-                    size: 6,
-                    placeholder: 'day'
-                },
-                value: '',
-                validation: {
-                    required: false
-                }
+        elementsStatus: {
+            [ELEMENTS.BIRTH_DAY]: {
+                value: ''
             },
-            birthMonth: {
-                elementType: 'input',
-                elementConfig: {
-                    type: 'text',
-                    size: 6,
-                    placeholder: 'month'
-                },
-                value: '',
-                validation: {
-                    required: false
-                }
+            [ELEMENTS.BIRTH_MONTH]: {
+                value: ''
             },
-            birthYear: {
-                elementType: 'input',
-                elementConfig: {
-                    type: 'text',
-                    size: 12,
-                    placeholder: 'year'
-                },
-                value: '',
-                validation: {
-                    required: false
-                }
+            [ELEMENTS.BIRTH_YEAR]: {
+                value: ''
             }
         }
     }
 
-    inputChangedHandler = (event, inputIdentifier) => {
-        const updatedForm = {
-            ...this.state.subElements
-        }
-
+    inputChangedHandler = (event, elementId) => {
         const updatedElement = {
-            ...updatedForm[inputIdentifier],
+            ...this.state.elementsStatus[elementId],
             value: event.target.value
+        }        
+        const updatedElementsStatus = {
+            ...this.state.elementsStatus,
+            [elementId]: updatedElement
         }
 
-        updatedForm[inputIdentifier] = updatedElement;
-        this.setState({subElements: updatedForm});
+        this.setState({elementsStatus: updatedElementsStatus});
     }
 
     render() {
-        const content = [];
-        // eslint-disable-next-line
-        for (const elementName in this.state.subElements) {
-            const element = this.state.subElements[elementName];
-            content.push(
-                <React.Fragment key={elementName}>
-                    <Input 
-                        elementType={element.elementType}
-                        elementConfig={element.elementConfig}
-                        label={element.label}
-                        value={element.value}
-                        shouldValidate={false}
-                        onChange={(event) => {this.inputChangedHandler(event, elementName)}}
-                    >
-                    </Input>
-                    <div className={classes.Sep}></div>
-                </React.Fragment>
-            );
-        }
+        const birthDayElem = this.state.elementsStatus[ELEMENTS.BIRTH_DAY];
+        const birthMonthElem = this.state.elementsStatus[ELEMENTS.BIRTH_MONTH];
+        const birthYearElem = this.state.elementsStatus[ELEMENTS.BIRTH_YEAR];
+        
+        //TODO 
+        /*
+        const dayText = <FormattedMessage id="birthday_day" defaultMessage={'day'}/>
+        const monthText = <FormattedMessage id="birthday_month" defaultMessage={'month'}/>
+        const yearText = <FormattedMessage id="birthday_year" defaultMessage={'year'}/>
+        */
+       const dayText = 'day';
+       const monthText = 'month';
+       const yearText = 'year';
+
+       const birthdayLabel = <FormattedMessage id="label_birthday" defaultMessage={'Birthday:'}/>
+
         return (
-            <div className={classes.Birthday}>
-                {content}
-            </div>
+            <FormControlView.Group name={birthdayLabel}>
+                <div className={classes.Birthday}>
+                    <FormControlView.Text 
+                        size={6}
+                        placeholder={dayText}
+                        value={birthDayElem.value}
+                        onChange={(event) => {this.inputChangedHandler(event, ELEMENTS.BIRTH_DAY)}}
+                    />
+                    <FormControlView.VerticalSep1/>
+                    <FormControlView.Text 
+                        size={6} 
+                        placeholder= {monthText}
+                        value={birthMonthElem.value}
+                        onChange={(event) => {this.inputChangedHandler(event, ELEMENTS.BIRTH_MONTH)}}
+                    />
+                    <FormControlView.VerticalSep1/>
+                    <FormControlView.Text 
+                        size={12}
+                        placeholder={yearText}
+                        value={birthYearElem.value}
+                        onChange={(event) => {this.inputChangedHandler(event, ELEMENTS.BIRTH_YEAR)}}
+                    />
+                </div>
+            </FormControlView.Group>
         );
     }
 }
