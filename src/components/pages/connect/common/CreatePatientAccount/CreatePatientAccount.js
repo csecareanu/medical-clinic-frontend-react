@@ -125,7 +125,7 @@ class CreatePatientAccount extends React.Component {
 
                 <GenderElementView/>
 
-                <FormControlsView.HorizontalSep1/>
+                <FormControlsView.HorizontalSep2/>
 
                 <Button type={ButtonType.SUCCESS} fullWidth>
                     <FormattedMessage id="create_account" defaultMessage={'Create Account'}/>

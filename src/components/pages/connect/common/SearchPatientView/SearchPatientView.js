@@ -10,11 +10,10 @@ export default () => {
     return (
         <form>
             <BirthdayElement label={birthDayLabel}/>
-            <FormControlsView.Group>
-                <Button type={ButtonType.SUCCESS} fullWidth>
-                    <FormattedMessage id="show_patients" defaultMessage={'Show Patients'}/>
-                </Button>
-            </FormControlsView.Group>
+            <FormControlsView.HorizontalSep2/>
+            <Button type={ButtonType.SUCCESS} fullWidth>
+                <FormattedMessage id="show_patients" defaultMessage={'Show Patients'}/>
+            </Button>
         </form>
     );
 }

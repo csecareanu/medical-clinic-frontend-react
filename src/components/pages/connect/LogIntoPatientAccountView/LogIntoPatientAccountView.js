@@ -36,6 +36,7 @@ const logIntoPatientAccountView = () => {
                 <FormControlsView.HorizontalSep2/>
                 <CreatePatientAccount />
             </FormControlsView.Group>
+                
         </div>
     );
 }

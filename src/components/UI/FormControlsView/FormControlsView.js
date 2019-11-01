@@ -29,21 +29,23 @@ FormControlsView.Group = (props) => {
         stressedNameClasses.push(classes.StressedName);
     }
 
-    const groupClasses = [classes.Group];
+    const contentClasses = [];
     if(props.contentPadding) {
-        groupClasses.push(classes.ContentPadding);
+        contentClasses.push(classes.ContentPadding);
     }
 
     return (
         <React.Fragment>
-            <div className={groupClasses.join(' ')}>
+            <div className={classes.Group}>
                 { props.name?
                     <label className={stressedNameClasses.join(' ')}>{props.name}</label>
                     :
                     null
                 }
             </div>
-            {props.children}
+            <div className={contentClasses.join(' ')}>
+                {props.children}
+            </div>
             {/* setting some margin to the bottom */}
             {props.noHorizontalSepAfter? null : <FormControlsView.HorizontalSep1/>}
         </React.Fragment>
