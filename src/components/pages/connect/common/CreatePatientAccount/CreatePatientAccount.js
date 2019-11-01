@@ -2,7 +2,7 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import Button, { ButtonType } from '../../../../UI/Button/Button';
-import FormControlView from '../../../../UI/FormControlView/FormControlView';
+import FormControlsView from '../../../../UI/FormControlsView/FormControlsView';
 import BirthdayElement from '../BirthdayElement/BirthdayElement';
 import GenderElementView from '../GenderElementView/GenderElementView';
 
@@ -71,35 +71,35 @@ class CreatePatientAccount extends React.Component {
 
         return (
             <form>
-                <FormControlView.Text 
+                <FormControlsView.Text 
                     size={20} 
                     placeholder={firstNameText}
                     value={this.state.elementsStatus[ELEMENTS.FIRST_NAME].value}
                     onChange={(event) => {this.inputChangedHandler(event, ELEMENTS.FIRST_NAME)}}
                 />
 
-                <FormControlView.Text 
+                <FormControlsView.Text 
                     size={20}
                     placeholder={lastNameText}
                     value={this.state.elementsStatus[ELEMENTS.LAST_NAME].value}
                     onChange={(event) => {this.inputChangedHandler(event, ELEMENTS.LAST_NAME)}}
                 />
 
-                <FormControlView.Text 
+                <FormControlsView.Text 
                     size={20}
                     placeholder={phoneNoText}
                     value={this.state.elementsStatus[ELEMENTS.PHONE_NO].value}
                     onChange={(event) => {this.inputChangedHandler(event, ELEMENTS.PHONE_NO)}}
                 />
 
-                <FormControlView.Text 
+                <FormControlsView.Text 
                     size={20}
                     placeholder={passwordText}
                     value={this.state.elementsStatus[ELEMENTS.PASSWORD].value}
                     onChange={(event) => {this.inputChangedHandler(event, ELEMENTS.PASSWORD)}}
                 />
 
-                <FormControlView.Text 
+                <FormControlsView.Text 
                     size={20}
                     placeholder={passwordRepeatText}
                     value={this.state.elementsStatus[ELEMENTS.PASSWORD_REPEAT].value}
@@ -107,14 +107,14 @@ class CreatePatientAccount extends React.Component {
                                                         ELEMENTS.PASSWORD_REPEAT)}}
                 />
 
-                <FormControlView.Text 
+                <FormControlsView.Text 
                     size={20}
                     placeholder={cityText}
                     value={this.state.elementsStatus[ELEMENTS.CITY].value}
                     onChange={(event) => {this.inputChangedHandler(event, ELEMENTS.CITY)}}
                 />
 
-                <FormControlView.Text 
+                <FormControlsView.Text 
                     size={20}
                     placeholder={countyText}
                     value={this.state.elementsStatus[ELEMENTS.COUNTY].value}
@@ -125,13 +125,13 @@ class CreatePatientAccount extends React.Component {
 
                 <GenderElementView/>
 
-                <FormControlView.HorizontalSep1/>
+                <FormControlsView.HorizontalSep1/>
 
                 <Button type={ButtonType.SUCCESS} fullWidth>
                     <FormattedMessage id="create_account" defaultMessage={'Create Account'}/>
                 </Button>
 
-                <FormControlView.HorizontalSep1/>
+                <FormControlsView.HorizontalSep4/>
 
                 <Button type={ButtonType.DANGER} fullWidth>
                     <FormattedMessage id="create_account_without_phone_check" 

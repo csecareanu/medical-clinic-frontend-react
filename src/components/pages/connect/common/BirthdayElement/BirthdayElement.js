@@ -2,7 +2,7 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import classes from './BirthdayElement.module.css';
-import FormControlView from '../../../../UI/FormControlView/FormControlView';
+import FormControlsView from '../../../../UI/FormControlsView/FormControlsView';
 
 const ELEMENTS = {
     BIRTH_DAY: 0,
@@ -56,30 +56,30 @@ class BirthdayElement extends React.Component {
        const birthdayLabel = <FormattedMessage id="label_birthday" defaultMessage={'Birthday:'}/>
 
         return (
-            <FormControlView.Group name={birthdayLabel}>
+            <FormControlsView.Group name={birthdayLabel}>
                 <div className={classes.Birthday}>
-                    <FormControlView.Text 
+                    <FormControlsView.Text 
                         size={6}
                         placeholder={dayText}
                         value={birthDayElem.value}
                         onChange={(event) => {this.inputChangedHandler(event, ELEMENTS.BIRTH_DAY)}}
                     />
-                    <FormControlView.VerticalSep1/>
-                    <FormControlView.Text 
+                    <FormControlsView.VerticalSep1/>
+                    <FormControlsView.Text 
                         size={6} 
                         placeholder= {monthText}
                         value={birthMonthElem.value}
                         onChange={(event) => {this.inputChangedHandler(event, ELEMENTS.BIRTH_MONTH)}}
                     />
-                    <FormControlView.VerticalSep1/>
-                    <FormControlView.Text 
+                    <FormControlsView.VerticalSep1/>
+                    <FormControlsView.Text 
                         size={12}
                         placeholder={yearText}
                         value={birthYearElem.value}
                         onChange={(event) => {this.inputChangedHandler(event, ELEMENTS.BIRTH_YEAR)}}
                     />
                 </div>
-            </FormControlView.Group>
+            </FormControlsView.Group>
         );
     }
 }

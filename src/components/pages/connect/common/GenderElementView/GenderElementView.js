@@ -1,7 +1,7 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
-import FormControlView from '../../../../UI/FormControlView/FormControlView';
+import FormControlsView from '../../../../UI/FormControlsView/FormControlsView';
 
 const GenderType = {
     MALE: 'male',
@@ -17,27 +17,27 @@ const GenderElementView = (props) => {
 
     return (
         <React.Fragment>
-            <FormControlView.Group name={genderLabel}>
+            <FormControlsView.Group name={genderLabel}>
 
-                <FormControlView.Radio 
+                <FormControlsView.Radio 
                     name={RadioGroupName}
                     value={GenderType.MALE}
                     noHorizontalSepAfter
                 >
                     {maleText}
-                </FormControlView.Radio>
+                </FormControlsView.Radio>
 
-                <FormControlView.VerticalSep2/>
+                <FormControlsView.VerticalSep2/>
 
-                <FormControlView.Radio 
+                <FormControlsView.Radio 
                     name={RadioGroupName}
                     value={GenderType.FEMALE}
                     noHorizontalSepAfter
                 >
                     {femaleText}
-                </FormControlView.Radio>
+                </FormControlsView.Radio>
 
-            </FormControlView.Group>                     
+            </FormControlsView.Group>                     
         </React.Fragment>
     );
 }
