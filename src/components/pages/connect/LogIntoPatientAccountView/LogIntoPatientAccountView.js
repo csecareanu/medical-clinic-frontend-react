@@ -23,17 +23,17 @@ const logIntoPatientAccountView = () => {
                 </Button>
             </div>
 
-            <FormControlsView.HorizontalSep2/>
+            <FormControlsView.HorizontalSep repeat='2'/>
 
             <FormControlsView.Group name={findPatientText} stressedName>
-                <FormControlsView.HorizontalSep2/>
+                <FormControlsView.HorizontalSep repeat='2'/>
                 <SearchPatientView />
             </FormControlsView.Group>
             
-            <FormControlsView.HorizontalSep4/>
+            <FormControlsView.HorizontalSep repeat='4'/>
 
             <FormControlsView.Group name={createAccountText} stressedName>
-                <FormControlsView.HorizontalSep2/>
+                <FormControlsView.HorizontalSep repeat='4'/>
                 <CreatePatientAccount showAdminControls/>
             </FormControlsView.Group>
                 

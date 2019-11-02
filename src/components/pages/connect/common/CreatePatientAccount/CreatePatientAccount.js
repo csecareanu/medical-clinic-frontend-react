@@ -77,7 +77,7 @@ class CreatePatientAccount extends React.Component {
 
         const noPhoneCheckButton = (
             <React.Fragment>
-                <FormControlsView.HorizontalSep4/>
+                <FormControlsView.HorizontalSep repeat='4'/>
                 <Button type={ButtonType.DANGER} fullWidth>
                     <FormattedMessage id="create_account_without_phone_check" 
                                 defaultMessage={'Create Account Without Phone Check'}
@@ -142,7 +142,7 @@ class CreatePatientAccount extends React.Component {
 
                 <GenderElementView/>
 
-                <FormControlsView.HorizontalSep2/>
+                <FormControlsView.HorizontalSep repeat='2'/>
 
                 <Button type={ButtonType.SUCCESS} fullWidth>
                     <FormattedMessage id="create_account" defaultMessage={'Create Account'}/>

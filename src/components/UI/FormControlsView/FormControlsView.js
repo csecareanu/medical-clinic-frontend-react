@@ -47,7 +47,7 @@ FormControlsView.Group = (props) => {
                 {props.children}
             </div>
             {/* setting some margin to the bottom */}
-            {props.noHorizontalSepAfter? null : <FormControlsView.HorizontalSep1/>}
+            {props.noHorizontalSepAfter? null : <FormControlsView.HorizontalSep/>}
         </React.Fragment>
     );
 }
@@ -85,7 +85,7 @@ FormControlsView.Text = (props) => {
             {inputElement}
             {validationError}
             {/* setting some margin to the bottom */}
-            {props.noHorizontalSepAfter? null : <FormControlsView.HorizontalSep1/>}
+            {props.noHorizontalSepAfter? null : <FormControlsView.HorizontalSep/>}
         </React.Fragment>
     );
 };
@@ -116,86 +116,58 @@ FormControlsView.Radio = (props) => {
             </label>
             {validationError}
             {/* setting some margin to the bottom */}
-            {props.noHorizontalSepAfter? null : <FormControlsView.HorizontalSep1/>}            
+            {props.noHorizontalSepAfter? null : <FormControlsView.HorizontalSep/>}            
         </React.Fragment>
     );    
 }
 
 /**
- * Adds an horizontal separator.
+ * Adds one or more horizontal separators.
  * Useful when you want to add more space (than is default added) between elements.
+ * 
+ * @param repeat    number      if provided adds the horizontal space the number of times
+ *                              specified. If not provided adds one horizontal space.
  */
-FormControlsView.HorizontalSep1 = (props) => {
-    return (
-        <div className={classes.ElementHrzSep}>
-        </div>
-    );
-}
+FormControlsView.HorizontalSep = (props) => {
+    
+    let separatorsArray = [''];
 
-/**
- * Adds two horizontal separators.
- * Useful when you want to add more space (than is default added) between elements.
- */
-FormControlsView.HorizontalSep2 = (props) => {
+    if(props.repeat) {
+        separatorsArray = new Array(parseInt(props.repeat)).fill(' ');
+    }
+
     return (
         <React.Fragment>
-            <FormControlsView.HorizontalSep1/>
-            <FormControlsView.HorizontalSep1/>
+            {separatorsArray.map( (elem, idx) => (
+                <div key={idx} className={classes.ElementHrzSep}></div>
+             ))}
         </React.Fragment>
     );
 }
 
+
 /**
- * Adds three horizontal separators.
+ * Adds one or more vertical separators.
  * Useful when you want to add more space (than is default added) between elements.
+ * 
+ * @param repeat    number      if provided adds the vertical space the number of times
+ *                              specified. If not provided adds one vertical space.
  */
-FormControlsView.HorizontalSep3 = (props) => {
+FormControlsView.VerticalSep = (props) => {
+    let separatorsArray = [''];
+
+    if(props.repeat) {
+        separatorsArray = new Array(parseInt(props.repeat)).fill(' ');
+    }
+
     return (
         <React.Fragment>
-            <FormControlsView.HorizontalSep1/>
-            <FormControlsView.HorizontalSep1/>
-            <FormControlsView.HorizontalSep1/>
+            {separatorsArray.map( (elem, idx) => (
+                <span key={idx} className={classes.ElementVertSep}></span>
+             ))}
         </React.Fragment>
     );
 }
 
-/**
- * Adds four horizontal separators.
- * Useful when you want to add more space (than is default added) between elements.
- */
-FormControlsView.HorizontalSep4 = (props) => {
-    return (
-        <React.Fragment>
-            <FormControlsView.HorizontalSep1/>
-            <FormControlsView.HorizontalSep1/>
-            <FormControlsView.HorizontalSep1/>
-            <FormControlsView.HorizontalSep1/>            
-        </React.Fragment>
-    );
-}
-
-/**
- * Adds an vertical separator.
- * Useful when you want to add more space (than is default added) between elements.
- */
-FormControlsView.VerticalSep1 = (props) => {
-    return (
-        <span className={classes.ElementVertSep}>
-        </span>
-    );
-}
-
-/**
- * Adds two vertical separators.
- * Useful when you want to add more space (than is default added) between elements.
- */
-FormControlsView.VerticalSep2 = (props) => {
-    return (
-        <React.Fragment>
-            <FormControlsView.VerticalSep1/>
-            <FormControlsView.VerticalSep1/>
-        </React.Fragment>
-    );
-}
 
 export default FormControlsView;

@@ -64,14 +64,14 @@ class BirthdayElement extends React.Component {
                         value={birthDayElem.value}
                         onChange={(event) => {this.inputChangedHandler(event, ELEMENTS.BIRTH_DAY)}}
                     />
-                    <FormControlsView.VerticalSep1/>
+                    <FormControlsView.VerticalSep/>
                     <FormControlsView.Text 
                         size={6} 
                         placeholder= {monthText}
                         value={birthMonthElem.value}
                         onChange={(event) => {this.inputChangedHandler(event, ELEMENTS.BIRTH_MONTH)}}
                     />
-                    <FormControlsView.VerticalSep1/>
+                    <FormControlsView.VerticalSep/>
                     <FormControlsView.Text 
                         size={12}
                         placeholder={yearText}

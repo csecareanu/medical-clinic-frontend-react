@@ -20,13 +20,13 @@ const userLoginView = () => {
                     <FormattedMessage id="cancel" defaultMessage={'Cancel'}/>
                 </Button>
             </div>
-            <FormControlsView.HorizontalSep2/>
+            <FormControlsView.HorizontalSep repeat='2'/>
 
             <LoginExistingAccount />
-            <FormControlsView.HorizontalSep4/>
+            <FormControlsView.HorizontalSep repeat='4'/>
 
             <FormControlsView.Group name={createAccountText} stressedName>
-                <FormControlsView.HorizontalSep2/>
+                <FormControlsView.HorizontalSep repeat='2'/>
                 <CreatePatientAccount />
             </FormControlsView.Group>
                 

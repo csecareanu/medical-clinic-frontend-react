@@ -10,7 +10,7 @@ export default () => {
     return (
         <form>
             <BirthdayElement label={birthDayLabel}/>
-            <FormControlsView.HorizontalSep2/>
+            <FormControlsView.HorizontalSep repeat='2'/>
             <Button type={ButtonType.SUCCESS} fullWidth>
                 <FormattedMessage id="show_patients" defaultMessage={'Show Patients'}/>
             </Button>

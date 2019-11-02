@@ -27,7 +27,7 @@ const GenderElementView = (props) => {
                     {maleText}
                 </FormControlsView.Radio>
 
-                <FormControlsView.VerticalSep2/>
+                <FormControlsView.VerticalSep repeat='2'/>
 
                 <FormControlsView.Radio 
                     name={RadioGroupName}

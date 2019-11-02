@@ -59,7 +59,7 @@ class LoginExistingAccount extends React.Component {
                     onChange={(event) => {this.inputChangedHandler(event, ELEMENTS.PASSWORD)}}
                 />
 
-                <FormControlsView.HorizontalSep2/>
+                <FormControlsView.HorizontalSep repeat='2'/>
 
                 <Button type={ButtonType.SUCCESS} fullWidth>
                     <FormattedMessage id="log_in" defaultMessage={'Login'}/>
