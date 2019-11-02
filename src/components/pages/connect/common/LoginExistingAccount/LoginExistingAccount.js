@@ -1,8 +1,9 @@
 import React from 'react';
-
 import { FormattedMessage } from 'react-intl';
 
+import classes from './LoginExistingAccount.module.css';
 import Button, { ButtonType } from '../../../../UI/Button/Button';
+import LinkButton, { LinkButtonType } from '../../../../UI/LinkButton/LinkButton';
 import FormControlsView from '../../../../UI/FormControlsView/FormControlsView';
 
 
@@ -64,6 +65,14 @@ class LoginExistingAccount extends React.Component {
                 <Button type={ButtonType.SUCCESS} fullWidth>
                     <FormattedMessage id="log_in" defaultMessage={'Login'}/>
                 </Button>
+
+                <FormControlsView.HorizontalSep repeat='2'/>
+                <div className={classes.ForgotPassButton}>
+                    <LinkButton  type={LinkButtonType.DANGER}>
+                    <FormattedMessage id="ask_forgot_password" 
+                        defaultMessage={'Did you forgot the password?'}/>
+                    </LinkButton>
+                </div>
             </form>
         );    
     }

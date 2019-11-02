@@ -29,7 +29,6 @@ const userLoginView = () => {
                 <FormControlsView.HorizontalSep repeat='2'/>
                 <CreatePatientAccount />
             </FormControlsView.Group>
-                
         </div>
     );
 }
