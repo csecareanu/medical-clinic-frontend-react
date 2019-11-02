@@ -17,6 +17,12 @@ const ELEMENTS = {
     COUNTY: 6
 }
 
+/**
+ * Form which displays the controls and buttons to create a new account.
+ * 
+ * @param showAdminControls boolean     if true displays controls available only for site 
+ *                                      administrators (like 'create account without phone check)
+ */
 class CreatePatientAccount extends React.Component {
 
     state = {
@@ -68,6 +74,17 @@ class CreatePatientAccount extends React.Component {
         const passwordRepeatText = "Repeat Password";
         const cityText = "City";
         const countyText = "County";
+
+        const noPhoneCheckButton = (
+            <React.Fragment>
+                <FormControlsView.HorizontalSep4/>
+                <Button type={ButtonType.DANGER} fullWidth>
+                    <FormattedMessage id="create_account_without_phone_check" 
+                                defaultMessage={'Create Account Without Phone Check'}
+                    />
+                </Button>
+            </React.Fragment>
+        );
 
         return (
             <form>
@@ -131,13 +148,7 @@ class CreatePatientAccount extends React.Component {
                     <FormattedMessage id="create_account" defaultMessage={'Create Account'}/>
                 </Button>
 
-                <FormControlsView.HorizontalSep4/>
-
-                <Button type={ButtonType.DANGER} fullWidth>
-                    <FormattedMessage id="create_account_without_phone_check" 
-                                defaultMessage={'Create Account Without Phone Check'}
-                    />
-                </Button>                
+                {this.props.showAdminControls? noPhoneCheckButton : null}       
             </form>
         );    
     }

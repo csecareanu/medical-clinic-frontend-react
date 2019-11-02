@@ -1,0 +1,9 @@
+.Login {
+    background-color: #F8E8B7;
+    padding: 0.5rem;
+}
+
+.CancelButton {
+    display: flex;
+    justify-content: flex-end;
+}

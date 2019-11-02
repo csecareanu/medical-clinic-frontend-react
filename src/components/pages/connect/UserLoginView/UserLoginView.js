@@ -1,18 +1,16 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
-import classes from './LogIntoPatientAccountView.module.css';
-import SearchPatientView from '../common/SearchPatientView/SearchPatientView';
+import classes from './UserLoginView.module.css';
+import LoginExistingAccount from '../common/LoginExistingAccount/LoginExistingAccount';
 import CreatePatientAccount from '../common/CreatePatientAccount/CreatePatientAccount';
 import Button, { ButtonType } from '../../../UI/Button/Button';
 import FormControlsView from '../../../UI/FormControlsView/FormControlsView';
 
 
-const logIntoPatientAccountView = () => {
-    const findPatientText = <FormattedMessage id="label_find_patient" 
-                                    defaultMessage={'Find Patient'}/>
-    const createAccountText = <FormattedMessage id="label_create_patient_account" 
-                                    defaultMessage={"Create patient account"}/>
+const userLoginView = () => {
+    const createAccountText = <FormattedMessage id="label_no_account_create_one" 
+                                    defaultMessage={"If you don't have an account create one"}/>
 
     return (
         <div className={classes.Login}>
@@ -22,23 +20,18 @@ const logIntoPatientAccountView = () => {
                     <FormattedMessage id="cancel" defaultMessage={'Cancel'}/>
                 </Button>
             </div>
-
             <FormControlsView.HorizontalSep2/>
 
-            <FormControlsView.Group name={findPatientText} stressedName>
-                <FormControlsView.HorizontalSep2/>
-                <SearchPatientView />
-            </FormControlsView.Group>
-            
+            <LoginExistingAccount />
             <FormControlsView.HorizontalSep4/>
 
             <FormControlsView.Group name={createAccountText} stressedName>
                 <FormControlsView.HorizontalSep2/>
-                <CreatePatientAccount showAdminControls/>
+                <CreatePatientAccount />
             </FormControlsView.Group>
                 
         </div>
     );
 }
 
-export default logIntoPatientAccountView;
+export default userLoginView;
