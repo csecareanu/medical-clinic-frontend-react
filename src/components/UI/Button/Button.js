@@ -7,13 +7,17 @@ export const ButtonType = {
     DANGER: 2
 };
 
-/*
- * Properties:
- *  type: ButtonType
- *  disabled: boolean
- *  clicked: callback function
- *  children: element array
- *  fullWidth: specify it if you want the button to take all the available width
+
+/**
+ * Displays a button. The button can look like a normal button or a link.
+ * 
+ *  @param type         ButtonType      the type of the button. The color of the button changes
+ *                                      depending on the style
+ *  @param disabled     boolean         if provided and if is 'true' then disables the button
+ *  @param clicked      function        callback function to be notified for click event
+ *  @param children     array           the JSX children to be rendered
+ *  @param fullWidth    boolean         specify it if you want the button to take all the available 
+ *                                      width
 */
 export default (props) => {
     let btnTypeClassName = null;
