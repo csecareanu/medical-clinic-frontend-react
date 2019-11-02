@@ -30,7 +30,7 @@ const logIntoPatientAccountView = () => {
                 <SearchPatientView />
             </FormControlsView.Group>
             
-            <FormControlsView.HorizontalSep repeat='4'/>
+            <FormControlsView.HorizontalSep repeat='10'/>
 
             <FormControlsView.Group name={createAccountText} stressedName>
                 <FormControlsView.HorizontalSep repeat='4'/>
