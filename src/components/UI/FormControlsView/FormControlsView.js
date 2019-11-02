@@ -10,14 +10,14 @@ const FormControlsView = () =>{return null;}
 
 /**
  * Creates a group. 
- * The component renders its JSX children provided in @param props.children
+ * The component renders its JSX children provided in @param children
  * 
  * @param name           text       the displayed name of the group. It can be null
  * @param stressedName   boolean    makes the name of the group to look like a header rather 
  *                                  than a normal text
  * @param contentPadding boolean    to add some space around the internal content 
- *                                  (the JSX children provided on props.children)
- * @param props.children            the JSX children to be rendered
+ *                                  (the JSX children provided on @param children)
+ * @param children                  the JSX children to be rendered
  * @param noHorizontalSepAfter 
  *                      boolean     if is not specified an horizontal small space is added after 
  *                                  the group
@@ -95,7 +95,7 @@ FormControlsView.Text = (props) => {
  * 
  * @param name                      the name attribute provided to the <input> control
  * @param value                     the value attribute provided to the <input> control
- * @param props.children            the JSX children to be rendered (usually the text description
+ * @param children                  the JSX children to be rendered (usually the text description
  *                                  for the control)
 * @param noHorizontalSepAfter 
  *                      boolean      if is not specified an horizontal small space is added after 
