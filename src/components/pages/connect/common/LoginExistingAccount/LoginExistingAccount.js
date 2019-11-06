@@ -68,9 +68,12 @@ class LoginExistingAccount extends React.Component {
 
                 <FormControlsView.HorizontalSep repeat='2'/>
                 <div className={classes.ForgotPassButton}>
-                    <LinkButton  type={LinkButtonType.DANGER}>
-                    <FormattedMessage id="ask_forgot_password" 
-                        defaultMessage={'Did you forgot the password?'}/>
+                    <LinkButton  
+                        type={LinkButtonType.DANGER}
+                    >
+                            <FormattedMessage id="ask_forgot_password" 
+                                defaultMessage={'Did you forget the password?'}/>
+
                     </LinkButton>
                 </div>
             </form>

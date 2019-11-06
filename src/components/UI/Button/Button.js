@@ -7,17 +7,26 @@ export const ButtonType = {
     DANGER: 2
 };
 
+const onClick = (event, callback) => {
+    // The default action of the event will not be triggered.
+    // When placed on a form the form will not be submitted.
+    event.preventDefault();
+    if(callback) {
+        callback(event);
+    }
+}
 
-/**
- * Displays a button. The button can look like a normal button or a link.
+
+/** 
+ * Displays a button. The button looks like a normal button. For a link button @see LinkButton.js
  * 
- *  @param type         ButtonType      the type of the button. The color of the button changes
- *                                      depending on the style
- *  @param disabled     boolean         if provided and if is 'true' then disables the button
- *  @param clicked      function        callback function to be notified for click event
- *  @param children     array           the JSX children to be rendered
- *  @param fullWidth    boolean         specify it if you want the button to take all the available 
- *                                      width
+ * @param {ButtonType} props.type - The type of the button. The color of the button changes
+ *                                  depending on the style
+ * @param {boolean} props.disabled - If provided and if is 'true' then disables the button
+ * @param {function} props.onClick - Callback function to be notified for the click event
+ * @param {array} props.children - The JSX children to be rendered
+ * @param {boolean} props.fullWidth - Specify it if you want the button to take all the available
+ *                                    width
 */
 export default (props) => {
     let btnTypeClassName = null;
@@ -43,7 +52,7 @@ export default (props) => {
         <button
             disabled={props.disabled}
             className={[classes.Button, btnTypeClassName, fullWidthClassName].join(' ')}
-            onClick={props.clicked}
+            onClick={ (event) => { onClick(event, props.onClick) } }
         >
             {props.children}
         </button>
