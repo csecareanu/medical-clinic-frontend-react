@@ -1,9 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-
-import './App.css';
-
 import UserLoginView from '../pages/connect/UserLoginView/UserLoginView';
 import UserLogoutView from '../pages/connect/UserLogoutView/UserLogoutView';
 import LogIntoPatientAccountView from '../pages/connect/LogIntoPatientAccountView/LogIntoPatientAccountView';
