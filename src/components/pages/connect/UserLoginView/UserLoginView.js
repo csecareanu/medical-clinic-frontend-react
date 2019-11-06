@@ -6,6 +6,7 @@ import LoginExistingAccount from '../common/LoginExistingAccount/LoginExistingAc
 import CreatePatientAccount from '../common/CreatePatientAccount/CreatePatientAccount';
 import Button, { ButtonType } from '../../../UI/Button/Button';
 import FormControlsView from '../../../UI/FormControlsView/FormControlsView';
+import Backdrop from '../../../UI/Backdrop/Backdrop';
 
 
 const userLoginView = () => {
@@ -13,23 +14,27 @@ const userLoginView = () => {
                                     defaultMessage={"If you don't have an account create one"}/>
 
     return (
-        <div className={classes.Login}>
+        <React.Fragment>
+            <Backdrop show={true}/>
+            <div className={classes.Login}>
+                <div className={classes.LoginContent}>
+                    <div className={classes.CancelButton}>
+                        <Button type={ButtonType.DANGER}>
+                            <FormattedMessage id="cancel" defaultMessage={'Cancel'}/>
+                        </Button>
+                    </div>
+                    <FormControlsView.HorizontalSep repeat='2'/>
 
-            <div className={classes.CancelButton}>
-                <Button type={ButtonType.DANGER}>
-                    <FormattedMessage id="cancel" defaultMessage={'Cancel'}/>
-                </Button>
+                    <LoginExistingAccount />
+                    <FormControlsView.HorizontalSep repeat='10'/>
+
+                    <FormControlsView.Group name={createAccountText} stressedName>
+                        <FormControlsView.HorizontalSep repeat='2'/>
+                        <CreatePatientAccount />
+                    </FormControlsView.Group>
+                </div>
             </div>
-            <FormControlsView.HorizontalSep repeat='2'/>
-
-            <LoginExistingAccount />
-            <FormControlsView.HorizontalSep repeat='10'/>
-
-            <FormControlsView.Group name={createAccountText} stressedName>
-                <FormControlsView.HorizontalSep repeat='2'/>
-                <CreatePatientAccount />
-            </FormControlsView.Group>
-        </div>
+        </React.Fragment>
     );
 }
 

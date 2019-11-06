@@ -6,6 +6,7 @@ import SearchPatientView from '../common/SearchPatientView/SearchPatientView';
 import CreatePatientAccount from '../common/CreatePatientAccount/CreatePatientAccount';
 import Button, { ButtonType } from '../../../UI/Button/Button';
 import FormControlsView from '../../../UI/FormControlsView/FormControlsView';
+import Backdrop from '../../../UI/Backdrop/Backdrop';
 
 
 const logIntoPatientAccountView = () => {
@@ -15,29 +16,32 @@ const logIntoPatientAccountView = () => {
                                     defaultMessage={"Create patient account"}/>
 
     return (
-        <div className={classes.Login}>
+        <React.Fragment>
+            <Backdrop show={true}/>
+            <div className={classes.Login}>
+                <div className={classes.LoginContent}>
+                    <div className={classes.CancelButton}>
+                        <Button type={ButtonType.DANGER}>
+                            <FormattedMessage id="cancel" defaultMessage={'Cancel'}/>
+                        </Button>
+                    </div>
 
-            <div className={classes.CancelButton}>
-                <Button type={ButtonType.DANGER}>
-                    <FormattedMessage id="cancel" defaultMessage={'Cancel'}/>
-                </Button>
+                    <FormControlsView.HorizontalSep repeat='2'/>
+
+                    <FormControlsView.Group name={findPatientText} stressedName>
+                        <FormControlsView.HorizontalSep repeat='2'/>
+                        <SearchPatientView />
+                    </FormControlsView.Group>
+                    
+                    <FormControlsView.HorizontalSep repeat='10'/>
+
+                    <FormControlsView.Group name={createAccountText} stressedName>
+                        <FormControlsView.HorizontalSep repeat='4'/>
+                        <CreatePatientAccount showAdminControls/>
+                    </FormControlsView.Group>
+                </div>
             </div>
-
-            <FormControlsView.HorizontalSep repeat='2'/>
-
-            <FormControlsView.Group name={findPatientText} stressedName>
-                <FormControlsView.HorizontalSep repeat='2'/>
-                <SearchPatientView />
-            </FormControlsView.Group>
-            
-            <FormControlsView.HorizontalSep repeat='10'/>
-
-            <FormControlsView.Group name={createAccountText} stressedName>
-                <FormControlsView.HorizontalSep repeat='4'/>
-                <CreatePatientAccount showAdminControls/>
-            </FormControlsView.Group>
-                
-        </div>
+        </React.Fragment>
     );
 }
 
