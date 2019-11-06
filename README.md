@@ -18,3 +18,36 @@
 13. Structuring projects and naming components in React: https://hackernoon.com/structuring-projects-and-naming-components-in-react-1261b6e18d76
 14. React components naming convention: https://medium.com/@wittydeveloper/react-components-naming-convention-%EF%B8%8F-b50303551505
 ---
+
+
+```js
+
+// Adauga  proprietati la o componenta
+
+/**
+ * By default NavItemButton does not any CSS attached. 
+ * Adding CSS from the imported @param classesMenu.
+ */
+const NavItemButtonCSS = withProps(NavItemButton, 
+    {
+        styleItem: classesMenu.MenuItem, 
+        styleText: classesMenu.MenuText, 
+        styleTextActive: classesMenu.Active
+    });
+
+/* Adds the specified 'newProps' properties to 'WrappedComponent'  instance */
+const withProps = (WrappedComponent, newProps) => {
+    return props => (
+        <WrappedComponent {...props} {...newProps} />
+    );
+};
+
+export default withProps;
+```
+
+```js
+// Iti pune la dispozitie contextul si returneaza o functie pe post de componenta
+            <UIStateContext.Consumer>
+                { context => !context.userAuthenticated ? {userLogin} : {userLogout} }
+            </UIStateContext.Consumer>
+```
