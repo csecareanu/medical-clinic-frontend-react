@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useContext } from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import classes from './UserLoginView.module.css';
@@ -7,9 +7,33 @@ import CreatePatientAccount from '../common/CreatePatientAccount/CreatePatientAc
 import Button, { ButtonType } from '../../../UI/Button/Button';
 import FormControlsView from '../../../UI/FormControlsView/FormControlsView';
 import Backdrop from '../../../UI/Backdrop/Backdrop';
+import UIStateContext from '../../../UIState/UIState-context';
 
+const onComponentLoaded = () => {
+    // make the top of the window visible if the page is scrolled
+    window.scrollTo(0, 0);
+}
 
-const userLoginView = () => {
+const onComponentUnloaded = () => {
+}
+
+const onCancelLogin = (uiStateContext) => {
+    uiStateContext.onDisplayLoginComponent(false)
+}
+
+const useEffectSetup = () => {
+    useEffect( () => {
+        onComponentLoaded();
+        return () => {
+            onComponentUnloaded();
+        }
+    }, []);
+}
+
+const UserLoginView = () => {
+    const uiStateContext = useContext(UIStateContext);
+    useEffectSetup();
+
     const createAccountText = <FormattedMessage id="label_no_account_create_one" 
                                     defaultMessage={"If you don't have an account create one"}/>
 
@@ -19,7 +43,10 @@ const userLoginView = () => {
             <div className={classes.Login}>
                 <div className={classes.LoginContent}>
                     <div className={classes.CancelButton}>
-                        <Button type={ButtonType.DANGER}>
+                        <Button 
+                            type={ButtonType.DANGER} 
+                            onClick={ () => {onCancelLogin(uiStateContext)} }
+                        >
                             <FormattedMessage id="cancel" defaultMessage={'Cancel'}/>
                         </Button>
                     </div>
@@ -38,4 +65,4 @@ const userLoginView = () => {
     );
 }
 
-export default userLoginView;
+export default UserLoginView;

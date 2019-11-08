@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import classesMenu from '../menu.module.css';
@@ -32,17 +32,19 @@ const LinkItemButtonCSS = withProps(LinkItemButton,
 
 const ClinicMenuView = (props) => {
 
+    const uiStateContext = useContext(UIStateContext);
+
     const userLogin = (
-        <LinkItemButtonCSS link="/login" >
-            <FormattedMessage id="menu_login" defaultMessage={'LOGIN'}/>
-        </LinkItemButtonCSS>
-    );
+            <LinkItemButtonCSS onClick={ () => uiStateContext.onDisplayLoginComponent(true) }>
+                <FormattedMessage id="menu_login" defaultMessage={'LOGIN'}/>
+            </LinkItemButtonCSS>
+        );
 
     const userLogout = (
-        <LinkItemButtonCSS link="/logout" >
-            <FormattedMessage id="menu_logout" defaultMessage={'LOGOUT'}/>
-        </LinkItemButtonCSS>
-    );
+            <LinkItemButtonCSS onClick={ () => uiStateContext.onDisplayLogoutComponent(false) }>
+                <FormattedMessage id="menu_logout" defaultMessage={'LOGOUT'}/>
+            </LinkItemButtonCSS>
+        );
 
     return (
         <NavListView style={classesMenu.Menu}>
@@ -67,9 +69,9 @@ const ClinicMenuView = (props) => {
             <NavItemButtonCSS link="/my_account" >
                 <FormattedMessage id="menu_my_account" defaultMessage={'MY ACCOUNT'}/>
             </NavItemButtonCSS>
-            <UIStateContext.Consumer>
-                { context => !context.userAuthenticated ? userLogin : userLogout }
-            </UIStateContext.Consumer>
+
+            { uiStateContext.userAuthenticated ? userLogout : userLogin }
+
         </NavListView>
     );
 }
