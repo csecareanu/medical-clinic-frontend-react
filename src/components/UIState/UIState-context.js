@@ -9,11 +9,12 @@ const UIStateContext = React.createContext({
     // to have an idea about how the interface looks like. 
     // The program compiles and works also without them.
     userAuthenticated: false,
+    isAuthenticatedUserDoctor: false,
     displayLoginComponent: false,
     displayLogoutComponent: false,
-    onDisplayLoginComponent: (show) => {},
-    onDisplayLogoutComponent: (show) => {},
-    onUserAuthenticated: (isAuthenticated) => {}
+    setDisplayLoginComponent: (show) => {},
+    setDisplayLogoutComponent: (show) => {},
+    setUserAuthenticated: (isAuthenticated) => {}
 });
 
 export default UIStateContext;

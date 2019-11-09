@@ -35,13 +35,13 @@ const ClinicMenuView = (props) => {
     const uiStateContext = useContext(UIStateContext);
 
     const userLogin = (
-            <LinkItemButtonCSS onClick={ () => uiStateContext.onDisplayLoginComponent(true) }>
+            <LinkItemButtonCSS onClick={ () => uiStateContext.setDisplayLoginComponent(true) }>
                 <FormattedMessage id="menu_login" defaultMessage={'LOGIN'}/>
             </LinkItemButtonCSS>
         );
 
     const userLogout = (
-            <LinkItemButtonCSS onClick={ () => uiStateContext.onDisplayLogoutComponent(false) }>
+            <LinkItemButtonCSS onClick={ () => uiStateContext.setDisplayLogoutComponent(false) }>
                 <FormattedMessage id="menu_logout" defaultMessage={'LOGOUT'}/>
             </LinkItemButtonCSS>
         );

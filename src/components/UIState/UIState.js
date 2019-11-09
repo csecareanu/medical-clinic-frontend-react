@@ -17,16 +17,16 @@ class UIState extends React.Component {
         displayLogoutComponent: false
     }
 
-    onUserAuthenticated = (isAuthenticated) => {
+    setUserAuthenticated = (isAuthenticated) => {
         this.setState({userAuthenticated: isAuthenticated});
     }
 
-    onDisplayLoginComponent = (show) => {
+    setDisplayLoginComponent = (show) => {
         this.setState({displayLoginComponent: show});
     }
 
-    onDisplayLogoutComponent = (show) => {
-        this.setState({onDisplayLogoutComponent: show});
+    setDisplayLogoutComponent = (show) => {
+        this.setState({displayLogoutComponent: show});
     }    
 
     render () {
@@ -36,9 +36,9 @@ class UIState extends React.Component {
                     userAuthenticated: this.state.userAuthenticated,
                     displayLoginComponent: this.state.displayLoginComponent,
                     displayLogoutComponent: this.state.displayLogoutComponent,
-                    onDisplayLoginComponent: this.onDisplayLoginComponent,
-                    onDisplayLogoutComponent: this.onDisplayLogoutComponent,
-                    onUserAuthenticated: this.onUserAuthenticated
+                    setDisplayLoginComponent: this.setDisplayLoginComponent,
+                    setDisplayLogoutComponent: this.setDisplayLogoutComponent,
+                    setUserAuthenticated: this.setUserAuthenticated
                 }}
             >
                 {this.props.children}

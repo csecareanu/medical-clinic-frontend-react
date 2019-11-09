@@ -18,11 +18,11 @@ const onComponentUnloaded = () => {
 }
 
 const onCancelLogin = (uiStateContext) => {
-    uiStateContext.onDisplayLoginComponent(false)
+    uiStateContext.setDisplayLoginComponent(false)
 }
 
 const onLoginSucceeded = (uiStateContext) => {
-    uiStateContext.onDisplayLoginComponent(false);
+    uiStateContext.setDisplayLoginComponent(false);
 }
 
 const useEffectSetup = () => {
