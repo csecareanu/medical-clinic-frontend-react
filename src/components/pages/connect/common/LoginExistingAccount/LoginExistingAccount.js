@@ -12,6 +12,9 @@ const ELEMENTS = {
     PASSWORD: 1
 }
 
+/**
+ * @param {function} props.onLoginSucceeded - Callback function to be notified on successfully login
+ */
 class LoginExistingAccount extends React.Component {
 
     state = {
@@ -39,6 +42,18 @@ class LoginExistingAccount extends React.Component {
         this.setState({elementsStatus: updatedElementsStatus});
     }
 
+    onLogin = (callback) => {
+        if (callback) {
+            callback();
+        }
+    }
+    
+    onTestLoginAdmin = (callback) => {
+        if (callback) {
+            callback();
+        }
+    }
+
     render () {
         //TODO 
         const phoneNoText = "Phone No";
@@ -62,15 +77,24 @@ class LoginExistingAccount extends React.Component {
 
                 <FormControlsView.HorizontalSep repeat='2'/>
 
-                <Button type={ButtonType.SUCCESS} fullWidth>
+                <Button 
+                    type={ButtonType.SUCCESS} 
+                    fullWidth 
+                    onClick={ () => {this.onLogin(this.props.onLoginSucceeded)} }
+                >
                     <FormattedMessage id="log_in" defaultMessage={'Login'}/>
+                </Button>
+                <Button 
+                    type={ButtonType.DANGER} 
+                    fullWidth 
+                    onClick={ () => {this.onTestLoginAdmin(this.props.onLoginSucceeded)} }
+                >
+                    Test login as admin
                 </Button>
 
                 <FormControlsView.HorizontalSep repeat='2'/>
                 <div className={classes.ForgotPassButton}>
-                    <LinkButton  
-                        type={LinkButtonType.DANGER}
-                    >
+                    <LinkButton  type={LinkButtonType.DANGER}>
                             <FormattedMessage id="ask_forgot_password" 
                                 defaultMessage={'Did you forget the password?'}/>
 

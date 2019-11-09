@@ -20,8 +20,10 @@ const ELEMENTS = {
 /**
  * Form which displays the controls and buttons to create a new account.
  * 
- * @param showAdminControls boolean     if true displays controls available only for site 
- *                                      administrators (like 'create account without phone check)
+ * @param {boolean} showAdminControls - If true displays controls available only for users with 
+ * administrator rights (like 'create account without phone check)
+ * @param {function} props.onAccountCreated - Callback function to be notified on successfully
+ * account creation
  */
 class CreatePatientAccount extends React.Component {
 
@@ -65,6 +67,12 @@ class CreatePatientAccount extends React.Component {
         this.setState({elementsStatus: updatedElementsStatus});
     }
 
+    onCreateAccount = (callback) => {
+        if (callback) {
+            callback();
+        }
+    }    
+
     render () {
         //TODO 
         const firstNameText = "First Name";
@@ -78,7 +86,7 @@ class CreatePatientAccount extends React.Component {
         const noPhoneCheckButton = (
             <React.Fragment>
                 <FormControlsView.HorizontalSep repeat='4'/>
-                <Button type={ButtonType.DANGER} fullWidth>
+                <Button type={ButtonType.DANGER} fullWidth onClick={this.props.onAccountCreated}>
                     <FormattedMessage id="create_account_without_phone_check" 
                                 defaultMessage={'Create Account Without Phone Check'}
                     />
@@ -144,7 +152,11 @@ class CreatePatientAccount extends React.Component {
 
                 <FormControlsView.HorizontalSep repeat='2'/>
 
-                <Button type={ButtonType.SUCCESS} fullWidth>
+                <Button 
+                    type={ButtonType.SUCCESS} 
+                    fullWidth
+                    onClick={ () => {this.onCreateAccount(this.props.onAccountCreated)} }
+                >
                     <FormattedMessage id="create_account" defaultMessage={'Create Account'}/>
                 </Button>
 

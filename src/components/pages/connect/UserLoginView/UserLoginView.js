@@ -21,6 +21,10 @@ const onCancelLogin = (uiStateContext) => {
     uiStateContext.onDisplayLoginComponent(false)
 }
 
+const onLoginSucceeded = (uiStateContext) => {
+    uiStateContext.onDisplayLoginComponent(false);
+}
+
 const useEffectSetup = () => {
     useEffect( () => {
         onComponentLoaded();
@@ -52,12 +56,16 @@ const UserLoginView = () => {
                     </div>
                     <FormControlsView.HorizontalSep repeat='2'/>
 
-                    <LoginExistingAccount />
+                    <LoginExistingAccount
+                        onLoginSucceeded={ () => onLoginSucceeded(uiStateContext) }
+                    />
                     <FormControlsView.HorizontalSep repeat='10'/>
 
                     <FormControlsView.Group name={createAccountText} stressedName>
                         <FormControlsView.HorizontalSep repeat='2'/>
-                        <CreatePatientAccount />
+                        <CreatePatientAccount
+                            onAccountCreated={ () => onLoginSucceeded(uiStateContext) }
+                        />
                     </FormControlsView.Group>
                 </div>
             </div>
