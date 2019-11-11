@@ -5,7 +5,7 @@ import classes from './LoginExistingAccount.module.css';
 import Button, { ButtonType } from '../../../../UI/Button/Button';
 import LinkButton, { LinkButtonType } from '../../../../UI/LinkButton/LinkButton';
 import FormControlsView from '../../../../UI/FormControlsView/FormControlsView';
-import UIState from '../../../../UIState/UIState';
+import UIStateContext, { UserAuthStatus} from '../../../../UIState/UIState-context';
 
 
 const ELEMENTS = {
@@ -17,6 +17,8 @@ const ELEMENTS = {
  * @param {function} props.onLoginSucceeded - Callback function to be notified on successfully login
  */
 class LoginExistingAccount extends React.Component {
+
+    static contextType = UIStateContext;
 
     state = {
         elementsStatus: {
@@ -49,23 +51,26 @@ class LoginExistingAccount extends React.Component {
      * login
      */
     onLogin = (callback) => {
-        //uiStateContext.setUserAuthenticationStatus(false);
+        this.context.setUserAuthenticationStatus(UserAuthStatus.PATIENT);
+
         if (callback) {
             callback();
         }
     }
     
     onTestLoginAdmin = (callback) => {
+        this.context.setUserAuthenticationStatus(UserAuthStatus.DOCTOR);
+
         if (callback) {
             callback();
         }
     }
 
     render () {
+
         //TODO 
         const phoneNoText = "Phone No";
         const passwordText = "Password";
-
         return (
             <form>
                 <FormControlsView.Text 
@@ -94,7 +99,9 @@ class LoginExistingAccount extends React.Component {
                 <Button 
                     type={ButtonType.DANGER} 
                     fullWidth 
-                    onClick={ () => {this.onTestLoginAdmin(this.props.onLoginSucceeded)} }
+                    onClick={ 
+                        () => {this.onTestLoginAdmin(this.props.onLoginSucceeded)} 
+                    }
                 >
                     Test login as admin
                 </Button>
