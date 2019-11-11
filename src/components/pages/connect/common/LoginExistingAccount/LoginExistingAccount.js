@@ -5,6 +5,7 @@ import classes from './LoginExistingAccount.module.css';
 import Button, { ButtonType } from '../../../../UI/Button/Button';
 import LinkButton, { LinkButtonType } from '../../../../UI/LinkButton/LinkButton';
 import FormControlsView from '../../../../UI/FormControlsView/FormControlsView';
+import UIState from '../../../../UIState/UIState';
 
 
 const ELEMENTS = {
@@ -42,7 +43,13 @@ class LoginExistingAccount extends React.Component {
         this.setState({elementsStatus: updatedElementsStatus});
     }
 
+    /**
+     *  The user has pressed the login button
+     * @param {function} callback if provided by the parent component will notify it on successfully 
+     * login
+     */
     onLogin = (callback) => {
+        //uiStateContext.setUserAuthenticationStatus(false);
         if (callback) {
             callback();
         }

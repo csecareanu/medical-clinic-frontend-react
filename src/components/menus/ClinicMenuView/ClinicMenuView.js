@@ -6,10 +6,10 @@ import NavListView from '../../UI/NavListView/NavListView';
 import NavItemButton from '../../UI/NavListView/NavItemButton/NavItemButton';
 import LinkItemButton from '../../UI/NavListView/LinkItemButton/LinkItemButton';
 import withProps from '../../hoc/withProps';
-import UIStateContext from '../../UIState/UIState-context';
+import UIStateContext, { UserAuthStatus }from '../../UIState/UIState-context';
 
 /**
- * By default NavItemButton does not any CSS attached. 
+ * By default NavItemButton does not have any CSS attached. 
  * Adding CSS from the imported @param classesMenu.
  */
 const NavItemButtonCSS = withProps(NavItemButton, 
@@ -20,7 +20,7 @@ const NavItemButtonCSS = withProps(NavItemButton,
     });
 
 /**
- * By default LinkItemButton does not any CSS attached. 
+ * By default LinkItemButton does not have any CSS attached. 
  * Adding CSS from the imported @param classesMenu.
  */
 const LinkItemButtonCSS = withProps(LinkItemButton, 
@@ -70,7 +70,10 @@ const ClinicMenuView = (props) => {
                 <FormattedMessage id="menu_my_account" defaultMessage={'MY ACCOUNT'}/>
             </NavItemButtonCSS>
 
-            { uiStateContext.userAuthenticated ? userLogout : userLogin }
+            { 
+                uiStateContext.userAuthStatus !== UserAuthStatus.UNAUTHENTICATED ? 
+                    userLogout : userLogin 
+            }
 
         </NavListView>
     );

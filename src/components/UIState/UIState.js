@@ -1,33 +1,28 @@
 import React from 'react';
 
-import UIStateContext, { UserAuthenticationType } from './UIState-context';
+import UIStateContext, { UserAuthStatus } from './UIState-context';
 
 /**
  * Component used to share global user interface state.
  * It allows UI components to communicate between them.
  * It does not keep any kind of data retrieved from the backend, only UI state.
  * 
+ * For detailed information about context variables provided @see UIState-context.js
+ * 
  * @param props.children - The JSX content which will be rendered and which will have access
  * to this context.
  */
 class UIState extends React.Component {
-    /**
-     * For detailed information about this context state @see UIState-context.js
-     */
+
     state = {
-        userAuthenticated: false,
-        userAuthenticationType: UserAuthenticationType.NONE,
+        userAuthStatus: UserAuthStatus.UNAUTHENTICATED,
         loggedIntoPatientAccount: false,
         displayLoginComponent: false,
         displayLogoutComponent: false
     }
 
-    setUserAuthenticated = (isAuthenticated) => {
-        this.setState({userAuthenticated: isAuthenticated});
-    }
-
-    setUserAuthenticationType = (userAuthenticationType) => {
-        this.setState({userAuthenticationType: userAuthenticationType});
+    setUserAuthenticationStatus = (userAuthenticationType) => {
+        this.setState({userAuthStatus: userAuthenticationType});
     }
 
     setLoggedIntoPatientAccount = (isLoggedIn) => {
@@ -47,14 +42,12 @@ class UIState extends React.Component {
             <UIStateContext.Provider
                 value={{
                     // variables
-                    userAuthenticated: this.state.userAuthenticated,
-                    userAuthenticationType: this.state.userAuthenticationType,
+                    userAuthStatus: this.state.userAuthStatus,
                     loggedIntoPatientAccount: this.state.loggedIntoPatientAccount,
                     displayLoginComponent: this.state.displayLoginComponent,
                     displayLogoutComponent: this.state.displayLogoutComponent,
                     // methods
-                    setUserAuthenticated: this.setUserAuthenticated,
-                    setUserAuthenticationType: this.setUserAuthenticationType,
+                    setUserAuthenticationStatus: this.setUserAuthenticationStatus,
                     setLoggedIntoPatientAccount: this.setLoggedIntoPatientAccount,
                     setDisplayLoginComponent: this.setDisplayLoginComponent,
                     setDisplayLogoutComponent: this.setDisplayLogoutComponent
