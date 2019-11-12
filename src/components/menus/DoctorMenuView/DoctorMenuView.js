@@ -14,7 +14,7 @@ const NavItemButton = withProps(NavItemButton_NoStyle,
         styleTextActive: classesMenu.ActiveAdmin
     });
 
-export default () => (
+const DoctorMenuView = () => (
     <NavListView style={classesMenu.Menu}>
         <NavItemButton link="/doctor">
             <FormattedMessage id="menu_administration" defaultMessage={'ADMINISTRATION'}/>
@@ -24,3 +24,5 @@ export default () => (
         </NavItemButton>
     </NavListView>
 );
+
+export default DoctorMenuView;
