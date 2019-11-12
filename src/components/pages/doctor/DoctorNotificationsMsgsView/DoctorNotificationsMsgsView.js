@@ -6,7 +6,7 @@ import DoctorAdminHdrView from '../../../headers/DoctorAdminHdrView/DoctorAdminH
 import useCheckAccessAllowed from '../common/useCheckAccessAllowed';
 import AccessNotAllowedView from '../../common/AccessNotAllowedView/AccessNotAllowedView';
 
-const DoctorNotifMsgsView = () => {
+const DoctorNotificationsMsgsView = () => {
     if (!useCheckAccessAllowed()) {
         return <AccessNotAllowedView/>
     }
@@ -17,4 +17,4 @@ const DoctorNotifMsgsView = () => {
     );
 }
 
-export default DoctorNotifMsgsView;
+export default DoctorNotificationsMsgsView;

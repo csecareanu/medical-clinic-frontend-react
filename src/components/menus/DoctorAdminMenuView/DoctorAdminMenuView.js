@@ -39,7 +39,7 @@ export default () => (
             <NavItemButtonAdmin link="/doctor/log_events">
                 <FormattedMessage id="menu_doctor_admin_log_events" defaultMessage={'LOG EVENTS'}/>
             </NavItemButtonAdmin>
-            <NavItemButtonAdmin link="/doctor/notification_msgs">
+            <NavItemButtonAdmin link="/doctor/notifications_msgs">
                 <FormattedMessage id="menu_doctor_admin_notif_msgs" defaultMessage={'NOTIFICATION MESSAGES'}/>
             </NavItemButtonAdmin>
         </NavListView>

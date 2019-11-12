@@ -16,7 +16,7 @@ import DoctorMainView from '../pages/doctor/DoctorMainView/DoctorMainView';
 import DoctorMyAccountView from '../pages/doctor/DoctorMyAccountView/DoctorMyAccountView';
 import DoctorApptsInfoView from '../pages/doctor/DoctorApptsInfoView/DoctorApptsInfoView';
 import DoctorLogEventsView from '../pages/doctor/DoctorLogEventsView/DoctorLogEventsView';
-import DoctorNotifMsgsView from '../pages/doctor/DoctorNotifMsgsView/DoctorNotifMsgsView';
+import DoctorNotificationsMsgsView from '../pages/doctor/DoctorNotificationsMsgsView/DoctorNotificationsMsgsView';
 import DoctorWorkingTimeView from '../pages/doctor/DoctorWorkingTimeView/DoctorWorkingTimeView';
 
 import PatientNewApptView from '../pages/patient/PatientNewApptView/PatientNewApptView';
@@ -49,7 +49,7 @@ function App() {
         <Route path="/doctor/my_account" exact component={DoctorMyAccountView} />
         <Route path="/doctor/appointments" component={DoctorApptsInfoView} />
         <Route path="/doctor/working_time" component={DoctorWorkingTimeView} />
-        <Route path="/doctor/notification_msgs" component={DoctorNotifMsgsView} />
+        <Route path="/doctor/notifications_msgs" component={DoctorNotificationsMsgsView} />
         <Route path="/doctor/log_events" component={DoctorLogEventsView} />
 
         <Route path="/admin" exact component={SysAdminMainView} />
