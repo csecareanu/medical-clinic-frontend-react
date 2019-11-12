@@ -48,7 +48,7 @@ class MainHdr extends React.Component {
             <header className={classes.Header}>
                 <nav>
                     <AboutClinicToolbarView />
-                    <div className={classes.ToolbarVSeparator} />
+                    <div className={classes.ToolbarHSeparator} />
                     <div className={classes.MenuToggle_UserAccount_Toolbars}>
                         <div className={commonClasses.SmallScreenOnly}>
                             <SideDrawerToolbarView 
@@ -57,6 +57,8 @@ class MainHdr extends React.Component {
                         </div>
                         <UserToolbarView />
                     </div>
+                    <div className={classes.ToolbarHSeparator} />
+                    
                     <div className={commonClasses.SmallScreenOnly}>
                         <SideDrawerView 
                             open={this.state.sideDrawerVisible}
