@@ -3,8 +3,6 @@ import { Route, Switch } from 'react-router-dom';
 
 import UIState from '../UIState/UIState';
 
-import UserLoginView from '../pages/connect/UserLoginView/UserLoginView';
-import UserLogoutView from '../pages/connect/UserLogoutView/UserLogoutView';
 import LogIntoPatientAccountView from '../pages/connect/LogIntoPatientAccountView/LogIntoPatientAccountView';
 import LogOutPatientAccountView from '../pages/connect/LogOutPatientAccountView/LogOutPatientAccountView';
 
@@ -37,8 +35,6 @@ function App() {
     <UIState>
       <Switch>
         <Route path="/" exact component={ClinicMainView} />
-        <Route path="/login" component={UserLoginView} />
-        <Route path="/logout" component={UserLogoutView} />
         <Route path="/log_into_patient_account" component={LogIntoPatientAccountView} />
         <Route path="/log_out_patient_account" component={LogOutPatientAccountView} />
 
