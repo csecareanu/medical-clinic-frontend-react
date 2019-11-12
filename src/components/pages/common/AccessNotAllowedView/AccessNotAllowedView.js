@@ -4,11 +4,13 @@ import { FormattedMessage } from 'react-intl';
 import classes from './AccessNotAllowedView.module.css';
 
 const AccessNotAllowedView = () => (
-    <div>
-        <FormattedMessage 
-            id="not_allowed_to_use_resource" 
-            defaultMessage={'You ar not allowed to use this resource.'}
-        />
+    <div className={classes.NowAllowedContent}>
+        <p>
+            <FormattedMessage 
+                id="not_allowed_to_use_resource" 
+                defaultMessage={'You are not allowed to use this resource.'}
+            />
+        </p>
     </div>
 );
 
