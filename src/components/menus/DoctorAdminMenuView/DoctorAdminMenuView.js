@@ -27,9 +27,6 @@ export default () => (
         </NavListView>
 
         <NavListView style={classesMenu.Menu}>
-            <NavItemButtonAdmin link="/doctor/my_account">
-                <FormattedMessage id="menu_doctor_admin_my_account" defaultMessage={'MY ACCOUNT'}/>
-            </NavItemButtonAdmin>
             <NavItemButtonAdmin link="/doctor/appointments">
                 <FormattedMessage id="menu_doctor_admin_appts_info" defaultMessage={' APPOINTMENTS INFO'}/>
             </NavItemButtonAdmin>

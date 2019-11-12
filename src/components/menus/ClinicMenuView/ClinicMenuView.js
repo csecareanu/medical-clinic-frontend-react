@@ -35,28 +35,33 @@ const ClinicMenuView = (props) => {
 
     const uiStateContext = useContext(UIStateContext);
 
-    const userLogin = (
+    const userLoginMenuItem = (
             <LinkItemButtonCSS onClick={ () => {uiStateContext.setDisplayLoginComponent(true)} }>
                 <FormattedMessage id="menu_login" defaultMessage={'LOGIN'}/>
             </LinkItemButtonCSS>
-        );
+    );
 
-    const userLogout = (
+    const userLogoutMenuItem = (
             <LinkItemButtonCSS 
-            onClick={ () => {
-                    //TODO there should be a controller which logs out/in a user and does
-                    //the other actions like 1. starting to retrieve data from server,
-                    //2. navigates to home page on logout
-                    uiStateContext.setUserAuthenticationStatus(UserAuthStatus.UNAUTHENTICATED);
-                    // not displaying any message box related to log out action.
-                    uiStateContext.setDisplayLogoutComponent(false);
-                    props.history.push({pathname: '/'});
-                } 
-            }
+                onClick={ () => {
+                        //TODO there should be a controller which logs out/in a user and does
+                        //the other actions like 1. starting to retrieve data from server,
+                        //2. navigates to home page on logout
+                        uiStateContext.setUserAuthenticationStatus(UserAuthStatus.UNAUTHENTICATED);
+                        // not displaying any message box related to log out action.
+                        uiStateContext.setDisplayLogoutComponent(false);
+                        props.history.push({pathname: '/'});
+                    } }
             >
                 <FormattedMessage id="menu_logout" defaultMessage={'LOGOUT'}/>
             </LinkItemButtonCSS>
-        );
+    );
+
+    const myAccountMenuItem = (
+        <NavItemButtonCSS link="/my_account" >
+            <FormattedMessage id="menu_my_account" defaultMessage={'MY ACCOUNT'}/>
+        </NavItemButtonCSS>
+    );
 
     return (
         <NavListView style={classesMenu.Menu}>
@@ -78,13 +83,13 @@ const ClinicMenuView = (props) => {
             <NavItemButtonCSS link="/appointment" >
                 <FormattedMessage id="menu_new_appointment" defaultMessage={'NEW APPOINTMENT'}/>
             </NavItemButtonCSS>
-            <NavItemButtonCSS link="/my_account" >
-                <FormattedMessage id="menu_my_account" defaultMessage={'MY ACCOUNT'}/>
-            </NavItemButtonCSS>
 
-            { 
-                uiStateContext.userAuthStatus !== UserAuthStatus.UNAUTHENTICATED ? 
-                    userLogout : userLogin 
+            { uiStateContext.userAuthStatus !== UserAuthStatus.UNAUTHENTICATED ? 
+                myAccountMenuItem : null
+            }
+
+            { uiStateContext.userAuthStatus !== UserAuthStatus.UNAUTHENTICATED ? 
+                    userLogoutMenuItem : userLoginMenuItem
             }
 
         </NavListView>
