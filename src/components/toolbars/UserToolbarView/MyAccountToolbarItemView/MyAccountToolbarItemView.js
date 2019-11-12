@@ -13,13 +13,14 @@ const NavItemButton = withProps(NavItemButton_NoStyle,
         styleTextActive: classes.Active
     });
 
-export default () => (
+const MyAccountToolbarItemView = () => (
     <div className={classes.MyAccount}>
         <NavListView style={classes.Menu}>
-        {/*<NavItemButton link="/my_account" >*/}
-        <NavItemButton link="/login" >
+        <NavItemButton link="/my_account" >
             <FormattedMessage id="toolbar_my_account" defaultMessage={'My Account'}/>
         </NavItemButton>
         </NavListView>
     </div>
 );
+
+export default MyAccountToolbarItemView;
