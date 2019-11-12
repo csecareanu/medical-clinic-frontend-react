@@ -103,7 +103,7 @@ class LoginExistingAccount extends React.Component {
                         () => {this.onTestLoginAdmin(this.props.onLoginSucceeded)} 
                     }
                 >
-                    Test login as admin
+                    Test login as a doctor
                 </Button>
 
                 <FormControlsView.HorizontalSep repeat='2'/>

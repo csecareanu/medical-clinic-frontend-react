@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { withRouter } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
 
 import classesMenu from '../menu.module.css';
@@ -44,10 +45,12 @@ const ClinicMenuView = (props) => {
             <LinkItemButtonCSS 
             onClick={ () => {
                     //TODO there should be a controller which logs out/in a user and does
-                    //the other actions like starting to retrieve data from server.
+                    //the other actions like 1. starting to retrieve data from server,
+                    //2. navigates to home page on logout
                     uiStateContext.setUserAuthenticationStatus(UserAuthStatus.UNAUTHENTICATED);
                     // not displaying any message box related to log out action.
                     uiStateContext.setDisplayLogoutComponent(false);
+                    props.history.push({pathname: '/'});
                 } 
             }
             >
@@ -88,4 +91,4 @@ const ClinicMenuView = (props) => {
     );
 }
 
-export default ClinicMenuView;
+export default withRouter(ClinicMenuView);
