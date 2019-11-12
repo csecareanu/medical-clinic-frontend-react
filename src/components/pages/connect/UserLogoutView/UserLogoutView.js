@@ -1,7 +1,7 @@
 import React from 'react';
 
-export default () => (
-    <div>
-        
-    </div>
+const UserLogoutView = () => (
+    <div></div>
 );
+
+export default UserLogoutView;

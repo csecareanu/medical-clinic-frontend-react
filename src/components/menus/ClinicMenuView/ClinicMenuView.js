@@ -35,13 +35,22 @@ const ClinicMenuView = (props) => {
     const uiStateContext = useContext(UIStateContext);
 
     const userLogin = (
-            <LinkItemButtonCSS onClick={ () => uiStateContext.setDisplayLoginComponent(true) }>
+            <LinkItemButtonCSS onClick={ () => {uiStateContext.setDisplayLoginComponent(true)} }>
                 <FormattedMessage id="menu_login" defaultMessage={'LOGIN'}/>
             </LinkItemButtonCSS>
         );
 
     const userLogout = (
-            <LinkItemButtonCSS onClick={ () => uiStateContext.setDisplayLogoutComponent(false) }>
+            <LinkItemButtonCSS 
+            onClick={ () => {
+                    //TODO there should be a controller which logs out/in a user and does
+                    //the other actions like starting to retrieve data from server.
+                    uiStateContext.setUserAuthenticationStatus(UserAuthStatus.UNAUTHENTICATED);
+                    // not displaying any message box related to log out action.
+                    uiStateContext.setDisplayLogoutComponent(false);
+                } 
+            }
+            >
                 <FormattedMessage id="menu_logout" defaultMessage={'LOGOUT'}/>
             </LinkItemButtonCSS>
         );

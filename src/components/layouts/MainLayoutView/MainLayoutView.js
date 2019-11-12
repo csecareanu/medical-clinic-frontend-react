@@ -3,16 +3,19 @@ import React from 'react';
 import classes from './MainLayoutView.module.css';
 import FooterView from '../../FooterView/FooterView';
 import UserLoginView from '../../pages/connect/UserLoginView/UserLoginView';
+import UserLogoutView from '../../pages/connect/UserLogoutView/UserLogoutView';
 import UIStateContext from '../../UIState/UIState-context';
 
 class Layout extends React.Component {
+
+  static contextType = UIStateContext;
+
   render() {
     return (
       <main className={classes.LayoutContainer}>
 
-        <UIStateContext.Consumer>
-          { context => (context.displayLoginComponent? <UserLoginView /> : null) }
-        </UIStateContext.Consumer>
+        {this.context.displayLoginComponent? <UserLoginView /> : null}
+        {this.context.displayLogoutComponent? <UserLogoutView /> : null}
 
         <div className={classes.HeaderContainer}>
           {this.props.header}
