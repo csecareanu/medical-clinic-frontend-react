@@ -24,12 +24,12 @@ const UIStateContext = React.createContext({
     loggedIntoPatientAccount: false,
     displayLoginComponent: false,
     displayLogoutComponent: false,
-    displaySideDrawerComponent: false,
+    displayMenuSideDrawerComponent: false,
     setUserAuthenticationStatus: (userAuthStatus) => {},
     setLoggedIntoPatientAccount: (isLoggedIn) => {},    
     setDisplayLoginComponent: (show) => {},
     setDisplayLogoutComponent: (show) => {},
-    setDisplaySideDrawerComponent: (show) => {}
+    setDisplayMenuSideDrawerComponent: (show) => {}
 });
 
 export default UIStateContext;

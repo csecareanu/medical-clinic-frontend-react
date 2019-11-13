@@ -1,34 +1,53 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import classes from './MainLayoutView.module.css';
+import commonClasses from '../../../common.module.css';
 import FooterView from '../../FooterView/FooterView';
 import UserLoginView from '../../pages/connect/UserLoginView/UserLoginView';
 import UserLogoutView from '../../pages/connect/UserLogoutView/UserLogoutView';
 import UIStateContext from '../../UIState/UIState-context';
+import MenuSideDrawerView from '../../side-drawers/MenuSideDrawerView/MenuSideDrawerView';
 
-class Layout extends React.Component {
+const MainLayoutView = (props) => {
 
-  static contextType = UIStateContext;
+    const uiStateContext = useContext(UIStateContext);
 
-  render() {
     return (
-      <main className={classes.LayoutContainer}>
+        <main className={classes.LayoutContainer}>
 
-        {this.context.displayLoginComponent? <UserLoginView /> : null}
-        {this.context.displayLogoutComponent? <UserLogoutView /> : null}
+            {uiStateContext.displayMenuSideDrawerComponent ?
+                <div className={commonClasses.SmallScreenOnly}>
+                    <MenuSideDrawerView />
+                </div>
+            :
+                null
+            }
 
-        <div className={classes.HeaderContainer}>
-          {this.props.header}
-        </div>
-        <div className={classes.BodyContainer}>
-          {this.props.children}
-        </div>
-        <div className={classes.FooterContainer}>
-          <FooterView />
-        </div>
-      </main>
+            {uiStateContext.displayLoginComponent ? 
+                <UserLoginView /> 
+            : 
+                null
+            }
+
+            {uiStateContext.displayLogoutComponent ? 
+                <UserLogoutView /> 
+            : 
+                null
+            }
+
+            <div className={classes.HeaderContainer}>
+                {props.header}
+            </div>
+
+            <div className={classes.BodyContainer}>
+                {props.children}
+            </div>
+            
+            <div className={classes.FooterContainer}>
+                <FooterView />
+            </div>
+        </main>
     );
 }
-}
 
-export default Layout;
+export default MainLayoutView;

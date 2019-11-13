@@ -2,10 +2,10 @@
 import React from 'react';
 
 import MainLayoutView from '../../../layouts/MainLayoutView/MainLayoutView';
-import MainHdr from '../../../headers/MainHdr/MainHdr';
+import MainHdrView from '../../../headers/MainHdrView/MainHdrView';
 
 export default () => (
-    <MainLayoutView header={<MainHdr />}>
+    <MainLayoutView header={<MainHdrView />}>
         <h1>My account Page</h1>
     </MainLayoutView>
 );
