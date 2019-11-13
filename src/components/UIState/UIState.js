@@ -18,7 +18,8 @@ class UIState extends React.Component {
         userAuthStatus: UserAuthStatus.UNAUTHENTICATED,
         loggedIntoPatientAccount: false,
         displayLoginComponent: false,
-        displayLogoutComponent: false
+        displayLogoutComponent: false,
+        displaySideDrawerComponent: false
     }
 
     setUserAuthenticationStatus = (userAuthenticationType) => {
@@ -35,7 +36,11 @@ class UIState extends React.Component {
 
     setDisplayLogoutComponent = (show) => {
         this.setState({displayLogoutComponent: show});
-    }    
+    }
+
+    setDisplaySideDrawerComponent = (show) => {
+        this.setState({displaySideDrawerComponent: show});
+    }
 
     render () {
         return (
@@ -46,11 +51,13 @@ class UIState extends React.Component {
                     loggedIntoPatientAccount: this.state.loggedIntoPatientAccount,
                     displayLoginComponent: this.state.displayLoginComponent,
                     displayLogoutComponent: this.state.displayLogoutComponent,
+                    displaySideDrawerComponent: this.state.displaySideDrawerComponent,
                     // methods
                     setUserAuthenticationStatus: this.setUserAuthenticationStatus,
                     setLoggedIntoPatientAccount: this.setLoggedIntoPatientAccount,
                     setDisplayLoginComponent: this.setDisplayLoginComponent,
-                    setDisplayLogoutComponent: this.setDisplayLogoutComponent
+                    setDisplayLogoutComponent: this.setDisplayLogoutComponent,
+                    setDisplaySideDrawerComponent: this.setDisplaySideDrawerComponent
                 }}
             >
                 {this.props.children}
