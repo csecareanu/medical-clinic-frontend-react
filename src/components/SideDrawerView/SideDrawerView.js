@@ -1,8 +1,8 @@
 import React from 'react';
 
 import classes from './SideDrawerView.module.css';
-import Backdrop from '../../UI/Backdrop/Backdrop';
-import BrandLargeView from '../../UI/BrandLargeView/BrandLargeView';
+import Backdrop from '../UI/Backdrop/Backdrop';
+import BrandLargeView from '../UI/BrandLargeView/BrandLargeView';
 import SideDrawerToggleButton from './SideDrawerToggleButton/SideDrawerToggleButton';
 
 export default (props) => {

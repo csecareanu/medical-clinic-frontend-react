@@ -10,7 +10,7 @@ import AboutClinicToolbarView from '../../toolbars/AboutClinicToolbarView/AboutC
 import UserToolbarView from '../../toolbars/UserToolbarView/UserToolbarView';
 import MenuToolbarView from '../../toolbars/MenuToolbarView/MenuToolbarView';
 import SideDrawerToolbarView from '../../toolbars/SideDrawerToolbarView/SideDrawerToolbarView';
-import SideDrawerView from '../../menus/SideDrawerView/SideDrawerView';
+import SideDrawerView from '../../SideDrawerView/SideDrawerView';
 import UIStateContext, { UserAuthStatus } from '../../UIState/UIState-context';
 
 class MainHdr extends React.Component {
