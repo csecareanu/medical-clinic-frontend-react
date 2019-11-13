@@ -21,13 +21,13 @@ class MainHdr extends React.Component {
         sideDrawerVisible: false
     }
 
-    showSideDrawerHandler = () => {
+    onShowSideDrawer = () => {
         return this.setState({
             sideDrawerVisible: true
         });
     }    
 
-    closeSideDrawerHandler = () => {
+    onCloseSideDrawer = () => {
         return this.setState({
             sideDrawerVisible: false
         });
@@ -52,7 +52,7 @@ class MainHdr extends React.Component {
                     <div className={classes.MenuToggle_UserAccount_Toolbars}>
                         <div className={commonClasses.SmallScreenOnly}>
                             <SideDrawerToolbarView 
-                                showSideDrawerHandler={this.showSideDrawerHandler}
+                                onShowSideDrawer={this.onShowSideDrawer}
                             />
                         </div>
                         <UserToolbarView />
@@ -62,7 +62,7 @@ class MainHdr extends React.Component {
                     <div className={commonClasses.SmallScreenOnly}>
                         <SideDrawerView 
                             open={this.state.sideDrawerVisible}
-                            closeHandler={this.closeSideDrawerHandler}
+                            onClose={this.onCloseSideDrawer}
                         >
                             {menuContent}
                         </SideDrawerView>

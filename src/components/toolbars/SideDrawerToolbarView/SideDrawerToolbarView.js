@@ -8,7 +8,7 @@ export default (props) => (
     <div className={classes.Toolbar}>
         <SideDrawerToggleButton 
             type={SideDrawerButtonType.OPEN} 
-            clickHandler={props.showSideDrawerHandler}
+            onClick={props.onShowSideDrawer}
         />
     </div>
 );

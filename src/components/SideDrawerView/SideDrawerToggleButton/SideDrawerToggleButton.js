@@ -13,6 +13,7 @@ import classes from './SideDrawerToggleButton.module.css';
  * 
  * @param {SideDrawerButtonType} props.type - The type of the displayed button which determines 
  * the visual style.
+ * @param {function} onClick - Callback to be notified when the button is clicked
  */
 const SideDrawerToggleButton = (props) => {
     
@@ -20,7 +21,7 @@ const SideDrawerToggleButton = (props) => {
                                         classes.TypeOpen : classes.TypeClose;
 
     return (
-        <div className={classes.Button} onClick={props.clickHandler}>
+        <div className={classes.Button} onClick={props.onClick}>
             <div className={buttonTypeStyle}/>
             <div className={buttonTypeStyle}/>
             <div className={buttonTypeStyle}/>

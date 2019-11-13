@@ -14,14 +14,14 @@ export default (props) => {
     }
     return (
         <React.Fragment>
-            <Backdrop show={props.open} clickHandler={props.closeHandler}/>
+            <Backdrop show={props.open} onClick={props.onClose}/>
             <div className={attachedClasses.join(' ')}>
                 <div className={classes.Logo}>
                     <BrandLargeView />
                 </div>
                 <SideDrawerToggleButton 
                         type={SideDrawerButtonType.CLOSE} 
-                        clickHandler={props.closeHandler}
+                        onClick={props.onClose}
                 />
                 <nav>
                    {props.children}

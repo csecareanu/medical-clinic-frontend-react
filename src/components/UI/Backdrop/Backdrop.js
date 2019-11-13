@@ -7,7 +7,7 @@ export default (props) => (
     props.show ?
         <div
             className={classes.Backdrop}
-            onClick={props.clickHandler}
+            onClick={props.onClick}
         />
     : 
         null
