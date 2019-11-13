@@ -13,8 +13,14 @@
     align-items: center;
 }
 
-.Button div {
+.TypeOpen {
     width: 90%;
     height: 3px;
     background-color: #6B2022;
+}
+
+.TypeClose {
+    width: 90%;
+    height: 3px;
+    background-color: #D01B1F;
 }

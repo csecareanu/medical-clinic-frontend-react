@@ -3,7 +3,8 @@ import React from 'react';
 import classes from './SideDrawerView.module.css';
 import Backdrop from '../UI/Backdrop/Backdrop';
 import BrandLargeView from '../UI/BrandLargeView/BrandLargeView';
-import SideDrawerToggleButton from './SideDrawerToggleButton/SideDrawerToggleButton';
+import SideDrawerToggleButton, { SideDrawerButtonType } 
+            from './SideDrawerToggleButton/SideDrawerToggleButton';
 
 export default (props) => {
     /* The SideDrawer is visible only on small screens */
@@ -18,7 +19,10 @@ export default (props) => {
                 <div className={classes.Logo}>
                     <BrandLargeView />
                 </div>
-                <SideDrawerToggleButton clickHandler={props.closeHandler}/>
+                <SideDrawerToggleButton 
+                        type={SideDrawerButtonType.CLOSE} 
+                        clickHandler={props.closeHandler}
+                />
                 <nav>
                    {props.children}
                 </nav>
