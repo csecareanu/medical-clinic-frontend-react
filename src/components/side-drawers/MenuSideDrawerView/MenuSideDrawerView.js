@@ -9,14 +9,18 @@ const onClose = (uiStateContext) => {
     uiStateContext.setDisplayMenuSideDrawerComponent(false);
 }
 
+const onMenuItemSelect = (uiStateContext) => {
+    uiStateContext.setDisplayMenuSideDrawerComponent(false);
+}
+
 const MenuSideDrawerView = () => {
     const uiStateContext = useContext(UIStateContext);
     return (
         <SideDrawerView show onClose={ () => {onClose(uiStateContext)} }>
           {uiStateContext.userAuthStatus === UserAuthStatus.DOCTOR ? 
-              <DoctorMenuView /> : null
+              <DoctorMenuView onItemSelect={ () => {onMenuItemSelect(uiStateContext)} } /> : null
           }
-          <ClinicMenuView />
+          <ClinicMenuView onItemSelect={ () => {onMenuItemSelect(uiStateContext)} } />
         </SideDrawerView>
     );
 }

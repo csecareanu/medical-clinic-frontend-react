@@ -5,7 +5,7 @@ const onClick = (event, callback) => {
     // prevent the navigation
     event.preventDefault();
     if(callback) {
-        callback(event);
+        callback();
     }
 }
 

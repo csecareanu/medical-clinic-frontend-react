@@ -14,14 +14,24 @@ const NavItemButton = withProps(NavItemButton_NoStyle,
         styleTextActive: classesMenu.ActiveAdmin
     });
 
-const DoctorMenuView = () => (
+const DoctorMenuView = (props) => (
     <NavListView style={classesMenu.Menu}>
-        <NavItemButton link="/doctor">
+
+        <NavItemButton 
+            link="/doctor"
+            onClick={props.onItemSelect}
+        >
             <FormattedMessage id="menu_administration" defaultMessage={'ADMINISTRATION'}/>
         </NavItemButton>
-        <NavItemButton link="/log_into_patient_account">
-            <FormattedMessage id="menu_log_into_patient_account" defaultMessage={'LOG INTO PATIENT ACCOUNT'}/>
+
+        <NavItemButton 
+            link="/log_into_patient_account"
+            onClick={props.onItemSelect}
+        >
+            <FormattedMessage 
+                id="menu_log_into_patient_account" defaultMessage={'LOG INTO PATIENT ACCOUNT'}/>
         </NavItemButton>
+
     </NavListView>
 );
 

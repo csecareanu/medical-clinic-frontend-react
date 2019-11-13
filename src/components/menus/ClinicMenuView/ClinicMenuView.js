@@ -36,7 +36,15 @@ const ClinicMenuView = (props) => {
     const uiStateContext = useContext(UIStateContext);
 
     const userLoginMenuItem = (
-            <LinkItemButtonCSS onClick={ () => {uiStateContext.setDisplayLoginComponent(true)} }>
+            <LinkItemButtonCSS 
+                onClick={ () => {
+                    //TODO see the comment from userLogoutMenuItem
+                    uiStateContext.setDisplayLoginComponent(true);
+                    if(props.onItemSelect) {
+                        props.onItemSelect();
+                    }
+                }}
+            >
                 <FormattedMessage id="menu_login" defaultMessage={'LOGIN'}/>
             </LinkItemButtonCSS>
     );
@@ -51,36 +59,63 @@ const ClinicMenuView = (props) => {
                         // not displaying any message box related to log out action.
                         uiStateContext.setDisplayLogoutComponent(false);
                         props.history.push({pathname: '/'});
-                    } }
+                        if(props.onItemSelect) {
+                            props.onItemSelect();
+                        }
+                    }}
             >
                 <FormattedMessage id="menu_logout" defaultMessage={'LOGOUT'}/>
             </LinkItemButtonCSS>
     );
 
     const myAccountMenuItem = (
-        <NavItemButtonCSS link="/my_account" >
+        <NavItemButtonCSS link="/my_account" onClick={props.onItemSelect}>
             <FormattedMessage id="menu_my_account" defaultMessage={'MY ACCOUNT'}/>
         </NavItemButtonCSS>
     );
 
     return (
         <NavListView style={classesMenu.Menu}>
-            <NavItemButtonCSS link="/" exact >
-                <FormattedMessage id="menu_home" defaultMessage={'HOME'}/>
+            <NavItemButtonCSS 
+                link="/" 
+                exact 
+                onClick={props.onItemSelect}
+            >
+                <FormattedMessage id="menu_home" defaultMessage={'HOME'} />
             </NavItemButtonCSS>
-            <NavItemButtonCSS link="/doctors" >
-                <FormattedMessage id="menu_doctors" defaultMessage={'DOCTORS'}/>
+
+            <NavItemButtonCSS 
+                link="/doctors" 
+                onClick={props.onItemSelect}
+            >
+                <FormattedMessage id="menu_doctors" defaultMessage={'DOCTORS'} />
             </NavItemButtonCSS>
-            <NavItemButtonCSS link="/about" >
-                <FormattedMessage id="menu_about_clinic" defaultMessage={'ABOUT CLINIC'}/>
+
+            <NavItemButtonCSS 
+                link="/about" 
+                onClick={props.onItemSelect}
+            >
+                <FormattedMessage id="menu_about_clinic" defaultMessage={'ABOUT CLINIC'} />
             </NavItemButtonCSS>
-            <NavItemButtonCSS link="/contact" >
+
+            <NavItemButtonCSS 
+                link="/contact" 
+                onClick={props.onItemSelect} 
+            >
                 <FormattedMessage id="menu_contact" defaultMessage={'CONTACT'}/>
             </NavItemButtonCSS>
-            <NavItemButtonCSS link="/prices" >
+
+            <NavItemButtonCSS 
+                link="/prices" 
+                onClick={props.onItemSelect}
+            >
                 <FormattedMessage id="menu_prices" defaultMessage={'PRICES'}/>
             </NavItemButtonCSS>
-            <NavItemButtonCSS link="/appointment" >
+
+            <NavItemButtonCSS 
+                link="/appointment" 
+                onClick={props.onItemSelect}
+            >
                 <FormattedMessage id="menu_new_appointment" defaultMessage={'NEW APPOINTMENT'}/>
             </NavItemButtonCSS>
 
