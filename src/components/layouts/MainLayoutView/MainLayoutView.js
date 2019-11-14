@@ -5,8 +5,12 @@ import commonClasses from '../../../common.module.css';
 import FooterView from '../../FooterView/FooterView';
 import UserLoginView from '../../pages/connect/UserLoginView/UserLoginView';
 import UserLogoutView from '../../pages/connect/UserLogoutView/UserLogoutView';
-import UIStateContext from '../../UIState/UIState-context';
+import UIStateContext, { UserAuthStatus } from '../../UIState/UIState-context';
 import MenuSideDrawerView from '../../side-drawers/MenuSideDrawerView/MenuSideDrawerView';
+
+const onCloseMenuSideDrawer = (uiStateContext) => {
+    uiStateContext.setDisplayMenuSideDrawerComponent(false);
+}
 
 const MainLayoutView = (props) => {
 
@@ -17,7 +21,10 @@ const MainLayoutView = (props) => {
 
             {uiStateContext.displayMenuSideDrawerComponent ?
                 <div className={commonClasses.SmallScreenOnly}>
-                    <MenuSideDrawerView />
+                    <MenuSideDrawerView 
+                        onClose={ () => {onCloseMenuSideDrawer(uiStateContext)}} 
+                        isLoggedUserDoctor={uiStateContext.userAuthStatus === UserAuthStatus.DOCTOR}
+                    />
                 </div>
             :
                 null

@@ -1,26 +1,23 @@
-import React, { useContext } from 'react';
+import React from 'react';
 
-import UIStateContext, { UserAuthStatus } from '../../UIState/UIState-context';
 import SideDrawerView from '../SideDrawerView/SideDrawerView';
 import DoctorMenuView from '../../menus/DoctorMenuView/DoctorMenuView';
 import ClinicMenuView from '../../menus/ClinicMenuView/ClinicMenuView';
 
-const onClose = (uiStateContext) => {
-    uiStateContext.setDisplayMenuSideDrawerComponent(false);
-}
-
-const onMenuItemSelect = (uiStateContext) => {
-    uiStateContext.setDisplayMenuSideDrawerComponent(false);
-}
-
-const MenuSideDrawerView = () => {
-    const uiStateContext = useContext(UIStateContext);
+/**
+ * Presentational component used to display the main menu in a side drawer window.
+ * 
+ * @param {boolean} props.isLoggedUserDoctor - True if the logged user is a doctor. 
+ * The menu differs depending on user type.
+ * @param {function} props.onClose - Callback used to notify the parent to close the side drawer.
+ */
+const MenuSideDrawerView = (props) => {
     return (
-        <SideDrawerView show onClose={ () => {onClose(uiStateContext)} }>
-          {uiStateContext.userAuthStatus === UserAuthStatus.DOCTOR ? 
-              <DoctorMenuView onItemSelect={ () => {onMenuItemSelect(uiStateContext)} } /> : null
+        <SideDrawerView show onClose={props.onClose}>
+          {props.isLoggedUserDoctor ? 
+              <DoctorMenuView onItemSelect={props.onClose} /> : null
           }
-          <ClinicMenuView onItemSelect={ () => {onMenuItemSelect(uiStateContext)} } />
+          <ClinicMenuView onItemSelect={props.onClose} />
         </SideDrawerView>
     );
 }
