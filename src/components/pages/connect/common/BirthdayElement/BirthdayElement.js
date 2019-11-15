@@ -11,7 +11,7 @@ const ELEMENTS = {
 };
 
 /**
- * The component should still be a presentational one even though it uses an internal state
+ * The component is still a presentational one even though it uses an internal state
  * to store values from keyboard input.
  */
 class BirthdayElement extends React.Component {

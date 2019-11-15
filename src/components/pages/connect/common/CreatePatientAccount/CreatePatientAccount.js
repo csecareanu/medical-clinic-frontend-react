@@ -20,7 +20,7 @@ const ELEMENTS = {
 /**
  * Form which displays the controls and buttons to create a new account.
  * 
- * The component should still be a presentational one even though it uses an internal state
+ * The component is still a presentational one even though it uses an internal state
  * to store values from keyboard input.
  * 
  * @param {boolean} showAdminControls - If true displays controls available only for users with 
@@ -67,16 +67,16 @@ class CreatePatientAccount extends React.Component {
             [elementId]: updatedElement
         };
 
-        this.setState({elementsStatus: updatedElementsStatus});
+        this.setState({ elementsStatus: updatedElementsStatus });
     }
 
     onCreateAccount = (callback) => {
         if (callback) {
             callback();
         }
-    }    
+    }
 
-    render () {
+    render() {
         //TODO 
         const firstNameText = "First Name";
         const lastNameText = "Last Name";
@@ -88,10 +88,10 @@ class CreatePatientAccount extends React.Component {
 
         const noPhoneCheckButton = (
             <React.Fragment>
-                <FormControl.HorizontalSep repeat='4'/>
+                <FormControl.HorizontalSep repeat='4' />
                 <Button type={ButtonType.DANGER} fullWidth onClick={this.props.onAccountCreated}>
-                    <FormattedMessage id="create_account_without_phone_check" 
-                                defaultMessage={'Create Account Without Phone Check'}
+                    <FormattedMessage id="create_account_without_phone_check"
+                        defaultMessage={'Create Account Without Phone Check'}
                     />
                 </Button>
             </React.Fragment>
@@ -99,73 +99,75 @@ class CreatePatientAccount extends React.Component {
 
         return (
             <form>
-                <FormControl.Text 
-                    size={20} 
+                <FormControl.Text
+                    size={20}
                     placeholder={firstNameText}
                     value={this.state.elementsStatus[ELEMENTS.FIRST_NAME].value}
-                    onChange={(event) => {this.inputChangedHandler(event, ELEMENTS.FIRST_NAME)}}
+                    onChange={(event) => { this.inputChangedHandler(event, ELEMENTS.FIRST_NAME) }}
                 />
 
-                <FormControl.Text 
+                <FormControl.Text
                     size={20}
                     placeholder={lastNameText}
                     value={this.state.elementsStatus[ELEMENTS.LAST_NAME].value}
-                    onChange={(event) => {this.inputChangedHandler(event, ELEMENTS.LAST_NAME)}}
+                    onChange={(event) => { this.inputChangedHandler(event, ELEMENTS.LAST_NAME) }}
                 />
 
-                <FormControl.Text 
+                <FormControl.Text
                     size={20}
                     placeholder={phoneNoText}
                     value={this.state.elementsStatus[ELEMENTS.PHONE_NO].value}
-                    onChange={(event) => {this.inputChangedHandler(event, ELEMENTS.PHONE_NO)}}
+                    onChange={(event) => { this.inputChangedHandler(event, ELEMENTS.PHONE_NO) }}
                 />
 
-                <FormControl.Text 
+                <FormControl.Text
                     size={20}
                     placeholder={passwordText}
                     value={this.state.elementsStatus[ELEMENTS.PASSWORD].value}
-                    onChange={(event) => {this.inputChangedHandler(event, ELEMENTS.PASSWORD)}}
+                    onChange={(event) => { this.inputChangedHandler(event, ELEMENTS.PASSWORD) }}
                 />
 
-                <FormControl.Text 
+                <FormControl.Text
                     size={20}
                     placeholder={passwordRepeatText}
                     value={this.state.elementsStatus[ELEMENTS.PASSWORD_REPEAT].value}
-                    onChange={(event) => {this.inputChangedHandler(event, 
-                                                        ELEMENTS.PASSWORD_REPEAT)}}
+                    onChange={(event) => {
+                        this.inputChangedHandler(event,
+                            ELEMENTS.PASSWORD_REPEAT)
+                    }}
                 />
 
-                <FormControl.Text 
+                <FormControl.Text
                     size={20}
                     placeholder={cityText}
                     value={this.state.elementsStatus[ELEMENTS.CITY].value}
-                    onChange={(event) => {this.inputChangedHandler(event, ELEMENTS.CITY)}}
+                    onChange={(event) => { this.inputChangedHandler(event, ELEMENTS.CITY) }}
                 />
 
-                <FormControl.Text 
+                <FormControl.Text
                     size={20}
                     placeholder={countyText}
                     value={this.state.elementsStatus[ELEMENTS.COUNTY].value}
-                    onChange={(event) => {this.inputChangedHandler(event, ELEMENTS.COUNTY)}}
+                    onChange={(event) => { this.inputChangedHandler(event, ELEMENTS.COUNTY) }}
                 />
 
-                <BirthdayElement/>
+                <BirthdayElement />
 
-                <GenderElement/>
+                <GenderElement />
 
-                <FormControl.HorizontalSep repeat='2'/>
+                <FormControl.HorizontalSep repeat='2' />
 
-                <Button 
-                    type={ButtonType.SUCCESS} 
+                <Button
+                    type={ButtonType.SUCCESS}
                     fullWidth
-                    onClick={ () => {this.onCreateAccount(this.props.onAccountCreated)} }
+                    onClick={() => { this.onCreateAccount(this.props.onAccountCreated) }}
                 >
-                    <FormattedMessage id="create_account" defaultMessage={'Create Account'}/>
+                    <FormattedMessage id="create_account" defaultMessage={'Create Account'} />
                 </Button>
 
-                {this.props.showAdminControls? noPhoneCheckButton : null}       
+                {this.props.showAdminControls ? noPhoneCheckButton : null}
             </form>
-        );    
+        );
     }
 }
 
