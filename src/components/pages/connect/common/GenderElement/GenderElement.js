@@ -10,7 +10,7 @@ const GenderType = {
 
 const RadioGroupName='gender';
 
-const GenderElementView = (props) => {
+const GenderElement = (props) => {
     const genderLabel = <FormattedMessage id="label_gender" defaultMessage={'Gender:'}/>
     const maleText = <FormattedMessage id="gender_male" defaultMessage={'Male'}/>;
     const femaleText = <FormattedMessage id="gender_female" defaultMessage={'Female'}/>;
@@ -42,4 +42,4 @@ const GenderElementView = (props) => {
     );
 }
 
-export default GenderElementView;
+export default GenderElement;

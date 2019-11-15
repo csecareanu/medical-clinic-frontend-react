@@ -4,7 +4,7 @@ import { FormattedMessage } from 'react-intl';
 import Button, { ButtonType } from '../../../../UI/Button/Button';
 import FormControlsView from '../../../../UI/FormControlsView/FormControlsView';
 import BirthdayElement from '../BirthdayElement/BirthdayElement';
-import GenderElementView from '../GenderElementView/GenderElementView';
+import GenderElement from '../GenderElement/GenderElement';
 
 
 const ELEMENTS = {
@@ -151,7 +151,7 @@ class CreatePatientAccount extends React.Component {
 
                 <BirthdayElement/>
 
-                <GenderElementView/>
+                <GenderElement/>
 
                 <FormControlsView.HorizontalSep repeat='2'/>
 
