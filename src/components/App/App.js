@@ -6,11 +6,11 @@ import UIState from '../UIState/UIState';
 import LogIntoPatientAccountView from '../pages/connect/LogIntoPatientAccountView/LogIntoPatientAccountView';
 import LogOutPatientAccountView from '../pages/connect/LogOutPatientAccountView/LogOutPatientAccountView';
 
-import ClinicMainView from '../pages/clinic/ClinicMainView/ClinicMainView';
-import ClinicAboutView from '../pages/clinic/ClinicAboutView/ClinicAboutView';
-import ClinicContactView from '../pages/clinic/ClinicContactView/ClinicContactView';
-import ClinicDoctorsView from '../pages/clinic/ClinicDoctorsView/ClinicDoctorsView';
-import ClinicPricesView from '../pages/clinic/ClinicPricesView/ClinicPricesView';
+import ClinicMainPage from '../pages/clinic/ClinicMainPage/ClinicMainPage';
+import ClinicAboutPage from '../pages/clinic/ClinicAboutPage/ClinicAboutPage';
+import ClinicContactPage from '../pages/clinic/ClinicContactPage/ClinicContactPage';
+import ClinicDoctorsPage from '../pages/clinic/ClinicDoctorsPage/ClinicDoctorsPage';
+import ClinicPricesPage from '../pages/clinic/ClinicPricesPage/ClinicPricesPage';
 
 import DoctorMainView from '../pages/doctor/DoctorMainView/DoctorMainView';
 import DoctorMyAccountView from '../pages/doctor/DoctorMyAccountView/DoctorMyAccountView';
@@ -34,16 +34,16 @@ function App() {
   return (
     <UIState>
       <Switch>
-        <Route path="/" exact component={ClinicMainView} />
+        <Route path="/" exact component={ClinicMainPage} />
         <Route path="/log_into_patient_account" component={LogIntoPatientAccountView} />
         <Route path="/log_out_patient_account" component={LogOutPatientAccountView} />
 
         <Route path="/appointment" component={PatientNewApptView} />
         <Route path ="/my_account" component={PatientAccountView} />
-        <Route path="/doctors" component={ClinicDoctorsView} />
-        <Route path="/prices" component={ClinicPricesView} />
-        <Route path="/about" component={ClinicAboutView} />
-        <Route path="/contact" component={ClinicContactView} />
+        <Route path="/doctors" component={ClinicDoctorsPage} />
+        <Route path="/prices" component={ClinicPricesPage} />
+        <Route path="/about" component={ClinicAboutPage} />
+        <Route path="/contact" component={ClinicContactPage} />
 
         <Route path="/doctor" exact component={DoctorMainView} />
         <Route path="/doctor/my_account" exact component={DoctorMyAccountView} />

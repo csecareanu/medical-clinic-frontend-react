@@ -10,6 +10,10 @@ const ELEMENTS = {
     BIRTH_YEAR: 2
 };
 
+/**
+ * The component should still be a presentational one even though it uses an internal state
+ * to store values from keyboard input.
+ */
 class BirthdayElement extends React.Component {
     state = {
         elementsStatus: {

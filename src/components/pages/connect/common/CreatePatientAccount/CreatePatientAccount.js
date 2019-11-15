@@ -20,6 +20,9 @@ const ELEMENTS = {
 /**
  * Form which displays the controls and buttons to create a new account.
  * 
+ * The component should still be a presentational one even though it uses an internal state
+ * to store values from keyboard input.
+ * 
  * @param {boolean} showAdminControls - If true displays controls available only for users with 
  * administrator rights (like 'create account without phone check)
  * @param {function} props.onAccountCreated - Callback function to be notified on successfully

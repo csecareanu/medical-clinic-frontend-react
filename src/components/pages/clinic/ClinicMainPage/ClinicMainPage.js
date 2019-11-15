@@ -1,7 +1,7 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
-import classes from './ClinicMainView.module.css';
+import classes from './ClinicMainPage.module.css';
 import MainLayoutContainer from '../../../layouts/MainLayoutContainer/MainLayoutContainer';
 import MainHdrView from '../../../headers/MainHdrView/MainHdrView';
 import ClinicServicesView from './src/ClinicServicesView/ClinicServicesView';
