@@ -2,7 +2,7 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import BirthdayElement from '../BirthdayElement/BirthdayElement';
-import FormControlsView from '../../../../UI/FormControlsView/FormControlsView';
+import FormControl from '../../../../UI/FormControl/FormControl';
 import Button, { ButtonType } from '../../../../UI/Button/Button';
 
 export default () => {
@@ -10,7 +10,7 @@ export default () => {
     return (
         <form>
             <BirthdayElement label={birthDayLabel}/>
-            <FormControlsView.HorizontalSep repeat='2'/>
+            <FormControl.HorizontalSep repeat='2'/>
             <Button type={ButtonType.SUCCESS} fullWidth>
                 <FormattedMessage id="show_patients" defaultMessage={'Show Patients'}/>
             </Button>

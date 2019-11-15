@@ -4,7 +4,7 @@ import { FormattedMessage } from 'react-intl';
 import classes from './LoginExistingAccount.module.css';
 import Button, { ButtonType } from '../../../../UI/Button/Button';
 import LinkButton, { LinkButtonType } from '../../../../UI/LinkButton/LinkButton';
-import FormControlsView from '../../../../UI/FormControlsView/FormControlsView';
+import FormControl from '../../../../UI/FormControl/FormControl';
 import UIStateContext, { UserAuthStatus} from '../../../../UIState/UIState-context';
 
 
@@ -73,21 +73,21 @@ class LoginExistingAccount extends React.Component {
         const passwordText = "Password";
         return (
             <form>
-                <FormControlsView.Text 
+                <FormControl.Text 
                     size={20}
                     placeholder={phoneNoText}
                     value={this.state.elementsStatus[ELEMENTS.PHONE_NO].value}
                     onChange={(event) => {this.inputChangedHandler(event, ELEMENTS.PHONE_NO)}}
                 />
 
-                <FormControlsView.Text 
+                <FormControl.Text 
                     size={20}
                     placeholder={passwordText}
                     value={this.state.elementsStatus[ELEMENTS.PASSWORD].value}
                     onChange={(event) => {this.inputChangedHandler(event, ELEMENTS.PASSWORD)}}
                 />
 
-                <FormControlsView.HorizontalSep repeat='2'/>
+                <FormControl.HorizontalSep repeat='2'/>
 
                 <Button 
                     type={ButtonType.SUCCESS} 
@@ -106,7 +106,7 @@ class LoginExistingAccount extends React.Component {
                     Test login as a doctor
                 </Button>
 
-                <FormControlsView.HorizontalSep repeat='2'/>
+                <FormControl.HorizontalSep repeat='2'/>
                 <div className={classes.ForgotPassButton}>
                     <LinkButton  type={LinkButtonType.DANGER}>
                             <FormattedMessage id="ask_forgot_password" 

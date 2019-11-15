@@ -5,7 +5,7 @@ import classes from './LogIntoPatientAccountView.module.css';
 import SearchPatientView from '../common/SearchPatientView/SearchPatientView';
 import CreatePatientAccount from '../common/CreatePatientAccount/CreatePatientAccount';
 import Button, { ButtonType } from '../../../UI/Button/Button';
-import FormControlsView from '../../../UI/FormControlsView/FormControlsView';
+import FormControl from '../../../UI/FormControl/FormControl';
 import Backdrop from '../../../UI/Backdrop/Backdrop';
 
 
@@ -26,19 +26,19 @@ const logIntoPatientAccountView = () => {
                         </Button>
                     </div>
 
-                    <FormControlsView.HorizontalSep repeat='2'/>
+                    <FormControl.HorizontalSep repeat='2'/>
 
-                    <FormControlsView.Group name={findPatientText} stressedName>
-                        <FormControlsView.HorizontalSep repeat='2'/>
+                    <FormControl.Group name={findPatientText} stressedName>
+                        <FormControl.HorizontalSep repeat='2'/>
                         <SearchPatientView />
-                    </FormControlsView.Group>
+                    </FormControl.Group>
                     
-                    <FormControlsView.HorizontalSep repeat='10'/>
+                    <FormControl.HorizontalSep repeat='10'/>
 
-                    <FormControlsView.Group name={createAccountText} stressedName>
-                        <FormControlsView.HorizontalSep repeat='4'/>
+                    <FormControl.Group name={createAccountText} stressedName>
+                        <FormControl.HorizontalSep repeat='4'/>
                         <CreatePatientAccount showAdminControls/>
-                    </FormControlsView.Group>
+                    </FormControl.Group>
                 </div>
             </div>
         </React.Fragment>

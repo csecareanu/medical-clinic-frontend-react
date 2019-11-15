@@ -1,12 +1,12 @@
 import React from 'react';
 
-import classes from './FormControlsView.module.css';
+import classes from './FormControl.module.css';
 
 /**
  * This class contains controls used on a form.
  * It also has support for grouping controls and add a label to a group.
  */
-const FormControlsView = () =>{return null;}
+const FormControl = () =>{return null;}
 
 /**
  * Creates a group. 
@@ -23,7 +23,7 @@ const FormControlsView = () =>{return null;}
  *                                  the group
  *                                     
  */
-FormControlsView.Group = (props) => {
+FormControl.Group = (props) => {
     const stressedNameClasses = [];
     if(props.stressedName) {
         stressedNameClasses.push(classes.StressedName);
@@ -47,7 +47,7 @@ FormControlsView.Group = (props) => {
                 {props.children}
             </div>
             {/* setting some margin to the bottom */}
-            {props.noHorizontalSepAfter? null : <FormControlsView.HorizontalSep/>}
+            {props.noHorizontalSepAfter? null : <FormControl.HorizontalSep/>}
         </React.Fragment>
     );
 }
@@ -68,7 +68,7 @@ FormControlsView.Group = (props) => {
  *                 boolean      if is not specified an horizontal small space is added after 
  *                                  the control
  */
-FormControlsView.Text = (props) => {
+FormControl.Text = (props) => {
     let validationError = null;
     const inputClasses = [classes.TextElement];
 
@@ -85,7 +85,7 @@ FormControlsView.Text = (props) => {
             {inputElement}
             {validationError}
             {/* setting some margin to the bottom */}
-            {props.noHorizontalSepAfter? null : <FormControlsView.HorizontalSep/>}
+            {props.noHorizontalSepAfter? null : <FormControl.HorizontalSep/>}
         </React.Fragment>
     );
 };
@@ -101,7 +101,7 @@ FormControlsView.Text = (props) => {
  *                      boolean      if is not specified an horizontal small space is added after 
  *                                   the control
  */
-FormControlsView.Radio = (props) => {
+FormControl.Radio = (props) => {
     let validationError = null;
 
     return (
@@ -116,7 +116,7 @@ FormControlsView.Radio = (props) => {
             </label>
             {validationError}
             {/* setting some margin to the bottom */}
-            {props.noHorizontalSepAfter? null : <FormControlsView.HorizontalSep/>}            
+            {props.noHorizontalSepAfter? null : <FormControl.HorizontalSep/>}            
         </React.Fragment>
     );    
 }
@@ -128,7 +128,7 @@ FormControlsView.Radio = (props) => {
  * @param repeat    number      if provided adds the horizontal space the number of times
  *                              specified. If not provided adds one horizontal space.
  */
-FormControlsView.HorizontalSep = (props) => {
+FormControl.HorizontalSep = (props) => {
     
     let separatorsArray = [''];
 
@@ -153,7 +153,7 @@ FormControlsView.HorizontalSep = (props) => {
  * @param repeat    number      if provided adds the vertical space the number of times
  *                              specified. If not provided adds one vertical space.
  */
-FormControlsView.VerticalSep = (props) => {
+FormControl.VerticalSep = (props) => {
     let separatorsArray = [''];
 
     if(props.repeat) {
@@ -170,4 +170,4 @@ FormControlsView.VerticalSep = (props) => {
 }
 
 
-export default FormControlsView;
+export default FormControl;

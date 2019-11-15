@@ -2,7 +2,7 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import classes from './BirthdayElement.module.css';
-import FormControlsView from '../../../../UI/FormControlsView/FormControlsView';
+import FormControl from '../../../../UI/FormControl/FormControl';
 
 const ELEMENTS = {
     BIRTH_DAY: 0,
@@ -60,30 +60,30 @@ class BirthdayElement extends React.Component {
        const birthdayLabel = <FormattedMessage id="label_birthday" defaultMessage={'Birthday:'}/>
 
         return (
-            <FormControlsView.Group name={birthdayLabel}>
+            <FormControl.Group name={birthdayLabel}>
                 <div className={classes.Birthday}>
-                    <FormControlsView.Text 
+                    <FormControl.Text 
                         size={6}
                         placeholder={dayText}
                         value={birthDayElem.value}
                         onChange={(event) => {this.inputChangedHandler(event, ELEMENTS.BIRTH_DAY)}}
                     />
-                    <FormControlsView.VerticalSep/>
-                    <FormControlsView.Text 
+                    <FormControl.VerticalSep/>
+                    <FormControl.Text 
                         size={6} 
                         placeholder= {monthText}
                         value={birthMonthElem.value}
                         onChange={(event) => {this.inputChangedHandler(event, ELEMENTS.BIRTH_MONTH)}}
                     />
-                    <FormControlsView.VerticalSep/>
-                    <FormControlsView.Text 
+                    <FormControl.VerticalSep/>
+                    <FormControl.Text 
                         size={12}
                         placeholder={yearText}
                         value={birthYearElem.value}
                         onChange={(event) => {this.inputChangedHandler(event, ELEMENTS.BIRTH_YEAR)}}
                     />
                 </div>
-            </FormControlsView.Group>
+            </FormControl.Group>
         );
     }
 }
