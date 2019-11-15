@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 
 import classes from './MainLayoutContainer.module.css';
 import commonClasses from '../../../common.module.css';
-import FooterView from '../../FooterView/FooterView';
+import Footer from '../../footers/Footer/Footer';
 import UserLoginView from '../../pages/connect/UserLoginView/UserLoginView';
 import UserLogoutView from '../../pages/connect/UserLogoutView/UserLogoutView';
 import UIStateContext, { UserAuthStatus } from '../../UIState/UIState-context';
@@ -51,7 +51,7 @@ const MainLayoutContainer = (props) => {
             </div>
             
             <div className={classes.FooterContainer}>
-                <FooterView />
+                <Footer />
             </div>
         </main>
     );
