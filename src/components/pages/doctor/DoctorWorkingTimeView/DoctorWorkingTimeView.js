@@ -1,6 +1,6 @@
 import React from 'react';
 
-import MainLayoutView from '../../../layouts/MainLayoutView/MainLayoutView';
+import MainLayoutContainer from '../../../layouts/MainLayoutContainer/MainLayoutContainer';
 import DoctorAdminHdrView from '../../../headers/DoctorAdminHdrView/DoctorAdminHdrView';
 import useCheckAccessAllowed from '../common/useCheckAccessAllowed';
 import AccessNotAllowedView from '../../common/AccessNotAllowedView/AccessNotAllowedView';
@@ -10,9 +10,9 @@ const DoctorWorkingTimeView = () => {
         return <AccessNotAllowedView/>
     }
     return (
-        <MainLayoutView header={<DoctorAdminHdrView />}>
+        <MainLayoutContainer header={<DoctorAdminHdrView />}>
             <h1>Working Time Page</h1>
-        </MainLayoutView>
+        </MainLayoutContainer>
     );
 }
 

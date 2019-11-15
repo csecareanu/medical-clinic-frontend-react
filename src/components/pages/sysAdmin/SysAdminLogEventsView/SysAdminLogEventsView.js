@@ -2,11 +2,11 @@
 
 import React from 'react';
 
-import MainLayoutView from '../../../layouts/MainLayoutView/MainLayoutView';
+import MainLayoutContainer from '../../../layouts/MainLayoutContainer/MainLayoutContainer';
 import SysAdminHdrView from '../../../headers/SysAdminHdrView/SysAdminHdrView';
 
 export default () => (
-    <MainLayoutView header={<SysAdminHdrView />}>
+    <MainLayoutContainer header={<SysAdminHdrView />}>
         <h1>Log Events Page</h1>
-    </MainLayoutView>
+    </MainLayoutContainer>
 );

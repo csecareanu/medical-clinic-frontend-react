@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 
-import classes from './MainLayoutView.module.css';
+import classes from './MainLayoutContainer.module.css';
 import commonClasses from '../../../common.module.css';
 import FooterView from '../../FooterView/FooterView';
 import UserLoginView from '../../pages/connect/UserLoginView/UserLoginView';
@@ -12,7 +12,7 @@ const onCloseMenuSideDrawer = (uiStateContext) => {
     uiStateContext.setDisplayMenuSideDrawerComponent(false);
 }
 
-const MainLayoutView = (props) => {
+const MainLayoutContainer = (props) => {
 
     const uiStateContext = useContext(UIStateContext);
 
@@ -57,4 +57,4 @@ const MainLayoutView = (props) => {
     );
 }
 
-export default MainLayoutView;
+export default MainLayoutContainer;

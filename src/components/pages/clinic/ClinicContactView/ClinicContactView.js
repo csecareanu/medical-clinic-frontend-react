@@ -1,11 +1,11 @@
 
 import React from 'react';
 
-import MainLayoutView from '../../../layouts/MainLayoutView/MainLayoutView';
+import MainLayoutContainer from '../../../layouts/MainLayoutContainer/MainLayoutContainer';
 import MainHdrView from '../../../headers/MainHdrView/MainHdrView';
 
 export default () => (
-    <MainLayoutView header={<MainHdrView />}>
+    <MainLayoutContainer header={<MainHdrView />}>
         <h1>Contact Page</h1>
-    </MainLayoutView>
+    </MainLayoutContainer>
 );
