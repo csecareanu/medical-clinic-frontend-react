@@ -5,20 +5,18 @@ import classes from './LoginExistingAccount.module.css';
 import Button, { ButtonType } from '../../../../UI/Button/Button';
 import LinkButton, { LinkButtonType } from '../../../../UI/LinkButton/LinkButton';
 import FormControl from '../../../../UI/FormControl/FormControl';
-import UIStateContext, { UserAuthStatus} from '../../../../UIState/UIState-context';
 
 
 const ELEMENTS = {
-    PHONE_NO: 0,
-    PASSWORD: 1
+    PHONE_NO: 1,
+    PASSWORD: 2
 }
 
 /**
- * @param {function} props.onLoginSucceeded - Callback function to be notified on successfully login
+ * @param {function(phoneNo, password)} props.onAuthenticate - Callback function to be called 
+ * with the user provided parameters in order to authenticate the user on the server.
  */
 class LoginExistingAccount extends React.Component {
-
-    static contextType = UIStateContext;
 
     state = {
         elementsStatus: {
@@ -46,23 +44,15 @@ class LoginExistingAccount extends React.Component {
     }
 
     /**
-     *  The user has pressed the login button
-     * @param {function} callback if provided by the parent component will notify it on successfully 
+     * The user has pressed the login button
+     * @param {function(phoneNo, password)} authenticationCallback - If provided by the parent 
+     * component will call it in order to authenticate the user
      * login
      */
-    onLogin = (callback) => {
-        this.context.setUserAuthenticationStatus(UserAuthStatus.PATIENT);
-
-        if (callback) {
-            callback();
-        }
-    }
-    
-    onTestLoginAdmin = (callback) => {
-        this.context.setUserAuthenticationStatus(UserAuthStatus.DOCTOR);
-
-        if (callback) {
-            callback();
+    onLogin = (authenticationCallback) => {
+        if (authenticationCallback) {
+            authenticationCallback(this.state.elementsStatus[ELEMENTS.PHONE_NO].value,
+                this.state.elementsStatus[ELEMENTS.PASSWORD].value);
         }
     }
 
@@ -92,18 +82,9 @@ class LoginExistingAccount extends React.Component {
                 <Button 
                     type={ButtonType.SUCCESS} 
                     fullWidth 
-                    onClick={ () => {this.onLogin(this.props.onLoginSucceeded)} }
+                    onClick={ () => {this.onLogin(this.props.onAuthenticate)} }
                 >
                     <FormattedMessage id="log_in" defaultMessage={'Login'}/>
-                </Button>
-                <Button 
-                    type={ButtonType.DANGER} 
-                    fullWidth 
-                    onClick={ 
-                        () => {this.onTestLoginAdmin(this.props.onLoginSucceeded)} 
-                    }
-                >
-                    Test login as a doctor
                 </Button>
 
                 <FormControl.HorizontalSep repeat='2'/>

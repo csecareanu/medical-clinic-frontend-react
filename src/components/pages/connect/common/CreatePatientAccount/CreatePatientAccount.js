@@ -25,8 +25,8 @@ const ELEMENTS = {
  * 
  * @param {boolean} showAdminControls - If true displays controls available only for users with 
  * administrator rights (like 'create account without phone check)
- * @param {function} props.onAccountCreated - Callback function to be notified on successfully
- * account creation
+ * @param {function(accountInfo)} props.onCreateAccount -  Callback function to be called with the 
+ * user provided parameters in order to create a new account
  */
 class CreatePatientAccount extends React.Component {
 
@@ -70,9 +70,9 @@ class CreatePatientAccount extends React.Component {
         this.setState({ elementsStatus: updatedElementsStatus });
     }
 
-    onCreateAccount = (callback) => {
-        if (callback) {
-            callback();
+    onCreateAccount = (createAccountCallback) => {
+        if (createAccountCallback) {
+            createAccountCallback(/*account info*/);
         }
     }
 
@@ -160,7 +160,7 @@ class CreatePatientAccount extends React.Component {
                 <Button
                     type={ButtonType.SUCCESS}
                     fullWidth
-                    onClick={() => { this.onCreateAccount(this.props.onAccountCreated) }}
+                    onClick={() => { this.onCreateAccount(this.props.onCreateAccount) }}
                 >
                     <FormattedMessage id="create_account" defaultMessage={'Create Account'} />
                 </Button>

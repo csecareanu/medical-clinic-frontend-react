@@ -85,14 +85,4 @@ const withProps = (WrappedComponent, newProps) => {
 export default withProps;
 ```
 
-```js
-// Iti pune la dispozitie contextul si returneaza o functie pe post de componenta
-            <UIStateContext.Consumer>
-                { 
-                    context => (
-                        context.userAuthStatus != UserAuthStatus.UNAUTHENTICATED ?
-                        {userLogin} : {userLogout} 
-                    )
-                }
-            </UIStateContext.Consumer>
-```
+

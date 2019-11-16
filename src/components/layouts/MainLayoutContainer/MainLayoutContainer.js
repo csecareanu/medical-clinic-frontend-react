@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import classes from './MainLayoutContainer.module.css';
 import commonClasses from '../../../common.module.css';
 import Footer from '../../footers/Footer/Footer';
-import UserLoginView from '../../pages/connect/UserLoginView/UserLoginView';
+import UserLogin from '../../pages/connect/UserLogin/UserLogin';
 import UserLogoutView from '../../pages/connect/UserLogoutView/UserLogoutView';
 import UIStateContext, { UserAuthStatus } from '../../UIState/UIState-context';
 import MenuSideDrawerView from '../../side-drawers/MenuSideDrawerView/MenuSideDrawerView';
@@ -31,7 +31,7 @@ const MainLayoutContainer = (props) => {
             }
 
             {uiStateContext.displayLoginComponent ? 
-                <UserLoginView /> 
+                <UserLogin /> 
             : 
                 null
             }
