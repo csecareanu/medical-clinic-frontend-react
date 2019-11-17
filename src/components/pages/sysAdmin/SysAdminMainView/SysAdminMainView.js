@@ -2,9 +2,9 @@
 import React from 'react';
 
 import MainLayout from '../../../layouts/MainLayout/MainLayout';
-import SysAdminHdrView from '../../../headers/SysAdminHdrView/SysAdminHdrView';
+import SysAdminHeader from '../../../headers/SysAdminHeader/SysAdminHeader';
 
 export default () => (
-    <MainLayout header={<SysAdminHdrView />}>
+    <MainLayout header={<SysAdminHeader />}>
     </MainLayout>
 );

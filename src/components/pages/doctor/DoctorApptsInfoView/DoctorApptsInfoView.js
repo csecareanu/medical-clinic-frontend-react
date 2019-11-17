@@ -2,7 +2,7 @@
 import React from 'react';
 
 import MainLayout from '../../../layouts/MainLayout/MainLayout';
-import DoctorAdminHdrView from '../../../headers/DoctorAdminHdrView/DoctorAdminHdrView';
+import DoctorHeader from '../../../headers/DoctorHeader/DoctorHeader';
 import useCheckUserAccessAllowed from '../common/useCheckUserAccessAllowed';
 import AccessNotAllowed from '../../common/AccessNotAllowed/AccessNotAllowed';
 
@@ -11,7 +11,7 @@ const DoctorApptsInfoView = () => {
         return <AccessNotAllowed/>
     }
     return (
-        <MainLayout header={<DoctorAdminHdrView />}>
+        <MainLayout header={<DoctorHeader />}>
             <h1>Appointments Info Page</h1>
         </MainLayout>
         );

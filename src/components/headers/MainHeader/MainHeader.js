@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 
-import classes from './MainHdrView.module.css';
+import classes from './MainHeader.module.css';
 import commonClasses from '../../../common.module.css';
 import imgMain from '../../../static/images/main_hdr.jpg';
 import MainImageView from '../common/MainImageView/MainImageView';
@@ -17,7 +17,7 @@ const onShowSideDrawer = (uiStateContext) => {
     uiStateContext.setDisplayMenuSideDrawerComponent(true);
 }
 
-const MainHdrView = (props) => {
+const MainHeader = (props) => {
     const uiStateContext = useContext(UIStateContext);
 
     return (
@@ -52,4 +52,4 @@ const MainHdrView = (props) => {
 
 
 
-export default MainHdrView;
+export default MainHeader;

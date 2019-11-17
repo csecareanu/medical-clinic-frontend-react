@@ -1,6 +1,8 @@
+// @flow
+
 import React from 'react';
 
-import classes from './DoctorAdminHdrView.module.css';
+import classes from './DoctorHeader.module.css';
 import commonClasses from '../../../common.module.css';
 import DoctorAdminMenuView from '../../menus/DoctorAdminMenuView/DoctorAdminMenuView';
 import AboutClinicToolbarView from '../../toolbars/AboutClinicToolbarView/AboutClinicToolbarView';
@@ -8,7 +10,7 @@ import UserToolbarView from '../../toolbars/UserToolbarView/UserToolbarView';
 import MenuToolbarView from '../../toolbars/MenuToolbarView/MenuToolbarView';
 import SideDrawerToolbarView from '../../toolbars/SideDrawerToolbarView/SideDrawerToolbarView';
 
-export default () => (
+const DoctorHeader = () => (
     <header className={classes.Header}>
         <nav>
             <AboutClinicToolbarView />
@@ -27,3 +29,5 @@ export default () => (
         </nav>
     </header>
 );
+
+export default DoctorHeader;

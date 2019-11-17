@@ -3,10 +3,10 @@
 import React from 'react';
 
 import MainLayout from '../../../layouts/MainLayout/MainLayout';
-import MainHdrView from '../../../headers/MainHdrView/MainHdrView';
+import MainHeader from '../../../headers/MainHeader/MainHeader';
 
 export default () => (
-    <MainLayout header={<MainHdrView />}>
+    <MainLayout header={<MainHeader />}>
         <h1>Contact Page</h1>
     </MainLayout>
 );
