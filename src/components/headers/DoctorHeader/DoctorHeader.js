@@ -10,14 +10,20 @@ import UserToolbarView from '../../toolbars/UserToolbarView/UserToolbarView';
 import MenuToolbarView from '../../toolbars/MenuToolbarView/MenuToolbarView';
 import SideDrawerToolbarView from '../../toolbars/SideDrawerToolbarView/SideDrawerToolbarView';
 
-const DoctorHeader = () => (
+type Props = {
+    onOpenMenuSideDrawer: () => void
+}
+
+const DoctorHeader = (props: Props) => (
     <header className={classes.Header}>
         <nav>
             <AboutClinicToolbarView />
             <div className={classes.ToolbarHSeparator} />
             <div className={classes.MenuToggle_UserAccount_Toolbars}>
                 <div className={commonClasses.SmallScreenOnly}>
-                    <SideDrawerToolbarView />
+                    <SideDrawerToolbarView 
+                        onShowSideDrawer={ props.onOpenMenuSideDrawer }
+                    />
                 </div>
                 <UserToolbarView />
             </div>

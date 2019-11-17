@@ -11,10 +11,16 @@ const layoutContainer = {
     displayMenuSideDrawerComponent: (false: boolean),
     displayLoginComponent: (false: boolean),
     displayLogoutComponent: (false: boolean),
-
+    onOpenMenuSideDrawer: () : void => {
+        if(layoutContainer.uiStateContext == null) {
+            console.log("MainLayoutContainer. onOpenMenuSideDrawer. uiStateContext not set");
+            return;
+        }        
+        layoutContainer.uiStateContext.setDisplayMenuSideDrawerComponent(true);
+    },    
     onCloseMenuSideDrawer: () : void => {
         if(layoutContainer.uiStateContext == null) {
-            console.log("MainLayoutContainer. uiStateContext not set");
+            console.log("MainLayoutContainer. onCloseMenuSideDrawer. uiStateContext not set");
             return;
         }        
         layoutContainer.uiStateContext.setDisplayMenuSideDrawerComponent(false);

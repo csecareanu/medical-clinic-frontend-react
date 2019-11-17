@@ -1,4 +1,6 @@
-import React, { useContext } from 'react';
+// @flow
+
+import React from 'react';
 
 import classes from './MainHeader.module.css';
 import commonClasses from '../../../common.module.css';
@@ -10,16 +12,14 @@ import AboutClinicToolbarView from '../../toolbars/AboutClinicToolbarView/AboutC
 import UserToolbarView from '../../toolbars/UserToolbarView/UserToolbarView';
 import MenuToolbarView from '../../toolbars/MenuToolbarView/MenuToolbarView';
 import SideDrawerToolbarView from '../../toolbars/SideDrawerToolbarView/SideDrawerToolbarView';
-import UIStateContext from '../../../react-context/UIState/UIState-context';
 import { UserAuthType } from '../../../common/UserAuthType';
 
-const onShowSideDrawer = (uiStateContext) => {
-    uiStateContext.setDisplayMenuSideDrawerComponent(true);
+type Props = {
+    userAuthStatus: UserAuthType,
+    onOpenMenuSideDrawer: () => void
 }
 
-const MainHeader = (props) => {
-    const uiStateContext = useContext(UIStateContext);
-
+const MainHeader = (props: Props) => {
     return (
         <header className={classes.Header}>
             <nav>
@@ -28,7 +28,7 @@ const MainHeader = (props) => {
                 <div className={classes.MenuToggle_UserAccount_Toolbars}>
                     <div className={commonClasses.SmallScreenOnly}>
                         <SideDrawerToolbarView 
-                            onShowSideDrawer={ () => {onShowSideDrawer(uiStateContext)} }
+                            onShowSideDrawer={ props.onOpenMenuSideDrawer }
                         />
                     </div>
                     <UserToolbarView />
@@ -37,7 +37,7 @@ const MainHeader = (props) => {
 
                 <div className={commonClasses.LargeScreenOnly} >
                     <MenuToolbarView>
-                        {uiStateContext.userAuthStatus === UserAuthType.DOCTOR ? 
+                        {props.userAuthStatus === UserAuthType.DOCTOR ? 
                             <DoctorMenuView /> : null
                         }
                         <ClinicMenuView />

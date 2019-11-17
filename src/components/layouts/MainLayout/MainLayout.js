@@ -18,6 +18,7 @@ const MainLayout = (props: Props) => {
                 (containerData) => (
                     <MainLayoutView
                         displayMenuSideDrawerComponent={containerData.displayMenuSideDrawerComponent}
+                        onOpenMenuSideDrawer={containerData.onOpenMenuSideDrawer}
                         onCloseMenuSideDrawer={containerData.onCloseMenuSideDrawer}
                         userAuthStatus={containerData.userAuthStatus}
                         displayLoginComponent={containerData.displayLoginComponent}

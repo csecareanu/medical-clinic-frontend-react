@@ -14,23 +14,10 @@ import UserLogin from '../../pages/connect/UserLogin/UserLogin';
 import UserLogoutView from '../../pages/connect/UserLogoutView/UserLogoutView';
 import MenuSideDrawerView from '../../side-drawers/MenuSideDrawerView/MenuSideDrawerView';
 
-const getHeaderComponent = ( headerType: PageHeaderType) : React.Node => {
-  switch (headerType) {
-        case PageHeaderType.MAIN:
-            return <MainHeader />;
-        case PageHeaderType.DOCTOR:
-            return <DoctorHeader />;
-        case PageHeaderType.SYS_ADMIN:
-            return <SysAdminHeader />;
-        default:
-            console.log("MainLayoutView. Unknown header component provided: " + headerType);
-    }
-    return null;
-}
-
 type Props = {
     headerType: PageHeaderType,
     displayMenuSideDrawerComponent: boolean,
+    onOpenMenuSideDrawer: () => void,
     onCloseMenuSideDrawer: () => void,
     userAuthStatus: UserAuthType,
     displayLoginComponent: boolean,
@@ -40,7 +27,7 @@ type Props = {
 
 const MainLayoutView = (props: Props) => {
 
-    const headerComponent = getHeaderComponent(props.headerType);
+    const headerComponent = getHeaderComponent(props);
 
     return (
         <main className={classes.Layout}>
@@ -81,6 +68,27 @@ const MainLayoutView = (props: Props) => {
             </div>
         </main>
     );
+}
+
+const getHeaderComponent = (props: Props) : React.Node => {
+  switch (props.headerType) {
+        case PageHeaderType.MAIN:
+            return (
+                <MainHeader                     
+                    userAuthStatus={props.userAuthStatus}
+                    onOpenMenuSideDrawer={props.onOpenMenuSideDrawer}
+            /> );
+        case PageHeaderType.DOCTOR:
+            return (
+                <DoctorHeader                     
+                    onOpenMenuSideDrawer={props.onOpenMenuSideDrawer}
+            /> );     
+        case PageHeaderType.SYS_ADMIN:
+            return <SysAdminHeader />;
+        default:
+            console.log("MainLayoutView. Unknown header component provided: " + props.headerType);
+    }
+    return null;
 }
 
 export default MainLayoutView;
