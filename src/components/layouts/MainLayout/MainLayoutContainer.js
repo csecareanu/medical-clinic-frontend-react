@@ -1,7 +1,6 @@
 import { useContext } from 'react';
 
-import UIStateContext from '../../UIState/UIState-context';
-import { UserAuthStatus } from '../../common/UserAuthStatus';
+import UIStateContext from '../../../react-context/UIState/UIState-context';
 
 const layoutContainer = {
     uiStateContext: null,

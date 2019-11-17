@@ -2,7 +2,7 @@
 import * as React from 'react';
 
 import UIStateContext from './UIState-context';
-import { UserAuthStatus } from '../common/UserAuthStatus';
+import { UserAuthType } from '../../common/UserAuthType';
 
 
 type Props = {
@@ -30,7 +30,7 @@ type State = {
 class UIState extends React.Component<Props, State> {
 
     state = {
-        userAuthStatus: UserAuthStatus.UNAUTHENTICATED,
+        userAuthStatus: UserAuthType.UNAUTHENTICATED,
         loggedIntoPatientAccount: false,
         displayLoginComponent: false,
         displayLogoutComponent: false,

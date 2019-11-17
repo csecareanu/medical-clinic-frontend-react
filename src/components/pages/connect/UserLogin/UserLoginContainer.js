@@ -1,27 +1,27 @@
 // @flow
 import * as React from 'react';
-import UIStateContext from '../../../UIState/UIState-context';
-import { UserAuthStatus } from '../../../common/UserAuthStatus';
+import UIStateContext from '../../../../react-context/UIState/UIState-context';
+import { UserAuthType } from '../../../../common/UserAuthType';
 
 const loginContainer = {
     uiStateContext: null,
 
     onAuthenticate: function (phoneNo: string, password: string) {
         if(phoneNo === "d" && password === "d") {
-            this.uiStateContext.setUserAuthenticationStatus(UserAuthStatus.DOCTOR);
+            this.uiStateContext.setUserAuthenticationStatus(UserAuthType.DOCTOR);
         }
         else if (phoneNo === "s" && password === "s") {
-            this.uiStateContext.setUserAuthenticationStatus(UserAuthStatus.SITE_ADMIN);
+            this.uiStateContext.setUserAuthenticationStatus(UserAuthType.SITE_ADMIN);
         }
         else {
-            this.uiStateContext.setUserAuthenticationStatus(UserAuthStatus.PATIENT);
+            this.uiStateContext.setUserAuthenticationStatus(UserAuthType.PATIENT);
         }
 
         this.uiStateContext.setDisplayLoginComponent(false);
     },
 
     onCreateAccount: function (/*accountInfo*/) {
-        this.uiStateContext.setUserAuthenticationStatus(UserAuthStatus.PATIENT);
+        this.uiStateContext.setUserAuthenticationStatus(UserAuthType.PATIENT);
         this.uiStateContext.setDisplayLoginComponent(false);
     },
 

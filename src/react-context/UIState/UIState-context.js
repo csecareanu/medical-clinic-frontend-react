@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { UserAuthStatus } from '../common/UserAuthStatus';
+import { UserAuthType } from '../../common/UserAuthType';
 
 /**
  * Context provided by the UIState component
@@ -13,7 +13,7 @@ import { UserAuthStatus } from '../common/UserAuthStatus';
  * 
  */
 const UIStateContext = React.createContext({
-    userAuthStatus: UserAuthStatus.UNAUTHENTICATED,
+    userAuthStatus: UserAuthType.UNAUTHENTICATED,
     // a doctor can log into any patient account in order to create an appointment for the patient
     loggedIntoPatientAccount: false,
     displayLoginComponent: false,

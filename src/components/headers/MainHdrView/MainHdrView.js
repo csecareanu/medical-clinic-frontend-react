@@ -10,8 +10,8 @@ import AboutClinicToolbarView from '../../toolbars/AboutClinicToolbarView/AboutC
 import UserToolbarView from '../../toolbars/UserToolbarView/UserToolbarView';
 import MenuToolbarView from '../../toolbars/MenuToolbarView/MenuToolbarView';
 import SideDrawerToolbarView from '../../toolbars/SideDrawerToolbarView/SideDrawerToolbarView';
-import UIStateContext from '../../UIState/UIState-context';
-import { UserAuthStatus } from '../../common/UserAuthStatus';
+import UIStateContext from '../../../react-context/UIState/UIState-context';
+import { UserAuthType } from '../../../common/UserAuthType';
 
 const onShowSideDrawer = (uiStateContext) => {
     uiStateContext.setDisplayMenuSideDrawerComponent(true);
@@ -37,7 +37,7 @@ const MainHdrView = (props) => {
 
                 <div className={commonClasses.LargeScreenOnly} >
                     <MenuToolbarView>
-                        {uiStateContext.userAuthStatus === UserAuthStatus.DOCTOR ? 
+                        {uiStateContext.userAuthStatus === UserAuthType.DOCTOR ? 
                             <DoctorMenuView /> : null
                         }
                         <ClinicMenuView />

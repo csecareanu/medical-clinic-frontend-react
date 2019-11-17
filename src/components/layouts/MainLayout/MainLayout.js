@@ -3,7 +3,7 @@ import React from 'react';
 
 import MainLayoutView from './MainLayoutView';
 import MainLayoutContainer from './MainLayoutContainer';
-import { UserAuthStatus } from '../../common/UserAuthStatus';
+import { UserAuthType } from '../../../common/UserAuthType';
 
 const MainLayout = (props) => {
     return (
@@ -13,7 +13,7 @@ const MainLayout = (props) => {
                     <MainLayoutView
                         displayMenuSideDrawerComponent={containerData.displayMenuSideDrawerComponent}
                         onCloseMenuSideDrawer={containerData.onCloseMenuSideDrawer}
-                        isLoggedUserADoctor={containerData.userAuthStatus === UserAuthStatus.DOCTOR}
+                        isLoggedUserADoctor={containerData.userAuthStatus === UserAuthType.DOCTOR}
                         displayLoginComponent={containerData.displayLoginComponent}
                         displayLogoutComponent={containerData.displayLogoutComponent}
                         header={props.header} 

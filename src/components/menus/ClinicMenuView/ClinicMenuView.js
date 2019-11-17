@@ -7,8 +7,8 @@ import NavListView from '../../UI/NavListView/NavListView';
 import NavItemButton from '../../UI/NavListView/NavItemButton/NavItemButton';
 import LinkItemButton from '../../UI/NavListView/LinkItemButton/LinkItemButton';
 import withProps from '../../hoc/withProps';
-import UIStateContext from '../../UIState/UIState-context';
-import { UserAuthStatus } from '../../common/UserAuthStatus';
+import UIStateContext from '../../../react-context/UIState/UIState-context';
+import { UserAuthType } from '../../../common/UserAuthType';
 
 /**
  * By default NavItemButton does not have any CSS attached. 
@@ -56,7 +56,7 @@ const ClinicMenuView = (props) => {
                         //TODO there should be a controller which logs out/in a user and does
                         //the other actions like 1. starting to retrieve data from server,
                         //2. navigates to home page on logout
-                        uiStateContext.setUserAuthenticationStatus(UserAuthStatus.UNAUTHENTICATED);
+                        uiStateContext.setUserAuthenticationStatus(UserAuthType.UNAUTHENTICATED);
                         // not displaying any message box related to log out action.
                         uiStateContext.setDisplayLogoutComponent(false);
                         props.history.push({pathname: '/'});
@@ -120,11 +120,11 @@ const ClinicMenuView = (props) => {
                 <FormattedMessage id="menu_new_appointment" defaultMessage={'NEW APPOINTMENT'}/>
             </NavItemButtonCSS>
 
-            { uiStateContext.userAuthStatus !== UserAuthStatus.UNAUTHENTICATED ? 
+            { uiStateContext.userAuthStatus !== UserAuthType.UNAUTHENTICATED ? 
                 myAccountMenuItem : null
             }
 
-            { uiStateContext.userAuthStatus !== UserAuthStatus.UNAUTHENTICATED ? 
+            { uiStateContext.userAuthStatus !== UserAuthType.UNAUTHENTICATED ? 
                     userLogoutMenuItem : userLoginMenuItem
             }
 

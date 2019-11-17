@@ -1,13 +1,13 @@
 import { useContext } from 'react';
-import UIStateContext from '../../../UIState/UIState-context';
-import { UserAuthStatus } from '../../../common/UserAuthStatus';
+import UIStateContext from '../../../../react-context/UIState/UIState-context';
+import { UserAuthType } from '../../../../common/UserAuthType';
 
 /**
  * Custom hook to be used in all 'doctor' pages.
  */
 const useCheckAccessAllowed = () => {
     const uiStateContext = useContext(UIStateContext);
-    if(uiStateContext.userAuthStatus !== UserAuthStatus.DOCTOR) {
+    if(uiStateContext.userAuthStatus !== UserAuthType.DOCTOR) {
         return false;
     }
     return true;
