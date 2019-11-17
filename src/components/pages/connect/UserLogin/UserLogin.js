@@ -14,8 +14,8 @@ const UserLogin = () => {
                         onAuthenticate={(phoneNo, password) => {
                             containerData.onAuthenticate(phoneNo, password)
                         }}
-                        onCreateAccount={(accountInfo) => {
-                            containerData.onCreateAccount(accountInfo);
+                        onCreateAccount={(/*accountInfo*/) => {
+                            containerData.onCreateAccount(/*accountInfo*/);
                         }}
                         onCancel={() => {
                             containerData.onCancel();

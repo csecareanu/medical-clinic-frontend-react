@@ -1,8 +1,15 @@
+// @flow
+
 import React from 'react';
+import typeof { FormattedMessage } from 'react-intl';
 
 import classes from './ClinicServiceView.module.css';
 
-export default (props) => (
+type Props = {
+    img: string,
+    title: FormattedMessage
+}
+export default (props: Props) => (
     <div className={classes.ServiceContainer}>
         <img className={classes.Image} src={props.img} alt="" />
         <div className={classes.TitleContainer}>

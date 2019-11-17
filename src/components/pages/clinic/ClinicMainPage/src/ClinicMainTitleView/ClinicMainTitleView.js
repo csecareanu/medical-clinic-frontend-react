@@ -1,9 +1,14 @@
+// @flow
+
 import React from 'react';
+import type { FormattedMessage } from 'react-intl';
 
 import classes from './ClinicMainTitleView.module.css';
 
-
-export default (props) => (
+type Props = {
+    text: FormattedMessage;
+}
+export default (props: Props) => (
     <h1 className={classes.Title}>
          {props.text}          
     </h1>

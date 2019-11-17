@@ -1,11 +1,11 @@
-
-import { useContext } from 'react';
+// @flow
+import * as React from 'react';
 import UIStateContext, { UserAuthStatus } from '../../../UIState/UIState-context';
 
 const loginContainer = {
     uiStateContext: null,
 
-    onAuthenticate: function (phoneNo, password) {
+    onAuthenticate: function (phoneNo: string, password: string) {
         if(phoneNo === "d" && password === "d") {
             this.uiStateContext.setUserAuthenticationStatus(UserAuthStatus.DOCTOR);
         }
@@ -19,7 +19,7 @@ const loginContainer = {
         this.uiStateContext.setDisplayLoginComponent(false);
     },
 
-    onCreateAccount: function (/*, accountInfo*/) {
+    onCreateAccount: function (/*accountInfo*/) {
         this.uiStateContext.setUserAuthenticationStatus(UserAuthStatus.PATIENT);
         this.uiStateContext.setDisplayLoginComponent(false);
     },
@@ -29,8 +29,10 @@ const loginContainer = {
     }
 }
 
-
-export default (props) => {
-    loginContainer.uiStateContext = useContext(UIStateContext);
+type Props = {
+    children: (containerData: typeof loginContainer) => React.Node
+}
+export default (props: Props) => {
+    loginContainer.uiStateContext = React.useContext(UIStateContext);
     return (props.children)(loginContainer);
 }

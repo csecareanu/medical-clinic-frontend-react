@@ -1,3 +1,4 @@
+// @flow
 import React, { useEffect } from 'react';
 import { FormattedMessage } from 'react-intl';
 
@@ -25,6 +26,12 @@ const useEffectSetup = () => {
     }, []);
 }
 
+type Props = {
+    onAuthenticate: (phoneNo: string, password: string) => void,
+    onCreateAccount: () => void,
+    onCancel: () => void
+}
+
 /**
  * 
  * @param {function(phoneNo, password)} props.onAuthenticate - Callback function passed to
@@ -33,7 +40,7 @@ const useEffectSetup = () => {
  * CreatePatientAccount component in order to create a new account
  * @param {function} props.onCancel - Callback function to cancel the authentication request
  */
-const UserLoginView = (props) => {
+const UserLoginView = (props: Props) => {
     useEffectSetup();
 
     const createAccountText = <FormattedMessage id="label_no_account_create_one" 
