@@ -4,9 +4,10 @@ import * as React from 'react';
 
 import MainLayoutView from './MainLayoutView';
 import MainLayoutContainer from './MainLayoutContainer';
+import { PageHeaderType }  from '../../../common/PageHeaderType';
 
 type Props = {
-    header: React.Node,
+    headerType: PageHeaderType,
     children: React.Node
 }
 
@@ -21,7 +22,7 @@ const MainLayout = (props: Props) => {
                         userAuthStatus={containerData.userAuthStatus}
                         displayLoginComponent={containerData.displayLoginComponent}
                         displayLogoutComponent={containerData.displayLogoutComponent}
-                        header={props.header} 
+                        headerType={props.headerType} 
                     >
                         {props.children}
                     </MainLayoutView> 
