@@ -9,7 +9,7 @@ import { PageHeaderType } from '../../../common/PageHeaderType';
 import MainHeader from '../../headers/MainHeader/MainHeader';
 import DoctorHeader from '../../headers/DoctorHeader/DoctorHeader';
 import SysAdminHeader from '../../headers/SysAdminHeader/SysAdminHeader';
-import Footer from '../../footers/Footer/Footer';
+import MainFooter from '../../footers/MainFooter/MainFooter';
 import UserLogin from '../../pages/connect/UserLogin/UserLogin';
 import UserLogoutView from '../../pages/connect/UserLogoutView/UserLogoutView';
 import MenuSideDrawerView from '../../side-drawers/MenuSideDrawerView/MenuSideDrawerView';
@@ -77,7 +77,7 @@ const MainLayoutView = (props: Props) => {
             </div>
             
             <div className={classes.Footer}>
-                <Footer />
+                <MainFooter />
             </div>
         </main>
     );

@@ -1,11 +1,13 @@
+// @flow
+
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
 
-import classes from './Footer.module.css';
+import classes from './MainFooter.module.css';
 
 
-export default () => (
+const MainFooter = () => (
     <footer className={classes.Footer}>
         <div className={classes.InfoContainer}>
             <div className={classes.InfoBox}>
@@ -73,3 +75,5 @@ export default () => (
         <div className={classes.CopyrightBox}><p>© 2019 Tai Chi Medical</p></div>
     </footer>
 );
+
+export default MainFooter;
