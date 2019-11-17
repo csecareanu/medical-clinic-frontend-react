@@ -3,11 +3,11 @@ import React from 'react';
 
 import MainLayout from '../../../layouts/MainLayout/MainLayout';
 import DoctorAdminHdrView from '../../../headers/DoctorAdminHdrView/DoctorAdminHdrView';
-import useCheckAccessAllowed from '../common/useCheckAccessAllowed';
+import useCheckUserAccessAllowed from '../common/useCheckUserAccessAllowed';
 import AccessNotAllowed from '../../common/AccessNotAllowed/AccessNotAllowed';
 
 const DoctorApptsInfoView = () => {
-    if (!useCheckAccessAllowed()) {
+    if (!useCheckUserAccessAllowed()) {
         return <AccessNotAllowed/>
     }
     return (
