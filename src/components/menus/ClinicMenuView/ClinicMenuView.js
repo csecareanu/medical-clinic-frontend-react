@@ -7,7 +7,8 @@ import NavListView from '../../UI/NavListView/NavListView';
 import NavItemButton from '../../UI/NavListView/NavItemButton/NavItemButton';
 import LinkItemButton from '../../UI/NavListView/LinkItemButton/LinkItemButton';
 import withProps from '../../hoc/withProps';
-import UIStateContext, { UserAuthStatus }from '../../UIState/UIState-context';
+import UIStateContext from '../../UIState/UIState-context';
+import { UserAuthStatus } from '../../common/UserAuthStatus';
 
 /**
  * By default NavItemButton does not have any CSS attached. 

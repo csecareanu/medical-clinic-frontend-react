@@ -2,19 +2,19 @@
 How to keep your footer where it belongs:
 https://www.freecodecamp.org/news/how-to-keep-your-footer-where-it-belongs-59c6aa05c59c/
 */
-.LayoutContainer {
+.Layout {
     position: relative;
     min-height: 100vh; /* 100% from view port */
   }
 
-  .HeaderContainer {
+  .Header {
     display: flex;
     justify-content: center;
     max-width: 1500px;
     margin: auto;
   }
 
-  .BodyContainer {
+  .Body {
     display: flex;
     justify-content: center;
     max-width: 1100px;
@@ -25,7 +25,7 @@ https://www.freecodecamp.org/news/how-to-keep-your-footer-where-it-belongs-59c6a
     padding-bottom: 14rem;    /* Footer height */
   }
 
-  .FooterContainer {
+  .Footer {
     position: absolute;
     bottom: 0;
     height: 14rem;  /* Footer height. Must be the same with 'padding-bottom' from .PageContainer */

@@ -10,7 +10,8 @@ import AboutClinicToolbarView from '../../toolbars/AboutClinicToolbarView/AboutC
 import UserToolbarView from '../../toolbars/UserToolbarView/UserToolbarView';
 import MenuToolbarView from '../../toolbars/MenuToolbarView/MenuToolbarView';
 import SideDrawerToolbarView from '../../toolbars/SideDrawerToolbarView/SideDrawerToolbarView';
-import UIStateContext, { UserAuthStatus } from '../../UIState/UIState-context';
+import UIStateContext from '../../UIState/UIState-context';
+import { UserAuthStatus } from '../../common/UserAuthStatus';
 
 const onShowSideDrawer = (uiStateContext) => {
     uiStateContext.setDisplayMenuSideDrawerComponent(true);

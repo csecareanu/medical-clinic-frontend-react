@@ -1,11 +1,11 @@
 
 import React from 'react';
 
-import MainLayoutContainer from '../../../layouts/MainLayoutContainer/MainLayoutContainer';
+import MainLayout from '../../../layouts/MainLayout/MainLayout';
 import MainHdrView from '../../../headers/MainHdrView/MainHdrView';
 
 export default () => (
-    <MainLayoutContainer header={<MainHdrView />}>
+    <MainLayout header={<MainHdrView />}>
         <h1>New/Modify Appointment</h1>
-    </MainLayoutContainer>
+    </MainLayout>
 );

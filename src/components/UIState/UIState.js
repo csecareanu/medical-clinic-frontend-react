@@ -1,7 +1,8 @@
 // @flow
 import * as React from 'react';
 
-import UIStateContext, { UserAuthStatus } from './UIState-context';
+import UIStateContext from './UIState-context';
+import { UserAuthStatus } from '../common/UserAuthStatus';
 
 
 type Props = {

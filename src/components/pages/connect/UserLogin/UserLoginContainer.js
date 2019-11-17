@@ -1,6 +1,7 @@
 // @flow
 import * as React from 'react';
-import UIStateContext, { UserAuthStatus } from '../../../UIState/UIState-context';
+import UIStateContext from '../../../UIState/UIState-context';
+import { UserAuthStatus } from '../../../common/UserAuthStatus';
 
 const loginContainer = {
     uiStateContext: null,

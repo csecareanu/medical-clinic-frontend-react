@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-import MainLayoutContainer from '../../../layouts/MainLayoutContainer/MainLayoutContainer';
+import MainLayout from '../../../layouts/MainLayout/MainLayout';
 import DoctorAdminHdrView from '../../../headers/DoctorAdminHdrView/DoctorAdminHdrView';
 import useCheckAccessAllowed from '../common/useCheckAccessAllowed';
 import AccessNotAllowed from '../../common/AccessNotAllowed/AccessNotAllowed';
@@ -12,9 +12,9 @@ const DoctorLogEventsView = () => {
         return <AccessNotAllowed/>
     }
     return (
-        <MainLayoutContainer header={<DoctorAdminHdrView />}>
+        <MainLayout header={<DoctorAdminHdrView />}>
             <h1>Doctor Events Page</h1>
-        </MainLayoutContainer>
+        </MainLayout>
     );
 }
 

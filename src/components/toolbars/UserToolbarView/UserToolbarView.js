@@ -3,7 +3,8 @@ import React, { useContext } from 'react';
 import classes from './UserToolbarView.module.css';
 import NewAppointmentToolbarItemView from './NewAppointmentToolbarItemView/NewAppointmentToolbarItemView';
 import MyAccountToolbarItemView from './MyAccountToolbarItemView/MyAccountToolbarItemView';
-import UIStateContext, { UserAuthStatus } from '../../UIState/UIState-context';
+import UIStateContext from '../../UIState/UIState-context';
+import { UserAuthStatus } from '../../common/UserAuthStatus';
 
 const UserToolbarView = () => {
     const uiStateContext = useContext(UIStateContext);

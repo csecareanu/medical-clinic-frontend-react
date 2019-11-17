@@ -1,12 +1,6 @@
 import React from 'react';
 
-export const UserAuthStatus = {
-    UNAUTHENTICATED: 0,
-    PATIENT: 1,
-    DOCTOR: 2,
-    SITE_ADMIN: 3
-    
-}
+import { UserAuthStatus } from '../common/UserAuthStatus';
 
 /**
  * Context provided by the UIState component

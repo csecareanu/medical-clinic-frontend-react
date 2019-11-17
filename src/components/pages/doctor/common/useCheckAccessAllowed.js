@@ -1,5 +1,6 @@
 import { useContext } from 'react';
-import UIStateContext, { UserAuthStatus } from '../../../UIState/UIState-context';
+import UIStateContext from '../../../UIState/UIState-context';
+import { UserAuthStatus } from '../../../common/UserAuthStatus';
 
 /**
  * Custom hook to be used in all 'doctor' pages.

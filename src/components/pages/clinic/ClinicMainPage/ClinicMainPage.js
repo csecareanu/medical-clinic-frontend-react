@@ -4,7 +4,7 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import classes from './ClinicMainPage.module.css';
-import MainLayoutContainer from '../../../layouts/MainLayoutContainer/MainLayoutContainer';
+import MainLayout from '../../../layouts/MainLayout/MainLayout';
 import MainHdrView from '../../../headers/MainHdrView/MainHdrView';
 import ClinicServicesView from './src/ClinicServicesView/ClinicServicesView';
 import ClinicDescView from './src/ClinicDescView/ClinicDescView';
@@ -14,7 +14,7 @@ export default () => {
     const clinicNameText =  <FormattedMessage id="main_page_clinic_name" defaultMessage={'TAI CHI MEDICAL'} />;
     const clinicOurServicesText =  <FormattedMessage id="main_page_our_services" defaultMessage={'OUR SERVICES'} />;
     return (
-        <MainLayoutContainer header={<MainHdrView />}>
+        <MainLayout header={<MainHdrView />}>
 
             <div className={classes.MainView}>
                 
@@ -28,6 +28,6 @@ export default () => {
 
                 <div className={classes.SectionSep}></div>
             </div>
-        </MainLayoutContainer>
+        </MainLayout>
     );
 }
