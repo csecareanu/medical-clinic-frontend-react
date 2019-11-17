@@ -1,3 +1,5 @@
+// @flow
+
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
@@ -12,11 +14,23 @@ const ELEMENTS = {
     PASSWORD: 2
 }
 
+type AuthenticationCallback = (phoneNo: string, password: string) => void;
+
+type Props = {
+    onAuthenticate: AuthenticationCallback
+}
+
+type State = {
+    elementsStatus: { 
+        [number]: { value: string}
+    }
+}
+
 /**
  * @param {function(phoneNo, password)} props.onAuthenticate - Callback function to be called 
  * with the user provided parameters in order to authenticate the user on the server.
  */
-class LoginExistingAccount extends React.Component {
+class LoginExistingAccount extends React.Component<Props, State> {
 
     state = {
         elementsStatus: {
@@ -29,7 +43,7 @@ class LoginExistingAccount extends React.Component {
         }
     }
 
-    inputChangedHandler = (event, elementId) => {
+    inputChangedHandler = (event: SyntheticInputEvent<HTMLInputElement>, elementId: number) => {
         let updatedElement = {
             ...this.state.elementsStatus[elementId],
             value: event.target.value
@@ -49,7 +63,7 @@ class LoginExistingAccount extends React.Component {
      * component will call it in order to authenticate the user
      * login
      */
-    onLogin = (authenticationCallback) => {
+    onLogin = (authenticationCallback: AuthenticationCallback ) => {
         if (authenticationCallback) {
             authenticationCallback(this.state.elementsStatus[ELEMENTS.PHONE_NO].value,
                 this.state.elementsStatus[ELEMENTS.PASSWORD].value);

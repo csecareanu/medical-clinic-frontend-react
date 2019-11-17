@@ -1,3 +1,5 @@
+// @flow
+
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
@@ -10,7 +12,7 @@ const GenderType = {
 
 const RadioGroupName='gender';
 
-const GenderElement = (props) => {
+const GenderElement = () => {
     const genderLabel = <FormattedMessage id="label_gender" defaultMessage={'Gender:'}/>
     const maleText = <FormattedMessage id="gender_male" defaultMessage={'Male'}/>;
     const femaleText = <FormattedMessage id="gender_female" defaultMessage={'Female'}/>;

@@ -1,4 +1,6 @@
-import React from 'react';
+// @flow
+
+import * as React from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import classes from './BirthdayElement.module.css';
@@ -10,11 +12,20 @@ const ELEMENTS = {
     BIRTH_YEAR: 2
 };
 
+type Props = {
+}
+
+type State = {
+    elementsStatus: { 
+        [number]: { value: string}
+    }
+}
+
 /**
  * The component is still a presentational one even though it uses an internal state
  * to store values from keyboard input.
  */
-class BirthdayElement extends React.Component {
+class BirthdayElement extends React.Component<Props, State> {
     state = {
         elementsStatus: {
             [ELEMENTS.BIRTH_DAY]: {
@@ -29,7 +40,7 @@ class BirthdayElement extends React.Component {
         }
     }
 
-    inputChangedHandler = (event, elementId) => {
+    inputChangedHandler = (event: SyntheticInputEvent<HTMLInputElement>, elementId: number) => {
         const updatedElement = {
             ...this.state.elementsStatus[elementId],
             value: event.target.value
