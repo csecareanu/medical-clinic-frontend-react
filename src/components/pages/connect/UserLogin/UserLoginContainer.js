@@ -19,12 +19,12 @@ const loginContainer = {
         this.uiStateContext.setDisplayLoginComponent(false);
     },
 
-    onCreateAccount: (/*, accountInfo*/) => {
+    onCreateAccount: function (/*, accountInfo*/) {
         this.uiStateContext.setUserAuthenticationStatus(UserAuthStatus.PATIENT);
         this.uiStateContext.setDisplayLoginComponent(false);
     },
 
-    onCancel: () => {
+    onCancel: function () {
         this.uiStateContext.setDisplayLoginComponent(false);
     }
 }
