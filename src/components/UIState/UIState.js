@@ -1,7 +1,20 @@
-
-import React from 'react';
+// @flow
+import * as React from 'react';
 
 import UIStateContext, { UserAuthStatus } from './UIState-context';
+
+
+type Props = {
+  children?: React.Node
+};
+
+type State = {
+  userAuthStatus: number,
+  loggedIntoPatientAccount: boolean,
+  displayLoginComponent: boolean,
+  displayLogoutComponent: boolean,
+  displayMenuSideDrawerComponent: boolean
+};
 
 /**
  * Component used to share global user interface state.
@@ -13,7 +26,7 @@ import UIStateContext, { UserAuthStatus } from './UIState-context';
  * @param props.children - The JSX content which will be rendered and which will have access
  * to this context.
  */
-class UIState extends React.Component {
+class UIState extends React.Component<Props, State> {
 
     state = {
         userAuthStatus: UserAuthStatus.UNAUTHENTICATED,
@@ -21,26 +34,6 @@ class UIState extends React.Component {
         displayLoginComponent: false,
         displayLogoutComponent: false,
         displayMenuSideDrawerComponent: false
-    }
-
-    setUserAuthenticationStatus = (userAuthenticationType) => {
-        this.setState({userAuthStatus: userAuthenticationType});
-    }
-
-    setLoggedIntoPatientAccount = (isLoggedIn) => {
-        this.setState({loggedIntoPatientAccount: isLoggedIn});
-    }
-
-    setDisplayLoginComponent = (show) => {
-        this.setState({displayLoginComponent: show});
-    }
-
-    setDisplayLogoutComponent = (show) => {
-        this.setState({displayLogoutComponent: show});
-    }
-
-    setDisplayMenuSideDrawerComponent = (show) => {
-        this.setState({displayMenuSideDrawerComponent: show});
     }
 
     render () {
@@ -54,11 +47,21 @@ class UIState extends React.Component {
                     displayLogoutComponent: this.state.displayLogoutComponent,
                     displayMenuSideDrawerComponent: this.state.displayMenuSideDrawerComponent,
                     // methods
-                    setUserAuthenticationStatus: this.setUserAuthenticationStatus,
-                    setLoggedIntoPatientAccount: this.setLoggedIntoPatientAccount,
-                    setDisplayLoginComponent: this.setDisplayLoginComponent,
-                    setDisplayLogoutComponent: this.setDisplayLogoutComponent,
-                    setDisplayMenuSideDrawerComponent: this.setDisplayMenuSideDrawerComponent
+                    setUserAuthenticationStatus: (userAuthenticationType: number) => { 
+                        this.setState({userAuthStatus: userAuthenticationType}) 
+                    },
+                    setLoggedIntoPatientAccount: (isLoggedIn: boolean) => {
+                        this.setState({loggedIntoPatientAccount: isLoggedIn})
+                    },
+                    setDisplayLoginComponent: (show: boolean) => {
+                        this.setState({displayLoginComponent: show})
+                    },
+                    setDisplayLogoutComponent: (show: boolean) => {
+                        this.setState({displayLogoutComponent: show})
+                    },
+                    setDisplayMenuSideDrawerComponent: (show: boolean) => {
+                        this.setState({displayMenuSideDrawerComponent: show})
+                    }
                 }}
             >
                 {this.props.children}
