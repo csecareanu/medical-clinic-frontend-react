@@ -15,7 +15,7 @@ const MainLayoutView = (props) => {
                 <div className={commonClasses.SmallScreenOnly}>
                     <MenuSideDrawerView 
                         onClose={props.onCloseMenuSideDrawer} 
-                        isLoggedUserADoctor={props.isLoggedUserADoctor}
+                        userAuthStatus={props.userAuthStatus}
                     />
                 </div>
             :

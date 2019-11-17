@@ -1,28 +1,38 @@
-import { useContext } from 'react';
+// @flow
+
+import * as React from 'react';
 
 import UIStateContext from '../../../react-context/UIState/UIState-context';
+import { UserAuthType } from '../../../common/UserAuthType';
 
 const layoutContainer = {
-    uiStateContext: null,
+    uiStateContext: (null: null | UIStateContext),
+    userAuthStatus: (UserAuthType.UNAUTHENTICATED: UserAuthType),
+    displayMenuSideDrawerComponent: (false: boolean),
+    displayLoginComponent: (false: boolean),
+    displayLogoutComponent: (false: boolean),
 
-    userAuthStatus: 0,
-    displayMenuSideDrawerComponent: false,
-    displayLoginComponent: false,
-    displayLogoutComponent: false,
-    onCloseMenuSideDrawer: function () {
-        this.uiStateContext.setDisplayMeuSideDrawerComponent(false);
+    onCloseMenuSideDrawer: () : void => {
+        if(layoutContainer.uiStateContext == null) {
+            console.log("MainLayoutContainer. uiStateContext not set");
+            return;
+        }        
+        layoutContainer.uiStateContext.setDisplayMenuSideDrawerComponent(false);
     }
 }
 
-const MainLayoutContainer = (props) => {
-    const uiStateContext = useContext(UIStateContext);
+type Props = {
+    children: (containerData: typeof layoutContainer) => React.Node
+}
+
+const MainLayoutContainer = (props: Props) => {
+    const uiStateContext = React.useContext(UIStateContext);
     layoutContainer.uiStateContext = uiStateContext;
 
     layoutContainer.userAuthStatus = uiStateContext.userAuthStatus;
     layoutContainer.displayMenuSideDrawerComponent = uiStateContext.displayMenuSideDrawerComponent;
     layoutContainer.displayLoginComponent = uiStateContext.displayLoginComponent;
     layoutContainer.displayLogoutComponent = uiStateContext.displayLogoutComponent;
-
 
     return (props.children)(layoutContainer);
 }

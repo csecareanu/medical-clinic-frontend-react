@@ -1,32 +1,57 @@
 // @flow
 import * as React from 'react';
+
 import UIStateContext from '../../../../react-context/UIState/UIState-context';
 import { UserAuthType } from '../../../../common/UserAuthType';
 
 const loginContainer = {
-    uiStateContext: null,
+    uiStateContext: (null: null | UIStateContext),
 
-    onAuthenticate: function (phoneNo: string, password: string) {
+    onAuthenticate: (phoneNo: string, password: string) : void => {
+
+        if(loginContainer.uiStateContext == null) {
+            console.log("UserLoginContainer. uiStateContext not set");
+            return;
+        }
+        const uiStateContext = loginContainer.uiStateContext; //added to get rid of flow warning
+
+        let newAuthStatus = UserAuthType.UNAUTHENTICATED;
+
         if(phoneNo === "d" && password === "d") {
-            this.uiStateContext.setUserAuthenticationStatus(UserAuthType.DOCTOR);
+            newAuthStatus = UserAuthType.DOCTOR;
         }
         else if (phoneNo === "s" && password === "s") {
-            this.uiStateContext.setUserAuthenticationStatus(UserAuthType.SITE_ADMIN);
+            newAuthStatus = UserAuthType.SITE_ADMIN;
         }
         else {
-            this.uiStateContext.setUserAuthenticationStatus(UserAuthType.PATIENT);
+            newAuthStatus = UserAuthType.PATIENT;
         }
 
-        this.uiStateContext.setDisplayLoginComponent(false);
+        uiStateContext.setUserAuthenticationStatus(newAuthStatus);
+        uiStateContext.setDisplayLoginComponent(false);
     },
 
-    onCreateAccount: function (/*accountInfo*/) {
-        this.uiStateContext.setUserAuthenticationStatus(UserAuthType.PATIENT);
-        this.uiStateContext.setDisplayLoginComponent(false);
+    onCreateAccount: (/*accountInfo*/) : void => {
+        if(loginContainer.uiStateContext == null) {
+            console.log("onCreateAccount. uiStateContext not set");
+            return;
+        }
+        const uiStateContext = loginContainer.uiStateContext; //added to get rid of flow warning        
+
+        uiStateContext.setUserAuthenticationStatus(UserAuthType.PATIENT);
+        uiStateContext.setDisplayLoginComponent(false);
+
     },
 
-    onCancel: function () {
-        this.uiStateContext.setDisplayLoginComponent(false);
+    onCancel: () : void => {
+        if(loginContainer.uiStateContext == null) {
+            console.log("onCancel. uiStateContext not set");
+            return;
+        }
+        const uiStateContext = loginContainer.uiStateContext; //added to get rid of flow warning         
+
+        uiStateContext.setDisplayLoginComponent(false);
+
     }
 }
 

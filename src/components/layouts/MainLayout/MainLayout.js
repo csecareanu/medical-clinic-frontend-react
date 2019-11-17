@@ -1,11 +1,16 @@
+// @flow
 
-import React from 'react';
+import * as React from 'react';
 
 import MainLayoutView from './MainLayoutView';
 import MainLayoutContainer from './MainLayoutContainer';
-import { UserAuthType } from '../../../common/UserAuthType';
 
-const MainLayout = (props) => {
+type Props = {
+    header: React.Node,
+    children: React.Node
+}
+
+const MainLayout = (props: Props) => {
     return (
         <MainLayoutContainer>
             {
@@ -13,7 +18,7 @@ const MainLayout = (props) => {
                     <MainLayoutView
                         displayMenuSideDrawerComponent={containerData.displayMenuSideDrawerComponent}
                         onCloseMenuSideDrawer={containerData.onCloseMenuSideDrawer}
-                        isLoggedUserADoctor={containerData.userAuthStatus === UserAuthType.DOCTOR}
+                        userAuthStatus={containerData.userAuthStatus}
                         displayLoginComponent={containerData.displayLoginComponent}
                         displayLogoutComponent={containerData.displayLogoutComponent}
                         header={props.header} 
