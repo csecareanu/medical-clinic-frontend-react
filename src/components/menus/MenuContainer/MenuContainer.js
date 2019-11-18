@@ -9,7 +9,7 @@ import { UserAuthType } from '../../../common/UserAuthType';
 import UIStateContext from '../../../react-context/UIState/UIState-context.js';
 
 const menuContainer = {
-    props: (null: null | Props),
+    history: (null: null | RouterHistory),
     uiStateContext: (null: null | UIStateContext),
     userAuthStatus: (UserAuthType.UNAUTHENTICATED: UserAuthType),
 
@@ -20,11 +20,11 @@ const menuContainer = {
         }
         const uiStateContext = menuContainer.uiStateContext; //added to get rid of flow warning
 
-        if(menuContainer.props == null) {
-            console.log("MenuContainer. onClinicMenuItemSelect. props not set");
+        if(menuContainer.history == null) {
+            console.log("MenuContainer. onClinicMenuItemSelect. history not set");
             return;            
         }
-        const props = menuContainer.props;
+        const history = menuContainer.history;
 
         switch (itemType) {
             case ClinicMenuItemType.USER_LOGIN:
@@ -33,7 +33,7 @@ const menuContainer = {
             case ClinicMenuItemType.USER_LOGOUT:
                 uiStateContext.setUserAuthenticationStatus(UserAuthType.UNAUTHENTICATED);
                 uiStateContext.setDisplayLogoutComponent(false);
-                props.history.push({pathname: '/'});
+                history.push({pathname: '/'});
                 break;
             case ClinicMenuItemType.CLINIC_HOME:
             case ClinicMenuItemType.CLINIC_DOCTORS:
@@ -58,7 +58,7 @@ type Props = {
 const MenuContainer = (props: Props) => {
     const uiStateContext = React.useContext(UIStateContext);
     menuContainer.uiStateContext = uiStateContext;
-    menuContainer.props = props;
+    menuContainer.history = props.history;
     menuContainer.userAuthStatus = uiStateContext.userAuthStatus;
 
     return (props.children)(menuContainer);
