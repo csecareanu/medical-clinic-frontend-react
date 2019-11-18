@@ -6,5 +6,6 @@ export const ClinicMenuItemType = {
     CLINIC_ABOUT: 5,
     CLINIC_CONTACT: 6,
     CLINIC_PRICES: 7,
-    PATIENT_NEW_APPOINTMENT: 8
+    PATIENT_ACCOUNT:8,
+    PATIENT_NEW_APPOINTMENT: 9
 }

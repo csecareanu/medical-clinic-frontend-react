@@ -1,12 +1,19 @@
+// @flow
 
-import React from 'react';
+import * as React from 'react';
 import { NavLink } from 'react-router-dom';
 
 
-const onClick = (callback) => {
-    if(callback) {
-        callback();
-    }
+type Props = {
+    styleItem: string,
+    styleText: string,
+    styleTextActive: string,
+    id: number,
+    link?: string,
+    exact?: boolean,
+    preventNav?: boolean,
+    onClick: (itemId: number) => void,
+    children: React.Node
 }
 
 /**
@@ -14,14 +21,22 @@ const onClick = (callback) => {
  * The class does not have its own CSS in order to allow different themes. 
  * 
  * @param {CSS} props.styleItem - The CSS style for the 'li' HTML element
- * @param {CSS} props.styleText - The CSS style fo the 'a' HTML element
- * @param {String} props.link - The route to navigate to
+ * @param {CSS} props.styleText - The CSS style for the 'a' HTML element
+ * @param {CSS} props.styleTextActive - The CSS style for the element which matches the current 
+ * route.
+ * @param {number} props.id - Item identifier. If provided it will be used as a parameter 
+ * for the notification callback @param props.onClick
+ * @param {String} props.link - The route: 
+ * 1. to navigate to on click event (if not specified @param preventNav)
+ * 2. used for adding styling attributes when it matches the current URL
  * @param {boolean} props.exact -  When is 'true' apply the active class only when the path matches 
- *                                 the browser's URL
+ * the browser's URL
+ * @param {boolean} preventNav - When is 'true' prevent the navigation to @param props.link when
+ * the item is clicked
  * @param {function} props.onClick - Callback function to be notified for the click event
  * @param props.children - The JSX content to be rendered
  */
-const NavItemButton = (props) => {
+const NavItemButton = (props: Props) => {
     return (
         <span className={props.styleItem}>
             <li>
@@ -30,7 +45,14 @@ const NavItemButton = (props) => {
                         to={props.link}
                         exact={props.exact}
                         activeClassName={props.styleTextActive}
-                        onClick={ () => {onClick(props.onClick);} }
+                        onClick={ (event) => {
+                            if(props.onClick) {
+                                props.onClick(props.id)
+                            }
+                            if (props.preventNav) {
+                                event.preventDefault();
+                            }
+                        }}
                     >
                         {props.children}
                     </NavLink>

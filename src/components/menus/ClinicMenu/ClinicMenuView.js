@@ -7,9 +7,14 @@ import { FormattedMessage } from 'react-intl';
 import classesMenu from '../menu.module.css';
 import { ClinicMenuItemType } from '../../../common/MenuItemTypes';
 import { UserAuthType } from '../../../common/UserAuthType';
+import 
+  { 
+  ClinicLinkLocationName,
+  UserLinkLocationName,
+  PatientLinkLocationName
+  } from '../../../common/LinkLocationNames';
 import NavListView from '../../UI/NavListView/NavListView';
 import NavItemButton from '../../UI/NavListView/NavItemButton/NavItemButton';
-import LinkItemButton from '../../UI/NavListView/LinkItemButton/LinkItemButton';
 import withProps from '../../hoc/withProps';
 
 /**
@@ -17,17 +22,6 @@ import withProps from '../../hoc/withProps';
  * Adding CSS from the imported @param classesMenu.
  */
 const NavItemButtonCSS = withProps(NavItemButton, 
-    {
-        styleItem: classesMenu.MenuItem, 
-        styleText: classesMenu.MenuText, 
-        styleTextActive: classesMenu.Active
-    });
-
-/**
- * By default LinkItemButton does not have any CSS attached. 
- * Adding CSS from the imported @param classesMenu.
- */
-const LinkItemButtonCSS = withProps(LinkItemButton, 
     {
         styleItem: classesMenu.MenuItem, 
         styleText: classesMenu.MenuText, 
@@ -42,31 +36,33 @@ type Props = {
 const ClinicMenuView = (props: Props) => {
 
     const userLoginMenuItem = (
-            <LinkItemButtonCSS 
-                onClick={ () => {
-                    if(props.onItemSelect) {
-                        props.onItemSelect(ClinicMenuItemType.USER_LOGIN);
-                    }
-                }}
+            <NavItemButtonCSS
+                id={ClinicMenuItemType.USER_LOGIN}
+                link={UserLinkLocationName.LOGIN}
+                preventNav
+                onClick={props.onItemSelect}
             >
                 <FormattedMessage id="menu_login" defaultMessage={'LOGIN'}/>
-            </LinkItemButtonCSS>
+            </NavItemButtonCSS>
     );
 
     const userLogoutMenuItem = (
-            <LinkItemButtonCSS 
-                onClick={ () => {
-                        if(props.onItemSelect) {
-                            props.onItemSelect(ClinicMenuItemType.USER_LOGOUT);
-                        }
-                    }}
+            <NavItemButtonCSS
+                id={ClinicMenuItemType.USER_LOGOUT}
+                link={UserLinkLocationName.LOGOUT}
+                preventNav
+                onClick={props.onItemSelect}
             >
                 <FormattedMessage id="menu_logout" defaultMessage={'LOGOUT'}/>
-            </LinkItemButtonCSS>
+            </NavItemButtonCSS>
     );
 
     const myAccountMenuItem = (
-        <NavItemButtonCSS link="/my_account" onClick={props.onItemSelect}>
+        <NavItemButtonCSS
+            id={ClinicMenuItemType.PATIENT_ACCOUNT}
+            link={PatientLinkLocationName.MY_ACCOUNT}
+            preventNav
+            onClick={props.onItemSelect}>
             <FormattedMessage id="menu_my_account" defaultMessage={'MY ACCOUNT'}/>
         </NavItemButtonCSS>
     );
@@ -74,44 +70,56 @@ const ClinicMenuView = (props: Props) => {
     return (
         <NavListView style={classesMenu.Menu}>
             <NavItemButtonCSS 
-                link="/" 
-                exact 
-                onClick={ () => { props.onItemSelect(ClinicMenuItemType.CLINIC_HOME); }}
+                id={ClinicMenuItemType.CLINIC_HOME}
+                link={ClinicLinkLocationName.ROOT}
+                preventNav
+                exact
+                onClick={props.onItemSelect}
             >
                 <FormattedMessage id="menu_home" defaultMessage={'HOME'} />
             </NavItemButtonCSS>
 
             <NavItemButtonCSS 
-                link="/doctors" 
-                onClick={ () => { props.onItemSelect(ClinicMenuItemType.CLINIC_DOCTORS); }}
+                id={ClinicMenuItemType.CLINIC_DOCTORS}
+                link={ClinicLinkLocationName.DOCTORS}
+                preventNav
+                onClick={props.onItemSelect}
             >
                 <FormattedMessage id="menu_doctors" defaultMessage={'DOCTORS'} />
             </NavItemButtonCSS>
 
-            <NavItemButtonCSS 
-                link="/about" 
-                onClick={ () => { props.onItemSelect(ClinicMenuItemType.CLINIC_ABOUT); }}
+            <NavItemButtonCSS
+                id={ClinicMenuItemType.CLINIC_ABOUT}
+                link={ClinicLinkLocationName.ABOUT}
+                preventNav
+                onClick={props.onItemSelect}
             >
                 <FormattedMessage id="menu_about_clinic" defaultMessage={'ABOUT CLINIC'} />
             </NavItemButtonCSS>
 
-            <NavItemButtonCSS 
-                link="/contact" 
-                onClick={ () => { props.onItemSelect(ClinicMenuItemType.CLINIC_CONTACT); }}
+            <NavItemButtonCSS
+                id={ClinicMenuItemType.CLINIC_CONTACT}
+                link={ClinicLinkLocationName.CONTACT}
+                preventNav
+                onClick={props.onItemSelect}
             >
                 <FormattedMessage id="menu_contact" defaultMessage={'CONTACT'}/>
             </NavItemButtonCSS>
 
-            <NavItemButtonCSS 
-                link="/prices" 
-                onClick={ () => { props.onItemSelect(ClinicMenuItemType.CLINIC_PRICES); }}
+            <NavItemButtonCSS
+                id={ClinicMenuItemType.CLINIC_PRICES}
+                link={ClinicLinkLocationName.PRICES}
+                preventNav
+                onClick={props.onItemSelect}
             >
                 <FormattedMessage id="menu_prices" defaultMessage={'PRICES'}/>
             </NavItemButtonCSS>
 
-            <NavItemButtonCSS 
-                link="/appointment" 
-                onClick={ () => { props.onItemSelect(ClinicMenuItemType.PATIENT_NEW_APPOINTMENT); }}
+            <NavItemButtonCSS
+                id={ClinicMenuItemType.PATIENT_NEW_APPOINTMENT}
+                link={PatientLinkLocationName.APPOINTMENT}
+                preventNav
+                onClick={props.onItemSelect}
             >
                 <FormattedMessage id="menu_new_appointment" defaultMessage={'NEW APPOINTMENT'}/>
             </NavItemButtonCSS>

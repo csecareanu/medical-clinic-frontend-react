@@ -6,6 +6,10 @@ import type {RouterHistory} from 'react-router';
 
 import { ClinicMenuItemType } from '../../../common/MenuItemTypes';
 import { UserAuthType } from '../../../common/UserAuthType';
+import {
+    ClinicLinkLocationName,
+    PatientLinkLocationName
+} from '../../../common/LinkLocationNames';
 import UIStateContext from '../../../react-context/UIState/UIState-context.js';
 
 const menuContainer = {
@@ -33,14 +37,28 @@ const menuContainer = {
             case ClinicMenuItemType.USER_LOGOUT:
                 uiStateContext.setUserAuthenticationStatus(UserAuthType.UNAUTHENTICATED);
                 uiStateContext.setDisplayLogoutComponent(false);
-                history.push({pathname: '/'});
+                history.push({pathname: ClinicLinkLocationName.ROOT});
                 break;
             case ClinicMenuItemType.CLINIC_HOME:
+                history.push({pathname: ClinicLinkLocationName.ROOT});
+                break;
             case ClinicMenuItemType.CLINIC_DOCTORS:
+                history.push({pathname: ClinicLinkLocationName.DOCTORS});
+                break;
             case ClinicMenuItemType.CLINIC_ABOUT:
+                history.push({pathname: ClinicLinkLocationName.ABOUT});
+                break;
             case ClinicMenuItemType.CLINIC_CONTACT:
+                history.push({pathname: ClinicLinkLocationName.CONTACT});
+                break;
             case ClinicMenuItemType.CLINIC_PRICES:
+                history.push({pathname: ClinicLinkLocationName.PRICES});
+                break;
+            case ClinicMenuItemType.PATIENT_ACCOUNT:
+                history.push({pathname: PatientLinkLocationName.MY_ACCOUNT});
+                break;
             case ClinicMenuItemType.PATIENT_NEW_APPOINTMENT:
+                history.push({pathname: PatientLinkLocationName.APPOINTMENT});
                 break;
             default:
                 console.log("MenuContainer. onClinicMenuItemSelect. Unknown item id: " + itemType);
