@@ -1,14 +1,16 @@
-import React, { useContext } from 'react';
+// @flow
+
+import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
 
 import classesMenu from '../menu.module.css';
+import { ClinicMenuItemType } from '../../../common/MenuItemTypes';
+import { UserAuthType } from '../../../common/UserAuthType';
 import NavListView from '../../UI/NavListView/NavListView';
 import NavItemButton from '../../UI/NavListView/NavItemButton/NavItemButton';
 import LinkItemButton from '../../UI/NavListView/LinkItemButton/LinkItemButton';
 import withProps from '../../hoc/withProps';
-import UIStateContext from '../../../react-context/UIState/UIState-context';
-import { UserAuthType } from '../../../common/UserAuthType';
 
 /**
  * By default NavItemButton does not have any CSS attached. 
@@ -32,17 +34,18 @@ const LinkItemButtonCSS = withProps(LinkItemButton,
         styleTextActive: classesMenu.Active
     });
 
-const ClinicMenuView = (props) => {
+type Props = {
+    onItemSelect: (itemType: ClinicMenuItemType) => void,
+    userAuthStatus: UserAuthType
+}
 
-    const uiStateContext = useContext(UIStateContext);
+const ClinicMenuView = (props: Props) => {
 
     const userLoginMenuItem = (
             <LinkItemButtonCSS 
                 onClick={ () => {
-                    //TODO see the comment from userLogoutMenuItem
-                    uiStateContext.setDisplayLoginComponent(true);
                     if(props.onItemSelect) {
-                        props.onItemSelect();
+                        props.onItemSelect(ClinicMenuItemType.USER_LOGIN);
                     }
                 }}
             >
@@ -53,15 +56,8 @@ const ClinicMenuView = (props) => {
     const userLogoutMenuItem = (
             <LinkItemButtonCSS 
                 onClick={ () => {
-                        //TODO there should be a controller which logs out/in a user and does
-                        //the other actions like 1. starting to retrieve data from server,
-                        //2. navigates to home page on logout
-                        uiStateContext.setUserAuthenticationStatus(UserAuthType.UNAUTHENTICATED);
-                        // not displaying any message box related to log out action.
-                        uiStateContext.setDisplayLogoutComponent(false);
-                        props.history.push({pathname: '/'});
                         if(props.onItemSelect) {
-                            props.onItemSelect();
+                            props.onItemSelect(ClinicMenuItemType.USER_LOGOUT);
                         }
                     }}
             >
@@ -80,51 +76,51 @@ const ClinicMenuView = (props) => {
             <NavItemButtonCSS 
                 link="/" 
                 exact 
-                onClick={props.onItemSelect}
+                onClick={ () => { props.onItemSelect(ClinicMenuItemType.CLINIC_HOME); }}
             >
                 <FormattedMessage id="menu_home" defaultMessage={'HOME'} />
             </NavItemButtonCSS>
 
             <NavItemButtonCSS 
                 link="/doctors" 
-                onClick={props.onItemSelect}
+                onClick={ () => { props.onItemSelect(ClinicMenuItemType.CLINIC_DOCTORS); }}
             >
                 <FormattedMessage id="menu_doctors" defaultMessage={'DOCTORS'} />
             </NavItemButtonCSS>
 
             <NavItemButtonCSS 
                 link="/about" 
-                onClick={props.onItemSelect}
+                onClick={ () => { props.onItemSelect(ClinicMenuItemType.CLINIC_ABOUT); }}
             >
                 <FormattedMessage id="menu_about_clinic" defaultMessage={'ABOUT CLINIC'} />
             </NavItemButtonCSS>
 
             <NavItemButtonCSS 
                 link="/contact" 
-                onClick={props.onItemSelect} 
+                onClick={ () => { props.onItemSelect(ClinicMenuItemType.CLINIC_CONTACT); }}
             >
                 <FormattedMessage id="menu_contact" defaultMessage={'CONTACT'}/>
             </NavItemButtonCSS>
 
             <NavItemButtonCSS 
                 link="/prices" 
-                onClick={props.onItemSelect}
+                onClick={ () => { props.onItemSelect(ClinicMenuItemType.CLINIC_PRICES); }}
             >
                 <FormattedMessage id="menu_prices" defaultMessage={'PRICES'}/>
             </NavItemButtonCSS>
 
             <NavItemButtonCSS 
                 link="/appointment" 
-                onClick={props.onItemSelect}
+                onClick={ () => { props.onItemSelect(ClinicMenuItemType.PATIENT_NEW_APPOINTMENT); }}
             >
                 <FormattedMessage id="menu_new_appointment" defaultMessage={'NEW APPOINTMENT'}/>
             </NavItemButtonCSS>
 
-            { uiStateContext.userAuthStatus !== UserAuthType.UNAUTHENTICATED ? 
+            { props.userAuthStatus !== UserAuthType.UNAUTHENTICATED ? 
                 myAccountMenuItem : null
             }
 
-            { uiStateContext.userAuthStatus !== UserAuthType.UNAUTHENTICATED ? 
+            { props.userAuthStatus !== UserAuthType.UNAUTHENTICATED ? 
                     userLogoutMenuItem : userLoginMenuItem
             }
 

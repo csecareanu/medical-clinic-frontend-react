@@ -1,0 +1,10 @@
+export const ClinicMenuItemType = {
+    USER_LOGIN: 1,
+    USER_LOGOUT: 2,
+    CLINIC_HOME: 3,
+    CLINIC_DOCTORS: 4,
+    CLINIC_ABOUT: 5,
+    CLINIC_CONTACT: 6,
+    CLINIC_PRICES: 7,
+    PATIENT_NEW_APPOINTMENT: 8
+}

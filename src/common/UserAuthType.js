@@ -1,7 +1,7 @@
 export const UserAuthType = {
-    UNAUTHENTICATED: 0,
-    PATIENT: 1,
-    DOCTOR: 2,
-    SITE_ADMIN: 3
+    UNAUTHENTICATED: 1,
+    PATIENT: 2,
+    DOCTOR: 3,
+    SITE_ADMIN: 4
     
 }

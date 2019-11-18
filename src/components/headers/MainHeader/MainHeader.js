@@ -6,7 +6,7 @@ import classes from './MainHeader.module.css';
 import commonClasses from '../../../common.module.css';
 import imgMain from '../../../static/images/main_hdr.jpg';
 import MainImageView from '../common/MainImageView/MainImageView';
-import ClinicMenuView from '../../menus/ClinicMenuView/ClinicMenuView';
+import ClinicMenu from '../../menus/ClinicMenu/ClinicMenu';
 import DoctorMenuView from '../../menus/DoctorMenuView/DoctorMenuView';
 import AboutClinicToolbarView from '../../toolbars/AboutClinicToolbarView/AboutClinicToolbarView';
 import UserToolbarView from '../../toolbars/UserToolbarView/UserToolbarView';
@@ -40,7 +40,7 @@ const MainHeader = (props: Props) => {
                         {props.userAuthStatus === UserAuthType.DOCTOR ? 
                             <DoctorMenuView /> : null
                         }
-                        <ClinicMenuView />
+                        <ClinicMenu />
                     </MenuToolbarView>
                 </div>
                 <MainImageView src={imgMain} />

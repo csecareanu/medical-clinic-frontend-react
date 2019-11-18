@@ -1,5 +1,5 @@
 export const PageHeaderType = {
-    MAIN: 0,
-    DOCTOR: 1,
-    SYS_ADMIN: 2    
+    MAIN: 1,
+    DOCTOR: 2,
+    SYS_ADMIN: 3    
 }

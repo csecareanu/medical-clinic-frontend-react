@@ -11,6 +11,7 @@ const layoutContainer = {
     displayMenuSideDrawerComponent: (false: boolean),
     displayLoginComponent: (false: boolean),
     displayLogoutComponent: (false: boolean),
+
     onOpenMenuSideDrawer: () : void => {
         if(layoutContainer.uiStateContext == null) {
             console.log("MainLayoutContainer. onOpenMenuSideDrawer. uiStateContext not set");
@@ -18,6 +19,7 @@ const layoutContainer = {
         }        
         layoutContainer.uiStateContext.setDisplayMenuSideDrawerComponent(true);
     },    
+
     onCloseMenuSideDrawer: () : void => {
         if(layoutContainer.uiStateContext == null) {
             console.log("MainLayoutContainer. onCloseMenuSideDrawer. uiStateContext not set");
@@ -34,7 +36,6 @@ type Props = {
 const MainLayoutContainer = (props: Props) => {
     const uiStateContext = React.useContext(UIStateContext);
     layoutContainer.uiStateContext = uiStateContext;
-
     layoutContainer.userAuthStatus = uiStateContext.userAuthStatus;
     layoutContainer.displayMenuSideDrawerComponent = uiStateContext.displayMenuSideDrawerComponent;
     layoutContainer.displayLoginComponent = uiStateContext.displayLoginComponent;

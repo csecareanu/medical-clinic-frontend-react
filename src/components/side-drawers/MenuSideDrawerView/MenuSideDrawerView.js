@@ -2,7 +2,7 @@ import React from 'react';
 
 import SideDrawerView from '../SideDrawerView/SideDrawerView';
 import DoctorMenuView from '../../menus/DoctorMenuView/DoctorMenuView';
-import ClinicMenuView from '../../menus/ClinicMenuView/ClinicMenuView';
+import ClinicMenu from '../../menus/ClinicMenu/ClinicMenu';
 import { UserAuthType } from '../../../common/UserAuthType';
 
 /**
@@ -20,7 +20,7 @@ const MenuSideDrawerView = (props) => {
               : 
               null
           }
-          <ClinicMenuView onItemSelect={props.onClose} />
+          <ClinicMenu onItemSelect={props.onClose} />
         </SideDrawerView>
     );
 }
