@@ -17,7 +17,7 @@ const menuContainer = {
     uiStateContext: (null: null | UIStateContext),
     userAuthStatus: (UserAuthType.UNAUTHENTICATED: UserAuthType),
 
-    onClinicMenuItemSelect: (itemType: ClinicMenuItemType) => {
+    onClinicMenuItemSelect: (itemType: typeof ClinicMenuItemType) => {
         if(menuContainer.uiStateContext == null) {
             console.log("MenuContainer. onClinicMenuItemSelect. uiStateContext not set");
             return;
@@ -61,7 +61,8 @@ const menuContainer = {
                 history.push({pathname: PatientLinkLocationName.APPOINTMENT});
                 break;
             default:
-                console.log("MenuContainer. onClinicMenuItemSelect. Unknown item id: " + itemType);
+                console.log("MenuContainer. onClinicMenuItemSelect. Unknown item id: " + 
+                        itemType.toString());
                 break;
         }
     }

@@ -29,7 +29,7 @@ const NavItemButtonCSS = withProps(NavItemButton,
     });
 
 type Props = {
-    onItemSelect: (itemType: ClinicMenuItemType) => void,
+    onItemSelect: (itemType: typeof ClinicMenuItemType) => void,
     userAuthStatus: UserAuthType
 }
 

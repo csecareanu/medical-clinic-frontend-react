@@ -1,3 +1,5 @@
+// @flow
+
 export const ClinicMenuItemType = {
     USER_LOGIN: 1,
     USER_LOGOUT: 2,

@@ -16,7 +16,7 @@ const ClinicMenu = (props: Props) => (
         (containerData) => (
             <ClinicMenuView 
                 userAuthStatus={containerData.userAuthStatus}
-                onItemSelect={ (itemType: ClinicMenuItemType) => {
+                onItemSelect={ (itemType: typeof ClinicMenuItemType) => {
                     containerData.onClinicMenuItemSelect(itemType);
                     if (props.onItemSelect) {
                         props.onItemSelect();
