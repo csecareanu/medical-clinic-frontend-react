@@ -6,9 +6,9 @@ import { FormattedMessage } from 'react-intl';
 import classes from './ClinicMainPage.module.css';
 import { PageHeaderType }  from '../../../../common/PageHeaderType';
 import MainLayout from '../../../layouts/MainLayout/MainLayout';
-import ClinicServicesView from './src/ClinicServicesView/ClinicServicesView';
-import ClinicDescView from './src/ClinicDescView/ClinicDescView';
-import ClinicMainTitleView from './src/ClinicMainTitleView/ClinicMainTitleView';
+import ClinicServices from './ClinicServices/ClinicServices';
+import ClinicDescription from './ClinicDescription/ClinicDescription';
+import ClinicMainTitle from './ClinicMainTitle/ClinicMainTitle';
 
 export default () => {
     const clinicNameText =  <FormattedMessage id="main_page_clinic_name" defaultMessage={'TAI CHI MEDICAL'} />;
@@ -18,13 +18,13 @@ export default () => {
 
             <div className={classes.MainView}>
                 
-                <ClinicMainTitleView text={clinicNameText} />
-                <ClinicDescView />
+                <ClinicMainTitle text={clinicNameText} />
+                <ClinicDescription />
 
                 <div className={classes.SectionSep}></div>
 
-                <ClinicMainTitleView text={clinicOurServicesText} />
-                <ClinicServicesView />
+                <ClinicMainTitle text={clinicOurServicesText} />
+                <ClinicServices />
 
                 <div className={classes.SectionSep}></div>
             </div>

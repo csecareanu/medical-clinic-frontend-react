@@ -4,11 +4,11 @@ import React from 'react';
 
 import classes from './DoctorHeader.module.css';
 import commonClasses from '../../../common.module.css';
-import DoctorAdminMenuView from '../../menus/DoctorAdminMenuView/DoctorAdminMenuView';
-import AboutClinicToolbarView from '../../toolbars/AboutClinicToolbarView/AboutClinicToolbarView';
-import UserToolbarView from '../../toolbars/UserToolbarView/UserToolbarView';
-import MenuToolbarView from '../../toolbars/MenuToolbarView/MenuToolbarView';
-import SideDrawerToolbarView from '../../toolbars/SideDrawerToolbarView/SideDrawerToolbarView';
+import DoctorAdminMenu from '../../menus/DoctorAdminMenu/DoctorAdminMenu';
+import AboutClinicToolbar from '../../toolbars/AboutClinicToolbar/AboutClinicToolbar';
+import UserToolbar from '../../toolbars/UserToolbar/UserToolbar';
+import MenuToolbar from '../../toolbars/MenuToolbar/MenuToolbar';
+import SideDrawerToolbar from '../../toolbars/SideDrawerToolbar/SideDrawerToolbar';
 
 type Props = {
     onOpenMenuSideDrawer: () => void
@@ -17,20 +17,20 @@ type Props = {
 const DoctorHeader = (props: Props) => (
     <header className={classes.Header}>
         <nav>
-            <AboutClinicToolbarView />
+            <AboutClinicToolbar />
             <div className={classes.ToolbarHSeparator} />
             <div className={classes.MenuToggle_UserAccount_Toolbars}>
                 <div className={commonClasses.SmallScreenOnly}>
-                    <SideDrawerToolbarView 
+                    <SideDrawerToolbar 
                         onShowSideDrawer={ props.onOpenMenuSideDrawer }
                     />
                 </div>
-                <UserToolbarView />
+                <UserToolbar />
             </div>
             <div className={commonClasses.LargeScreenOnly} >
-                <MenuToolbarView>
-                    <DoctorAdminMenuView />
-                </MenuToolbarView>
+                <MenuToolbar>
+                    <DoctorAdminMenu />
+                </MenuToolbar>
             </div>
         </nav>
     </header>

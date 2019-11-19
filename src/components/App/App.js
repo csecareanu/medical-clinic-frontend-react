@@ -11,28 +11,28 @@ import ClinicDoctorsPage from '../pages/clinic/ClinicDoctorsPage/ClinicDoctorsPa
 import ClinicPricesPage from '../pages/clinic/ClinicPricesPage/ClinicPricesPage';
 
 import UserLogin from '../pages/connect/UserLogin/UserLogin';
-import UserLogoutView from '../pages/connect/UserLogoutView/UserLogoutView';
+import UserLogout from '../pages/connect/UserLogout/UserLogout';
 
-import LogIntoPatientAccountView from '../pages/connect/LogIntoPatientAccountView/LogIntoPatientAccountView';
-import LogOutPatientAccountView from '../pages/connect/LogOutPatientAccountView/LogOutPatientAccountView';
+import LogIntoPatientAccount from '../pages/connect/LogIntoPatientAccount/LogIntoPatientAccount';
+import LogOutPatientAccount from '../pages/connect/LogOutPatientAccount/LogOutPatientAccount';
 
-import DoctorMainView from '../pages/doctor/DoctorMainView/DoctorMainView';
-import DoctorMyAccountView from '../pages/doctor/DoctorMyAccountView/DoctorMyAccountView';
-import DoctorApptsInfoView from '../pages/doctor/DoctorApptsInfoView/DoctorApptsInfoView';
-import DoctorLogEventsView from '../pages/doctor/DoctorLogEventsView/DoctorLogEventsView';
-import DoctorNotificationsMsgsView from '../pages/doctor/DoctorNotificationsMsgsView/DoctorNotificationsMsgsView';
-import DoctorWorkingTimeView from '../pages/doctor/DoctorWorkingTimeView/DoctorWorkingTimeView';
+import DoctorMain from '../pages/doctor/DoctorMain/DoctorMain';
+import DoctorMyAccount from '../pages/doctor/DoctorMyAccount/DoctorMyAccount';
+import DoctorApptsInfo from '../pages/doctor/DoctorApptsInfo/DoctorApptsInfo';
+import DoctorLogEvents from '../pages/doctor/DoctorLogEvents/DoctorLogEvents';
+import DoctorNotificationsMessages from '../pages/doctor/DoctorNotificationsMessages/DoctorNotificationsMessages';
+import DoctorWorkingTime from '../pages/doctor/DoctorWorkingTime/DoctorWorkingTime';
 
-import PatientNewApptView from '../pages/patient/PatientNewApptView/PatientNewApptView';
-import PatientAccountView from '../pages/patient/PatientAccountView/PatientAccountView';
+import PatientNewAppointment from '../pages/patient/PatientNewAppointment/PatientNewAppointment';
+import PatientAccount from '../pages/patient/PatientAccount/PatientAccount';
 
-import SysAdminMainView from '../pages/sysAdmin/SysAdminMainView/SysAdminMainView';
-import SysAdminDoctorsView from '../pages/sysAdmin/SysAdminDoctorsView/SysAdminDoctorsView';
-import SysAdminDoctorToSvcsView from '../pages/sysAdmin/SysAdminDoctorToSvcsView/SysAdminDoctorToSvcsView';
-import SysAdminLogEventsView from '../pages/sysAdmin/SysAdminLogEventsView/SysAdminLogEventsView';
-import SysAdminServicesView from '../pages/sysAdmin/SysAdminServicesView/SysAdminServicesView';
-import SysAdminSettingsView from '../pages/sysAdmin/SysAdminSettingsView/SysAdminSettingsView';
-import SysAdminSpecialtiesView from '../pages/sysAdmin/SysAdminSpecialtiesView/SysAdminSpecialtiesView';
+import SysAdminMain from '../pages/sysAdmin/SysAdminMain/SysAdminMain';
+import SysAdminDoctors from '../pages/sysAdmin/SysAdminDoctors/SysAdminDoctors';
+import SysAdminDoctorToServices from '../pages/sysAdmin/SysAdminDoctorToServices/SysAdminDoctorToServices';
+import SysAdminLogEvents from '../pages/sysAdmin/SysAdminLogEvents/SysAdminLogEvents';
+import SysAdminServices from '../pages/sysAdmin/SysAdminServices/SysAdminServices';
+import SysAdminSettings from '../pages/sysAdmin/SysAdminSettings/SysAdminSettings';
+import SysAdminSpecialties from '../pages/sysAdmin/SysAdminSpecialties/SysAdminSpecialties';
 
 import { 
   ClinicLinkLocationName,
@@ -70,67 +70,67 @@ function App() {
           component={UserLogin} />
         <Route
           path={UserLinkLocationName.LOGOUT} 
-          component={UserLogoutView} />
+          component={UserLogout} />
 
         {/* PatientLinkLocationName */}
         <Route 
           path={PatientLinkLocationName.NEW_APPOINTMENT} 
-          component={PatientNewApptView} />
+          component={PatientNewAppointment} />
         <Route 
           path={PatientLinkLocationName.MY_ACCOUNT} 
-          component={PatientAccountView} />
+          component={PatientAccount} />
 
         {/* DoctorLinkLocationName */}
         <Route 
           path={DoctorLinkLocationName.LOG_INTO_PATIENT_ACCOUNT} 
-          component={LogIntoPatientAccountView} />
+          component={LogIntoPatientAccount} />
         <Route 
           path={DoctorLinkLocationName.LOG_OUT_PATIENT_ACCOUNT}  
-          component={LogOutPatientAccountView} />          
+          component={LogOutPatientAccount} />          
         <Route 
           path={DoctorLinkLocationName.ROOT} 
           exact 
-          component={DoctorMainView} />
+          component={DoctorMain} />
         <Route 
           path={DoctorLinkLocationName.MY_ACCOUNT} 
           exact 
-          component={DoctorMyAccountView} />
+          component={DoctorMyAccount} />
         <Route 
           path={DoctorLinkLocationName.APPOINTMENTS} 
-          component={DoctorApptsInfoView} />
+          component={DoctorApptsInfo} />
         <Route 
           path={DoctorLinkLocationName.WORKING_TIME} 
-          component={DoctorWorkingTimeView} />
+          component={DoctorWorkingTime} />
         <Route 
           path={DoctorLinkLocationName.NOTIFICATION_MESSAGES} 
-          component={DoctorNotificationsMsgsView} />
+          component={DoctorNotificationsMessages} />
         <Route 
           path={DoctorLinkLocationName.LOG_EVENTS} 
-          component={DoctorLogEventsView} />
+          component={DoctorLogEvents} />
 
         {/* SysAdminLinkLocationName */}
         <Route 
           path={SysAdminLinkLocationName.ROOT} 
           exact 
-          component={SysAdminMainView} />
+          component={SysAdminMain} />
         <Route 
           path={SysAdminLinkLocationName.DOCTORS} 
-          component={SysAdminDoctorsView} />
+          component={SysAdminDoctors} />
         <Route 
           path={SysAdminLinkLocationName.SPECIALTIES} 
-          component={SysAdminSpecialtiesView} />
+          component={SysAdminSpecialties} />
         <Route 
           path={SysAdminLinkLocationName.SERVICES} 
-          component={SysAdminServicesView} />
+          component={SysAdminServices} />
         <Route 
           path={SysAdminLinkLocationName.ASSIGN_SERVICES_TO_DOCTOR} 
-          component={SysAdminDoctorToSvcsView} />
+          component={SysAdminDoctorToServices} />
         <Route 
           path={SysAdminLinkLocationName.LOG_EVENTS} 
-          component={SysAdminLogEventsView} />
+          component={SysAdminLogEvents} />
         <Route 
           path={SysAdminLinkLocationName.SETTINGS} 
-          component={SysAdminSettingsView} />
+          component={SysAdminSettings} />
       </Switch>
     </UIState>
  );

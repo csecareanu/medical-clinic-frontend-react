@@ -2,7 +2,7 @@ import React from 'react';
 
 import classes from './SideDrawerView.module.css';
 import Backdrop from '../../UI/Backdrop/Backdrop';
-import BrandLargeView from '../../UI/BrandLargeView/BrandLargeView';
+import BrandLarge from '../../UI/BrandLarge/BrandLarge';
 import SideDrawerToggleButton, { SideDrawerButtonType } from './SideDrawerToggleButton/SideDrawerToggleButton';
 
 /**
@@ -23,7 +23,7 @@ const SideDrawerView = (props) => {
             <Backdrop show={props.show} onClick={props.onClose}/>
             <div className={attachedClasses.join(' ')}>
                 <div className={classes.Logo}>
-                    <BrandLargeView />
+                    <BrandLarge />
                 </div>
                 <SideDrawerToggleButton type={SideDrawerButtonType.CLOSE} onClick={props.onClose}/>
                 <nav>

@@ -10,7 +10,7 @@ import DoctorHeader from '../../headers/DoctorHeader/DoctorHeader';
 import SysAdminHeader from '../../headers/SysAdminHeader/SysAdminHeader';
 import MainFooter from '../../footers/MainFooter/MainFooter';
 import UserLogin from '../../pages/connect/UserLogin/UserLogin';
-import UserLogoutView from '../../pages/connect/UserLogoutView/UserLogoutView';
+import UserLogout from '../../pages/connect/UserLogout/UserLogout';
 import MenuSideDrawerView from '../../side-drawers/MenuSideDrawerView/MenuSideDrawerView';
 
 type Props = {
@@ -31,27 +31,26 @@ const MainLayoutView = (props: Props) => {
     return (
         <main className={classes.Layout}>
 
-            {props.displayMenuSideDrawerComponent ?
-                <div className={commonClasses.SmallScreenOnly}>
-                    <MenuSideDrawerView 
-                        onClose={props.onCloseMenuSideDrawer} 
-                        userAuthStatus={props.userAuthStatus}
-                    />
-                </div>
-            :
-                null
+            {props.displayMenuSideDrawerComponent 
+                ?(  
+                    <div className={commonClasses.SmallScreenOnly}>
+                        <MenuSideDrawerView 
+                            onClose={props.onCloseMenuSideDrawer} 
+                            userAuthStatus={props.userAuthStatus}
+                        />
+                    </div>
+                )
+                : null
             }
 
-            {props.displayLoginComponent ? 
-                <UserLogin /> 
-            : 
-                null
+            {props.displayLoginComponent 
+                ? <UserLogin /> 
+                : null
             }
 
-            {props.displayLogoutComponent ? 
-                <UserLogoutView /> 
-            : 
-                null
+            {props.displayLogoutComponent
+                ? <UserLogout /> 
+                : null
             }
 
             <div className={classes.Header}>
