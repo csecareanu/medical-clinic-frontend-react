@@ -7,12 +7,12 @@ import classes from './AccessNotAllowed.module.css';
 
 const AccessNotAllowed = () => (
     <div className={classes.NowAllowedContent}>
-        <p>
+        <h3>
             <FormattedMessage 
-                id="not_allowed_to_use_resource" 
-                defaultMessage={'You are not allowed to use this resource.'}
+                id="not_allowed_to_access_resource" 
+                defaultMessage={'You are not allowed to access this resource.'}
             />
-        </p>
+        </h3>
     </div>
 );
 
