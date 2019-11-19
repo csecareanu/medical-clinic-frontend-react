@@ -7,7 +7,7 @@ import { UserAuthType } from '../../../common/UserAuthType';
 
 const layoutContainer = {
     uiStateContext: (null: null | UIStateContext),
-    userAuthStatus: (UserAuthType.UNAUTHENTICATED: UserAuthType),
+    userAuthStatus: (UserAuthType.UNAUTHENTICATED: number | Symbol),
     displayMenuSideDrawerComponent: (false: boolean),
     displayLoginComponent: (false: boolean),
     displayLogoutComponent: (false: boolean),

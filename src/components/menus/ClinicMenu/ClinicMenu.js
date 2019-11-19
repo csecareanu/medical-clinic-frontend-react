@@ -2,7 +2,6 @@
 
 import * as React from 'react';
 
-import { ClinicMenuItemType } from '../../../common/MenuItemTypes';
 import ClinicMenuView from './ClinicMenuView';
 import MenuContainer from '../MenuContainer/MenuContainer';
 
@@ -16,7 +15,7 @@ const ClinicMenu = (props: Props) => (
         (containerData) => (
             <ClinicMenuView 
                 userAuthStatus={containerData.userAuthStatus}
-                onItemSelect={ (itemType: typeof ClinicMenuItemType) => {
+                onItemSelect={ (itemType: number) => {
                     containerData.onClinicMenuItemSelect(itemType);
                     if (props.onItemSelect) {
                         props.onItemSelect();

@@ -10,7 +10,7 @@ type Props = {
 };
 
 type State = {
-  userAuthStatus: number,
+  userAuthStatus: number | Symbol,
   loggedIntoPatientAccount: boolean,
   displayLoginComponent: boolean,
   displayLogoutComponent: boolean,

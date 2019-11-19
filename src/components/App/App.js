@@ -74,7 +74,7 @@ function App() {
 
         {/* PatientLinkLocationName */}
         <Route 
-          path={PatientLinkLocationName.APPOINTMENT} 
+          path={PatientLinkLocationName.NEW_APPOINTMENT} 
           component={PatientNewApptView} />
         <Route 
           path={PatientLinkLocationName.MY_ACCOUNT} 

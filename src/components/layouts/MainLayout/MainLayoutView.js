@@ -4,7 +4,6 @@ import * as React from 'react';
 
 import classes from './MainLayoutView.module.css';
 import commonClasses from '../../../common.module.css';
-import type { UserAuthType } from '../../../common/UserAuthType';
 import { PageHeaderType } from '../../../common/PageHeaderType';
 import MainHeader from '../../headers/MainHeader/MainHeader';
 import DoctorHeader from '../../headers/DoctorHeader/DoctorHeader';
@@ -19,7 +18,7 @@ type Props = {
     displayMenuSideDrawerComponent: boolean,
     onOpenMenuSideDrawer: () => void,
     onCloseMenuSideDrawer: () => void,
-    userAuthStatus: UserAuthType,
+    userAuthStatus: number | Symbol,
     displayLoginComponent: boolean,
     displayLogoutComponent: boolean,
     children: React.Node

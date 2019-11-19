@@ -4,7 +4,11 @@ import * as React from 'react';
 import { withRouter } from 'react-router-dom';
 import type {RouterHistory} from 'react-router';
 
-import { ClinicMenuItemType } from '../../../common/MenuItemTypes';
+import { 
+    UserMenuItem,
+    PatientMenuItem,
+    ClinicMenuItem
+    }  from '../../../common/MenuItemIdentifiers';
 import { UserAuthType } from '../../../common/UserAuthType';
 import {
     ClinicLinkLocationName,
@@ -15,9 +19,9 @@ import UIStateContext from '../../../react-context/UIState/UIState-context.js';
 const menuContainer = {
     history: (null: null | RouterHistory),
     uiStateContext: (null: null | UIStateContext),
-    userAuthStatus: (UserAuthType.UNAUTHENTICATED: UserAuthType),
+    userAuthStatus: (UserAuthType.UNAUTHENTICATED: number | Symbol),
 
-    onClinicMenuItemSelect: (itemType: typeof ClinicMenuItemType) => {
+    onClinicMenuItemSelect: (itemType: number) => {
         if(menuContainer.uiStateContext == null) {
             console.log("MenuContainer. onClinicMenuItemSelect. uiStateContext not set");
             return;
@@ -31,34 +35,34 @@ const menuContainer = {
         const history = menuContainer.history;
 
         switch (itemType) {
-            case ClinicMenuItemType.USER_LOGIN:
+            case UserMenuItem.USER_LOGIN:
                 menuContainer.uiStateContext.setDisplayLoginComponent(true);
                 break;
-            case ClinicMenuItemType.USER_LOGOUT:
+            case UserMenuItem.USER_LOGOUT:
                 uiStateContext.setUserAuthenticationStatus(UserAuthType.UNAUTHENTICATED);
                 uiStateContext.setDisplayLogoutComponent(false);
                 history.push({pathname: ClinicLinkLocationName.ROOT});
                 break;
-            case ClinicMenuItemType.CLINIC_HOME:
+            case ClinicMenuItem.HOME:
                 history.push({pathname: ClinicLinkLocationName.ROOT});
                 break;
-            case ClinicMenuItemType.CLINIC_DOCTORS:
+            case ClinicMenuItem.DOCTORS:
                 history.push({pathname: ClinicLinkLocationName.DOCTORS});
                 break;
-            case ClinicMenuItemType.CLINIC_ABOUT:
+            case ClinicMenuItem.ABOUT:
                 history.push({pathname: ClinicLinkLocationName.ABOUT});
                 break;
-            case ClinicMenuItemType.CLINIC_CONTACT:
+            case ClinicMenuItem.CONTACT:
                 history.push({pathname: ClinicLinkLocationName.CONTACT});
                 break;
-            case ClinicMenuItemType.CLINIC_PRICES:
+            case ClinicMenuItem.PRICES:
                 history.push({pathname: ClinicLinkLocationName.PRICES});
                 break;
-            case ClinicMenuItemType.PATIENT_ACCOUNT:
+            case PatientMenuItem.MY_ACCOUNT:
                 history.push({pathname: PatientLinkLocationName.MY_ACCOUNT});
                 break;
-            case ClinicMenuItemType.PATIENT_NEW_APPOINTMENT:
-                history.push({pathname: PatientLinkLocationName.APPOINTMENT});
+            case PatientMenuItem.NEW_APPOINTMENT:
+                history.push({pathname: PatientLinkLocationName.NEW_APPOINTMENT});
                 break;
             default:
                 console.log("MenuContainer. onClinicMenuItemSelect. Unknown item id: " + 

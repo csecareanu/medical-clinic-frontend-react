@@ -5,10 +5,13 @@ import { withRouter } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
 
 import classesMenu from '../menu.module.css';
-import { ClinicMenuItemType } from '../../../common/MenuItemTypes';
+import { 
+    UserMenuItem,
+    PatientMenuItem,
+    ClinicMenuItem
+    } from '../../../common/MenuItemIdentifiers';
 import { UserAuthType } from '../../../common/UserAuthType';
-import 
-  { 
+import { 
   ClinicLinkLocationName,
   UserLinkLocationName,
   PatientLinkLocationName
@@ -29,15 +32,15 @@ const NavItemButtonCSS = withProps(NavItemButton,
     });
 
 type Props = {
-    onItemSelect: (itemType: typeof ClinicMenuItemType) => void,
-    userAuthStatus: UserAuthType
+    onItemSelect: (itemType: number) => void,
+    userAuthStatus: number | Symbol
 }
 
 const ClinicMenuView = (props: Props) => {
 
     const userLoginMenuItem = (
             <NavItemButtonCSS
-                id={ClinicMenuItemType.USER_LOGIN}
+                id={UserMenuItem.USER_LOGIN}
                 link={UserLinkLocationName.LOGIN}
                 preventNav
                 onClick={props.onItemSelect}
@@ -48,7 +51,7 @@ const ClinicMenuView = (props: Props) => {
 
     const userLogoutMenuItem = (
             <NavItemButtonCSS
-                id={ClinicMenuItemType.USER_LOGOUT}
+                id={UserMenuItem.USER_LOGOUT}
                 link={UserLinkLocationName.LOGOUT}
                 preventNav
                 onClick={props.onItemSelect}
@@ -59,7 +62,7 @@ const ClinicMenuView = (props: Props) => {
 
     const myAccountMenuItem = (
         <NavItemButtonCSS
-            id={ClinicMenuItemType.PATIENT_ACCOUNT}
+            id={PatientMenuItem.MY_ACCOUNT}
             link={PatientLinkLocationName.MY_ACCOUNT}
             preventNav
             onClick={props.onItemSelect}>
@@ -70,7 +73,7 @@ const ClinicMenuView = (props: Props) => {
     return (
         <NavListView style={classesMenu.Menu}>
             <NavItemButtonCSS 
-                id={ClinicMenuItemType.CLINIC_HOME}
+                id={ClinicMenuItem.HOME}
                 link={ClinicLinkLocationName.ROOT}
                 preventNav
                 exact
@@ -80,7 +83,7 @@ const ClinicMenuView = (props: Props) => {
             </NavItemButtonCSS>
 
             <NavItemButtonCSS 
-                id={ClinicMenuItemType.CLINIC_DOCTORS}
+                id={ClinicMenuItem.DOCTORS}
                 link={ClinicLinkLocationName.DOCTORS}
                 preventNav
                 onClick={props.onItemSelect}
@@ -89,7 +92,7 @@ const ClinicMenuView = (props: Props) => {
             </NavItemButtonCSS>
 
             <NavItemButtonCSS
-                id={ClinicMenuItemType.CLINIC_ABOUT}
+                id={ClinicMenuItem.ABOUT}
                 link={ClinicLinkLocationName.ABOUT}
                 preventNav
                 onClick={props.onItemSelect}
@@ -98,7 +101,7 @@ const ClinicMenuView = (props: Props) => {
             </NavItemButtonCSS>
 
             <NavItemButtonCSS
-                id={ClinicMenuItemType.CLINIC_CONTACT}
+                id={ClinicMenuItem.CONTACT}
                 link={ClinicLinkLocationName.CONTACT}
                 preventNav
                 onClick={props.onItemSelect}
@@ -107,7 +110,7 @@ const ClinicMenuView = (props: Props) => {
             </NavItemButtonCSS>
 
             <NavItemButtonCSS
-                id={ClinicMenuItemType.CLINIC_PRICES}
+                id={ClinicMenuItem.PRICES}
                 link={ClinicLinkLocationName.PRICES}
                 preventNav
                 onClick={props.onItemSelect}
@@ -116,8 +119,8 @@ const ClinicMenuView = (props: Props) => {
             </NavItemButtonCSS>
 
             <NavItemButtonCSS
-                id={ClinicMenuItemType.PATIENT_NEW_APPOINTMENT}
-                link={PatientLinkLocationName.APPOINTMENT}
+                id={PatientMenuItem.NEW_APPOINTMENT}
+                link={PatientLinkLocationName.NEW_APPOINTMENT}
                 preventNav
                 onClick={props.onItemSelect}
             >

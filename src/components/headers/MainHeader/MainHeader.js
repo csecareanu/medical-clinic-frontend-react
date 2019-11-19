@@ -15,7 +15,7 @@ import SideDrawerToolbarView from '../../toolbars/SideDrawerToolbarView/SideDraw
 import { UserAuthType } from '../../../common/UserAuthType';
 
 type Props = {
-    userAuthStatus: UserAuthType,
+    userAuthStatus: number | Symbol,
     onOpenMenuSideDrawer: () => void
 }
 
