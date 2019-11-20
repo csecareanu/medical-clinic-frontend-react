@@ -5,11 +5,11 @@ import React from 'react';
 import { PageHeaderType }  from '../../../../common/PageHeaderType';
 import MainLayout from '../../../layouts/MainLayout/MainLayout';
 import useCheckUserAccessAllowed from '../common/useCheckUserAccessAllowed';
-import AccessNotAllowed from '../../common/AccessNotAllowed/AccessNotAllowed';
+import AccessNotAllowedMsg from '../../common/AccessNotAllowedMsg/AccessNotAllowedMsg';
 
 const DoctorMyAccount = () => {
     if (!useCheckUserAccessAllowed()) {
-        return <AccessNotAllowed/>
+        return <AccessNotAllowedMsg/>
     }
     return (
         <MainLayout headerType={PageHeaderType.DOCTOR}>

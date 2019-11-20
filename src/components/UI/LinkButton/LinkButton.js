@@ -1,4 +1,6 @@
-import React from 'react';
+// @flow
+
+import * as React from 'react';
 
 import classes from './LinkButton.module.css';
 
@@ -9,12 +11,19 @@ export const LinkButtonType = {
 
 
 const onClick = (event, callback) => {
-    // The default action of the event will not be triggered.
-    // When placed on a form the form will not be submitted.
+    // The default action of the event will not be triggered. When placed on a form 
+    // the form will not be submitted.
     event.preventDefault();
     if(callback) {
-        callback(event);
+        callback();
     }
+}
+
+type Props = {
+    type: number, //typeof LinkButtonType - TODO: flow error: Cannot create `LinkButton` element because  number [1] is incompatible with  object literal
+    disabled?: boolean,
+    onClick?: () => void,
+    children: React.Node
 }
 
 /** 
@@ -26,7 +35,7 @@ const onClick = (event, callback) => {
  *  @param {function} props.onClick - Callback function to be notified for the click event
  *  @param {array} props.children - The JSX children to be rendered
 */
-export default (props) => {
+export default (props: Props) => {
     let btnTypeClassName = null;
 
 
@@ -39,7 +48,7 @@ export default (props) => {
             break;
         default:
             //TODO
-            console.log('Button. [W] Unknown button type: ' + props.type);
+            console.log('Button. [W] Unknown button type: ' + props.type.toString());
             break;
     }
 

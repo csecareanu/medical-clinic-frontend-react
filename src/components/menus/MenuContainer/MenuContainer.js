@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { withRouter } from 'react-router-dom';
-import type {RouterHistory} from 'react-router';
+import type { RouterHistory } from 'react-router';
 
 import { 
     UserMenuItem,

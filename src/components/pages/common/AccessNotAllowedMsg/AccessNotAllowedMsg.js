@@ -3,9 +3,9 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
-import classes from './AccessNotAllowed.module.css';
+import classes from './AccessNotAllowedMsg.module.css';
 
-const AccessNotAllowed = () => (
+const AccessNotAllowedMsg = () => (
     <div className={classes.NowAllowedContent}>
         <h3>
             <FormattedMessage 
@@ -16,4 +16,4 @@ const AccessNotAllowed = () => (
     </div>
 );
 
-export default AccessNotAllowed;
+export default AccessNotAllowedMsg;

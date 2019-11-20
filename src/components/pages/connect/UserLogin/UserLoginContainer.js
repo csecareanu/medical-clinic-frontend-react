@@ -7,6 +7,7 @@ import { UserAuthType } from '../../../../common/UserAuthType';
 
 const loginContainer = {
     uiStateContext: (null: null | UIStateContext),
+    userAuthStatus: (UserAuthType.UNAUTHENTICATED: number | Symbol),
 
     onAuthenticate: (phoneNo: string, password: string) : void => {
 
@@ -49,10 +50,8 @@ const loginContainer = {
             console.log("onCancel. uiStateContext not set");
             return;
         }
-        const uiStateContext = loginContainer.uiStateContext; //added to get rid of flow warning         
-
+        const uiStateContext = loginContainer.uiStateContext;
         uiStateContext.setDisplayLoginComponent(false);
-
     }
 }
 
@@ -60,6 +59,8 @@ type Props = {
     children: (containerData: typeof loginContainer) => React.Node
 }
 export default (props: Props) => {
-    loginContainer.uiStateContext = React.useContext(UIStateContext);
+    let uiStateContext = React.useContext(UIStateContext);
+    loginContainer.uiStateContext = uiStateContext;
+    loginContainer.userAuthStatus = uiStateContext.userAuthStatus;
     return (props.children)(loginContainer);
 }
