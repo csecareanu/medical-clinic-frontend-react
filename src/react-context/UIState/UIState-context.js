@@ -14,13 +14,14 @@ import { UserAuthType } from '../../common/UserAuthType';
  */
 const UIStateContext = React.createContext({
     userAuthStatus: UserAuthType.UNAUTHENTICATED,
-    // a doctor can log into any patient account in order to create an appointment for the patient
-    loggedIntoPatientAccount: false,
+    // a doctor can connect to a patient account in order to create an appointment 
+    // or change his/her personal data.
+    isUserConnectedToAPatientAccount: false,
     displayLoginComponent: false,
     displayLogoutComponent: false,
     displayMenuSideDrawerComponent: false,
     setUserAuthenticationStatus: (userAuthStatus) => {},
-    setLoggedIntoPatientAccount: (isLoggedIn) => {},    
+    setUserConnectedToPatientAccount: (isConnected) => {},   
     setDisplayLoginComponent: (show) => {},
     setDisplayLogoutComponent: (show) => {},
     setDisplayMenuSideDrawerComponent: (show) => {}

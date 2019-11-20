@@ -11,7 +11,7 @@ type Props = {
 
 type State = {
   userAuthStatus: number | Symbol,
-  loggedIntoPatientAccount: boolean,
+  isUserConnectedToAPatientAccount: boolean,
   displayLoginComponent: boolean,
   displayLogoutComponent: boolean,
   displayMenuSideDrawerComponent: boolean
@@ -31,7 +31,7 @@ class UIState extends React.Component<Props, State> {
 
     state = {
         userAuthStatus: UserAuthType.UNAUTHENTICATED,
-        loggedIntoPatientAccount: false,
+        isUserConnectedToAPatientAccount: false,
         displayLoginComponent: false,
         displayLogoutComponent: false,
         displayMenuSideDrawerComponent: false
@@ -43,7 +43,7 @@ class UIState extends React.Component<Props, State> {
                 value={{
                     // variables
                     userAuthStatus: this.state.userAuthStatus,
-                    loggedIntoPatientAccount: this.state.loggedIntoPatientAccount,
+                    isUserConnectedToAPatientAccount: this.state.isUserConnectedToAPatientAccount,
                     displayLoginComponent: this.state.displayLoginComponent,
                     displayLogoutComponent: this.state.displayLogoutComponent,
                     displayMenuSideDrawerComponent: this.state.displayMenuSideDrawerComponent,
@@ -51,8 +51,8 @@ class UIState extends React.Component<Props, State> {
                     setUserAuthenticationStatus: (userAuthenticationType: number) => { 
                         this.setState({userAuthStatus: userAuthenticationType}) 
                     },
-                    setLoggedIntoPatientAccount: (isLoggedIn: boolean) => {
-                        this.setState({loggedIntoPatientAccount: isLoggedIn})
+                    setUserConnectedToPatientAccount: (isConnected: boolean) => {
+                        this.setState({isUserConnectedToAPatientAccount: isConnected})
                     },
                     setDisplayLoginComponent: (show: boolean) => {
                         this.setState({displayLoginComponent: show})
