@@ -4,15 +4,15 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import type { RouterHistory } from 'react-router';
 
+import { UserAuthType } from '../../../../common/UserAuthType';
 import UserLoginView from './UserLoginView';
 import UserLoginContainer from './UserLoginContainer';
 import UserLoggedInMsg from '../../common/UserLoggedInMsg/UserLoggedInMsg';
-import { UserAuthType } from '../../../../common/UserAuthType';
 
 type Props = {
     history: RouterHistory,
-    navigateToOnSuccess?: string,
-    navigateToOnCancel?: string
+    navigateToURIOnSuccess?: string,
+    navigateToURIOnCancel?: string
 }
 
 const UserLogin = (props: Props) => {
@@ -22,23 +22,23 @@ const UserLogin = (props: Props) => {
             {
                 (containerData) => (
                     containerData.userAuthStatus !== UserAuthType.UNAUTHENTICATED
-                    ? <UserLoggedInMsg />
-                    : (
-                        <UserLoginView
-                            onAuthenticate={(phoneNo, password) => {
-                                containerData.onAuthenticate(phoneNo, password)
-                            }}
-                            onCreateAccount={(/*accountInfo*/) => {
-                                containerData.onCreateAccount(/*accountInfo*/);
-                            }}
-                            onCancel={() => {
-                                containerData.onCancel();
-                                if (props.navigateToOnCancel) {
-                                    props.history.push({pathname: props.navigateToOnCancel});
-                                }
-                            }}
-                        />
-                    )
+                        ? <UserLoggedInMsg />
+                        : (
+                            <UserLoginView
+                                onAuthenticate={(phoneNo, password) => {
+                                    containerData.onAuthenticate(phoneNo, password)
+                                }}
+                                onCreateAccount={(/*accountInfo*/) => {
+                                    containerData.onCreateAccount(/*accountInfo*/);
+                                }}
+                                onCancel={() => {
+                                    containerData.onCancel();
+                                    if (props.navigateToURIOnCancel) {
+                                        props.history.push({pathname: props.navigateToURIOnCancel});
+                                    }
+                                }}
+                            />
+                        )
                 )
             }
         </UserLoginContainer>

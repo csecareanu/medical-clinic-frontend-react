@@ -34,6 +34,7 @@ import SysAdminServices from '../pages/sysAdmin/SysAdminServices/SysAdminService
 import SysAdminSettings from '../pages/sysAdmin/SysAdminSettings/SysAdminSettings';
 import SysAdminSpecialties from '../pages/sysAdmin/SysAdminSpecialties/SysAdminSpecialties';
 
+
 import { 
   ClinicLinkLocationName,
   UserLinkLocationName,
@@ -66,8 +67,11 @@ function App() {
 
         {/* UserLinkLocationName */}
         <Route
-          path={UserLinkLocationName.LOGIN} 
-          component={UserLogin} />
+          path={UserLinkLocationName.LOGIN}
+          component={() => (
+            <UserLogin navigateToURIOnCancel={ClinicLinkLocationName.ROOT} />
+            ) } 
+        />
         <Route
           path={UserLinkLocationName.LOGOUT} 
           component={UserLogout} />
