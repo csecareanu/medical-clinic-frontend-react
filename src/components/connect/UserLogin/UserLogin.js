@@ -8,13 +8,14 @@ import UserLoginView from './UserLoginView';
 import UserLoginContainer from './UserLoginContainer';
 
 type Props = {
-    history: RouterHistory,
-    navigateToURIOnSuccess?: string,
-    navigateToURIOnCancel?: string
+    history: RouterHistory
 }
 
 const UserLogin = (props: Props) => {
     //TODO log all user actions in order to reproduce all his/her steps at debug time
+
+    // keep the value of the props.history inside closure
+    const history = props.history;
     return (
         <UserLoginContainer>
             {
@@ -29,10 +30,7 @@ const UserLogin = (props: Props) => {
                                     containerData.onCreateAccount(/*accountInfo*/);
                                 }}
                                 onCancel={() => {
-                                    containerData.onCancel();
-                                    if (props.navigateToURIOnCancel) {
-                                        props.history.push({pathname: props.navigateToURIOnCancel});
-                                    }
+                                    containerData.onCancel(history);
                                 }}
                             />
                         )

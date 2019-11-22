@@ -4,11 +4,13 @@ import * as React from 'react';
 
 import UIStateContext from '../../../react-context/UIState/UIState-context';
 import { UserAuthType } from '../../../common/UserAuthType';
+import type { RouterHistory } from 'react-router';
 
 const containerData = {
     uiStateContext: (null: null | UIStateContext),
     userAuthStatus: (UserAuthType.UNAUTHENTICATED: number | Symbol),
     displayLoginComponent: (false: boolean),
+    navigateToURIOnCancelLogin: (null: string | null),
 
     onAuthenticate: (phoneNo: string, password: string) : void => {
 
@@ -39,20 +41,25 @@ const containerData = {
             console.log("onCreateAccount. uiStateContext not set");
             return;
         }
-        const uiStateContext = containerData.uiStateContext; //added to get rid of flow warning        
+        const uiStateContext = containerData.uiStateContext;
 
         uiStateContext.setUserAuthenticationStatus(UserAuthType.PATIENT);
         uiStateContext.setDisplayLoginComponent(false);
 
     },
 
-    onCancel: () : void => {
+    onCancel: (history: RouterHistory) : void => {
         if(containerData.uiStateContext == null) {
             console.log("onCancel. uiStateContext not set");
             return;
         }
         const uiStateContext = containerData.uiStateContext;
         uiStateContext.setDisplayLoginComponent(false);
+
+        if (uiStateContext.navigateToURIOnCancelLogin) {
+            history.push({pathname: uiStateContext.navigateToURIOnCancelLogin});
+            uiStateContext.setNavigateToURIOnCancelLogin(null);
+        }        
     }
 }
 
@@ -64,5 +71,6 @@ export default (props: Props) => {
     containerData.uiStateContext = uiStateContext;
     containerData.userAuthStatus = uiStateContext.userAuthStatus;
     containerData.displayLoginComponent = uiStateContext.displayLoginComponent;
+    containerData.navigateToURIOnCancelLogin = uiStateContext.navigateToURIOnCancelLogin;
     return (props.children)(containerData);
 }

@@ -13,6 +13,7 @@ type State = {
   userAuthStatus: number | Symbol,
   isUserConnectedToAPatientAccount: boolean,
   displayLoginComponent: boolean,
+  navigateToURIOnCancelLogin: string | null,
   displayLogoutComponent: boolean,
   displayMenuSideDrawerComponent: boolean
 };
@@ -33,6 +34,7 @@ class UIState extends React.Component<Props, State> {
         userAuthStatus: UserAuthType.UNAUTHENTICATED,
         isUserConnectedToAPatientAccount: false,
         displayLoginComponent: false,
+        navigateToURIOnCancelLogin: null,
         displayLogoutComponent: false,
         displayMenuSideDrawerComponent: false
     }
@@ -45,6 +47,7 @@ class UIState extends React.Component<Props, State> {
                     userAuthStatus: this.state.userAuthStatus,
                     isUserConnectedToAPatientAccount: this.state.isUserConnectedToAPatientAccount,
                     displayLoginComponent: this.state.displayLoginComponent,
+                    navigateToURIOnCancelLogin: this.state.navigateToURIOnCancelLogin,
                     displayLogoutComponent: this.state.displayLogoutComponent,
                     displayMenuSideDrawerComponent: this.state.displayMenuSideDrawerComponent,
                     // methods
@@ -56,6 +59,9 @@ class UIState extends React.Component<Props, State> {
                     },
                     setDisplayLoginComponent: (show: boolean) => {
                         this.setState({displayLoginComponent: show})
+                    },
+                    setNavigateToURIOnCancelLogin: (uri: string | null) => {
+                        this.setState({navigateToURIOnCancelLogin: uri})
                     },
                     setDisplayLogoutComponent: (show: boolean) => {
                         this.setState({displayLogoutComponent: show})

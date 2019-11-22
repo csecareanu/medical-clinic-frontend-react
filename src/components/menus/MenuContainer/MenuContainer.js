@@ -62,10 +62,10 @@ const menuContainer = {
                 history.push({pathname: PatientLinkLocationName.MY_ACCOUNT});
                 break;
             case PatientMenuItem.NEW_APPOINTMENT:
-                if (uiStateContext.userAuthStatus === UserAuthType.UNAUTHENTICATED) {
+                //if (uiStateContext.userAuthStatus === UserAuthType.UNAUTHENTICATED) {
                     //authenticateUserBeforeToNavigate(PatientLinkLocationName.NEW_APPOINTMENT);
-                    break;
-                }
+                //    break;
+                //}
                 history.push({pathname: PatientLinkLocationName.NEW_APPOINTMENT});
                 break;
             default:

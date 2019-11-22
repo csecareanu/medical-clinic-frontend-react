@@ -18,11 +18,13 @@ const UIStateContext = React.createContext({
     // or change his/her personal data.
     isUserConnectedToAPatientAccount: false,
     displayLoginComponent: false,
+    navigateToURIOnCancelLogin: null,
     displayLogoutComponent: false,
     displayMenuSideDrawerComponent: false,
     setUserAuthenticationStatus: (userAuthStatus) => {},
     setUserConnectedToPatientAccount: (isConnected) => {},   
     setDisplayLoginComponent: (show) => {},
+    setNavigateToURIOnCancelLogin: (uri) => {},
     setDisplayLogoutComponent: (show) => {},
     setDisplayMenuSideDrawerComponent: (show) => {}
 });

@@ -1,14 +1,28 @@
 // @flow
 
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
 
 import { PageHeaderType }  from '../../../../common/PageHeaderType';
 import MainLayout from '../../../layouts/MainLayout/MainLayout';
 
-const PatientNewAppointment = () => {
+type Props = {
+    notAuthenticated?: boolean
+}
+
+const PatientNewAppointment = (props: Props) => {
+
     return (
         <MainLayout headerType={PageHeaderType.MAIN}>
-            <h1>New/Modify Appointment</h1>
+            {
+                props.notAuthenticated
+                    ? ( <FormattedMessage 
+                            id="not_auth_to_use_resource" 
+                            defaultMessage={'You need to be authenticated to access this resource.'}/>
+
+                    )
+                    : <h1>New/Modify Appointment</h1>
+        }
         </MainLayout>
     );
 }
