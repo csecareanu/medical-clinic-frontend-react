@@ -8,8 +8,8 @@ import MainHeader from '../../headers/MainHeader/MainHeader';
 import DoctorHeader from '../../headers/DoctorHeader/DoctorHeader';
 import SysAdminHeader from '../../headers/SysAdminHeader/SysAdminHeader';
 import MainFooter from '../../footers/MainFooter/MainFooter';
-import UserLogin from '../../pages/connect/UserLogin/UserLogin';
-import UserLogout from '../../pages/connect/UserLogout/UserLogout';
+import UserLogin from '../../connect/UserLogin/UserLogin';
+import UserLogout from '../../connect/UserLogout/UserLogout';
 import MenuSideDrawer from '../../side-drawers/MenuSideDrawer/MenuSideDrawer';
 
 type Props = {

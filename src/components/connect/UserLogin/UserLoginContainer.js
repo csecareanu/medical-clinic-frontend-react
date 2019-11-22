@@ -2,8 +2,8 @@
 
 import * as React from 'react';
 
-import UIStateContext from '../../../../react-context/UIState/UIState-context';
-import { UserAuthType } from '../../../../common/UserAuthType';
+import UIStateContext from '../../../react-context/UIState/UIState-context';
+import { UserAuthType } from '../../../common/UserAuthType';
 
 const containerData = {
     uiStateContext: (null: null | UIStateContext),
