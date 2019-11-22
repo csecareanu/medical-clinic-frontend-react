@@ -4,10 +4,8 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import type { RouterHistory } from 'react-router';
 
-import { UserAuthType } from '../../../../common/UserAuthType';
 import UserLoginView from './UserLoginView';
 import UserLoginContainer from './UserLoginContainer';
-import UserLoggedInMsg from '../../common/UserLoggedInMsg/UserLoggedInMsg';
 
 type Props = {
     history: RouterHistory,
@@ -21,9 +19,8 @@ const UserLogin = (props: Props) => {
         <UserLoginContainer>
             {
                 (containerData) => (
-                    containerData.userAuthStatus !== UserAuthType.UNAUTHENTICATED
-                        ? <UserLoggedInMsg />
-                        : (
+                    containerData.displayLoginComponent
+                        ? (
                             <UserLoginView
                                 onAuthenticate={(phoneNo, password) => {
                                     containerData.onAuthenticate(phoneNo, password)
@@ -39,6 +36,7 @@ const UserLogin = (props: Props) => {
                                 }}
                             />
                         )
+                        : null
                 )
             }
         </UserLoginContainer>

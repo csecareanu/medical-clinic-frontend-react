@@ -1,5 +1,6 @@
 import React from 'react';
 
+import commonClasses from '../../../common.module.css';
 import SideDrawerView from '../SideDrawerView/SideDrawerView';
 import DoctorMenuView from '../../menus/DoctorMenuView/DoctorMenuView';
 import ClinicMenu from '../../menus/ClinicMenu/ClinicMenu';
@@ -14,14 +15,16 @@ import { UserAuthType } from '../../../common/UserAuthType';
  */
 const MenuSideDrawerView = (props) => {
     return (
-        <SideDrawerView show onClose={props.onClose}>
-          {props.userAuthStatus === UserAuthType.DOCTOR ? 
-              <DoctorMenuView onItemSelect={props.onClose} /> 
-              : 
-              null
-          }
-          <ClinicMenu onItemSelect={props.onClose} />
-        </SideDrawerView>
+        <div className={commonClasses.SmallScreenOnly}>
+            <SideDrawerView show onClose={props.onClose}>
+            {props.userAuthStatus === UserAuthType.DOCTOR ? 
+                <DoctorMenuView onItemSelect={props.onClose} /> 
+                : 
+                null
+            }
+            <ClinicMenu onItemSelect={props.onClose} />
+            </SideDrawerView>
+        </div>
     );
 }
 

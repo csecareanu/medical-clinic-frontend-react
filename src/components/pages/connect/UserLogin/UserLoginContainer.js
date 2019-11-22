@@ -5,17 +5,18 @@ import * as React from 'react';
 import UIStateContext from '../../../../react-context/UIState/UIState-context';
 import { UserAuthType } from '../../../../common/UserAuthType';
 
-const loginContainer = {
+const containerData = {
     uiStateContext: (null: null | UIStateContext),
     userAuthStatus: (UserAuthType.UNAUTHENTICATED: number | Symbol),
+    displayLoginComponent: (false: boolean),
 
     onAuthenticate: (phoneNo: string, password: string) : void => {
 
-        if(loginContainer.uiStateContext == null) {
+        if(containerData.uiStateContext == null) {
             console.log("UserLoginContainer. uiStateContext not set");
             return;
         }
-        const uiStateContext = loginContainer.uiStateContext; //added to get rid of flow warning
+        const uiStateContext = containerData.uiStateContext;
 
         let newAuthStatus = UserAuthType.UNAUTHENTICATED;
 
@@ -34,11 +35,11 @@ const loginContainer = {
     },
 
     onCreateAccount: (/*accountInfo*/) : void => {
-        if(loginContainer.uiStateContext == null) {
+        if(containerData.uiStateContext == null) {
             console.log("onCreateAccount. uiStateContext not set");
             return;
         }
-        const uiStateContext = loginContainer.uiStateContext; //added to get rid of flow warning        
+        const uiStateContext = containerData.uiStateContext; //added to get rid of flow warning        
 
         uiStateContext.setUserAuthenticationStatus(UserAuthType.PATIENT);
         uiStateContext.setDisplayLoginComponent(false);
@@ -46,21 +47,22 @@ const loginContainer = {
     },
 
     onCancel: () : void => {
-        if(loginContainer.uiStateContext == null) {
+        if(containerData.uiStateContext == null) {
             console.log("onCancel. uiStateContext not set");
             return;
         }
-        const uiStateContext = loginContainer.uiStateContext;
+        const uiStateContext = containerData.uiStateContext;
         uiStateContext.setDisplayLoginComponent(false);
     }
 }
 
 type Props = {
-    children: (containerData: typeof loginContainer) => React.Node
+    children: (containerData: typeof containerData) => React.Node
 }
 export default (props: Props) => {
     let uiStateContext = React.useContext(UIStateContext);
-    loginContainer.uiStateContext = uiStateContext;
-    loginContainer.userAuthStatus = uiStateContext.userAuthStatus;
-    return (props.children)(loginContainer);
+    containerData.uiStateContext = uiStateContext;
+    containerData.userAuthStatus = uiStateContext.userAuthStatus;
+    containerData.displayLoginComponent = uiStateContext.displayLoginComponent;
+    return (props.children)(containerData);
 }

@@ -1,9 +1,7 @@
 // @flow
 
-import React from 'react';
-
-const UserLogout = () => (
-    <div></div>
-);
+const UserLogout = () => {
+    return null;
+}
 
 export default UserLogout;

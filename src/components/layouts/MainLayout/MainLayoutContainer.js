@@ -5,43 +5,29 @@ import * as React from 'react';
 import UIStateContext from '../../../react-context/UIState/UIState-context';
 import { UserAuthType } from '../../../common/UserAuthType';
 
-const layoutContainer = {
+const containerData = {
     uiStateContext: (null: null | UIStateContext),
     userAuthStatus: (UserAuthType.UNAUTHENTICATED: number | Symbol),
-    displayMenuSideDrawerComponent: (false: boolean),
-    displayLoginComponent: (false: boolean),
-    displayLogoutComponent: (false: boolean),
 
     onOpenMenuSideDrawer: () : void => {
-        if(layoutContainer.uiStateContext == null) {
+        if(containerData.uiStateContext == null) {
             console.log("MainLayoutContainer. onOpenMenuSideDrawer. uiStateContext not set");
             return;
         }        
-        layoutContainer.uiStateContext.setDisplayMenuSideDrawerComponent(true);
-    },    
-
-    onCloseMenuSideDrawer: () : void => {
-        if(layoutContainer.uiStateContext == null) {
-            console.log("MainLayoutContainer. onCloseMenuSideDrawer. uiStateContext not set");
-            return;
-        }        
-        layoutContainer.uiStateContext.setDisplayMenuSideDrawerComponent(false);
+        containerData.uiStateContext.setDisplayMenuSideDrawerComponent(true);
     }
 }
 
 type Props = {
-    children: (containerData: typeof layoutContainer) => React.Node
+    children: (containerData: typeof containerData) => React.Node
 }
 
 const MainLayoutContainer = (props: Props) => {
     const uiStateContext = React.useContext(UIStateContext);
-    layoutContainer.uiStateContext = uiStateContext;
-    layoutContainer.userAuthStatus = uiStateContext.userAuthStatus;
-    layoutContainer.displayMenuSideDrawerComponent = uiStateContext.displayMenuSideDrawerComponent;
-    layoutContainer.displayLoginComponent = uiStateContext.displayLoginComponent;
-    layoutContainer.displayLogoutComponent = uiStateContext.displayLogoutComponent;
+    containerData.uiStateContext = uiStateContext;
+    containerData.userAuthStatus = uiStateContext.userAuthStatus;
 
-    return (props.children)(layoutContainer);
+    return (props.children)(containerData);
 }
 
 export default MainLayoutContainer;
