@@ -1,7 +1,10 @@
+// @flow
+
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import classes from './NewAppointmentToolbarItemView.module.css';
+import { PatientMenuItem } from '../../../../common/MenuItemIdentifiers.js'
 import NavListView from '../../../UI/NavListView/NavListView';
 import NavItemButton_NoStyle from '../../../UI/NavListView/NavItemButton/NavItemButton';
 import withProps from '../../../hoc/withProps';
@@ -13,12 +16,24 @@ const NavItemButton = withProps(NavItemButton_NoStyle,
         styleTextActive: classes.Active
     });
 
-export default () => (
+type Props = {
+    onClick: (itemId: number) => void,
+}
+
+const NewAppointmentToolbarItemView = (props: Props) => (
     <div className={classes.NewAppointment}>
         <NavListView style={classes.Menu}>
-        <NavItemButton link="/appointment" exact >
-            <FormattedMessage id="toolbar_new_appointment" defaultMessage={'New Appointment'}/>
-        </NavItemButton>
+            <NavItemButton 
+                id={PatientMenuItem.NEW_APPOINTMENT}
+                onClick={props.onClick}
+            >
+                <FormattedMessage 
+                    id="toolbar_new_appointment" 
+                    defaultMessage={'New Appointment'}
+                />
+            </NavItemButton>
         </NavListView>
     </div>
 );
+
+export default NewAppointmentToolbarItemView;

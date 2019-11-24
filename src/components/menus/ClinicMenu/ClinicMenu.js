@@ -12,11 +12,11 @@ type Props = {
 const ClinicMenu = (props: Props) => (
     <NavContainer>
     {
-        (containerData) => (
+        (navigationData) => (
             <ClinicMenuView 
-                userAuthStatus={containerData.userAuthStatus}
+                userAuthStatus={navigationData.userAuthStatus}
                 onItemSelect={ (itemType: number) => {
-                    containerData.onClinicItemSelect(itemType);
+                    navigationData.onClinicItemSelect(itemType);
                     if (props.onItemSelect) {
                         props.onItemSelect();
                     }}}

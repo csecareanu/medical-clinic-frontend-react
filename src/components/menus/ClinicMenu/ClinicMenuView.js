@@ -38,7 +38,7 @@ type Props = {
 
 const ClinicMenuView = (props: Props) => {
 
-    const userLoginMenuItem = (
+    const userLoginItem = (
             <NavItemButtonCSS
                 id={UserMenuItem.USER_LOGIN}
                 link={UserLinkLocationName.LOGIN}
@@ -49,7 +49,7 @@ const ClinicMenuView = (props: Props) => {
             </NavItemButtonCSS>
     );
 
-    const userLogoutMenuItem = (
+    const userLogoutItem = (
             <NavItemButtonCSS
                 id={UserMenuItem.USER_LOGOUT}
                 link={UserLinkLocationName.LOGOUT}
@@ -60,7 +60,7 @@ const ClinicMenuView = (props: Props) => {
             </NavItemButtonCSS>
     );
 
-    const myAccountMenuItem = (
+    const myAccountItem = (
         <NavItemButtonCSS
             id={PatientMenuItem.MY_ACCOUNT}
             link={PatientLinkLocationName.MY_ACCOUNT}
@@ -68,6 +68,17 @@ const ClinicMenuView = (props: Props) => {
             onClick={props.onItemSelect}>
             <FormattedMessage id="menu_my_account" defaultMessage={'MY ACCOUNT'}/>
         </NavItemButtonCSS>
+    );
+
+    const newAppointmentItem = (
+                    <NavItemButtonCSS
+                    id={PatientMenuItem.NEW_APPOINTMENT}
+                    link={PatientLinkLocationName.NEW_APPOINTMENT}
+                    preventNav
+                    onClick={props.onItemSelect}
+                >
+                    <FormattedMessage id="menu_new_appointment" defaultMessage={'NEW APPOINTMENT'}/>
+                </NavItemButtonCSS>
     );
 
     return (
@@ -118,21 +129,17 @@ const ClinicMenuView = (props: Props) => {
                 <FormattedMessage id="menu_prices" defaultMessage={'PRICES'}/>
             </NavItemButtonCSS>
 
-            <NavItemButtonCSS
-                id={PatientMenuItem.NEW_APPOINTMENT}
-                link={PatientLinkLocationName.NEW_APPOINTMENT}
-                preventNav
-                onClick={props.onItemSelect}
-            >
-                <FormattedMessage id="menu_new_appointment" defaultMessage={'NEW APPOINTMENT'}/>
-            </NavItemButtonCSS>
 
             { props.userAuthStatus !== UserAuthType.UNAUTHENTICATED ? 
-                myAccountMenuItem : null
+                newAppointmentItem : null
             }
 
             { props.userAuthStatus !== UserAuthType.UNAUTHENTICATED ? 
-                    userLogoutMenuItem : userLoginMenuItem
+                myAccountItem : null
+            }
+
+            { props.userAuthStatus !== UserAuthType.UNAUTHENTICATED ? 
+                    userLogoutItem : userLoginItem
             }
 
         </NavListView>
