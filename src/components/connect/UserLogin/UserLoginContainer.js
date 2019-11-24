@@ -12,7 +12,7 @@ const containerData = {
     displayLoginComponent: (false: boolean),
     navigateToURIOnCancelLogin: (null: string | null),
 
-    onAuthenticate: (phoneNo: string, password: string) : void => {
+    onAuthenticate: (history: RouterHistory, phoneNo: string, password: string) : void => {
 
         if(containerData.uiStateContext == null) {
             console.log("UserLoginContainer. uiStateContext not set");
@@ -34,9 +34,14 @@ const containerData = {
 
         uiStateContext.setUserAuthenticationStatus(newAuthStatus);
         uiStateContext.setDisplayLoginComponent(false);
+
+        if (uiStateContext.navigateToURIOnSuccessfullyLogin) {
+            history.push({pathname: uiStateContext.navigateToURIOnSuccessfullyLogin});
+            uiStateContext.setNavigateToURIOnSuccessfullyLogin(null);
+        }        
     },
 
-    onCreateAccount: (/*accountInfo*/) : void => {
+    onCreateAccount: (history: RouterHistory /*, accountInfo*/) : void => {
         if(containerData.uiStateContext == null) {
             console.log("onCreateAccount. uiStateContext not set");
             return;
@@ -46,6 +51,10 @@ const containerData = {
         uiStateContext.setUserAuthenticationStatus(UserAuthType.PATIENT);
         uiStateContext.setDisplayLoginComponent(false);
 
+        if (uiStateContext.navigateToURIOnSuccessfullyLogin) {
+            history.push({pathname: uiStateContext.navigateToURIOnSuccessfullyLogin});
+            uiStateContext.setNavigateToURIOnSuccessfullyLogin(null);
+        }
     },
 
     onCancel: (history: RouterHistory) : void => {

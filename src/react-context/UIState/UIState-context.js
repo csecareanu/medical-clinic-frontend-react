@@ -19,12 +19,14 @@ const UIStateContext = React.createContext({
     isUserConnectedToAPatientAccount: false,
     displayLoginComponent: false,
     navigateToURIOnCancelLogin: null,
+    navigateToURIOnSuccessfullyLogin: null,
     displayLogoutComponent: false,
     displayMenuSideDrawerComponent: false,
     setUserAuthenticationStatus: (userAuthStatus) => {},
     setUserConnectedToPatientAccount: (isConnected) => {},   
     setDisplayLoginComponent: (show) => {},
     setNavigateToURIOnCancelLogin: (uri) => {},
+    setNavigateToURIOnSuccessfullyLogin: (uri) => {},
     setDisplayLogoutComponent: (show) => {},
     setDisplayMenuSideDrawerComponent: (show) => {}
 });

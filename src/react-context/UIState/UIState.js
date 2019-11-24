@@ -14,6 +14,7 @@ type State = {
   isUserConnectedToAPatientAccount: boolean,
   displayLoginComponent: boolean,
   navigateToURIOnCancelLogin: string | null,
+  navigateToURIOnSuccessfullyLogin: string | null,
   displayLogoutComponent: boolean,
   displayMenuSideDrawerComponent: boolean
 };
@@ -35,6 +36,7 @@ class UIState extends React.Component<Props, State> {
         isUserConnectedToAPatientAccount: false,
         displayLoginComponent: false,
         navigateToURIOnCancelLogin: null,
+        navigateToURIOnSuccessfullyLogin: null,
         displayLogoutComponent: false,
         displayMenuSideDrawerComponent: false
     }
@@ -48,6 +50,7 @@ class UIState extends React.Component<Props, State> {
                     isUserConnectedToAPatientAccount: this.state.isUserConnectedToAPatientAccount,
                     displayLoginComponent: this.state.displayLoginComponent,
                     navigateToURIOnCancelLogin: this.state.navigateToURIOnCancelLogin,
+                    navigateToURIOnSuccessfullyLogin: this.state.navigateToURIOnSuccessfullyLogin,
                     displayLogoutComponent: this.state.displayLogoutComponent,
                     displayMenuSideDrawerComponent: this.state.displayMenuSideDrawerComponent,
                     // methods
@@ -62,6 +65,9 @@ class UIState extends React.Component<Props, State> {
                     },
                     setNavigateToURIOnCancelLogin: (uri: string | null) => {
                         this.setState({navigateToURIOnCancelLogin: uri})
+                    },
+                    setNavigateToURIOnSuccessfullyLogin: (uri: string | null) => {
+                        this.setState({navigateToURIOnSuccessfullyLogin: uri})
                     },
                     setDisplayLogoutComponent: (show: boolean) => {
                         this.setState({displayLogoutComponent: show})
