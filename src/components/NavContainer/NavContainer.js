@@ -8,35 +8,35 @@ import {
     UserMenuItem,
     PatientMenuItem,
     ClinicMenuItem
-    }  from '../../../common/MenuItemIdentifiers';
-import { UserAuthType } from '../../../common/UserAuthType';
+    }  from '../../common/MenuItemIdentifiers';
+import { UserAuthType } from '../../common/UserAuthType';
 import {
     ClinicLinkLocationName,
     PatientLinkLocationName
-} from '../../../common/LinkLocationNames';
-import UIStateContext from '../../../react-context/UIState/UIState-context.js';
+} from '../../common/LinkLocationNames';
+import UIStateContext from '../../react-context/UIState/UIState-context.js';
 
-const menuContainer = {
+const containerData = {
     history: (null: null | RouterHistory),
     uiStateContext: (null: null | UIStateContext),
     userAuthStatus: (UserAuthType.UNAUTHENTICATED: number | Symbol),
 
-    onClinicMenuItemSelect: (itemType: number) => {
-        if(menuContainer.uiStateContext == null) {
-            console.log("MenuContainer. onClinicMenuItemSelect. uiStateContext not set");
+    onClinicItemSelect: (itemType: number) => {
+        if(containerData.uiStateContext == null) {
+            console.log("NavContainer. onClinicItemSelect. uiStateContext not set");
             return;
         }
-        const uiStateContext = menuContainer.uiStateContext; //added to get rid of flow warning
+        const uiStateContext = containerData.uiStateContext; //added to get rid of flow warning
 
-        if(menuContainer.history == null) {
-            console.log("MenuContainer. onClinicMenuItemSelect. history not set");
+        if(containerData.history == null) {
+            console.log("NavContainer. onClinicItemSelect. history not set");
             return;            
         }
-        const history = menuContainer.history;
+        const history = containerData.history;
 
         switch (itemType) {
             case UserMenuItem.USER_LOGIN:
-                menuContainer.uiStateContext.setDisplayLoginComponent(true);
+                containerData.uiStateContext.setDisplayLoginComponent(true);
                 break;
             case UserMenuItem.USER_LOGOUT:
                 uiStateContext.setUserAuthenticationStatus(UserAuthType.UNAUTHENTICATED);
@@ -71,26 +71,33 @@ const menuContainer = {
                 history.push({pathname: PatientLinkLocationName.NEW_APPOINTMENT});
                 break;
             default:
-                console.log("MenuContainer. onClinicMenuItemSelect. Unknown item id: " + 
+                console.log("NavContainer. onClinicItemSelect. Unknown item id: " + 
                         itemType.toString());
                 break;
         }
     }
 }
 
+/**
+ * Container component used to navigate to site's resources. 
+ * The navigation is intended to be done in container components in order to keep as presentational 
+ * the components which trigger navigation.
+ * If the component content will grow more small navigation  components will be created 
+ * based on navigation type. 
+ */
 
 type Props = {
-    children: (containerData: typeof menuContainer) => React.Node,
+    children: (containerData: typeof containerData) => React.Node,
     history: RouterHistory
 }
 
-const MenuContainer = (props: Props) => {
+const NavContainer = (props: Props) => {
     const uiStateContext = React.useContext(UIStateContext);
-    menuContainer.uiStateContext = uiStateContext;
-    menuContainer.history = props.history;
-    menuContainer.userAuthStatus = uiStateContext.userAuthStatus;
+    containerData.uiStateContext = uiStateContext;
+    containerData.history = props.history;
+    containerData.userAuthStatus = uiStateContext.userAuthStatus;
 
-    return (props.children)(menuContainer);
+    return (props.children)(containerData);
 }
 
-export default withRouter(MenuContainer);
+export default withRouter(NavContainer);

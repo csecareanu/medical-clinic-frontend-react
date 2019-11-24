@@ -3,27 +3,27 @@
 import * as React from 'react';
 
 import ClinicMenuView from './ClinicMenuView';
-import MenuContainer from '../MenuContainer/MenuContainer';
+import NavContainer from '../../NavContainer/NavContainer';
 
 type Props = {
     onItemSelect?: () => void
 };
 
 const ClinicMenu = (props: Props) => (
-    <MenuContainer>
+    <NavContainer>
     {
         (containerData) => (
             <ClinicMenuView 
                 userAuthStatus={containerData.userAuthStatus}
                 onItemSelect={ (itemType: number) => {
-                    containerData.onClinicMenuItemSelect(itemType);
+                    containerData.onClinicItemSelect(itemType);
                     if (props.onItemSelect) {
                         props.onItemSelect();
                     }}}
             />
         )
     }
-    </MenuContainer>
+    </NavContainer>
 )
 
 export default ClinicMenu;
