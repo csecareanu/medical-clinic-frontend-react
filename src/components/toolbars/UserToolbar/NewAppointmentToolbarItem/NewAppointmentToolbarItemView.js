@@ -4,7 +4,7 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import classes from './NewAppointmentToolbarItemView.module.css';
-import { PatientMenuItem } from '../../../../common/MenuItemIdentifiers.js'
+import { PatientMenuItem } from '../../../../shared/MenuItemIdentifiers.js'
 import NavListView from '../../../UI/NavListView/NavListView';
 import NavItemButton_NoStyle from '../../../UI/NavListView/NavItemButton/NavItemButton';
 import withProps from '../../../hoc/withProps';

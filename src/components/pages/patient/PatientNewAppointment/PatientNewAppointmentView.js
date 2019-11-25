@@ -3,9 +3,9 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
-import { PageHeaderType }  from '../../../../common/PageHeaderType';
+import { PageHeaderType }  from '../../../../shared/PageHeaderType';
 import MainLayout from '../../../layouts/MainLayout/MainLayout';
-import UnderConstruction from '../../common/UnderConstruction/UnderConstruction';
+import UnderConstruction from '../../shared/UnderConstruction/UnderConstruction';
 
 type Props = {
     notAuthenticated?: boolean

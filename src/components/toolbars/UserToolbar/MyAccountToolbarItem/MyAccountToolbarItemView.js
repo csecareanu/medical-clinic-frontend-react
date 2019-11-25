@@ -4,12 +4,12 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import classes from './MyAccountToolbarItemView.module.css';
-import { UserAuthType } from '../../../../common/UserAuthType';
+import { UserAuthType } from '../../../../shared/UserAuthType';
 import { 
     DoctorMenuItem,
     PatientMenuItem,
     SysAdminMenuItem
-    } from '../../../../common/MenuItemIdentifiers';
+    } from '../../../../shared/MenuItemIdentifiers';
 import NavListView from '../../../UI/NavListView/NavListView';
 import NavItemButton_NoStyle from '../../../UI/NavListView/NavItemButton/NavItemButton';
 import withProps from '../../../hoc/withProps';

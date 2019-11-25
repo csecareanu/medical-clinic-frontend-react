@@ -3,8 +3,8 @@ import React, { useEffect } from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import classes from './UserLoginView.module.css';
-import LoginExistingAccount from '../common/LoginExistingAccount/LoginExistingAccount';
-import CreatePatientAccount from '../common/CreatePatientAccount/CreatePatientAccount';
+import LoginExistingAccount from '../shared/LoginExistingAccount/LoginExistingAccount';
+import CreatePatientAccount from '../shared/CreatePatientAccount/CreatePatientAccount';
 import Button, { ButtonType } from '../../UI/Button/Button';
 import FormControl from '../../UI/FormControl/FormControl';
 import Backdrop from '../../UI/Backdrop/Backdrop';

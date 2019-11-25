@@ -2,8 +2,8 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import classes from './LogIntoPatientAccount.module.css';
-import SearchPatient from '../common/SearchPatient/SearchPatient';
-import CreatePatientAccount from '../common/CreatePatientAccount/CreatePatientAccount';
+import SearchPatient from '../shared/SearchPatient/SearchPatient';
+import CreatePatientAccount from '../shared/CreatePatientAccount/CreatePatientAccount';
 import Button, { ButtonType } from '../../UI/Button/Button';
 import FormControl from '../../UI/FormControl/FormControl';
 import Backdrop from '../../UI/Backdrop/Backdrop';

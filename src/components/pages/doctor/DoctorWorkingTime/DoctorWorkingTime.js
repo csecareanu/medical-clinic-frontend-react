@@ -2,11 +2,11 @@
 
 import React from 'react';
 
-import { PageHeaderType }  from '../../../../common/PageHeaderType';
+import { PageHeaderType }  from '../../../../shared/PageHeaderType';
 import MainLayout from '../../../layouts/MainLayout/MainLayout';
-import useCheckUserAccessAllowed from '../common/useCheckUserAccessAllowed';
-import AccessNotAllowedMsg from '../../common/AccessNotAllowedMsg/AccessNotAllowedMsg';
-import UnderConstruction from '../../common/UnderConstruction/UnderConstruction';
+import useCheckUserAccessAllowed from '../shared/useCheckUserAccessAllowed';
+import AccessNotAllowedMsg from '../../shared/AccessNotAllowedMsg/AccessNotAllowedMsg';
+import UnderConstruction from '../../shared/UnderConstruction/UnderConstruction';
 
 const DoctorWorkingTime = () => {
     if (!useCheckUserAccessAllowed()) {
@@ -14,7 +14,7 @@ const DoctorWorkingTime = () => {
     }
     return (
         <MainLayout headerType={PageHeaderType.DOCTOR}>
-            <UnderConstruction title="Working Time Page" />
+            <UnderConstruction title="Doctor Working Time Page" />
         </MainLayout>
     );
 }

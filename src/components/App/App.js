@@ -41,7 +41,7 @@ import {
   PatientLinkLocationName,
   DoctorLinkLocationName,
   SysAdminLinkLocationName 
-  } from '../../common/LinkLocationNames';
+  } from '../../shared/LinkLocationNames';
 
 function App() {
   return (

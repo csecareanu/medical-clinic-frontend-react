@@ -2,9 +2,9 @@
 
 import React from 'react';
 
-import { PageHeaderType }  from '../../../../common/PageHeaderType';
+import { PageHeaderType }  from '../../../../shared/PageHeaderType';
 import MainLayout from '../../../layouts/MainLayout/MainLayout';
-import UnderConstruction from '../../common/UnderConstruction/UnderConstruction';
+import UnderConstruction from '../../shared/UnderConstruction/UnderConstruction';
 
 const SysAdminSpecialties = () => (
     <MainLayout headerType={PageHeaderType.SITE_ADMIN}>

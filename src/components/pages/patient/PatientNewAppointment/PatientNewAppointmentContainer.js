@@ -2,8 +2,8 @@
 
 import * as React from 'react';
 
-import { ClinicLinkLocationName } from '../../../../common/LinkLocationNames';
-import { UserAuthType } from '../../../../common/UserAuthType';
+import { ClinicLinkLocationName } from '../../../../shared/LinkLocationNames';
+import { UserAuthType } from '../../../../shared/UserAuthType';
 import UIStateContext from '../../../../react-context/UIState/UIState-context';
 
 const containerData = {

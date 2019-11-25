@@ -8,12 +8,12 @@ import {
     UserMenuItem,
     PatientMenuItem,
     ClinicMenuItem
-    }  from '../../common/MenuItemIdentifiers';
-import { UserAuthType } from '../../common/UserAuthType';
+    }  from '../../shared/MenuItemIdentifiers';
+import { UserAuthType } from '../../shared/UserAuthType';
 import {
     ClinicLinkLocationName,
     PatientLinkLocationName
-} from '../../common/LinkLocationNames';
+} from '../../shared/LinkLocationNames';
 import UIStateContext from '../../react-context/UIState/UIState-context.js';
 
 const containerData = {

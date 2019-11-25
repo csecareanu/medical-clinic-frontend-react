@@ -9,13 +9,13 @@ import {
     UserMenuItem,
     PatientMenuItem,
     ClinicMenuItem
-    } from '../../../common/MenuItemIdentifiers';
-import { UserAuthType } from '../../../common/UserAuthType';
+    } from '../../../shared/MenuItemIdentifiers';
+import { UserAuthType } from '../../../shared/UserAuthType';
 import { 
   ClinicLinkLocationName,
   UserLinkLocationName,
   PatientLinkLocationName
-  } from '../../../common/LinkLocationNames';
+  } from '../../../shared/LinkLocationNames';
 import NavListView from '../../UI/NavListView/NavListView';
 import NavItemButton from '../../UI/NavListView/NavItemButton/NavItemButton';
 import withProps from '../../hoc/withProps';

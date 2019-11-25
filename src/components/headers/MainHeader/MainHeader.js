@@ -5,14 +5,14 @@ import React from 'react';
 import classes from './MainHeader.module.css';
 import commonClasses from '../../../common.module.css';
 import imgMain from '../../../static/images/main_hdr.jpg';
-import MainImageView from '../common/MainImageView/MainImageView';
+import MainImageView from '../shared/MainImageView/MainImageView';
 import ClinicMenu from '../../menus/ClinicMenu/ClinicMenu';
 import DoctorMenuView from '../../menus/DoctorMenuView/DoctorMenuView';
 import AboutClinicToolbar from '../../toolbars/AboutClinicToolbar/AboutClinicToolbar';
 import UserToolbar from '../../toolbars/UserToolbar/UserToolbar';
 import MenuToolbar from '../../toolbars/MenuToolbar/MenuToolbar';
 import SideDrawerToolbar from '../../toolbars/SideDrawerToolbar/SideDrawerToolbar';
-import { UserAuthType } from '../../../common/UserAuthType';
+import { UserAuthType } from '../../../shared/UserAuthType';
 
 type Props = {
     userAuthStatus: number | Symbol,

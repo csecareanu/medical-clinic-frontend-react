@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { UserAuthType } from '../../common/UserAuthType';
+import { UserAuthType } from '../../shared/UserAuthType';
 
 /**
  * Context provided by the UIState component

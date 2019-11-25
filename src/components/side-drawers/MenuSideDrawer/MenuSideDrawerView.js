@@ -4,7 +4,7 @@ import commonClasses from '../../../common.module.css';
 import SideDrawerView from '../SideDrawerView/SideDrawerView';
 import DoctorMenuView from '../../menus/DoctorMenuView/DoctorMenuView';
 import ClinicMenu from '../../menus/ClinicMenu/ClinicMenu';
-import { UserAuthType } from '../../../common/UserAuthType';
+import { UserAuthType } from '../../../shared/UserAuthType';
 
 /**
  * Presentational component used to display the main menu in a side drawer window.

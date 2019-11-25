@@ -4,7 +4,7 @@ import classes from './UserToolbar.module.css';
 import NewAppointmentToolbarItem from './NewAppointmentToolbarItem/NewAppointmentToolbarItem';
 import MyAccountToolbarItem from './MyAccountToolbarItem/MyAccountToolbarItem';
 import UIStateContext from '../../../react-context/UIState/UIState-context';
-import { UserAuthType } from '../../../common/UserAuthType';
+import { UserAuthType } from '../../../shared/UserAuthType';
 
 const UserToolbar = () => {
     const uiStateContext = useContext(UIStateContext);

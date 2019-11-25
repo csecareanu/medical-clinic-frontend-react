@@ -8,7 +8,7 @@ import PhoneToolbarItem from './PhoneToolbarItem/PhoneToolbarItem';
 import EmailToolbarItem from './EmailToolbarItem/EmailToolbarItem';
 import BrandLargeToolbarItemView from '../../UI/BrandLarge/BrandLarge';
 import BrandSmallToolbarItemView from '../../UI/SecondBrand/SecondBrand';
-import ToolbarGroup, { ToolbarSepPos } from '../common/ToolbarGroup/ToolbarGroup';
+import ToolbarGroup, { ToolbarSepPos } from '../shared/ToolbarGroup/ToolbarGroup';
 
 
 

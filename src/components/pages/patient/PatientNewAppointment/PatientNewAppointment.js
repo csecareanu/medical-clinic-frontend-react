@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 
-import { UserAuthType } from '../../../../common/UserAuthType';
+import { UserAuthType } from '../../../../shared/UserAuthType';
 import PatientNewAppointmentContainer from './PatientNewAppointmentContainer';
 import PatientNewAppointmentView from './PatientNewAppointmentView';
 

@@ -4,7 +4,7 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import classes from './ClinicMainPage.module.css';
-import { PageHeaderType }  from '../../../../common/PageHeaderType';
+import { PageHeaderType }  from '../../../../shared/PageHeaderType';
 import MainLayout from '../../../layouts/MainLayout/MainLayout';
 import ClinicServices from './ClinicServices/ClinicServices';
 import ClinicDescription from './ClinicDescription/ClinicDescription';
