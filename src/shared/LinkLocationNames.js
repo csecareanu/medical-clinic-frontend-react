@@ -1,7 +1,7 @@
 // @flow
 
 export const ClinicLinkLocationName = {
-    ROOT: "/",
+    HOME: "/",
     DOCTORS: "/doctors",
     PRICES: "/prices",
     ABOUT: "/about",
@@ -19,7 +19,7 @@ export const PatientLinkLocationName = {
 }
 
 export const DoctorLinkLocationName = {
-    ROOT: "/doctor",
+    HOME: "/doctor",
     LOG_INTO_PATIENT_ACCOUNT: "/doctor/log_into_patient_account",
     LOG_OUT_PATIENT_ACCOUNT: "/doctor/log_out_patient_account",
     MY_ACCOUNT: "/doctor/my_account",
@@ -30,7 +30,7 @@ export const DoctorLinkLocationName = {
 }
 
 export const SysAdminLinkLocationName = {
-    ROOT: "/admin",
+    HOME: "/admin",
     DOCTORS: "/admin/doctors",
     SPECIALTIES: "/admin/specialties",
     SERVICES: "/admin/services",

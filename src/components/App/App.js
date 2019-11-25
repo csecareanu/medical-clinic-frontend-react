@@ -49,7 +49,7 @@ function App() {
       <Switch>
         {/* ClinicLinkLocationName */}
         <Route 
-          path={ClinicLinkLocationName.ROOT} 
+          path={ClinicLinkLocationName.HOME} 
           exact 
           component={ClinicMainPage} />
         <Route 
@@ -69,7 +69,7 @@ function App() {
         <Route
           path={UserLinkLocationName.LOGIN}
           component={() => (
-            <UserLogin navigateToURIOnCancel={ClinicLinkLocationName.ROOT} />
+            <UserLogin navigateToURIOnCancel={ClinicLinkLocationName.HOME} />
             ) } 
         />
         <Route
@@ -92,7 +92,7 @@ function App() {
           path={DoctorLinkLocationName.LOG_OUT_PATIENT_ACCOUNT}  
           component={LogOutPatientAccount} />          
         <Route 
-          path={DoctorLinkLocationName.ROOT} 
+          path={DoctorLinkLocationName.HOME} 
           exact 
           component={DoctorMain} />
         <Route 
@@ -114,7 +114,7 @@ function App() {
 
         {/* SysAdminLinkLocationName */}
         <Route 
-          path={SysAdminLinkLocationName.ROOT} 
+          path={SysAdminLinkLocationName.HOME} 
           exact 
           component={SysAdminMain} />
         <Route 

@@ -22,7 +22,7 @@ const containerData = {
         // recursively
         if(uiStateContext.displayLoginComponent === false) {
             uiStateContext.setDisplayLoginComponent(true);
-            uiStateContext.setNavigateToURIOnCancelLogin(ClinicLinkLocationName.ROOT);
+            uiStateContext.setNavigateToURIOnCancelLogin(ClinicLinkLocationName.HOME);
         }
     }
 }

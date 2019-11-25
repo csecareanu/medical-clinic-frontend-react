@@ -41,10 +41,10 @@ const containerData = {
             case UserMenuItem.USER_LOGOUT:
                 uiStateContext.setUserAuthenticationStatus(UserAuthType.UNAUTHENTICATED);
                 uiStateContext.setDisplayLogoutComponent(false);
-                history.push({pathname: ClinicLinkLocationName.ROOT});
+                history.push({pathname: ClinicLinkLocationName.HOME});
                 break;
             case ClinicMenuItem.HOME:
-                history.push({pathname: ClinicLinkLocationName.ROOT});
+                history.push({pathname: ClinicLinkLocationName.HOME});
                 break;
             case ClinicMenuItem.DOCTORS:
                 history.push({pathname: ClinicLinkLocationName.DOCTORS});

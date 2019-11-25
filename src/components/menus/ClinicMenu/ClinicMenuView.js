@@ -85,7 +85,7 @@ const ClinicMenuView = (props: Props) => {
         <NavListView style={classesMenu.Menu}>
             <NavItemButtonCSS 
                 id={ClinicMenuItem.HOME}
-                link={ClinicLinkLocationName.ROOT}
+                link={ClinicLinkLocationName.HOME}
                 preventNav
                 exact
                 onClick={props.onItemSelect}
