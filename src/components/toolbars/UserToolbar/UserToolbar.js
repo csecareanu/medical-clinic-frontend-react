@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 
 import classes from './UserToolbar.module.css';
 import NewAppointmentToolbarItem from './NewAppointmentToolbarItem/NewAppointmentToolbarItem';
-import MyAccountToolbarItemView from './MyAccountToolbarItemView/MyAccountToolbarItemView';
+import MyAccountToolbarItem from './MyAccountToolbarItem/MyAccountToolbarItem';
 import UIStateContext from '../../../react-context/UIState/UIState-context';
 import { UserAuthType } from '../../../common/UserAuthType';
 
@@ -13,7 +13,7 @@ const UserToolbar = () => {
             <div className={classes.RightItems}>
                 <NewAppointmentToolbarItem />
                 {uiStateContext.userAuthStatus !== UserAuthType.UNAUTHENTICATED? 
-                        <MyAccountToolbarItemView /> : null
+                        <MyAccountToolbarItem /> : null
                 }
             </div>
         </div>

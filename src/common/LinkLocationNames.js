@@ -20,8 +20,8 @@ export const PatientLinkLocationName = {
 
 export const DoctorLinkLocationName = {
     ROOT: "/doctor",
-    LOG_INTO_PATIENT_ACCOUNT: "/log_into_patient_account",
-    LOG_OUT_PATIENT_ACCOUNT: "/log_out_patient_account",
+    LOG_INTO_PATIENT_ACCOUNT: "/doctor/log_into_patient_account",
+    LOG_OUT_PATIENT_ACCOUNT: "/doctor/log_out_patient_account",
     MY_ACCOUNT: "/doctor/my_account",
     APPOINTMENTS: "/doctor/appointments",
     WORKING_TIME: "/doctor/working_time",

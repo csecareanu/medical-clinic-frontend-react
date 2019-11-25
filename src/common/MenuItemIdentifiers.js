@@ -71,6 +71,9 @@ export const SysAdminMenuItem = {
     HOME: hasSymbol
         ? Symbol("SysAdminMenuItem.HOME")
         : lastId++,
+    MY_ACCOUNT: hasSymbol
+        ? Symbol("SysAdminMenuItem.MY_ACCOUNT")
+        : lastId++,
     DOCTORS: hasSymbol
         ? Symbol("SysAdminMenuItem.DOCTORS")
         : lastId++,
