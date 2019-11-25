@@ -6,6 +6,7 @@ import { PageHeaderType }  from '../../../../common/PageHeaderType';
 import MainLayout from '../../../layouts/MainLayout/MainLayout';
 import useCheckUserAccessAllowed from '../common/useCheckUserAccessAllowed';
 import AccessNotAllowedMsg from '../../common/AccessNotAllowedMsg/AccessNotAllowedMsg';
+import UnderConstruction from '../../common/UnderConstruction/UnderConstruction';
 
 const DoctorNotificationsMessages = () => {
     if (!useCheckUserAccessAllowed()) {
@@ -13,7 +14,7 @@ const DoctorNotificationsMessages = () => {
     }
     return (
         <MainLayout headerType={PageHeaderType.DOCTOR}>
-            <h1>Notification Messages Page</h1>
+            <UnderConstruction title="Doctor Notification Messages Page" />
         </MainLayout>
     );
 }

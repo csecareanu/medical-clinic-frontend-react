@@ -1,0 +1,11 @@
+.UnderConstruction {
+    display: 'flex';
+    flex-direction: column;
+    align-items: center;
+}
+
+.Image {
+    float:left;
+    width:auto;
+    margin-bottom: 2rem;
+}

@@ -6,6 +6,7 @@ import { PageHeaderType }  from '../../../../common/PageHeaderType';
 import MainLayout from '../../../layouts/MainLayout/MainLayout';
 import useCheckUserAccessAllowed from '../common/useCheckUserAccessAllowed';
 import AccessNotAllowedMsg from '../../common/AccessNotAllowedMsg/AccessNotAllowedMsg';
+import UnderConstruction from '../../common/UnderConstruction/UnderConstruction';
 
 const DoctorApptsInfoView = () => {
     if (!useCheckUserAccessAllowed()) {
@@ -13,7 +14,7 @@ const DoctorApptsInfoView = () => {
     }
     return (
         <MainLayout headerType={PageHeaderType.DOCTOR}>
-            <h1>Appointments Info Page</h1>
+            <UnderConstruction title="Doctor Appointments Info Page" />
         </MainLayout>
         );
 }

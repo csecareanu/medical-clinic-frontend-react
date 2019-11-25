@@ -5,6 +5,7 @@ import { FormattedMessage } from 'react-intl';
 
 import { PageHeaderType }  from '../../../../common/PageHeaderType';
 import MainLayout from '../../../layouts/MainLayout/MainLayout';
+import UnderConstruction from '../../common/UnderConstruction/UnderConstruction';
 
 type Props = {
     notAuthenticated?: boolean
@@ -21,7 +22,7 @@ const PatientNewAppointment = (props: Props) => {
                             defaultMessage={'You need to be authenticated to access this resource.'}/>
 
                     )
-                    : <h1>New/Modify Appointment</h1>
+                    : <UnderConstruction title="Patient New/Modify Appointment" />
         }
         </MainLayout>
     );

@@ -6,6 +6,7 @@ import { PageHeaderType }  from '../../../../common/PageHeaderType';
 import MainLayout from '../../../layouts/MainLayout/MainLayout';
 import useCheckUserAccessAllowed from '../common/useCheckUserAccessAllowed';
 import AccessNotAllowedMsg from '../../common/AccessNotAllowedMsg/AccessNotAllowedMsg';
+import UnderConstruction from '../../common/UnderConstruction/UnderConstruction';
 
 const DoctorLogEvents = () => {
     if (!useCheckUserAccessAllowed()) {
@@ -13,7 +14,7 @@ const DoctorLogEvents = () => {
     }
     return (
         <MainLayout headerType={PageHeaderType.DOCTOR}>
-            <h1>Doctor Events Page</h1>
+            <UnderConstruction title="Doctor Events Log Page" />
         </MainLayout>
     );
 }

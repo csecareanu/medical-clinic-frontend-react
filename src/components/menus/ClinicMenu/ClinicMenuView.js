@@ -130,12 +130,15 @@ const ClinicMenuView = (props: Props) => {
             </NavItemButtonCSS>
 
 
-            { props.userAuthStatus !== UserAuthType.UNAUTHENTICATED ? 
-                newAppointmentItem : null
+            { props.userAuthStatus === UserAuthType.PATIENT 
+                    || props.userAuthStatus === UserAuthType.DOCTOR
+                ? newAppointmentItem 
+                : null
             }
 
-            { props.userAuthStatus !== UserAuthType.UNAUTHENTICATED ? 
-                myAccountItem : null
+            { props.userAuthStatus !== UserAuthType.UNAUTHENTICATED 
+                ? myAccountItem 
+                : null
             }
 
             { props.userAuthStatus !== UserAuthType.UNAUTHENTICATED ? 
