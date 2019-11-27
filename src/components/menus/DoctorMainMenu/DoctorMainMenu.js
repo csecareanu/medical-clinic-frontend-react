@@ -2,18 +2,20 @@
 
 import * as React from 'react';
 
-import DoctorAdminMenuView from './DoctorAdminMenuView';
+import DoctorMainMenuView from './DoctorMainMenuView';
 import NavContainer from '../../NavContainer/NavContainer';
 
 type Props = {
     onItemSelect?: () => void
 };
 
-const DoctorAdminMenu = (props: Props) => (
+const DoctorMenu = (props: Props) => (
     <NavContainer>
     {
         (navigationData) => (
-            <DoctorAdminMenuView
+            <DoctorMainMenuView
+                userAuthStatus={navigationData.userAuthStatus}
+                isUserConnectedToAPatientAccount={navigationData.isUserConnectedToAPatientAccount}
                 onItemSelect={ (itemType: number) => {
                     navigationData.onClinicItemSelect(itemType);
                     if (props.onItemSelect) {
@@ -25,4 +27,4 @@ const DoctorAdminMenu = (props: Props) => (
     </NavContainer>
 )
 
-export default DoctorAdminMenu;
+export default DoctorMenu;

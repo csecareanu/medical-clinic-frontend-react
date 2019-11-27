@@ -10,7 +10,8 @@ import SiteAdminHeader from '../../headers/SiteAdminHeader/SiteAdminHeader';
 import MainFooter from '../../footers/MainFooter/MainFooter';
 import UserLogin from '../../connect/UserLogin/UserLogin';
 import UserLogout from '../../connect/UserLogout/UserLogout';
-import MenuSideDrawer from '../../side-drawers/MenuSideDrawer/MenuSideDrawer';
+import MainMenuSideDrawer from '../../side-drawers/MainMenuSideDrawer/MainMenuSideDrawer';
+import DoctorMenuSideDrawer from '../../side-drawers/DoctorMenuSideDrawer/DoctorMenuSideDrawer';
 
 type Props = {
     headerType: PageHeaderType,
@@ -22,11 +23,13 @@ type Props = {
 const MainLayoutView = (props: Props) => {
 
     const headerComponent = getHeaderComponent(props);
+    const sideDrawerComponent = getMenuSideDrawerComponent(props);
 
     return (
         <main className={classes.Layout}>
 
-            <MenuSideDrawer />
+            {sideDrawerComponent}
+            
             <UserLogin />
             <UserLogout />
 
@@ -49,19 +52,42 @@ const getHeaderComponent = (props: Props) : React.Node => {
   switch (props.headerType) {
         case PageHeaderType.MAIN:
             return (
-                <MainHeader                     
+                <MainHeader
                     userAuthStatus={props.userAuthStatus}
                     onOpenMenuSideDrawer={props.onOpenMenuSideDrawer}
             /> );
         case PageHeaderType.DOCTOR:
             return (
-                <DoctorHeader                     
+                <DoctorHeader
                     onOpenMenuSideDrawer={props.onOpenMenuSideDrawer}
             /> );     
         case PageHeaderType.SYS_ADMIN:
             return <SiteAdminHeader />;
         default:
-            console.log("MainLayoutView. Unknown header component provided: " + props.headerType);
+            console.log("MainLayoutView. getHeaderComponent. " +
+                "Unknown header component provided: " + props.headerType);
+    }
+    return null;
+}
+
+const getMenuSideDrawerComponent = (props: Props) : React.Node => {
+  switch (props.headerType) {
+        case PageHeaderType.MAIN:
+            return (
+                <MainMenuSideDrawer /> 
+            );
+        case PageHeaderType.DOCTOR:
+            return (
+                <DoctorMenuSideDrawer /> 
+            );
+
+        case PageHeaderType.SYS_ADMIN:
+            return (
+                <MainMenuSideDrawer /> 
+            );
+        default:
+            console.log("MainLayoutView. getMenuSideDrawerComponent. " +
+                "Unknown header component provided: " + props.headerType);
     }
     return null;
 }

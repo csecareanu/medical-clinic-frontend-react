@@ -23,6 +23,12 @@ type Props = {
     children: (containerData: typeof sideDrawerContainer) => React.Node
 }
 
+/**
+ * Container component used by all menu side-drawers.
+ * The container's scope is to keep the menu side-drawer components presentational.
+ * It provides all context information needed and take actions to close the sidebar.
+ */
+
 const MenuSideDrawerContainer = (props: Props) => {
     const uiStateContext = React.useContext(UIStateContext);
     sideDrawerContainer.uiStateContext = uiStateContext;

@@ -7,12 +7,14 @@ import type { RouterHistory } from 'react-router';
 import { 
     UserMenuItem,
     PatientMenuItem,
+    DoctorMenuItem,
     ClinicMenuItem
     }  from '../../shared/MenuItemIdentifiers';
 import { UserAuthType } from '../../shared/UserAuthType';
 import {
     ClinicLinkLocationName,
-    PatientLinkLocationName
+    PatientLinkLocationName,
+    DoctorLinkLocationName
 } from '../../shared/LinkLocationNames';
 import UIStateContext from '../../react-context/UIState/UIState-context.js';
 
@@ -20,6 +22,7 @@ const containerData = {
     history: (null: null | RouterHistory),
     uiStateContext: (null: null | UIStateContext),
     userAuthStatus: (UserAuthType.UNAUTHENTICATED: number | Symbol),
+    isUserConnectedToAPatientAccount: (false: boolean),
 
     onClinicItemSelect: (itemType: number) => {
         if(containerData.uiStateContext == null) {
@@ -70,6 +73,9 @@ const containerData = {
                 }
                 history.push({pathname: PatientLinkLocationName.NEW_APPOINTMENT});
                 break;
+            case DoctorMenuItem.MY_ACCOUNT:
+                history.push({pathname: DoctorLinkLocationName.MY_ACCOUNT});
+                break;
             default:
                 console.log("NavContainer. onClinicItemSelect. Unknown item id: " + 
                         itemType.toString());
@@ -78,24 +84,26 @@ const containerData = {
     }
 }
 
-/**
- * Container component used to navigate to site's resources. 
- * The navigation is intended to be done in container components in order to keep as presentational 
- * the components which trigger navigation.
- * If the component content will grow more small navigation  components will be created 
- * based on navigation type. 
- */
-
 type Props = {
     children: (containerData: typeof containerData) => React.Node,
     history: RouterHistory
 }
+
+/**
+ * Container component used to navigate to site's resources by the all navigation 
+ * components: menus, toolbar items, buttons. 
+ * The container's scope is to keep the navigation items presentational components.
+ * It provides all context information needed and also does the navigation.
+ * If this component content will grow, more small navigation components will be created 
+ * based on navigation type. 
+ */
 
 const NavContainer = (props: Props) => {
     const uiStateContext = React.useContext(UIStateContext);
     containerData.uiStateContext = uiStateContext;
     containerData.history = props.history;
     containerData.userAuthStatus = uiStateContext.userAuthStatus;
+    containerData.isUserConnectedToAPatientAccount = uiStateContext.isUserConnectedToAPatientAccount;
 
     return (props.children)(containerData);
 }

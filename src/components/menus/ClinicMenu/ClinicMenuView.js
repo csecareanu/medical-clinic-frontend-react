@@ -5,16 +5,14 @@ import { withRouter } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
 
 import classesMenu from '../menu.module.css';
-import { 
+import {
     UserMenuItem,
-    PatientMenuItem,
     ClinicMenuItem
     } from '../../../shared/MenuItemIdentifiers';
 import { UserAuthType } from '../../../shared/UserAuthType';
 import { 
   ClinicLinkLocationName,
-  UserLinkLocationName,
-  PatientLinkLocationName
+  UserLinkLocationName
   } from '../../../shared/LinkLocationNames';
 import NavListView from '../../UI/NavListView/NavListView';
 import NavItemButton from '../../UI/NavListView/NavItemButton/NavItemButton';
@@ -58,27 +56,6 @@ const ClinicMenuView = (props: Props) => {
             >
                 <FormattedMessage id="menu_logout" defaultMessage={'LOGOUT'}/>
             </NavItemButtonCSS>
-    );
-
-    const myAccountItem = (
-        <NavItemButtonCSS
-            id={PatientMenuItem.MY_ACCOUNT}
-            link={PatientLinkLocationName.MY_ACCOUNT}
-            preventNav
-            onClick={props.onItemSelect}>
-            <FormattedMessage id="menu_my_account" defaultMessage={'MY ACCOUNT'}/>
-        </NavItemButtonCSS>
-    );
-
-    const newAppointmentItem = (
-                    <NavItemButtonCSS
-                    id={PatientMenuItem.NEW_APPOINTMENT}
-                    link={PatientLinkLocationName.NEW_APPOINTMENT}
-                    preventNav
-                    onClick={props.onItemSelect}
-                >
-                    <FormattedMessage id="menu_new_appointment" defaultMessage={'NEW APPOINTMENT'}/>
-                </NavItemButtonCSS>
     );
 
     return (
@@ -129,20 +106,9 @@ const ClinicMenuView = (props: Props) => {
                 <FormattedMessage id="menu_prices" defaultMessage={'PRICES'}/>
             </NavItemButtonCSS>
 
-
-            { props.userAuthStatus === UserAuthType.PATIENT 
-                    || props.userAuthStatus === UserAuthType.DOCTOR
-                ? newAppointmentItem 
-                : null
-            }
-
             { props.userAuthStatus !== UserAuthType.UNAUTHENTICATED 
-                ? myAccountItem 
-                : null
-            }
-
-            { props.userAuthStatus !== UserAuthType.UNAUTHENTICATED ? 
-                    userLogoutItem : userLoginItem
+                ? userLogoutItem 
+                : userLoginItem
             }
 
         </NavListView>

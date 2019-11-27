@@ -13,7 +13,7 @@ const DoctorMyAccount = () => {
         return <AccessNotAllowedMsg/>
     }
     return (
-        <MainLayout headerType={PageHeaderType.DOCTOR}>
+        <MainLayout headerType={PageHeaderType.MAIN}>
             <UnderConstruction title="Doctor Account Page" />
         </MainLayout>
     );

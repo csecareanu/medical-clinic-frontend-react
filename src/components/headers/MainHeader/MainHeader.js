@@ -7,7 +7,7 @@ import commonClasses from '../../../common.module.css';
 import imgMain from '../../../static/images/main_hdr.jpg';
 import MainImageView from '../shared/MainImageView/MainImageView';
 import ClinicMenu from '../../menus/ClinicMenu/ClinicMenu';
-import DoctorMenuView from '../../menus/DoctorMenuView/DoctorMenuView';
+import DoctorMainMenu from '../../menus/DoctorMainMenu/DoctorMainMenu';
 import AboutClinicToolbar from '../../toolbars/AboutClinicToolbar/AboutClinicToolbar';
 import UserToolbar from '../../toolbars/UserToolbar/UserToolbar';
 import MenuToolbar from '../../toolbars/MenuToolbar/MenuToolbar';
@@ -38,7 +38,7 @@ const MainHeader = (props: Props) => {
                 <div className={commonClasses.LargeScreenOnly} >
                     <MenuToolbar>
                         {props.userAuthStatus === UserAuthType.DOCTOR ? 
-                            <DoctorMenuView /> : null
+                            <DoctorMainMenu /> : null
                         }
                         <ClinicMenu />
                     </MenuToolbar>
