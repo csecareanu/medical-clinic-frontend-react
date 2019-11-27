@@ -3,13 +3,13 @@
 import React from 'react';
 
 import { PageHeaderType }  from '../../../../shared/PageHeaderType';
-import useCheckUserAccessAllowed from '../shared/useCheckUserAccessAllowed';
+import useCanAccessPatientContent from '../../../shared/useCanAccessPatientContent';
 import AccessNotAllowedMsg from '../../shared/AccessNotAllowedMsg/AccessNotAllowedMsg';
 import MainLayout from '../../../layouts/MainLayout/MainLayout';
 import UnderConstruction from '../../shared/UnderConstruction/UnderConstruction';
 
 export default () => {
-    if (!useCheckUserAccessAllowed()) {
+    if (!useCanAccessPatientContent()) {
         return <AccessNotAllowedMsg/>
     }    
     return (
