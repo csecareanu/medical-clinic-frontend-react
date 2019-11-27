@@ -6,7 +6,7 @@ import classes from './MainLayoutView.module.css';
 import { PageHeaderType } from '../../../shared/PageHeaderType';
 import MainHeader from '../../headers/MainHeader/MainHeader';
 import DoctorHeader from '../../headers/DoctorHeader/DoctorHeader';
-import SysAdminHeader from '../../headers/SysAdminHeader/SysAdminHeader';
+import SiteAdminHeader from '../../headers/SiteAdminHeader/SiteAdminHeader';
 import MainFooter from '../../footers/MainFooter/MainFooter';
 import UserLogin from '../../connect/UserLogin/UserLogin';
 import UserLogout from '../../connect/UserLogout/UserLogout';
@@ -59,7 +59,7 @@ const getHeaderComponent = (props: Props) : React.Node => {
                     onOpenMenuSideDrawer={props.onOpenMenuSideDrawer}
             /> );     
         case PageHeaderType.SYS_ADMIN:
-            return <SysAdminHeader />;
+            return <SiteAdminHeader />;
         default:
             console.log("MainLayoutView. Unknown header component provided: " + props.headerType);
     }

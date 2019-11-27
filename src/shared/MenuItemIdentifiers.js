@@ -67,29 +67,29 @@ export const DoctorMenuItem = {
         : lastId++
 }
 
-export const SysAdminMenuItem = {
+export const SiteAdminMenuItem = {
     HOME: hasSymbol
-        ? Symbol("SysAdminMenuItem.HOME")
+        ? Symbol("SiteAdminMenuItem.HOME")
         : lastId++,
     MY_ACCOUNT: hasSymbol
-        ? Symbol("SysAdminMenuItem.MY_ACCOUNT")
+        ? Symbol("SiteAdminMenuItem.MY_ACCOUNT")
         : lastId++,
     DOCTORS: hasSymbol
-        ? Symbol("SysAdminMenuItem.DOCTORS")
+        ? Symbol("SiteAdminMenuItem.DOCTORS")
         : lastId++,
     SPECIALTIES: hasSymbol
-        ? Symbol("SysAdminMenuItem.SPECIALTIES")
+        ? Symbol("SiteAdminMenuItem.SPECIALTIES")
         : lastId++,
     SERVICES: hasSymbol
-        ? Symbol("SysAdminMenuItem.SERVICES")
+        ? Symbol("SiteAdminMenuItem.SERVICES")
         : lastId++,
     ASSIGN_SERVICES_TO_DOCTOR: hasSymbol
-        ? Symbol("SysAdminMenuItem.ASSIGN_SERVICES_TO_DOCTOR")
+        ? Symbol("SiteAdminMenuItem.ASSIGN_SERVICES_TO_DOCTOR")
         : lastId++,
     LOG_EVENTS: hasSymbol
-        ? Symbol("SysAdminMenuItem.LOG_EVENTS")
+        ? Symbol("SiteAdminMenuItem.LOG_EVENTS")
         : lastId++,
     SETTINGS: hasSymbol
-        ? Symbol("SysAdminMenuItem.SETTINGS")
+        ? Symbol("SiteAdminMenuItem.SETTINGS")
         : lastId++
 }

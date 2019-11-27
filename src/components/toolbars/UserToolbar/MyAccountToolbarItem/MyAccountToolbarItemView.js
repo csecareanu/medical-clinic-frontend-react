@@ -8,7 +8,7 @@ import { UserAuthType } from '../../../../shared/UserAuthType';
 import { 
     DoctorMenuItem,
     PatientMenuItem,
-    SysAdminMenuItem
+    SiteAdminMenuItem
     } from '../../../../shared/MenuItemIdentifiers';
 import NavListView from '../../../UI/NavListView/NavListView';
 import NavItemButton_NoStyle from '../../../UI/NavListView/NavItemButton/NavItemButton';
@@ -37,7 +37,7 @@ const MyAccountToolbarItemView = (props: Props) => {
             controlId = DoctorMenuItem.MY_ACCOUNT;
             break;
         case UserAuthType.SITE_ADMIN:
-            controlId = SysAdminMenuItem.MY_ACCOUNT;
+            controlId = SiteAdminMenuItem.MY_ACCOUNT;
             break;
         default:
             console.log("MyAccountToolbarItemView. Unknown user authentication type ", 

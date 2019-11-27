@@ -26,13 +26,13 @@ import DoctorWorkingTime from '../pages/doctor/DoctorWorkingTime/DoctorWorkingTi
 import PatientNewAppointment from '../pages/patient/PatientNewAppointment/PatientNewAppointment';
 import PatientAccount from '../pages/patient/PatientAccount/PatientAccount';
 
-import SysAdminMain from '../pages/sysAdmin/SysAdminMain/SysAdminMain';
-import SysAdminDoctors from '../pages/sysAdmin/SysAdminDoctors/SysAdminDoctors';
-import SysAdminDoctorToServices from '../pages/sysAdmin/SysAdminDoctorToServices/SysAdminDoctorToServices';
-import SysAdminLogEvents from '../pages/sysAdmin/SysAdminLogEvents/SysAdminLogEvents';
-import SysAdminServices from '../pages/sysAdmin/SysAdminServices/SysAdminServices';
-import SysAdminSettings from '../pages/sysAdmin/SysAdminSettings/SysAdminSettings';
-import SysAdminSpecialties from '../pages/sysAdmin/SysAdminSpecialties/SysAdminSpecialties';
+import SiteAdminMain from '../pages/siteAdmin/SiteAdminMain/SiteAdminMain';
+import SiteAdminDoctors from '../pages/siteAdmin/SiteAdminDoctors/SiteAdminDoctors';
+import SiteAdminDoctorToServices from '../pages/siteAdmin/SiteAdminDoctorToServices/SiteAdminDoctorToServices';
+import SiteAdminLogEvents from '../pages/siteAdmin/SiteAdminLogEvents/SiteAdminLogEvents';
+import SiteAdminServices from '../pages/siteAdmin/SiteAdminServices/SiteAdminServices';
+import SiteAdminSettings from '../pages/siteAdmin/SiteAdminSettings/SiteAdminSettings';
+import SiteAdminSpecialties from '../pages/siteAdmin/SiteAdminSpecialties/SiteAdminSpecialties';
 
 
 import { 
@@ -40,7 +40,7 @@ import {
   UserLinkLocationName,
   PatientLinkLocationName,
   DoctorLinkLocationName,
-  SysAdminLinkLocationName 
+  SiteAdminLinkLocationName 
   } from '../../shared/LinkLocationNames';
 
 function App() {
@@ -112,29 +112,29 @@ function App() {
           path={DoctorLinkLocationName.LOG_EVENTS} 
           component={DoctorLogEvents} />
 
-        {/* SysAdminLinkLocationName */}
+        {/* SiteAdminLinkLocationName */}
         <Route 
-          path={SysAdminLinkLocationName.HOME} 
+          path={SiteAdminLinkLocationName.HOME} 
           exact 
-          component={SysAdminMain} />
+          component={SiteAdminMain} />
         <Route 
-          path={SysAdminLinkLocationName.DOCTORS} 
-          component={SysAdminDoctors} />
+          path={SiteAdminLinkLocationName.DOCTORS} 
+          component={SiteAdminDoctors} />
         <Route 
-          path={SysAdminLinkLocationName.SPECIALTIES} 
-          component={SysAdminSpecialties} />
+          path={SiteAdminLinkLocationName.SPECIALTIES} 
+          component={SiteAdminSpecialties} />
         <Route 
-          path={SysAdminLinkLocationName.SERVICES} 
-          component={SysAdminServices} />
+          path={SiteAdminLinkLocationName.SERVICES} 
+          component={SiteAdminServices} />
         <Route 
-          path={SysAdminLinkLocationName.ASSIGN_SERVICES_TO_DOCTOR} 
-          component={SysAdminDoctorToServices} />
+          path={SiteAdminLinkLocationName.ASSIGN_SERVICES_TO_DOCTOR} 
+          component={SiteAdminDoctorToServices} />
         <Route 
-          path={SysAdminLinkLocationName.LOG_EVENTS} 
-          component={SysAdminLogEvents} />
+          path={SiteAdminLinkLocationName.LOG_EVENTS} 
+          component={SiteAdminLogEvents} />
         <Route 
-          path={SysAdminLinkLocationName.SETTINGS} 
-          component={SysAdminSettings} />
+          path={SiteAdminLinkLocationName.SETTINGS} 
+          component={SiteAdminSettings} />
       </Switch>
     </UIState>
  );

@@ -17,22 +17,22 @@ const NavItemButton = withProps(NavItemButton_NoStyle,
 export default () => (
     <NavListView style={classesMenu.Menu}>
         <NavItemButton link="/admin/doctors">
-            <FormattedMessage id="menu_sysadmin_doctors" defaultMessage={'DOCTORS'}/>
+            <FormattedMessage id="menu_site_admin_doctors" defaultMessage={'DOCTORS'}/>
         </NavItemButton>
         <NavItemButton link="/admin/specialties">
-            <FormattedMessage id="menu_sysadmin_specialties" defaultMessage={'SPECIALTIES'}/>
+            <FormattedMessage id="menu_site_admin_specialties" defaultMessage={'SPECIALTIES'}/>
         </NavItemButton>
         <NavItemButton link="/admin/services">
-            <FormattedMessage id="menu_sysadmin_services" defaultMessage={'SERVICES'}/>
+            <FormattedMessage id="menu_site_admin_services" defaultMessage={'SERVICES'}/>
         </NavItemButton>
         <NavItemButton link="/admin/doctor_to_svcs">
-            <FormattedMessage id="menu_sysadmin_attach_services" defaultMessage={'ATTACHING SERVICES'}/>
+            <FormattedMessage id="menu_site_admin_attach_services" defaultMessage={'ATTACHING SERVICES'}/>
         </NavItemButton>
         <NavItemButton link="/admin/log_events">
-            <FormattedMessage id="menu_sysadmin_log_events" defaultMessage={'LOG EVENTS'}/>
+            <FormattedMessage id="menu_site_admin_log_events" defaultMessage={'LOG EVENTS'}/>
         </NavItemButton>
         <NavItemButton link="/admin/settings">
-            <FormattedMessage id="menu_sysadmin_setings" defaultMessage={'SETTINGS'}/>
+            <FormattedMessage id="menu_site_admin_settings" defaultMessage={'SETTINGS'}/>
         </NavItemButton>
     </NavListView>
 );

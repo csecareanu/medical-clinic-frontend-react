@@ -8,7 +8,7 @@ import AccessNotAllowedMsg from '../../shared/AccessNotAllowedMsg/AccessNotAllow
 import MainLayout from '../../../layouts/MainLayout/MainLayout';
 import UnderConstruction from '../../shared/UnderConstruction/UnderConstruction';
 
-const SysAdminSpecialties = () => {
+const SiteAdminSpecialties = () => {
     if (!useCanAccessSiteAdminContent()) {
         return <AccessNotAllowedMsg/>
     }    
@@ -19,4 +19,4 @@ const SysAdminSpecialties = () => {
     );
 }
 
-export default SysAdminSpecialties;
+export default SiteAdminSpecialties;

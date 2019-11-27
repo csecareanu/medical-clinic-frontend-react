@@ -29,7 +29,7 @@ export const DoctorLinkLocationName = {
     LOG_EVENTS: "/doctor/log_events"
 }
 
-export const SysAdminLinkLocationName = {
+export const SiteAdminLinkLocationName = {
     HOME: "/admin",
     DOCTORS: "/admin/doctors",
     SPECIALTIES: "/admin/specialties",
