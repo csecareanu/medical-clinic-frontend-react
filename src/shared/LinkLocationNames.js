@@ -14,8 +14,8 @@ export const UserLinkLocationName = {
 }
 
 export const PatientLinkLocationName = {
-    NEW_APPOINTMENT: "/new_appointment",
-    MY_ACCOUNT: "/my_account"
+    NEW_APPOINTMENT: "/patient/new_appointment",
+    MY_ACCOUNT: "/patient/my_account"
 }
 
 export const DoctorLinkLocationName = {
