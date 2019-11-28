@@ -5,15 +5,8 @@ import { withRouter } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
 
 import classesMenu from '../menu.module.css';
-import {
-    UserMenuItem,
-    ClinicMenuItem
-    } from '../../../shared/MenuItemIdentifiers';
-import { UserAuthType } from '../../../shared/UserAuthType';
-import { 
-  ClinicLinkLocationName,
-  UserLinkLocationName
-  } from '../../../shared/LinkLocationNames';
+import { ClinicMenuItem } from '../../../shared/MenuItemIdentifiers';
+import { ClinicLinkLocationName } from '../../../shared/LinkLocationNames';
 import NavListView from '../../UI/NavListView/NavListView';
 import NavItemButton from '../../UI/NavListView/NavItemButton/NavItemButton';
 import withProps from '../../hoc/withProps';
@@ -35,28 +28,6 @@ type Props = {
 }
 
 const ClinicMenuView = (props: Props) => {
-
-    const userLoginItem = (
-            <NavItemButtonCSS
-                id={UserMenuItem.USER_LOGIN}
-                link={UserLinkLocationName.LOGIN}
-                preventNav
-                onClick={props.onItemSelect}
-            >
-                <FormattedMessage id="menu_login" defaultMessage={'LOGIN'}/>
-            </NavItemButtonCSS>
-    );
-
-    const userLogoutItem = (
-            <NavItemButtonCSS
-                id={UserMenuItem.USER_LOGOUT}
-                link={UserLinkLocationName.LOGOUT}
-                preventNav
-                onClick={props.onItemSelect}
-            >
-                <FormattedMessage id="menu_logout" defaultMessage={'LOGOUT'}/>
-            </NavItemButtonCSS>
-    );
 
     return (
         <NavListView style={classesMenu.Menu}>
@@ -105,11 +76,6 @@ const ClinicMenuView = (props: Props) => {
             >
                 <FormattedMessage id="menu_prices" defaultMessage={'PRICES'}/>
             </NavItemButtonCSS>
-
-            { props.userAuthStatus !== UserAuthType.UNAUTHENTICATED 
-                ? userLogoutItem 
-                : userLoginItem
-            }
 
         </NavListView>
     );

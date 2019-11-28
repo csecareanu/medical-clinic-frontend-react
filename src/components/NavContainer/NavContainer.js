@@ -13,6 +13,7 @@ import {
 import { UserAuthType } from '../../shared/UserAuthType';
 import {
     ClinicLinkLocationName,
+    UserLinkLocationName,
     PatientLinkLocationName,
     DoctorLinkLocationName
 } from '../../shared/LinkLocationNames';
@@ -38,13 +39,22 @@ const containerData = {
         const history = containerData.history;
 
         switch (itemType) {
-            case UserMenuItem.USER_LOGIN:
+            case UserMenuItem.LOGIN:
                 containerData.uiStateContext.setDisplayLoginComponent(true);
                 break;
-            case UserMenuItem.USER_LOGOUT:
+            case UserMenuItem.LOGOUT:
                 uiStateContext.setUserAuthenticationStatus(UserAuthType.UNAUTHENTICATED);
                 uiStateContext.setDisplayLogoutComponent(false);
                 history.push({pathname: ClinicLinkLocationName.HOME});
+                break;
+            case UserMenuItem.MY_ACCOUNT:
+                if (uiStateContext.userAuthStatus === UserAuthType.UNAUTHENTICATED) {
+                    uiStateContext.setNavigateToURIOnSuccessfullyLogin(
+                            UserLinkLocationName.MY_ACCOUNT);
+                    uiStateContext.setDisplayLoginComponent(true);
+                    break;
+                }
+                history.push({pathname: UserLinkLocationName.MY_ACCOUNT});            
                 break;
             case ClinicMenuItem.HOME:
                 history.push({pathname: ClinicLinkLocationName.HOME});

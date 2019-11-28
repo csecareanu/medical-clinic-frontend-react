@@ -7,6 +7,7 @@ import { UserAuthType } from '../../shared/UserAuthType';
  * Custom hook to check if the current authenticated / not authenticated user can access
  * a patient page.
  */
+ // TODO to be deleted
 const useCanAccessPatientContent = () => {
     const uiStateContext = useContext(UIStateContext);
 

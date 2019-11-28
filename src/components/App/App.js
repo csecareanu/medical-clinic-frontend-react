@@ -12,6 +12,7 @@ import ClinicPricesPage from '../pages/clinic/ClinicPricesPage/ClinicPricesPage'
 
 import UserLogin from '../connect/UserLogin/UserLogin';
 import UserLogout from '../connect/UserLogout/UserLogout';
+import MyAccount from '../pages/user/MyAccount/MyAccount';
 
 import LogIntoPatientAccount from '../connect/LogIntoPatientAccount/LogIntoPatientAccount';
 import LogOutPatientAccount from '../connect/LogOutPatientAccount/LogOutPatientAccount';
@@ -24,7 +25,7 @@ import DoctorNotificationsMessages from '../pages/doctor/DoctorNotificationsMess
 import DoctorWorkingTime from '../pages/doctor/DoctorWorkingTime/DoctorWorkingTime';
 
 import PatientNewAppointment from '../pages/patient/PatientNewAppointment/PatientNewAppointment';
-import PatientAccount from '../pages/patient/PatientAccount/PatientAccount';
+import PatientMyAccount from '../pages/patient/PatientMyAccount/PatientMyAccount';
 
 import SiteAdminMain from '../pages/siteAdmin/SiteAdminMain/SiteAdminMain';
 import SiteAdminDoctors from '../pages/siteAdmin/SiteAdminDoctors/SiteAdminDoctors';
@@ -75,6 +76,9 @@ function App() {
         <Route
           path={UserLinkLocationName.LOGOUT} 
           component={UserLogout} />
+        <Route
+          path={UserLinkLocationName.MY_ACCOUNT} 
+          component={MyAccount} />
 
         {/* PatientLinkLocationName */}
         <Route 
@@ -82,7 +86,7 @@ function App() {
           component={PatientNewAppointment} />
         <Route 
           path={PatientLinkLocationName.MY_ACCOUNT} 
-          component={PatientAccount} />
+          component={PatientMyAccount} />
 
         {/* DoctorLinkLocationName */}
         <Route 

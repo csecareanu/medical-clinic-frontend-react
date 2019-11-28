@@ -23,12 +23,15 @@ export const ClinicMenuItem = {
 }
 
 export const UserMenuItem = {
-    USER_LOGIN: hasSymbol
-        ? Symbol("UserMenuItem.USER_LOGIN") 
+    LOGIN: hasSymbol
+        ? Symbol("UserMenuItem.LOGIN") 
         : lastId++,
-    USER_LOGOUT: hasSymbol
-        ? Symbol("UserMenuItem.USER_LOGOUT") 
-        : lastId++
+    LOGOUT: hasSymbol
+        ? Symbol("UserMenuItem.LOGOUT") 
+        : lastId++,
+    MY_ACCOUNT: hasSymbol
+        ? Symbol("UserMenuItem.MY_ACCOUNT") 
+        : lastId++,
 }
 
 export const PatientMenuItem = {

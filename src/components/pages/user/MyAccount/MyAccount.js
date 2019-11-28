@@ -1,18 +1,16 @@
 // @flow
 
-import * as React from 'react';
+import React from 'react';
 
 import NavContainer from '../../../NavContainer/NavContainer';
-import PatientNewAppointmentView from './PatientNewAppointmentView';
-
+import MyAccountView from './MyAccountView';
 
 const PatientAccount = () => (
     <NavContainer>
     {
         (navigationData) => (
-            <PatientNewAppointmentView
+            <MyAccountView
                 userAuthStatus={navigationData.userAuthStatus}
-                isUserConnectedToAPatientAccount={navigationData.isUserConnectedToAPatientAccount}
             />
         )
     }

@@ -31,7 +31,7 @@ const NavItemButtonAdminCSS = withProps(NavItemButton_NoStyle,
     });
 
 type Props = {
-    onItemSelect?: () => void
+    onItemSelect?: (itemId: number) => void
 };
 
 const DoctorAdminMenu = (props: Props) => (

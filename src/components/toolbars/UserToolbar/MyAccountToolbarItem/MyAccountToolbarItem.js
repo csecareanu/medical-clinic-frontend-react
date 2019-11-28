@@ -5,12 +5,11 @@ import React from 'react';
 import NavContainer from '../../../NavContainer/NavContainer';
 import MyAccountToolbarItemView from './MyAccountToolbarItemView';
 
-const NewAppointmentToolbarItem = () => (
+const MyAccountToolbarItem = () => (
     <NavContainer>
     {
         (navigationData) => (
             <MyAccountToolbarItemView
-                userAuthStatus={navigationData.userAuthStatus}
                 onClick={navigationData.onClinicItemSelect}
             />
         )
@@ -18,4 +17,4 @@ const NewAppointmentToolbarItem = () => (
     </NavContainer>
 )
 
-export default NewAppointmentToolbarItem;
+export default MyAccountToolbarItem;

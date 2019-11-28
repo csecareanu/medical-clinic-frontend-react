@@ -10,7 +10,8 @@ export const ClinicLinkLocationName = {
 
 export const UserLinkLocationName = {
     LOGIN: "/login",
-    LOGOUT: "/logout"
+    LOGOUT: "/logout",
+    MY_ACCOUNT: "/my_account"
 }
 
 export const PatientLinkLocationName = {
