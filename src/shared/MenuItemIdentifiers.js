@@ -31,7 +31,7 @@ export const UserMenuItem = {
         : lastId++,
     MY_ACCOUNT: hasSymbol
         ? Symbol("UserMenuItem.MY_ACCOUNT") 
-        : lastId++,
+        : lastId++
 }
 
 export const PatientMenuItem = {

@@ -21,6 +21,7 @@ const onClick = (event, callback) => {
 
 type Props = {
     type: number, //typeof LinkButtonType - TODO: flow error: Cannot create `LinkButton` element because  number [1] is incompatible with  object literal
+    boldStyle?: boolean,
     disabled?: boolean,
     onClick?: () => void,
     children: React.Node
@@ -29,22 +30,24 @@ type Props = {
 /** 
  * Displays link type button.
  * 
- *  @param {LinkButtonType} props.type - The type of the button. The color of the button changes
+ *  @param {LinkButtonType} props.type  The type of the button. The color of the button changes
  *                                       depending on the style
- *  @param {boolean} props.disabled - If provided and if is 'true' then disables the button
- *  @param {function} props.onClick - Callback function to be notified for the click event
- *  @param {array} props.children - The JSX children to be rendered
+ *  @param {boolean} props.boldStyle If specified and if it is true the displayed content
+ * from @param props.children will be written using a bold font. 
+ *  @param {boolean} props.disabled If specified and if it is 'true' then disables the button
+ *  @param {function} props.onClick Callback function to be notified for the click event
+ *  @param {array} props.children The JSX children to be rendered
 */
 export default (props: Props) => {
-    let btnTypeClassName = null;
+    const btnTypeClassName = [classes.Button];
 
 
     switch(props.type) {
         case LinkButtonType.SUCCESS:
-                btnTypeClassName = classes.Success;
+                btnTypeClassName.push(classes.Success);
             break;
         case LinkButtonType.DANGER:
-                btnTypeClassName = classes.Danger;
+                btnTypeClassName.push(classes.Danger);
             break;
         default:
             //TODO
@@ -52,10 +55,14 @@ export default (props: Props) => {
             break;
     }
 
+    if (props.boldStyle) {
+        btnTypeClassName.push(classes.BoldStyle);
+    }
+
     return (
         <button
             disabled={props.disabled}
-            className={[classes.Button, btnTypeClassName].join(' ')}
+            className={btnTypeClassName.join(' ')}
             onClick={ (event) => { onClick(event, props.onClick) } }
         >
             {props.children}

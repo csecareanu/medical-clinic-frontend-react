@@ -29,3 +29,7 @@
 .Danger {
     color: #D01B1F;
 }
+
+.BoldStyle{
+    font-weight: bold;
+}
