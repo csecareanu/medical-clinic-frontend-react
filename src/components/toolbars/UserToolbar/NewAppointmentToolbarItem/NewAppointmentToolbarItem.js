@@ -1,20 +1,39 @@
 // @flow
 
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
 
-import NavContainer from '../../../NavContainer/NavContainer';
-import NewAppointmentToolbarItemView from './NewAppointmentToolbarItemView';
+import classes from './NewAppointmentToolbarItem.module.css';
+import { PatientMenuItem } from '../../../../shared/MenuItemIdentifiers.js'
+import NavListView from '../../../UI/NavListView/NavListView';
+import NavItemButton_NoStyle from '../../../UI/NavListView/NavItemButton/NavItemButton';
+import withProps from '../../../hoc/withProps';
 
-const NewAppointmentToolbarItem = () => (
-    <NavContainer>
+const NavItemButton = withProps(NavItemButton_NoStyle, 
     {
-        (navigationData) => (
-            <NewAppointmentToolbarItemView
-                onClick={navigationData.onClinicItemSelect}
-            />
-        )
-    }
-    </NavContainer>
-)
+        styleItem: classes.MenuItem, 
+        styleText: classes.MenuText, 
+        styleTextActive: classes.Active
+    });
 
-export default NewAppointmentToolbarItem;
+type Props = {
+    onClick: (itemId: number | Symbol) => void,
+}
+
+const NewAppointmentToolbarItemView = (props: Props) => (
+    <div className={classes.NewAppointment}>
+        <NavListView style={classes.Menu}>
+            <NavItemButton 
+                id={PatientMenuItem.NEW_APPOINTMENT}
+                onClick={props.onClick}
+            >
+                <FormattedMessage 
+                    id="toolbar_new_appointment" 
+                    defaultMessage={'New Appointment'}
+                />
+            </NavItemButton>
+        </NavListView>
+    </div>
+);
+
+export default NewAppointmentToolbarItemView;

@@ -2,21 +2,20 @@
 
 import React from 'react';
 
-import classes from './UserToolbar.module.css';
-import NewAppointmentToolbarItem from './NewAppointmentToolbarItem/NewAppointmentToolbarItem';
-import MyAccountToolbarItem from './MyAccountToolbarItem/MyAccountToolbarItem';
-import PatientAccountToolbarItem from './PatientAccountToolbarItem/PatientAccountToolbarItem';
+import NavContainer from '../../NavContainer/NavContainer';
+import UserToolbarView from './UserToolbarView';
 
-const UserToolbar = () => {
+const UserToolbar = () => (
+    <NavContainer>
+    {
+        (navigationData) => (
+            <UserToolbarView 
+                userAuthStatus={navigationData.userAuthStatus}
+                onClinicItemSelect={navigationData.onClinicItemSelect} 
+            />
+        )
+    }
+    </NavContainer>
+);
 
-    return (
-        <div className={classes.Toolbar}>
-            <div className={classes.RightItems}>
-                <NewAppointmentToolbarItem />
-                <MyAccountToolbarItem />
-                <PatientAccountToolbarItem />
-            </div>
-        </div>
-    );
-}
 export default UserToolbar;
