@@ -5,9 +5,9 @@ import { FormattedMessage } from 'react-intl';
 import classes from './UserLoginView.module.css';
 import LoginExistingAccount from '../shared/LoginExistingAccount/LoginExistingAccount';
 import CreatePatientAccount from '../shared/CreatePatientAccount/CreatePatientAccount';
-import Button, { ButtonType } from '../../UI/Button/Button';
-import FormControl from '../../UI/FormControl/FormControl';
-import Backdrop from '../../UI/Backdrop/Backdrop';
+import Button, { ButtonType } from '../../../UI/Button/Button';
+import FormControl from '../../../UI/FormControl/FormControl';
+import Backdrop from '../../../UI/Backdrop/Backdrop';
 
 const onComponentLoaded = () => {
     // make the top of the window visible if the page is scrolled

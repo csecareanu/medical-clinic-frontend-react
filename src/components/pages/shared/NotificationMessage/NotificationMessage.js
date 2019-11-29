@@ -7,6 +7,7 @@ import classes from './NotificationMessage.module.css';
 
 type Props = {
     typeAccessNotAllowed?: boolean,
+    typeNeedAuthentication?: boolean,
     typeNotConnectedToPatientAccount?: boolean
 }
 
@@ -20,12 +21,18 @@ const NotificationMessage = (props: Props) => {
                 id="not_allowed_to_access_resource" 
                 defaultMessage={'You are not allowed to access this resource.'}
         /> );
+    } else if (props.typeNeedAuthentication) {
+        message = ( 
+            <FormattedMessage 
+                id="user_need_to_authenticate" 
+                defaultMessage={'You need to authenticate first.'}
+        /> );
     } else if (props.typeNotConnectedToPatientAccount) {
         message = ( 
             <FormattedMessage 
                 id="user_not_connected_to_patient_account" 
                 defaultMessage={'You are not connected to a patient account.'}
-        /> );
+        /> );        
     } else { 
         console.log("NotificationMessage. Unknown message notification message type. Props: ", 
                 props);

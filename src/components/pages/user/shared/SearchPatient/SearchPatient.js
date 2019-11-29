@@ -4,8 +4,8 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import BirthdayElement from '../BirthdayElement/BirthdayElement';
-import FormControl from '../../../UI/FormControl/FormControl';
-import Button, { ButtonType } from '../../../UI/Button/Button';
+import FormControl from '../../../../UI/FormControl/FormControl';
+import Button, { ButtonType } from '../../../../UI/Button/Button';
 
 export default () => {
     const birthDayLabel = <FormattedMessage id="label_birthday" defaultMessage={'Birthday'}/>

@@ -3,7 +3,7 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
-import FormControl from '../../../UI/FormControl/FormControl';
+import FormControl from '../../../../UI/FormControl/FormControl';
 
 const GenderType = {
     MALE: 'male',

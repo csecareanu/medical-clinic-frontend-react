@@ -2,22 +2,22 @@
 
 import React from 'react';
 
-import { PageHeaderType }  from '../../../../shared/PageHeaderType';
-import MainLayout from '../../../layouts/MainLayout/MainLayout';
-import useCanAccessDoctorContent from '../../../shared/useCanAccessDoctorContent';
-import NotificationMessage from '../../shared/NotificationMessage/NotificationMessage';
-import UnderConstruction from '../../shared/UnderConstruction/UnderConstruction';
+import NavContainer from '../../../NavContainer/NavContainer';
+import DoctorMyAccountView from './DoctorMyAccountView';
 
-const DoctorMyAccount = () => {
-    if (!useCanAccessDoctorContent()) {
-        return <NotificationMessage typeAccessNotAllowed />;
+const PatientAccount = () => (
+    <NavContainer>
+    {
+        (navigationData) => (
+            <DoctorMyAccountView
+                userAuthStatus={navigationData.userAuthStatus}
+                onNavigationItemSelect={ (itemType: number | Symbol) => {
+                    navigationData.onClinicItemSelect(itemType);
+                }} 
+            />
+        )
     }
-    return (
-        <MainLayout headerType={PageHeaderType.MAIN}>
-            <UnderConstruction title="Doctor Account Page" />
-        </MainLayout>
-    );
-}
+    </NavContainer>
+)
 
-
-export default DoctorMyAccount;
+export default PatientAccount;

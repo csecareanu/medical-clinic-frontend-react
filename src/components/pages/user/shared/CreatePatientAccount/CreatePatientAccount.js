@@ -1,8 +1,8 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
-import Button, { ButtonType } from '../../../UI/Button/Button';
-import FormControl from '../../../UI/FormControl/FormControl';
+import Button, { ButtonType } from '../../../../UI/Button/Button';
+import FormControl from '../../../../UI/FormControl/FormControl';
 import BirthdayElement from '../BirthdayElement/BirthdayElement';
 import GenderElement from '../GenderElement/GenderElement';
 

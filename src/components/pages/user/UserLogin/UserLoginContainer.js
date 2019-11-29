@@ -2,8 +2,8 @@
 
 import * as React from 'react';
 
-import UIStateContext from '../../../react-context/UIState/UIState-context';
-import { UserAuthType } from '../../../shared/UserAuthType';
+import UIStateContext from '../../../../react-context/UIState/UIState-context';
+import { UserAuthType } from '../../../../shared/UserAuthType';
 import type { RouterHistory } from 'react-router';
 
 const containerData = {

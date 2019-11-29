@@ -4,9 +4,9 @@ import { FormattedMessage } from 'react-intl';
 import classes from './LogIntoPatientAccount.module.css';
 import SearchPatient from '../shared/SearchPatient/SearchPatient';
 import CreatePatientAccount from '../shared/CreatePatientAccount/CreatePatientAccount';
-import Button, { ButtonType } from '../../UI/Button/Button';
-import FormControl from '../../UI/FormControl/FormControl';
-import Backdrop from '../../UI/Backdrop/Backdrop';
+import Button, { ButtonType } from '../../../UI/Button/Button';
+import FormControl from '../../../UI/FormControl/FormControl';
+import Backdrop from '../../../UI/Backdrop/Backdrop';
 
 
 const logIntoPatientAccountView = () => {

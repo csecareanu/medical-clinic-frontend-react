@@ -10,12 +10,12 @@ import ClinicContactPage from '../pages/clinic/ClinicContactPage/ClinicContactPa
 import ClinicDoctorsPage from '../pages/clinic/ClinicDoctorsPage/ClinicDoctorsPage';
 import ClinicPricesPage from '../pages/clinic/ClinicPricesPage/ClinicPricesPage';
 
-import UserLogin from '../connect/UserLogin/UserLogin';
-import UserLogout from '../connect/UserLogout/UserLogout';
+import UserLogin from '../pages/user/UserLogin/UserLogin';
+import UserLogout from '../pages/user/UserLogout/UserLogout';
 import MyAccount from '../pages/user/MyAccount/MyAccount';
 
-import LogIntoPatientAccount from '../connect/LogIntoPatientAccount/LogIntoPatientAccount';
-import LogOutPatientAccount from '../connect/LogOutPatientAccount/LogOutPatientAccount';
+import LogIntoPatientAccount from '../pages/user/LogIntoPatientAccount/LogIntoPatientAccount';
+import LogOutPatientAccount from '../pages/user/LogOutPatientAccount/LogOutPatientAccount';
 
 import DoctorMain from '../pages/doctor/DoctorMain/DoctorMain';
 import DoctorMyAccount from '../pages/doctor/DoctorMyAccount/DoctorMyAccount';
