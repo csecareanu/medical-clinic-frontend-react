@@ -7,18 +7,18 @@ import { UserAuthType } from '../../../../shared/UserAuthType';
 import type { RouterHistory } from 'react-router';
 
 const containerData = {
-    uiStateContext: (null: null | UIStateContext),
+    _uiStateContext: (null: null | UIStateContext),
     userAuthStatus: (UserAuthType.UNAUTHENTICATED: number | Symbol),
     displayLoginComponent: (false: boolean),
     navigateToURIOnCancelLogin: (null: string | null),
 
     onAuthenticate: (history: RouterHistory, phoneNo: string, password: string) : void => {
 
-        if(containerData.uiStateContext == null) {
+        if(containerData._uiStateContext == null) {
             console.log("UserLoginContainer. uiStateContext not set");
             return;
         }
-        const uiStateContext = containerData.uiStateContext;
+        const uiStateContext = containerData._uiStateContext;
 
         let newAuthStatus = UserAuthType.UNAUTHENTICATED;
 
@@ -42,11 +42,11 @@ const containerData = {
     },
 
     onCreateAccount: (history: RouterHistory /*, accountInfo*/) : void => {
-        if(containerData.uiStateContext == null) {
+        if(containerData._uiStateContext == null) {
             console.log("onCreateAccount. uiStateContext not set");
             return;
         }
-        const uiStateContext = containerData.uiStateContext;
+        const uiStateContext = containerData._uiStateContext;
 
         uiStateContext.setUserAuthenticationStatus(UserAuthType.PATIENT);
         uiStateContext.setDisplayLoginComponent(false);
@@ -58,11 +58,11 @@ const containerData = {
     },
 
     onCancel: (history: RouterHistory) : void => {
-        if(containerData.uiStateContext == null) {
+        if(containerData._uiStateContext == null) {
             console.log("onCancel. uiStateContext not set");
             return;
         }
-        const uiStateContext = containerData.uiStateContext;
+        const uiStateContext = containerData._uiStateContext;
         uiStateContext.setDisplayLoginComponent(false);
 
         if (uiStateContext.navigateToURIOnCancelLogin) {
@@ -77,7 +77,7 @@ type Props = {
 }
 export default (props: Props) => {
     let uiStateContext = React.useContext(UIStateContext);
-    containerData.uiStateContext = uiStateContext;
+    containerData._uiStateContext = uiStateContext;
     containerData.userAuthStatus = uiStateContext.userAuthStatus;
     containerData.displayLoginComponent = uiStateContext.displayLoginComponent;
     containerData.navigateToURIOnCancelLogin = uiStateContext.navigateToURIOnCancelLogin;
