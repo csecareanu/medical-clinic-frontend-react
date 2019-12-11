@@ -12,7 +12,7 @@ const SearchPatientByBirthday = () => {
     return (
         <form>
             <BirthdayElement label={birthDayLabel}/>
-            <FormControl.HorizontalSep repeat='2'/>
+            <FormControl.HorizontalSep repeat={2}/>
             <Button type={ButtonType.SUCCESS} fullWidth>
                 <FormattedMessage id="show_patients" defaultMessage={'Show Patients'}/>
             </Button>

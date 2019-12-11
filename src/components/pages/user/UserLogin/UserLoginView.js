@@ -59,15 +59,17 @@ const UserLoginView = (props: Props) => {
                             <FormattedMessage id="cancel" defaultMessage={'Cancel'}/>
                         </Button>
                     </div>
-                    <FormControl.HorizontalSep repeat='2'/>
+                    <FormControl.HorizontalSep repeat={2}/>
 
                     <LoginExistingAccount onAuthenticate={ props.onAuthenticate } />
 
-                    <FormControl.HorizontalSep repeat='10'/>
+                    <FormControl.HorizontalSep repeat={10}/>
 
                     <FormControl.Group name={createAccountText} stressedName>
-                        <FormControl.HorizontalSep repeat='2'/>
-                        <CreatePatientAccount onCreateAccount={ props.onCreateAccount } />
+                        <FormControl.HorizontalSep repeat={2}/>
+                        <CreatePatientAccount 
+                            onCreateAccount={ props.onCreateAccount } 
+                        />
                     </FormControl.Group>
                 </div>
             </div>

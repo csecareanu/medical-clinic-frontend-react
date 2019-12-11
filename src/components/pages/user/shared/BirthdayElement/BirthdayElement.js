@@ -77,21 +77,27 @@ class BirthdayElement extends React.Component<Props, State> {
                         size={6}
                         placeholder={dayText}
                         value={birthDayElem.value}
-                        onChange={(event) => {this.inputChangedHandler(event, ELEMENTS.BIRTH_DAY)}}
+                        onChange={
+                            (event) => {this.inputChangedHandler(event, ELEMENTS.BIRTH_DAY)}
+                        }
                     />
                     <FormControl.VerticalSep/>
                     <FormControl.Text 
                         size={6} 
                         placeholder= {monthText}
                         value={birthMonthElem.value}
-                        onChange={(event) => {this.inputChangedHandler(event, ELEMENTS.BIRTH_MONTH)}}
+                        onChange={
+                            (event) => {this.inputChangedHandler(event, ELEMENTS.BIRTH_MONTH)}
+                        }
                     />
                     <FormControl.VerticalSep/>
                     <FormControl.Text 
                         size={12}
                         placeholder={yearText}
                         value={birthYearElem.value}
-                        onChange={(event) => {this.inputChangedHandler(event, ELEMENTS.BIRTH_YEAR)}}
+                        onChange={
+                            (event) => {this.inputChangedHandler(event, ELEMENTS.BIRTH_YEAR)}
+                        }
                     />
                 </div>
             </FormControl.Group>

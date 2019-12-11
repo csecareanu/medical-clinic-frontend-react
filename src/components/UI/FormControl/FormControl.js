@@ -1,4 +1,7 @@
-import React from 'react';
+// @flow
+
+import * as React from 'react';
+import { typeof FormattedMessage } from 'react-intl';
 
 import classes from './FormControl.module.css';
 
@@ -23,7 +26,14 @@ const FormControl = () =>{return null;}
  *                                  the group
  *                                     
  */
-FormControl.Group = (props) => {
+ type GroupProps = { 
+    name: string | FormattedMessage,
+    stressedName?: boolean,
+    contentPadding?: boolean,
+    noHorizontalSepAfter?: boolean,
+    children: React.Node
+ }
+FormControl.Group = (props: GroupProps) => {
     const stressedNameClasses = [];
     if(props.stressedName) {
         stressedNameClasses.push(classes.StressedName);
@@ -68,7 +78,14 @@ FormControl.Group = (props) => {
  *                 boolean      if is not specified an horizontal small space is added after 
  *                                  the control
  */
-FormControl.Text = (props) => {
+ type TextProps = {
+     size: number,
+     placeholder: string | FormattedMessage,
+     value: string,
+     onChange: (event: SyntheticInputEvent<HTMLInputElement>) => void,
+     noHorizontalSepAfter?: boolean
+ }
+FormControl.Text = (props: TextProps) => {
     let validationError = null;
     const inputClasses = [classes.TextElement];
 
@@ -101,7 +118,13 @@ FormControl.Text = (props) => {
  *                      boolean      if is not specified an horizontal small space is added after 
  *                                   the control
  */
-FormControl.Radio = (props) => {
+ type RadioProps = {
+     name: string,
+     value: string,
+     noHorizontalSepAfter?: boolean,
+     children: React.Node
+ }
+FormControl.Radio = (props: RadioProps) => {
     let validationError = null;
 
     return (
@@ -128,7 +151,12 @@ FormControl.Radio = (props) => {
  * @param repeat    number      if provided adds the horizontal space the number of times
  *                              specified. If not provided adds one horizontal space.
  */
-FormControl.HorizontalSep = (props) => {
+
+type HorizontalSepProps = {
+    repeat?: number
+}
+
+FormControl.HorizontalSep = (props: HorizontalSepProps) => {
     
     let separatorsArray = [''];
 
@@ -153,7 +181,11 @@ FormControl.HorizontalSep = (props) => {
  * @param repeat    number      if provided adds the vertical space the number of times
  *                              specified. If not provided adds one vertical space.
  */
-FormControl.VerticalSep = (props) => {
+
+type VerticalSepProps = {
+    repeat?: number
+}
+FormControl.VerticalSep = (props: VerticalSepProps) => {
     let separatorsArray = [''];
 
     if(props.repeat) {

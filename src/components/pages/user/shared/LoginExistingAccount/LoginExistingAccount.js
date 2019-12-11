@@ -91,7 +91,7 @@ class LoginExistingAccount extends React.Component<Props, State> {
                     onChange={(event) => {this.inputChangedHandler(event, ELEMENTS.PASSWORD)}}
                 />
 
-                <FormControl.HorizontalSep repeat='2'/>
+                <FormControl.HorizontalSep repeat={2}/>
 
                 <Button 
                     type={ButtonType.SUCCESS} 
@@ -101,7 +101,7 @@ class LoginExistingAccount extends React.Component<Props, State> {
                     <FormattedMessage id="log_in" defaultMessage={'Login'}/>
                 </Button>
 
-                <FormControl.HorizontalSep repeat='2'/>
+                <FormControl.HorizontalSep repeat={2}/>
                 <div className={classes.ForgotPassButton}>
                     <LinkButton  type={LinkButtonType.DANGER}>
                             <FormattedMessage id="ask_forgot_password" 

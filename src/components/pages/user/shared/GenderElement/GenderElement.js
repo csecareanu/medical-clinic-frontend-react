@@ -29,7 +29,7 @@ const GenderElement = () => {
                     {maleText}
                 </FormControl.Radio>
 
-                <FormControl.VerticalSep repeat='2'/>
+                <FormControl.VerticalSep repeat={2}/>
 
                 <FormControl.Radio 
                     name={RadioGroupName}

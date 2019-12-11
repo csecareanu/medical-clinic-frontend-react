@@ -1,3 +1,5 @@
+// @flow
+
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
@@ -28,7 +30,19 @@ const ELEMENTS = {
  * @param {function(accountInfo)} props.onCreateAccount -  Callback function to be called with the 
  * user provided parameters in order to create a new account
  */
-class CreatePatientAccount extends React.Component {
+
+type Props = {
+    onCreateAccount: () => void,
+    showAdminControls?: boolean
+ }
+
+type State = {
+    elementsStatus: { 
+        [number]: { value: string}
+    }
+}
+
+class CreatePatientAccount extends React.Component<Props, State> {
 
     state = {
         elementsStatus: {
@@ -56,7 +70,7 @@ class CreatePatientAccount extends React.Component {
         }
     }
 
-    inputChangedHandler = (event, elementId) => {
+    inputChangedHandler = (event: SyntheticInputEvent<HTMLInputElement>, elementId: number) => {
         let updatedElement = {
             ...this.state.elementsStatus[elementId],
             value: event.target.value
@@ -70,7 +84,7 @@ class CreatePatientAccount extends React.Component {
         this.setState({ elementsStatus: updatedElementsStatus });
     }
 
-    onCreateAccount = (createAccountCallback) => {
+    onCreateAccount = (createAccountCallback: (() => void) ) => {
         if (createAccountCallback) {
             createAccountCallback(/*account info*/);
         }
@@ -88,8 +102,8 @@ class CreatePatientAccount extends React.Component {
 
         const noPhoneCheckButton = (
             <React.Fragment>
-                <FormControl.HorizontalSep repeat='4' />
-                <Button type={ButtonType.DANGER} fullWidth onClick={this.props.onAccountCreated}>
+                <FormControl.HorizontalSep repeat={4} />
+                <Button type={ButtonType.DANGER} fullWidth onClick={this.props.onCreateAccount}>
                     <FormattedMessage id="create_account_without_phone_check"
                         defaultMessage={'Create Account Without Phone Check'}
                     />
@@ -155,7 +169,7 @@ class CreatePatientAccount extends React.Component {
 
                 <GenderElement />
 
-                <FormControl.HorizontalSep repeat='2' />
+                <FormControl.HorizontalSep repeat={2} />
 
                 <Button
                     type={ButtonType.SUCCESS}
