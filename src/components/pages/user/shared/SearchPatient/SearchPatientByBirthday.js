@@ -7,7 +7,7 @@ import BirthdayElement from '../BirthdayElement/BirthdayElement';
 import FormControl from '../../../../UI/FormControl/FormControl';
 import Button, { ButtonType } from '../../../../UI/Button/Button';
 
-export default () => {
+const SearchPatientByBirthday = () => {
     const birthDayLabel = <FormattedMessage id="label_birthday" defaultMessage={'Birthday'}/>
     return (
         <form>
@@ -19,3 +19,5 @@ export default () => {
         </form>
     );
 }
+
+export default SearchPatientByBirthday;

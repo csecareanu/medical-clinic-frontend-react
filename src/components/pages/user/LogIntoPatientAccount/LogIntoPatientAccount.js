@@ -2,7 +2,7 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import classes from './LogIntoPatientAccount.module.css';
-import SearchPatient from '../shared/SearchPatient/SearchPatient';
+import SearchPatientByBirthday from '../shared/SearchPatient/SearchPatientByBirthday';
 import CreatePatientAccount from '../shared/CreatePatientAccount/CreatePatientAccount';
 import Button, { ButtonType } from '../../../UI/Button/Button';
 import FormControl from '../../../UI/FormControl/FormControl';
@@ -30,7 +30,7 @@ const logIntoPatientAccountView = () => {
 
                     <FormControl.Group name={findPatientText} stressedName>
                         <FormControl.HorizontalSep repeat='2'/>
-                        <SearchPatient />
+                        <SearchPatientByBirthday />
                     </FormControl.Group>
                     
                     <FormControl.HorizontalSep repeat='10'/>
