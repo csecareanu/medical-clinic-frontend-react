@@ -6,15 +6,15 @@ import UIStateContext from '../../../react-context/UIState/UIState-context';
 import { UserAuthType } from '../../../shared/UserAuthType';
 
 const containerData = {
-    uiStateContext: (null: null | UIStateContext),
+    _uiStateContext: (null: null | UIStateContext),
     userAuthStatus: (UserAuthType.UNAUTHENTICATED: number | Symbol),
 
     onOpenMenuSideDrawer: () : void => {
-        if(containerData.uiStateContext == null) {
+        if(containerData._uiStateContext == null) {
             console.log("MainLayoutContainer. onOpenMenuSideDrawer. uiStateContext not set");
             return;
         }        
-        containerData.uiStateContext.setDisplayMenuSideDrawerComponent(true);
+        containerData._uiStateContext.setDisplayMenuSideDrawerComponent(true);
     }
 }
 
@@ -24,7 +24,7 @@ type Props = {
 
 const MainLayoutContainer = (props: Props) => {
     const uiStateContext = React.useContext(UIStateContext);
-    containerData.uiStateContext = uiStateContext;
+    containerData._uiStateContext = uiStateContext;
     containerData.userAuthStatus = uiStateContext.userAuthStatus;
 
     return (props.children)(containerData);

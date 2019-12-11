@@ -21,16 +21,16 @@ import UIStateContext from '../../react-context/UIState/UIState-context.js';
 
 const containerData = {
     history: (null: null | RouterHistory),
-    uiStateContext: (null: null | UIStateContext),
+    _uiStateContext: (null: null | UIStateContext),
     userAuthStatus: (UserAuthType.UNAUTHENTICATED: number | Symbol),
     isUserConnectedToAPatientAccount: (false: boolean),
 
     onClinicItemSelect: (itemType: number) => {
-        if(containerData.uiStateContext == null) {
+        if(containerData._uiStateContext == null) {
             console.log("NavContainer. onClinicItemSelect. uiStateContext not set");
             return;
         }
-        const uiStateContext = containerData.uiStateContext; //added to get rid of flow warning
+        const uiStateContext = containerData._uiStateContext; //added to get rid of flow warning
 
         if(containerData.history == null) {
             console.log("NavContainer. onClinicItemSelect. history not set");
@@ -40,7 +40,7 @@ const containerData = {
 
         switch (itemType) {
             case UserMenuItem.LOGIN:
-                containerData.uiStateContext.setDisplayLoginComponent(true);
+                containerData._uiStateContext.setDisplayLoginComponent(true);
                 break;
             case UserMenuItem.LOGOUT:
                 uiStateContext.setUserAuthenticationStatus(UserAuthType.UNAUTHENTICATED);
@@ -110,7 +110,7 @@ type Props = {
 
 const NavContainer = (props: Props) => {
     const uiStateContext = React.useContext(UIStateContext);
-    containerData.uiStateContext = uiStateContext;
+    containerData._uiStateContext = uiStateContext;
     containerData.history = props.history;
     containerData.userAuthStatus = uiStateContext.userAuthStatus;
     containerData.isUserConnectedToAPatientAccount = uiStateContext.isUserConnectedToAPatientAccount;
