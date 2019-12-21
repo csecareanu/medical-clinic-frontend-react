@@ -8,9 +8,7 @@ import type { RouterHistory } from 'react-router';
 
 const containerData = {
     _uiStateContext: (null: null | UIStateContext),
-    userAuthStatus: (UserAuthType.UNAUTHENTICATED: number | Symbol),
     displayLoginComponent: (false: boolean),
-    navigateToURIOnCancelLogin: (null: string | null),
 
     onAuthenticate: (history: RouterHistory, phoneNo: string, password: string) : void => {
 
@@ -78,8 +76,6 @@ type Props = {
 export default (props: Props) => {
     let uiStateContext = React.useContext(UIStateContext);
     containerData._uiStateContext = uiStateContext;
-    containerData.userAuthStatus = uiStateContext.userAuthStatus;
     containerData.displayLoginComponent = uiStateContext.displayLoginComponent;
-    containerData.navigateToURIOnCancelLogin = uiStateContext.navigateToURIOnCancelLogin;
     return (props.children)(containerData);
 }

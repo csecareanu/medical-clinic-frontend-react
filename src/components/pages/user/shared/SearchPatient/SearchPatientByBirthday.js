@@ -3,7 +3,7 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
-import BirthdayElement from '../BirthdayElement/BirthdayElement';
+import BirthdayElement from '../data-entry-elements/BirthdayElement/BirthdayElement';
 import FormControl from '../../../../UI/FormControl/FormControl';
 import Button, { ButtonType } from '../../../../UI/Button/Button';
 

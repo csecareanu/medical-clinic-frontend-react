@@ -5,8 +5,8 @@ import { FormattedMessage } from 'react-intl';
 
 import Button, { ButtonType } from '../../../../UI/Button/Button';
 import FormControl from '../../../../UI/FormControl/FormControl';
-import BirthdayElement from '../BirthdayElement/BirthdayElement';
-import GenderElement from '../GenderElement/GenderElement';
+import BirthdayElement from '../data-entry-elements/BirthdayElement/BirthdayElement';
+import GenderElement from '../data-entry-elements/GenderElement/GenderElement';
 
 
 const ELEMENTS = {

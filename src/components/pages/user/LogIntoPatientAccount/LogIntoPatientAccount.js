@@ -1,48 +1,46 @@
+// @flow
+
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import { withRouter } from 'react-router-dom';
+import type { RouterHistory } from 'react-router';
 
-import classes from './LogIntoPatientAccount.module.css';
-import SearchPatientByBirthday from '../shared/SearchPatient/SearchPatientByBirthday';
-import CreatePatientAccount from '../shared/CreatePatientAccount/CreatePatientAccount';
-import Button, { ButtonType } from '../../../UI/Button/Button';
-import FormControl from '../../../UI/FormControl/FormControl';
-import Backdrop from '../../../UI/Backdrop/Backdrop';
+import 
+    LogIntoPatientAccountView, 
+    { LogIntoPatientAccountFormType } 
+    from './LogIntoPatientAccountView';
+import LogIntoPatientAccountContainer from './LogIntoPatientAccountContainer';
 
+type Props = {
+    history: RouterHistory
+}
 
-const logIntoPatientAccountView = () => {
-    const findPatientText = <FormattedMessage id="label_find_patient" 
-                                    defaultMessage={'Find Patient'}/>
-    const createAccountText = <FormattedMessage id="label_create_patient_account" 
-                                    defaultMessage={"Create patient account"}/>
+const LogIntoPatientAccount = (props: Props) => {
+    //TODO log all user actions in order to reproduce all his/her steps at debug time
+
+    // keep the value of the props.history inside closure
+    const history = props.history;
 
     return (
-        <React.Fragment>
-            <Backdrop show={true}/>
-            <div className={classes.Login}>
-                <div className={classes.LoginContent}>
-                    <div className={classes.CancelButton}>
-                        <Button type={ButtonType.DANGER}>
-                            <FormattedMessage id="cancel" defaultMessage={'Cancel'}/>
-                        </Button>
-                    </div>
-
-                    <FormControl.HorizontalSep repeat={2}/>
-
-                    <FormControl.Group name={findPatientText} stressedName>
-                        <FormControl.HorizontalSep repeat={2}/>
-                        <SearchPatientByBirthday />
-                    </FormControl.Group>
-                    
-                    <FormControl.HorizontalSep repeat={10}/>
-
-                    <FormControl.Group name={createAccountText} stressedName>
-                        <FormControl.HorizontalSep repeat={4}/>
-                        <CreatePatientAccount showAdminControls/>
-                    </FormControl.Group>
-                </div>
-            </div>
-        </React.Fragment>
+        <LogIntoPatientAccountContainer>
+            {
+                (containerData) => (
+                    <LogIntoPatientAccountView
+                        formType={LogIntoPatientAccountFormType.FIND_BY_BIRTHDAY}
+                        onAuthenticate={(phoneNo, password) => {
+                            containerData.onAuthenticate(history, phoneNo, password)
+                        }}
+                        onCreateAccount={(/*accountInfo*/) => {
+                            containerData.onCreateAccount(history /*, accountInfo*/);
+                        }}
+                        onCancel={() => {
+                            containerData.onCancel(history);
+                        }}
+                    />
+                )
+            }
+        </LogIntoPatientAccountContainer>
     );
 }
 
-export default logIntoPatientAccountView;
+
+export default withRouter(LogIntoPatientAccount);

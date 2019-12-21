@@ -11,11 +11,15 @@ type Props = {
 
 type State = {
   userAuthStatus: number | Symbol,
+
   isUserConnectedToAPatientAccount: boolean,
+
   displayLoginComponent: boolean,
   navigateToURIOnCancelLogin: string | null,
   navigateToURIOnSuccessfullyLogin: string | null,
+
   displayLogoutComponent: boolean,
+
   displayMenuSideDrawerComponent: boolean
 };
 
@@ -33,11 +37,15 @@ class UIState extends React.Component<Props, State> {
 
     state = {
         userAuthStatus: UserAuthType.UNAUTHENTICATED,
+
         isUserConnectedToAPatientAccount: false,
+
         displayLoginComponent: false,
         navigateToURIOnCancelLogin: null,
         navigateToURIOnSuccessfullyLogin: null,
+
         displayLogoutComponent: false,
+
         displayMenuSideDrawerComponent: false
     }
 

@@ -6,10 +6,10 @@ import { FormattedMessage } from 'react-intl';
 import classes from './NewAppointmentToolbarItem.module.css';
 import { PatientMenuItem } from '../../../../shared/MenuItemIdentifiers.js'
 import NavListView from '../../../UI/NavListView/NavListView';
-import NavItemButton_NoStyle from '../../../UI/NavListView/NavItemButton/NavItemButton';
+import NavItemButton from '../../../UI/NavListView/NavItemButton/NavItemButton';
 import withProps from '../../../hoc/withProps';
 
-const NavItemButton = withProps(NavItemButton_NoStyle, 
+const NavItemButtonCSS = withProps(NavItemButton, 
     {
         styleItem: classes.MenuItem, 
         styleText: classes.MenuText, 
@@ -23,7 +23,7 @@ type Props = {
 const NewAppointmentToolbarItemView = (props: Props) => (
     <div className={classes.NewAppointment}>
         <NavListView style={classes.Menu}>
-            <NavItemButton 
+            <NavItemButtonCSS 
                 id={PatientMenuItem.NEW_APPOINTMENT}
                 onClick={props.onClick}
             >
@@ -31,7 +31,7 @@ const NewAppointmentToolbarItemView = (props: Props) => (
                     id="toolbar_new_appointment" 
                     defaultMessage={'New Appointment'}
                 />
-            </NavItemButton>
+            </NavItemButtonCSS>
         </NavListView>
     </div>
 );

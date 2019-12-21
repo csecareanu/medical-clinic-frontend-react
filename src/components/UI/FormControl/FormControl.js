@@ -27,7 +27,7 @@ const FormControl = () =>{return null;}
  *                                     
  */
  type GroupProps = { 
-    name: string | FormattedMessage,
+    name?: string | FormattedMessage,
     stressedName?: boolean,
     contentPadding?: boolean,
     noHorizontalSepAfter?: boolean,
