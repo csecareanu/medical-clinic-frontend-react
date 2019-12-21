@@ -12,7 +12,7 @@ const GenderType = {
 
 const RadioGroupName='gender';
 
-const GenderElement = () => {
+const GenderUserEntryElement = () => {
     const genderLabel = <FormattedMessage id="label_gender" defaultMessage={'Gender:'}/>
     const maleText = <FormattedMessage id="gender_male" defaultMessage={'Male'}/>;
     const femaleText = <FormattedMessage id="gender_female" defaultMessage={'Female'}/>;
@@ -44,4 +44,4 @@ const GenderElement = () => {
     );
 }
 
-export default GenderElement;
+export default GenderUserEntryElement;

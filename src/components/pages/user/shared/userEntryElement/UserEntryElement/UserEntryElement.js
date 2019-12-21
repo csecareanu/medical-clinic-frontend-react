@@ -6,7 +6,7 @@ import { typeof FormattedMessage } from 'react-intl';
 import FormControl from '../../../../../UI/FormControl/FormControl';
 
 
-export const DataEntryElementType = {
+export const UserEntryFieldType = {
     FIRST_NAME: 0,
     LAST_NAME: 1,
     PHONE_NUMBER: 2,
@@ -18,14 +18,14 @@ type Props = {
     label?: string | FormattedMessage,
     value?: string,
     placeholder?: string | FormattedMessage,
-    type: number // TODO: typeof DataEntryElementType
+    type: number // TODO: typeof DataEntryFieldType
 }
 
 type State = {
     value?: string
 }
 
-class DataEntryElement extends React.Component<Props, State> {
+class UserEntryElement extends React.Component<Props, State> {
     state = {
         value: this.props.value? this.props.value : ''
     }
@@ -58,4 +58,4 @@ class DataEntryElement extends React.Component<Props, State> {
     }
 }
 
-export default DataEntryElement;
+export default UserEntryElement;

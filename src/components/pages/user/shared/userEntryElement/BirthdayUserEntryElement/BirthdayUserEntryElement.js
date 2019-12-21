@@ -3,7 +3,7 @@
 import * as React from 'react';
 import { typeof FormattedMessage } from 'react-intl';
 
-import classes from './BirthdayElement.module.css';
+import classes from './BirthdayUserEntryElement.module.css';
 import FormControl from '../../../../../UI/FormControl/FormControl';
 
 const ELEMENTS = {
@@ -26,7 +26,7 @@ type State = {
  * The component is still a presentational one even though it uses an internal state
  * to store values from keyboard input.
  */
-class BirthdayElement extends React.Component<Props, State> {
+class BirthdayUserEntryElement extends React.Component<Props, State> {
     state = {
         elementsStatus: {
             [ELEMENTS.BIRTH_DAY]: {
@@ -106,4 +106,4 @@ class BirthdayElement extends React.Component<Props, State> {
     }
 }
 
-export default BirthdayElement;
+export default BirthdayUserEntryElement;
