@@ -3,13 +3,14 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import classes from './LogIntoPatientAccountView.module.css';
+import { PageHeaderType }  from '../../../../shared/PageHeaderType';
+import MainLayout from '../../../layouts/MainLayout/MainLayout';
 import SearchPatientByBirthday from '../shared/SearchPatient/SearchPatientByBirthday';
 import SearchPatientByName from '../shared/SearchPatient/SearchPatientByName';
 import SearchPatientByPhoneNo from '../shared/SearchPatient/SearchPatientByPhoneNo';
 import CreatePatientAccount from '../shared/CreatePatientAccount/CreatePatientAccount';
 import Button, { ButtonType } from '../../../UI/Button/Button';
 import FormControl from '../../../UI/FormControl/FormControl';
-import Backdrop from '../../../UI/Backdrop/Backdrop';
 
 
 export const LogIntoPatientAccountFormType = {
@@ -32,10 +33,13 @@ const logIntoPatientAccountView = (props: Props) => {
                                     defaultMessage={"If the patient doesn't have an account"}/>                                    
 
     return (
-        <React.Fragment>
-            <Backdrop show={true}/>
+        <MainLayout headerType={PageHeaderType.MAIN}>
             <div className={classes.Login}>
                 <div className={classes.LoginContent}>
+                    <h1 className={classes.Title}>
+                        <FormattedMessage id="title_log_into_patient_account" 
+                                    defaultMessage={"Log into patient account"}/>
+                    </h1>
                     <div className={classes.CancelButton}>
                         <Button type={ButtonType.DANGER}>
                             <FormattedMessage id="cancel" defaultMessage={'Cancel'}/>
@@ -88,7 +92,7 @@ const logIntoPatientAccountView = (props: Props) => {
 
                 </div>
             </div>
-        </React.Fragment>
+        </MainLayout>
     );
 }
 

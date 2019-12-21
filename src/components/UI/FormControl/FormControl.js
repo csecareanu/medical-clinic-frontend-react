@@ -22,7 +22,7 @@ const FormControl = () =>{return null;}
  *                                  (the JSX children provided on @param children)
  * @param children                  the JSX children to be rendered
  * @param noHorizontalSepAfter 
- *                      boolean     if is not specified an horizontal small space is added after 
+ *                      boolean     if is not specified an horizontal space is added after 
  *                                  the group
  *                                     
  */

@@ -1,18 +1,22 @@
 .Login {
     display: flex;
     justify-content: center;
+    width:100%;
+    background-color: #ffffff;
 }
 
 .LoginContent {
-    background-color: #F8E8B7;
+    background-color: #ffffff;
     padding: 0.5rem;
-    max-width: 30rem;
-    /* the z-index must be higher than the one of Backdrop (100)*/
-    z-index: 200;
-    position: absolute;    
+    max-width: 30rem;  
 }
 
 .CancelButton {
     display: flex;
     justify-content: flex-end;
+}
+
+.Title {
+    width: 100%;
+    color: #6B2022;
 }
