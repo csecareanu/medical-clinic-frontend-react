@@ -52,19 +52,13 @@ const logIntoPatientAccountView = (props: Props) => {
                             :
                                 null
                         }
-                        {props.formType === LogIntoPatientAccountFormType.FIND_BY_BIRTHDAY 
+                        {props.formType === LogIntoPatientAccountFormType.FIND_BY_FIRST_NAME 
                             ? 
                                 <SearchPatientByName />
                             :
                                 null
                         }
-                        {props.formType === LogIntoPatientAccountFormType.FIND_BY_BIRTHDAY 
-                            ? 
-                                <SearchPatientByName />
-                            :
-                                null
-                        }
-                        {props.formType === LogIntoPatientAccountFormType.FIND_BY_BIRTHDAY 
+                        {props.formType === LogIntoPatientAccountFormType.FIND_BY_PHONE_NUMBER
                             ? 
                                 <SearchPatientByPhoneNo />
                             :
