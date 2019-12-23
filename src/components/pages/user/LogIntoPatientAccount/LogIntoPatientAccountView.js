@@ -10,6 +10,7 @@ import SearchPatientByName from '../shared/SearchPatient/SearchPatientByName';
 import SearchPatientByPhoneNo from '../shared/SearchPatient/SearchPatientByPhoneNo';
 import CreatePatientAccount from '../shared/CreatePatientAccount/CreatePatientAccount';
 import Button, { ButtonType } from '../../../UI/Button/Button';
+import LinkButton, { LinkButtonType } from '../../../UI/LinkButton/LinkButton';
 import FormControl from '../../../UI/FormControl/FormControl';
 
 
@@ -29,8 +30,56 @@ const logIntoPatientAccountView = (props: Props) => {
                                     defaultMessage={'Find Patient'}/>
     const createAccountText = <FormattedMessage id="label_create_patient_account" 
                                     defaultMessage={"Create patient account"}/>
-    const notAccountText = <FormattedMessage id="label_patient_does_not_have_account" 
-                                    defaultMessage={"If the patient doesn't have an account"}/>                                    
+    const notAccountText = <FormattedMessage id="label_patient_does_not_have_account"
+                                    defaultMessage={"If the patient doesn't have an account"}/>
+
+    const searchByBirthdayLink = (
+                <LinkButton
+                    type={LinkButtonType.DANGER}
+                    onClick={ () => { }}
+                >
+                    <FormattedMessage id="search_by_birthday" defaultMessage={'Search by birthday'}/>
+                </LinkButton>
+            );
+
+    const searchByNameLink = (
+                <LinkButton
+                    type={LinkButtonType.DANGER}
+                    onClick={ () => { }}
+                >
+                    <FormattedMessage id="search_by_name" defaultMessage={'Search by name'}/>
+                </LinkButton>
+            );
+
+    const searchByPhoneNoLink = (
+                <LinkButton
+                    type={LinkButtonType.DANGER}
+                    onClick={ () => { }}
+                >
+                    <FormattedMessage id="search_by_phone_no" 
+                        defaultMessage={'Search by phone number'}
+                    />
+                </LinkButton>
+            );
+
+    let searchPatientForm = null;
+    let alternativeSearchLinks = [];
+    switch(props.formType) {
+        case LogIntoPatientAccountFormType.FIND_BY_BIRTHDAY:
+            searchPatientForm = <SearchPatientByBirthday />;
+            alternativeSearchLinks = [searchByNameLink, searchByPhoneNoLink];
+            break;
+        case LogIntoPatientAccountFormType.FIND_BY_FIRST_NAME:
+            searchPatientForm = <SearchPatientByName />;
+            alternativeSearchLinks = [searchByBirthdayLink, searchByPhoneNoLink];
+            break;
+        case LogIntoPatientAccountFormType.FIND_BY_PHONE_NUMBER:
+            searchPatientForm = <SearchPatientByPhoneNo />;
+            alternativeSearchLinks = [searchByBirthdayLink, searchByNameLink];
+            break;
+        default:
+            console.log('logIntoPatientAccountView. [W] Unknown form type: ' + props.formType);
+    }
 
     return (
         <MainLayout headerType={PageHeaderType.MAIN}>
@@ -50,25 +99,15 @@ const logIntoPatientAccountView = (props: Props) => {
 
                     <FormControl.Group name={findPatientText} stressedName>
                         <FormControl.HorizontalSep repeat={2}/>
-                        {props.formType === LogIntoPatientAccountFormType.FIND_BY_BIRTHDAY 
-                            ? 
-                                <SearchPatientByBirthday />
-                            :
-                                null
-                        }
-                        {props.formType === LogIntoPatientAccountFormType.FIND_BY_FIRST_NAME 
-                            ? 
-                                <SearchPatientByName />
-                            :
-                                null
-                        }
-                        {props.formType === LogIntoPatientAccountFormType.FIND_BY_PHONE_NUMBER
-                            ? 
-                                <SearchPatientByPhoneNo />
-                            :
-                                null
-                        }                                
+                        {searchPatientForm}                              
                     </FormControl.Group>
+
+                    <FormControl.HorizontalSep repeat={2}/>
+
+
+                    {alternativeSearchLinks.map( (element, idx) => (
+                        <div key={idx} className={classes.AlternativeSearchItem}>{element}</div>
+                    ))}
                     
                     <FormControl.HorizontalSep repeat={10}/>
 
@@ -89,7 +128,7 @@ const logIntoPatientAccountView = (props: Props) => {
                                 </Button>
                             </FormControl.Group>
                     }   
-
+                    <FormControl.HorizontalSep repeat={10}/>
                 </div>
             </div>
         </MainLayout>

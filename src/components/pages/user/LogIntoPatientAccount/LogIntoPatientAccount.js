@@ -3,7 +3,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import type { RouterHistory } from 'react-router';
-
 import 
     LogIntoPatientAccountView, 
     { LogIntoPatientAccountFormType } 
@@ -26,8 +25,8 @@ const LogIntoPatientAccount = (props: Props) => {
                 (containerData) => (
                     <LogIntoPatientAccountView
                         formType={LogIntoPatientAccountFormType.FIND_BY_BIRTHDAY}
-                        onAuthenticate={(phoneNo, password) => {
-                            containerData.onAuthenticate(history, phoneNo, password)
+                        onAuthenticate={(phoneNo, userId) => {
+                            containerData.onAuthenticate(history, userId)
                         }}
                         onCreateAccount={(/*accountInfo*/) => {
                             containerData.onCreateAccount(history /*, accountInfo*/);
