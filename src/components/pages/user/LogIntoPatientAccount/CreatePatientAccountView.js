@@ -15,6 +15,9 @@ const createPatientAccountView = () => {
     const createAccountText = <FormattedMessage id="label_create_new_account" 
                                     defaultMessage={"Create new account"}/>
 
+    const searchForAccountText = <FormattedMessage id="label_patient_have_account_search"
+                                    defaultMessage={"If the patient already has an account"}/>
+
     return (
         <MainLayout headerType={PageHeaderType.MAIN}>
             <div className={classes.NewAccount}>
@@ -23,11 +26,6 @@ const createPatientAccountView = () => {
                         <FormattedMessage id="title_create_new_account" 
                                     defaultMessage={"Create new patient account"}/>
                     </h1>
-                    <div className={classes.CancelButton}>
-                        <Button type={ButtonType.DANGER}>
-                            <FormattedMessage id="cancel" defaultMessage={'Cancel'}/>
-                        </Button>
-                    </div>
 
                     <FormControl.HorizontalSep repeat={2}/>
 
@@ -36,6 +34,20 @@ const createPatientAccountView = () => {
                         <CreatePatientAccount showAdminControls onCreateAccount={() => {}}/>
                     </FormControl.Group>
                     <FormControl.HorizontalSep repeat={10} />
+
+                    {/* Button to switch to create account form */}
+                    <FormControl.Group name={searchForAccountText} stressedName>
+                            <FormControl.HorizontalSep repeat={4}/>
+                            <Button type={ButtonType.SUCCESS} fullWidth>
+                                <FormattedMessage 
+                                    id="search_existing_account" 
+                                    defaultMessage={'Search for existing patient'}
+                                />
+                            </Button>
+                    </FormControl.Group>
+
+                    <FormControl.HorizontalSep repeat={10}/>
+
                 </div>
             </div>
         </MainLayout>

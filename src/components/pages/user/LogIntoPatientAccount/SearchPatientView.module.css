@@ -11,11 +11,6 @@
     max-width: 30rem;  
 }
 
-.CancelButton {
-    display: flex;
-    justify-content: flex-end;
-}
-
 .Title {
     width: 100%;
     color: #6B2022;

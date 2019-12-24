@@ -27,7 +27,7 @@ const logIntoPatientAccountView = (props: Props) => {
     const findPatientText = <FormattedMessage id="label_find_patient" 
                                     defaultMessage={'Find Patient'}/>
 
-    const notAccountText = <FormattedMessage id="label_patient_does_not_have_account"
+    const newAccountText = <FormattedMessage id="label_patient_does_not_have_account"
                                     defaultMessage={"If the patient doesn't have an account"}/>
 
     const searchByBirthdayLink = (
@@ -84,32 +84,27 @@ const logIntoPatientAccountView = (props: Props) => {
                 <div className={classes.LoginContent}>
                     <h1 className={classes.Title}>
                         <FormattedMessage id="title_log_into_patient_account" 
-                                    defaultMessage={"Log into patient account"}/>
+                                    defaultMessage={"Log into patient account"} />
                     </h1>
-                    <div className={classes.CancelButton}>
-                        <Button type={ButtonType.DANGER}>
-                            <FormattedMessage id="cancel" defaultMessage={'Cancel'}/>
-                        </Button>
-                    </div>
 
                     <FormControl.HorizontalSep repeat={2}/>
 
                     <FormControl.Group name={findPatientText} stressedName>
-                        <FormControl.HorizontalSep repeat={2}/>
+                        <FormControl.HorizontalSep repeat={2} />
                         {searchPatientForm}                              
                     </FormControl.Group>
 
-                    <FormControl.HorizontalSep repeat={2}/>
+                    <FormControl.HorizontalSep repeat={2} />
 
 
                     {alternativeSearchLinks.map( (element, idx) => (
                         <div key={idx} className={classes.AlternativeSearchItem}>{element}</div>
                     ))}
                     
-                    <FormControl.HorizontalSep repeat={10}/>
+                    <FormControl.HorizontalSep repeat={10} />
 
                     {/* Button to switch to create account form */}
-                    <FormControl.Group name={notAccountText} stressedName>
+                    <FormControl.Group name={newAccountText} stressedName>
                             <FormControl.HorizontalSep repeat={4}/>
                             <Button type={ButtonType.SUCCESS} fullWidth>
                                 <FormattedMessage 
@@ -118,7 +113,8 @@ const logIntoPatientAccountView = (props: Props) => {
                                 />
                             </Button>
                     </FormControl.Group>
-                    <FormControl.HorizontalSep repeat={10}/>
+
+                    <FormControl.HorizontalSep repeat={10} />
                 </div>
             </div>
         </MainLayout>
