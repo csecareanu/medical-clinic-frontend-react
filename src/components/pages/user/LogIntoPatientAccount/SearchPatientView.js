@@ -2,23 +2,21 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
-import classes from './LogIntoPatientAccountView.module.css';
+import classes from './SearchPatientView.module.css';
 import { PageHeaderType }  from '../../../../shared/PageHeaderType';
 import MainLayout from '../../../layouts/MainLayout/MainLayout';
 import SearchPatientByBirthday from '../shared/SearchPatient/SearchPatientByBirthday';
 import SearchPatientByName from '../shared/SearchPatient/SearchPatientByName';
 import SearchPatientByPhoneNo from '../shared/SearchPatient/SearchPatientByPhoneNo';
-import CreatePatientAccount from '../shared/CreatePatientAccount/CreatePatientAccount';
 import Button, { ButtonType } from '../../../UI/Button/Button';
 import LinkButton, { LinkButtonType } from '../../../UI/LinkButton/LinkButton';
 import FormControl from '../../../UI/FormControl/FormControl';
 
 
-export const LogIntoPatientAccountFormType = {
-    FIND_BY_BIRTHDAY : 1,
-    FIND_BY_FIRST_NAME: 2,
-    FIND_BY_PHONE_NUMBER: 3,
-    CREATE_ACCOUNT: 4
+export const SearchPatientFormType = {
+    SEARCH_BY_BIRTHDAY : 1,
+    SEARCH_BY_FIRST_NAME: 2,
+    SEARCH_BY_PHONE_NUMBER: 3
 }
 
 type Props = {
@@ -28,8 +26,7 @@ type Props = {
 const logIntoPatientAccountView = (props: Props) => {
     const findPatientText = <FormattedMessage id="label_find_patient" 
                                     defaultMessage={'Find Patient'}/>
-    const createAccountText = <FormattedMessage id="label_create_patient_account" 
-                                    defaultMessage={"Create patient account"}/>
+
     const notAccountText = <FormattedMessage id="label_patient_does_not_have_account"
                                     defaultMessage={"If the patient doesn't have an account"}/>
 
@@ -65,15 +62,15 @@ const logIntoPatientAccountView = (props: Props) => {
     let searchPatientForm = null;
     let alternativeSearchLinks = [];
     switch(props.formType) {
-        case LogIntoPatientAccountFormType.FIND_BY_BIRTHDAY:
+        case SearchPatientFormType.SEARCH_BY_BIRTHDAY:
             searchPatientForm = <SearchPatientByBirthday />;
             alternativeSearchLinks = [searchByNameLink, searchByPhoneNoLink];
             break;
-        case LogIntoPatientAccountFormType.FIND_BY_FIRST_NAME:
+        case SearchPatientFormType.SEARCH_BY_FIRST_NAME:
             searchPatientForm = <SearchPatientByName />;
             alternativeSearchLinks = [searchByBirthdayLink, searchByPhoneNoLink];
             break;
-        case LogIntoPatientAccountFormType.FIND_BY_PHONE_NUMBER:
+        case SearchPatientFormType.SEARCH_BY_PHONE_NUMBER:
             searchPatientForm = <SearchPatientByPhoneNo />;
             alternativeSearchLinks = [searchByBirthdayLink, searchByNameLink];
             break;
@@ -111,23 +108,16 @@ const logIntoPatientAccountView = (props: Props) => {
                     
                     <FormControl.HorizontalSep repeat={10}/>
 
-                    {props.formType === LogIntoPatientAccountFormType.CREATE_ACCOUNT 
-                        ? 
-                            <FormControl.Group name={createAccountText} stressedName>
-                                <FormControl.HorizontalSep repeat={4}/>
-                                <CreatePatientAccount showAdminControls onCreateAccount={() => {}}/>
-                            </FormControl.Group>
-                        :
-                            <FormControl.Group name={notAccountText} stressedName>
-                                <FormControl.HorizontalSep repeat={4}/>
-                                <Button type={ButtonType.SUCCESS} fullWidth>
-                                    <FormattedMessage 
-                                        id="create_new_account" 
-                                        defaultMessage={'Create new account'}
-                                    />
-                                </Button>
-                            </FormControl.Group>
-                    }   
+                    {/* Button to switch to create account form */}
+                    <FormControl.Group name={notAccountText} stressedName>
+                            <FormControl.HorizontalSep repeat={4}/>
+                            <Button type={ButtonType.SUCCESS} fullWidth>
+                                <FormattedMessage 
+                                    id="create_new_account" 
+                                    defaultMessage={'Create new account'}
+                                />
+                            </Button>
+                    </FormControl.Group>
                     <FormControl.HorizontalSep repeat={10}/>
                 </div>
             </div>

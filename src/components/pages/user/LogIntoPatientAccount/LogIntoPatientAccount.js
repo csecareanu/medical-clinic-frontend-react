@@ -3,10 +3,8 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import type { RouterHistory } from 'react-router';
-import 
-    LogIntoPatientAccountView, 
-    { LogIntoPatientAccountFormType } 
-    from './LogIntoPatientAccountView';
+import SearchPatientView from './SearchPatientView';
+import CreatePatientAccountView from './CreatePatientAccountView';
 import LogIntoPatientAccountContainer from './LogIntoPatientAccountContainer';
 
 type Props = {
@@ -22,20 +20,36 @@ const LogIntoPatientAccount = (props: Props) => {
     return (
         <LogIntoPatientAccountContainer>
             {
-                (containerData) => (
-                    <LogIntoPatientAccountView
-                        formType={LogIntoPatientAccountFormType.FIND_BY_BIRTHDAY}
-                        onAuthenticate={(phoneNo, userId) => {
-                            containerData.onAuthenticate(history, userId)
-                        }}
-                        onCreateAccount={(/*accountInfo*/) => {
-                            containerData.onCreateAccount(history /*, accountInfo*/);
-                        }}
-                        onCancel={() => {
-                            containerData.onCancel(history);
-                        }}
-                    />
-                )
+                (containerData) => {
+                    const searchPatientFormInfo = containerData.getSearchPatientFormInfo();
+                    const createPatientAccountFormInfo = 
+                            containerData.getCreatePatientAccountFormInfo();
+                    return (
+                        <React.Fragment>
+                            {searchPatientFormInfo.isFormActive
+                                ? (
+                                    <SearchPatientView
+                                        formType={searchPatientFormInfo.currentSearchType}
+                                        onAuthenticate={(phoneNo, userId) => {
+                                            containerData.onAuthenticate(history, userId)
+                                        }}
+                                        onCreateAccount={(/*accountInfo*/) => {
+                                            containerData.onCreateAccount(history /*, accountInfo*/);
+                                        }}
+                                        onCancel={() => {
+                                            containerData.onCancel(history);
+                                        }}
+                                    />
+                                )
+                                : null 
+                            }
+                            {createPatientAccountFormInfo.isFormActive
+                                ? <CreatePatientAccountView />
+                                : null
+                            }
+                        </React.Fragment>
+                    )
+                }
             }
         </LogIntoPatientAccountContainer>
     );

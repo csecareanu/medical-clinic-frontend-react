@@ -3,10 +3,34 @@
 import * as React from 'react';
 
 import UIStateContext from '../../../../react-context/UIState/UIState-context';
+import { SearchPatientFormType } from './SearchPatientView';
 import type { RouterHistory } from 'react-router';
 
 const containerData = {
     _uiStateContext: (null: null | UIStateContext),
+
+    _state: {
+        searchPatientForm: {
+            isFormActive: true,
+            currentSearchType: SearchPatientFormType.SEARCH_BY_FIRST_NAME
+        },
+        choosePatientForm: {
+            isFormActive: false,
+            patientList: []
+        },
+        createPatientAccountForm: {
+            isFormActive: false
+        }
+    },
+    getSearchPatientFormInfo() { 
+        return containerData._state.searchPatientForm;
+    },
+    getChoosePatientFormInfo() {
+        return containerData._state.choosePatientForm;
+    },
+    getCreatePatientAccountFormInfo() {
+        return containerData._state.createPatientAccountForm;
+    },
 
     onAuthenticate: (history: RouterHistory, userId: string) : void => {
 

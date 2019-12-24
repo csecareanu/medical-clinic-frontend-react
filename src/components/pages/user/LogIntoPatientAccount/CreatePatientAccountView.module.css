@@ -1,0 +1,22 @@
+.NewAccount {
+    display: flex;
+    justify-content: center;
+    width:100%;
+    background-color: #ffffff;
+}
+
+.NewAccountContent {
+    background-color: #ffffff;
+    padding: 0.5rem;
+    max-width: 30rem;  
+}
+
+.CancelButton {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.Title {
+    width: 100%;
+    color: #6B2022;
+}
