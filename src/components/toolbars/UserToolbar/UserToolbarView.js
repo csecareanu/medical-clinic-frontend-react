@@ -10,7 +10,7 @@ import PatientAccountToolbarItem from './PatientAccountToolbarItem/PatientAccoun
 
 type Props = {
     userAuthStatus: number | Symbol,
-    onClinicItemSelect: (itemId: number  | Symbol) => void
+    onClinicItemSelect: (itemId: number | Symbol) => void
 }
 
 const UserToolbarView = (props: Props) => (
