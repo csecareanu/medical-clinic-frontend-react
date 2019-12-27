@@ -5,30 +5,31 @@ import * as React from 'react';
 import UIStateContext from '../../../../react-context/UIState/UIState-context';
 import { SearchPatientFilterType } from './SearchPatientView';
 import type { RouterHistory } from 'react-router';
+import { PatientLinkLocationName } from '../../../../shared/LinkLocationNames';
 
-
-type SearchPatientFormInfo = {
+export type SearchPatientFormInfo = {
     isFormActive: boolean,
     currentSearchType: number //TODO SearchPatientFilterType
 }
 
-type CreatePatientAccountFormInfo = {
+export type CreatePatientAccountFormInfo = {
     isFormActive: boolean
 }
 
-type ChoosePatientFormInfo = {
+export type ChoosePatientFormInfo = {
         isFormActive: boolean,
         patientList: void[]
     }
 
-type ContainerData = {
+export type ContainerData = {
     getSearchPatientFormInfo: () => SearchPatientFormInfo,
     getCreatePatientAccountFormInfo: () => CreatePatientAccountFormInfo,
     getChoosePatientFormInfo: () => ChoosePatientFormInfo,
     onChangeSearchPatientFilter: 
             (newFilterType: number /*TODO typeof SearchPatientFilterType*/) => void,
     onShowCreateAccountPage: () => void,
-    onShowSearchAccountPage: () => void
+    onShowSearchAccountPage: () => void,
+    onCreatePatientAccount: (history: RouterHistory) => void
 }
 
 type Props = {
@@ -66,9 +67,12 @@ class LogIntoPatientAccountContainer extends React.Component<Props, State>
             getSearchPatientFormInfo: this.getSearchPatientFormInfo,
             getCreatePatientAccountFormInfo: this.getCreatePatientAccountFormInfo,
             getChoosePatientFormInfo: this.getChoosePatientFormInfo,
+
             onChangeSearchPatientFilter: this.onChangeSearchPatientFilter,
             onShowCreateAccountPage: this.onShowCreateAccountPage,
-            onShowSearchAccountPage: this.onShowSearchAccountPage
+            onShowSearchAccountPage: this.onShowSearchAccountPage,
+
+            onCreatePatientAccount: this.onCreatePatientAccount
         }
     }
 
@@ -143,10 +147,10 @@ class LogIntoPatientAccountContainer extends React.Component<Props, State>
         uiStateContext.setUserConnectedToPatientAccount(true);
     }
 
-    /*??????*/
-    onCreateAccount = (history: RouterHistory /*, accountInfo*/) : void => {
+    onCreatePatientAccount = (history: RouterHistory /*, accountInfo*/) : void => {
         const uiStateContext = this.context;
         uiStateContext.setUserConnectedToPatientAccount(true);
+        history.push({pathname: PatientLinkLocationName.MY_ACCOUNT});
     }
 
     /*??????*/

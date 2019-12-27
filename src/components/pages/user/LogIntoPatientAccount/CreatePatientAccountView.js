@@ -11,7 +11,8 @@ import FormControl from '../../../UI/FormControl/FormControl';
 import Button, { ButtonType } from '../../../UI/Button/Button';
 
 type Props = {
-    onShowSearchAccountPage: () => void
+    onShowSearchAccountPage: () => void,
+    onCreatePatientAccount: () => void
 }
 
 const createPatientAccountView = (props: Props) => {
@@ -34,7 +35,12 @@ const createPatientAccountView = (props: Props) => {
 
                     <FormControl.Group name={createAccountText} stressedName>
                         <FormControl.HorizontalSep repeat={4}/>
-                        <CreatePatientAccount showAdminControls onCreateAccount={() => {}}/>
+                        <CreatePatientAccount 
+                            showAdminControls 
+                            onCreateAccount={() => {
+                                props.onCreatePatientAccount();
+                            }}
+                        />
                     </FormControl.Group>
                     <FormControl.HorizontalSep repeat={10} />
 

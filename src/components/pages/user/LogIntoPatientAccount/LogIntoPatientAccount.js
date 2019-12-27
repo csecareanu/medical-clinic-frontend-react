@@ -6,6 +6,12 @@ import type { RouterHistory } from 'react-router';
 import SearchPatientView from './SearchPatientView';
 import CreatePatientAccountView from './CreatePatientAccountView';
 import LogIntoPatientAccountContainer from './LogIntoPatientAccountContainer';
+import { 
+    type ContainerData,
+    type SearchPatientFormInfo,
+    type CreatePatientAccountFormInfo,
+    /*type ChoosePatientFormInfo*/
+    } from './LogIntoPatientAccountContainer';
 
 type Props = {
     history: RouterHistory
@@ -20,9 +26,10 @@ const LogIntoPatientAccount = (props: Props) => {
     return (
         <LogIntoPatientAccountContainer>
             {
-                (containerData) => {
-                    const searchPatientFormInfo = containerData.getSearchPatientFormInfo();
-                    const createPatientAccountFormInfo = 
+                (containerData: ContainerData) => {
+                    const searchPatientFormInfo: SearchPatientFormInfo = 
+                            containerData.getSearchPatientFormInfo();
+                    const createPatientAccountFormInfo: CreatePatientAccountFormInfo = 
                             containerData.getCreatePatientAccountFormInfo();
                     return (
                         <React.Fragment>
@@ -41,8 +48,11 @@ const LogIntoPatientAccount = (props: Props) => {
                             {createPatientAccountFormInfo.isFormActive
                                 ? (
                                     <CreatePatientAccountView 
-                                        onShowSearchAccountPage={
-                                            containerData.onShowSearchAccountPage}
+                                        onShowSearchAccountPage=
+                                            {containerData.onShowSearchAccountPage}
+                                        onCreatePatientAccount= { () => {
+                                            containerData.onCreatePatientAccount(props.history)
+                                        }}
                                     />
                                 ) : null
                             }
