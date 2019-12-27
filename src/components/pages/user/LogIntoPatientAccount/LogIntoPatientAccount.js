@@ -15,7 +15,7 @@ const LogIntoPatientAccount = (props: Props) => {
     //TODO log all user actions in order to reproduce all his/her steps at debug time
 
     // keep the value of the props.history inside closure
-    const history = props.history;
+    // const history = props.history;
 
     return (
         <LogIntoPatientAccountContainer>
@@ -30,22 +30,21 @@ const LogIntoPatientAccount = (props: Props) => {
                                 ? (
                                     <SearchPatientView
                                         formType={searchPatientFormInfo.currentSearchType}
-                                        onAuthenticate={(phoneNo, userId) => {
-                                            containerData.onAuthenticate(history, userId)
-                                        }}
-                                        onCreateAccount={(/*accountInfo*/) => {
-                                            containerData.onCreateAccount(history /*, accountInfo*/);
-                                        }}
-                                        onCancel={() => {
-                                            containerData.onCancel(history);
-                                        }}
+                                        onChangeSearchPatientFilter={
+                                                containerData.onChangeSearchPatientFilter
+                                            }
+                                        onShowCreateAccountPage={
+                                            containerData.onShowCreateAccountPage}
                                     />
-                                )
-                                : null 
+                                ) : null 
                             }
                             {createPatientAccountFormInfo.isFormActive
-                                ? <CreatePatientAccountView />
-                                : null
+                                ? (
+                                    <CreatePatientAccountView 
+                                        onShowSearchAccountPage={
+                                            containerData.onShowSearchAccountPage}
+                                    />
+                                ) : null
                             }
                         </React.Fragment>
                     )

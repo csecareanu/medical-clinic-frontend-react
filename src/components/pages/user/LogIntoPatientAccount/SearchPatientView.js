@@ -13,14 +13,16 @@ import LinkButton, { LinkButtonType } from '../../../UI/LinkButton/LinkButton';
 import FormControl from '../../../UI/FormControl/FormControl';
 
 
-export const SearchPatientFormType = {
-    SEARCH_BY_BIRTHDAY : 1,
-    SEARCH_BY_FIRST_NAME: 2,
-    SEARCH_BY_PHONE_NUMBER: 3
+export const SearchPatientFilterType = {
+    BY_BIRTHDAY : 1,
+    BY_FIRST_NAME: 2,
+    BY_PHONE_NUMBER: 3
 }
 
 type Props = {
-    formType: number // TODO typeof LogIntoPatientAccountFormType;
+    formType: number, // TODO typeof LogIntoPatientAccountFormType;
+    onChangeSearchPatientFilter: (newFilterType: number/*TODO*/) => void,
+    onShowCreateAccountPage: () => void
 }
 
 const logIntoPatientAccountView = (props: Props) => {
@@ -33,7 +35,9 @@ const logIntoPatientAccountView = (props: Props) => {
     const searchByBirthdayLink = (
                 <LinkButton
                     type={LinkButtonType.DANGER}
-                    onClick={ () => { }}
+                    onClick={ () => { 
+                        props.onChangeSearchPatientFilter(SearchPatientFilterType.BY_BIRTHDAY) 
+                    }}
                 >
                     <FormattedMessage id="search_by_birthday" defaultMessage={'Search by birthday'}/>
                 </LinkButton>
@@ -42,7 +46,9 @@ const logIntoPatientAccountView = (props: Props) => {
     const searchByNameLink = (
                 <LinkButton
                     type={LinkButtonType.DANGER}
-                    onClick={ () => { }}
+                    onClick={ () => { 
+                        props.onChangeSearchPatientFilter(SearchPatientFilterType.BY_FIRST_NAME) 
+                    }}
                 >
                     <FormattedMessage id="search_by_name" defaultMessage={'Search by name'}/>
                 </LinkButton>
@@ -51,7 +57,9 @@ const logIntoPatientAccountView = (props: Props) => {
     const searchByPhoneNoLink = (
                 <LinkButton
                     type={LinkButtonType.DANGER}
-                    onClick={ () => { }}
+                    onClick={ () => { 
+                        props.onChangeSearchPatientFilter(SearchPatientFilterType.BY_PHONE_NUMBER) 
+                    }}
                 >
                     <FormattedMessage id="search_by_phone_no" 
                         defaultMessage={'Search by phone number'}
@@ -62,15 +70,15 @@ const logIntoPatientAccountView = (props: Props) => {
     let searchPatientForm = null;
     let alternativeSearchLinks = [];
     switch(props.formType) {
-        case SearchPatientFormType.SEARCH_BY_BIRTHDAY:
+        case SearchPatientFilterType.BY_BIRTHDAY:
             searchPatientForm = <SearchPatientByBirthday />;
             alternativeSearchLinks = [searchByNameLink, searchByPhoneNoLink];
             break;
-        case SearchPatientFormType.SEARCH_BY_FIRST_NAME:
+        case SearchPatientFilterType.BY_FIRST_NAME:
             searchPatientForm = <SearchPatientByName />;
             alternativeSearchLinks = [searchByBirthdayLink, searchByPhoneNoLink];
             break;
-        case SearchPatientFormType.SEARCH_BY_PHONE_NUMBER:
+        case SearchPatientFilterType.BY_PHONE_NUMBER:
             searchPatientForm = <SearchPatientByPhoneNo />;
             alternativeSearchLinks = [searchByBirthdayLink, searchByNameLink];
             break;
@@ -106,7 +114,11 @@ const logIntoPatientAccountView = (props: Props) => {
                     {/* Button to switch to create account form */}
                     <FormControl.Group name={newAccountText} stressedName>
                             <FormControl.HorizontalSep repeat={4}/>
-                            <Button type={ButtonType.SUCCESS} fullWidth>
+                            <Button 
+                                type={ButtonType.SUCCESS}
+                                fullWidth
+                                onClick={props.onShowCreateAccountPage}
+                            >
                                 <FormattedMessage 
                                     id="create_new_account" 
                                     defaultMessage={'Create new account'}

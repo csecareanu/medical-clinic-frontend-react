@@ -3,57 +3,154 @@
 import * as React from 'react';
 
 import UIStateContext from '../../../../react-context/UIState/UIState-context';
-import { SearchPatientFormType } from './SearchPatientView';
+import { SearchPatientFilterType } from './SearchPatientView';
 import type { RouterHistory } from 'react-router';
 
-const containerData = {
-    _uiStateContext: (null: null | UIStateContext),
 
-    _state: {
-        searchPatientForm: {
-            isFormActive: true,
-            currentSearchType: SearchPatientFormType.SEARCH_BY_FIRST_NAME
-        },
-        choosePatientForm: {
-            isFormActive: false,
-            patientList: []
-        },
-        createPatientAccountForm: {
-            isFormActive: false
+type SearchPatientFormInfo = {
+    isFormActive: boolean,
+    currentSearchType: number //TODO SearchPatientFilterType
+}
+
+type CreatePatientAccountFormInfo = {
+    isFormActive: boolean
+}
+
+type ChoosePatientFormInfo = {
+        isFormActive: boolean,
+        patientList: void[]
+    }
+
+type ContainerData = {
+    getSearchPatientFormInfo: () => SearchPatientFormInfo,
+    getCreatePatientAccountFormInfo: () => CreatePatientAccountFormInfo,
+    getChoosePatientFormInfo: () => ChoosePatientFormInfo,
+    onChangeSearchPatientFilter: 
+            (newFilterType: number /*TODO typeof SearchPatientFilterType*/) => void,
+    onShowCreateAccountPage: () => void,
+    onShowSearchAccountPage: () => void
+}
+
+type Props = {
+    children: (containerData: ContainerData) => React.Node
+}
+
+type State = {
+    searchPatientFormInfo: SearchPatientFormInfo,
+    choosePatientFormInfo: ChoosePatientFormInfo,
+    createPatientAccountFormInfo: CreatePatientAccountFormInfo
+}
+
+class LogIntoPatientAccountContainer extends React.Component<Props, State>
+{
+    containerData: ContainerData;
+
+    constructor () {
+        super();
+
+        this.state = {
+            searchPatientFormInfo: {
+                isFormActive: true,
+                currentSearchType: SearchPatientFilterType.BY_FIRST_NAME
+            },
+            choosePatientFormInfo: {
+                isFormActive: false,
+                patientList: []
+            },
+            createPatientAccountFormInfo: {
+                isFormActive: false
+            }
         }
-    },
-    getSearchPatientFormInfo() { 
-        return containerData._state.searchPatientForm;
-    },
+
+        this.containerData = {
+            getSearchPatientFormInfo: this.getSearchPatientFormInfo,
+            getCreatePatientAccountFormInfo: this.getCreatePatientAccountFormInfo,
+            getChoosePatientFormInfo: this.getChoosePatientFormInfo,
+            onChangeSearchPatientFilter: this.onChangeSearchPatientFilter,
+            onShowCreateAccountPage: this.onShowCreateAccountPage,
+            onShowSearchAccountPage: this.onShowSearchAccountPage
+        }
+    }
+
+    static contextType = UIStateContext;
+    
+
+    onChangeSearchPatientFilter = 
+            (newFilterType: number /*TODO typeof SearchPatientFilterType*/) => {
+        
+        let searchPatientFormInfo = {
+            ...this.state.searchPatientFormInfo,
+            currentSearchType: newFilterType
+        }
+        this.setState({searchPatientFormInfo: searchPatientFormInfo});
+    }
+
+    onShowCreateAccountPage = () => {
+        let searchPatientFormInfo = {
+                ...this.state.searchPatientFormInfo,
+                isFormActive: false
+            };
+        let choosePatientFormInfo = {
+                ...this.state.choosePatientFormInfo,
+                isFormActive: false
+            };
+        let createPatientAccountFormInfo = {
+                ...this.state.createPatientAccountFormInfo,
+                isFormActive: true
+            };
+        this.setState({
+                searchPatientFormInfo: searchPatientFormInfo,
+                choosePatientFormInfo: choosePatientFormInfo,
+                createPatientAccountFormInfo: createPatientAccountFormInfo
+                });
+    }
+    onShowSearchAccountPage = () => {
+        let searchPatientFormInfo = {
+                ...this.state.searchPatientFormInfo,
+                isFormActive: true
+            };
+        let choosePatientFormInfo = {
+                ...this.state.choosePatientFormInfo,
+                isFormActive: false
+            };
+        let createPatientAccountFormInfo = {
+                ...this.state.createPatientAccountFormInfo,
+                isFormActive: false
+            };
+        this.setState({
+                searchPatientFormInfo: searchPatientFormInfo,
+                choosePatientFormInfo: choosePatientFormInfo,
+                createPatientAccountFormInfo: createPatientAccountFormInfo
+                });
+    }
+
+    getSearchPatientFormInfo = () => {
+        return this.state.searchPatientFormInfo;
+    }
+
+    getCreatePatientAccountFormInfo = () => {
+        return this.state.createPatientAccountFormInfo;
+    }
+
     getChoosePatientFormInfo() {
-        return containerData._state.choosePatientForm;
-    },
-    getCreatePatientAccountFormInfo() {
-        return containerData._state.createPatientAccountForm;
-    },
+        return this.state.choosePatientFormInfo;
+    }
 
-    onAuthenticate: (history: RouterHistory, userId: string) : void => {
-
-        if(containerData._uiStateContext == null) {
-            console.log("LogIntoPatientAccountContainer. onAuthenticate. uiStateContext not set");
-            return;
-        }
-        const uiStateContext = containerData._uiStateContext;
+    /*??????*/
+    onAuthenticate = (history: RouterHistory, userId: string) : void => {
+        const uiStateContext = this.context;
 
         uiStateContext.setUserConnectedToPatientAccount(true);
-    },
+    }
 
-    onCreateAccount: (history: RouterHistory /*, accountInfo*/) : void => {
-        if(containerData._uiStateContext == null) {
-            console.log("LogIntoPatientAccountContainer. onCreateAccount. uiStateContext not set");
-            return;
-        }
-        const uiStateContext = containerData._uiStateContext;
-
+    /*??????*/
+    onCreateAccount = (history: RouterHistory /*, accountInfo*/) : void => {
+        const uiStateContext = this.context;
         uiStateContext.setUserConnectedToPatientAccount(true);
-    },
+    }
 
-    onCancel: (history: RouterHistory) : void => {
+    /*??????*/
+    onCancel = (history: RouterHistory) : void => {
         /*
         if(containerData._uiStateContext == null) {
             console.log("LogIntoPatientAccountContainer. onCancel. uiStateContext not set");
@@ -62,14 +159,10 @@ const containerData = {
         const uiStateContext = containerData._uiStateContext;
         */
     }
+
+    render() {
+        return (this.props.children)(this.containerData);
+    }
 }
 
-type Props = {
-    children: (containerData: typeof containerData) => React.Node
-}
-export default (props: Props) => {
-    let uiStateContext = React.useContext(UIStateContext);
-    containerData._uiStateContext = uiStateContext;
-
-    return (props.children)(containerData);
-}
+export default LogIntoPatientAccountContainer;

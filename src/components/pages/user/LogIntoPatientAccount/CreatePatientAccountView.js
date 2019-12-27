@@ -10,8 +10,11 @@ import MainLayout from '../../../layouts/MainLayout/MainLayout';
 import FormControl from '../../../UI/FormControl/FormControl';
 import Button, { ButtonType } from '../../../UI/Button/Button';
 
+type Props = {
+    onShowSearchAccountPage: () => void
+}
 
-const createPatientAccountView = () => {
+const createPatientAccountView = (props: Props) => {
     const createAccountText = <FormattedMessage id="label_create_new_account" 
                                     defaultMessage={"Create new account"}/>
 
@@ -38,10 +41,14 @@ const createPatientAccountView = () => {
                     {/* Button to switch to create account form */}
                     <FormControl.Group name={searchForAccountText} stressedName>
                             <FormControl.HorizontalSep repeat={4}/>
-                            <Button type={ButtonType.SUCCESS} fullWidth>
+                            <Button 
+                                type={ButtonType.SUCCESS} 
+                                fullWidth
+                                onClick={props.onShowSearchAccountPage}
+                            >
                                 <FormattedMessage 
-                                    id="search_existing_account" 
-                                    defaultMessage={'Search for existing patient'}
+                                    id="search_existing_patient_account" 
+                                    defaultMessage={'Search for existing patient account'}
                                 />
                             </Button>
                     </FormControl.Group>
