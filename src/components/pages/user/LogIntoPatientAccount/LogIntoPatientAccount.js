@@ -1,7 +1,6 @@
 // @flow
 
 import React from 'react';
-import { withRouter } from 'react-router-dom';
 import type { RouterHistory } from 'react-router';
 import SearchPatientView from './SearchPatientView';
 import CreatePatientAccountView from './CreatePatientAccountView';
@@ -50,9 +49,8 @@ const LogIntoPatientAccount = (props: Props) => {
                                     <CreatePatientAccountView 
                                         onShowSearchAccountPage=
                                             {containerData.onShowSearchAccountPage}
-                                        onCreatePatientAccount= { () => {
-                                            containerData.onCreatePatientAccount(props.history)
-                                        }}
+                                        onCreatePatientAccount= 
+                                            {containerData.onCreatePatientAccount}
                                     />
                                 ) : null
                             }
@@ -65,4 +63,4 @@ const LogIntoPatientAccount = (props: Props) => {
 }
 
 
-export default withRouter(LogIntoPatientAccount);
+export default LogIntoPatientAccount;

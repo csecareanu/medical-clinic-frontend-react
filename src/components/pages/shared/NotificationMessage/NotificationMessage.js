@@ -2,13 +2,18 @@
 
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
+import { withRouter } from 'react-router-dom';
+import type { RouterHistory } from 'react-router';
 
 import classes from './NotificationMessage.module.css';
+import { ClinicLinkLocationName } from '../../../../shared/LinkLocationNames';
+import Button, { ButtonType } from '../../../UI/Button/Button';
 
 type Props = {
     typeAccessNotAllowed?: boolean,
     typeNeedAuthentication?: boolean,
-    typeNotConnectedToPatientAccount?: boolean
+    typeNotConnectedToPatientAccount?: boolean,
+    history: RouterHistory
 }
 
 const NotificationMessage = (props: Props) => {
@@ -43,8 +48,17 @@ const NotificationMessage = (props: Props) => {
             <h3>
                 {message}
             </h3>
+            <Button 
+                type={ButtonType.SUCCESS}
+                onClick={ () => { props.history.push({pathname: ClinicLinkLocationName.HOME}); }}
+            >
+                <FormattedMessage 
+                    id="navigate_to_home_page" 
+                    defaultMessage={'Navigate to home page'}
+                />
+            </Button>
         </div>
     );
 }
 
-export default NotificationMessage;
+export default withRouter(NotificationMessage);

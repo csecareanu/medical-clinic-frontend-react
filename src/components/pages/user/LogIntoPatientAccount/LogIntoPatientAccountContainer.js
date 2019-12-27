@@ -1,10 +1,11 @@
 // @flow
 
 import * as React from 'react';
+import { withRouter } from 'react-router-dom';
+import type { RouterHistory } from 'react-router';
 
 import UIStateContext from '../../../../react-context/UIState/UIState-context';
 import { SearchPatientFilterType } from './SearchPatientView';
-import type { RouterHistory } from 'react-router';
 import { PatientLinkLocationName } from '../../../../shared/LinkLocationNames';
 
 export type SearchPatientFormInfo = {
@@ -29,11 +30,12 @@ export type ContainerData = {
             (newFilterType: number /*TODO typeof SearchPatientFilterType*/) => void,
     onShowCreateAccountPage: () => void,
     onShowSearchAccountPage: () => void,
-    onCreatePatientAccount: (history: RouterHistory) => void
+    onCreatePatientAccount: () => void
 }
 
 type Props = {
-    children: (containerData: ContainerData) => React.Node
+    children: (containerData: ContainerData) => React.Node,
+    history: RouterHistory
 }
 
 type State = {
@@ -141,20 +143,20 @@ class LogIntoPatientAccountContainer extends React.Component<Props, State>
     }
 
     /*??????*/
-    onAuthenticate = (history: RouterHistory, userId: string) : void => {
+    onAuthenticate = (userId: string) : void => {
         const uiStateContext = this.context;
 
         uiStateContext.setUserConnectedToPatientAccount(true);
     }
 
-    onCreatePatientAccount = (history: RouterHistory /*, accountInfo*/) : void => {
+    onCreatePatientAccount = (/*, accountInfo*/) : void => {
         const uiStateContext = this.context;
         uiStateContext.setUserConnectedToPatientAccount(true);
-        history.push({pathname: PatientLinkLocationName.MY_ACCOUNT});
+        this.props.history.push({pathname: PatientLinkLocationName.MY_ACCOUNT});
     }
 
     /*??????*/
-    onCancel = (history: RouterHistory) : void => {
+    onCancel = () : void => {
         /*
         if(containerData._uiStateContext == null) {
             console.log("LogIntoPatientAccountContainer. onCancel. uiStateContext not set");
@@ -169,4 +171,4 @@ class LogIntoPatientAccountContainer extends React.Component<Props, State>
     }
 }
 
-export default LogIntoPatientAccountContainer;
+export default withRouter(LogIntoPatientAccountContainer);
