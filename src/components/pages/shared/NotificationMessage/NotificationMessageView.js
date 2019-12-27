@@ -11,7 +11,7 @@ type Props = {
     typeAccessNotAllowed?: boolean,
     typeNeedAuthentication?: boolean,
     typeNotConnectedToPatientAccount?: boolean,
-    onClinicItemSelect: (itemId: number | Symbol) => void
+    onClinicMenuItemSelect: (itemId: number | Symbol) => void
 }
 
 const NotificationMessageView = (props: Props) => {
@@ -49,7 +49,7 @@ const NotificationMessageView = (props: Props) => {
             <Button 
                 type={ButtonType.SUCCESS}
                 onClick={ () => { 
-                    props.onClinicItemSelect(ClinicMenuItem.HOME)
+                    props.onClinicMenuItemSelect(ClinicMenuItem.HOME)
                 }}
             >
                 <FormattedMessage 

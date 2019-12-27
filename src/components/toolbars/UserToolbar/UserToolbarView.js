@@ -10,22 +10,22 @@ import PatientAccountToolbarItem from './PatientAccountToolbarItem/PatientAccoun
 
 type Props = {
     userAuthStatus: number | Symbol,
-    onClinicItemSelect: (itemId: number | Symbol) => void
+    onClinicMenuItemSelect: (itemId: number | Symbol) => void
 }
 
 const UserToolbarView = (props: Props) => (
     <div className={classes.Toolbar}>
         <div className={classes.RightItems}>
             <NewAppointmentToolbarItem 
-                onClick={props.onClinicItemSelect} 
+                onClick={props.onClinicMenuItemSelect} 
             />
             <MyAccountToolbarItem 
-                onClick={props.onClinicItemSelect}
+                onClick={props.onClinicMenuItemSelect}
             />
             {props.userAuthStatus === UserAuthType.DOCTOR
             ? (
                 <PatientAccountToolbarItem 
-                    onClick={props.onClinicItemSelect}
+                    onClick={props.onClinicMenuItemSelect}
                 /> )
             : null }
         </div>

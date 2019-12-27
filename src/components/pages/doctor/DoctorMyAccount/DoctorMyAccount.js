@@ -12,7 +12,7 @@ const PatientAccount = () => (
             <DoctorMyAccountView
                 userAuthStatus={navigationData.userAuthStatus}
                 onNavigationItemSelect={ (itemType: number | Symbol) => {
-                    navigationData.onClinicItemSelect(itemType);
+                    navigationData.onClinicMenuItemSelect(itemType);
                 }} 
             />
         )

@@ -25,15 +25,15 @@ const containerData = {
     userAuthStatus: (UserAuthType.UNAUTHENTICATED: number | Symbol),
     isUserConnectedToAPatientAccount: (false: boolean),
 
-    onClinicItemSelect: (itemType: number) => {
+    onClinicMenuItemSelect: (itemType: number) => {
         if(containerData._uiStateContext == null) {
-            console.log("NavContainer. onClinicItemSelect. uiStateContext not set");
+            console.log("NavContainer. onClinicMenuItemSelect. uiStateContext not set");
             return;
         }
         const uiStateContext = containerData._uiStateContext; //added to get rid of flow warning
 
         if(containerData.history == null) {
-            console.log("NavContainer. onClinicItemSelect. history not set");
+            console.log("NavContainer. onClinicMenuItemSelect. history not set");
             return;            
         }
         const history = containerData.history;
@@ -87,7 +87,7 @@ const containerData = {
                 history.push({pathname: DoctorLinkLocationName.MY_ACCOUNT});
                 break;
             default:
-                console.log("NavContainer. onClinicItemSelect. Unknown item id: " + 
+                console.log("NavContainer. onClinicMenuItemSelect. Unknown item id: " + 
                         itemType.toString());
                 break;
         }

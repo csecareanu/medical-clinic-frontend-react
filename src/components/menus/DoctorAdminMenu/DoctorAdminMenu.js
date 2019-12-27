@@ -15,7 +15,7 @@ const DoctorAdminMenu = (props: Props) => (
         (navigationData) => (
             <DoctorAdminMenuView
                 onItemSelect={ (itemType: number) => {
-                    navigationData.onClinicItemSelect(itemType);
+                    navigationData.onClinicMenuItemSelect(itemType);
                     if (props.onItemSelect) {
                         props.onItemSelect();
                     }}}

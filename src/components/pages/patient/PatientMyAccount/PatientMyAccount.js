@@ -13,7 +13,7 @@ const PatientAccount = () => (
                 userAuthStatus={navigationData.userAuthStatus}
                 isUserConnectedToAPatientAccount={navigationData.isUserConnectedToAPatientAccount}
                 onNavigationItemSelect={ (itemType: number | Symbol) => {
-                    navigationData.onClinicItemSelect(itemType);
+                    navigationData.onClinicMenuItemSelect(itemType);
                 }} 
             />
         )

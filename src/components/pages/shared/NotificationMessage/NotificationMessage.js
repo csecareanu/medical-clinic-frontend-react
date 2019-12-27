@@ -15,7 +15,7 @@ const NotificationMessage = (props: Props) => (
         (navigationData) => (
             <NotificationMessageView 
                 {...props}
-                onClinicItemSelect={navigationData.onClinicItemSelect} 
+                onClinicMenuItemSelect={navigationData.onClinicMenuItemSelect} 
             />
         )
     }
