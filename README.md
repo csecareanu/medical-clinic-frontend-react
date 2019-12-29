@@ -22,6 +22,10 @@
 16. React components naming convention: https://medium.com/@wittydeveloper/react-components-naming-convention-%EF%B8%8F-b50303551505
 ---
 
+View - a view will not navigate to another page
+Controller
+Container
+
 Display
 Display components are only concerned with how things look. Generally, they should have the following characteristics:
 Stateless — state is should be handled by a higher-level component and passed down through props

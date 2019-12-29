@@ -84,6 +84,15 @@ const containerData = {
                 }
                 history.push({pathname: PatientLinkLocationName.NEW_APPOINTMENT});
                 break;
+            case DoctorMenuItem.HOME:
+                history.push({pathname: DoctorLinkLocationName.HOME});
+                break;
+            case DoctorMenuItem.LOG_INTO_PATIENT_ACCOUNT:
+                history.push({pathname: DoctorLinkLocationName.LOG_INTO_PATIENT_ACCOUNT});
+                break;
+            case DoctorMenuItem.LOG_OUT_PATIENT_ACCOUNT:
+                history.push({pathname: DoctorLinkLocationName.LOG_OUT_PATIENT_ACCOUNT});
+                break;  
             case DoctorMenuItem.MY_ACCOUNT:
                 history.push({pathname: DoctorLinkLocationName.MY_ACCOUNT});
                 break;

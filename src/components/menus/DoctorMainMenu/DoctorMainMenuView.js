@@ -33,6 +33,7 @@ const DoctorMainMenuView = (props: Props) => {
             <NavItemButtonCSS
                 id={DoctorMenuItem.LOG_INTO_PATIENT_ACCOUNT}
                 link={DoctorLinkLocationName.LOG_INTO_PATIENT_ACCOUNT}
+                preventNav
                 onClick={props.onItemSelect}
             >
                 <FormattedMessage 
@@ -44,6 +45,7 @@ const DoctorMainMenuView = (props: Props) => {
             <NavItemButtonCSS 
                 id={DoctorMenuItem.LOG_OUT_PATIENT_ACCOUNT}
                 link={DoctorLinkLocationName.LOG_OUT_PATIENT_ACCOUNT}
+                preventNav
                 onClick={props.onItemSelect}
             >
                 <FormattedMessage 
@@ -57,6 +59,7 @@ const DoctorMainMenuView = (props: Props) => {
             <NavItemButtonCSS 
                 id={DoctorMenuItem.HOME}
                 link={DoctorLinkLocationName.HOME}
+                preventNav
                 exact
                 onClick={props.onItemSelect}
             >
