@@ -44,6 +44,7 @@ const containerData = {
                 break;
             case UserMenuItem.LOGOUT:
                 uiStateContext.setUserAuthenticationStatus(UserAuthType.UNAUTHENTICATED);
+                uiStateContext.setUserConnectedToPatientAccount(false);
                 uiStateContext.setDisplayLogoutComponent(false);
                 history.push({pathname: ClinicLinkLocationName.HOME});
                 break;
