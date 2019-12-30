@@ -186,7 +186,7 @@ type VerticalSepProps = {
     repeat?: number
 }
 FormControl.VerticalSep = (props: VerticalSepProps) => {
-    let separatorsArray = [''];
+    let separatorsArray = [' '];
 
     if(props.repeat) {
         separatorsArray = new Array(parseInt(props.repeat)).fill(' ');

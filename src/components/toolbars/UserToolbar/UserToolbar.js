@@ -11,7 +11,8 @@ const UserToolbar = () => (
         (navigationData) => (
             <UserToolbarView 
                 userAuthStatus={navigationData.userAuthStatus}
-                onClinicMenuItemSelect={navigationData.onClinicMenuItemSelect} 
+                onClinicMenuItemSelect={navigationData.onClinicMenuItemSelect}
+                isUserConnectedToAPatientAccount = {navigationData.isUserConnectedToAPatientAccount}
             />
         )
     }

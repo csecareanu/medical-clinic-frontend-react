@@ -3,7 +3,7 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
-import classes from './MyAccountToolbarItem.module.css';
+import classes from './LoginToolbarItem.module.css';
 import { UserMenuItem } from '../../../../shared/MenuItemIdentifiers';
 import LinkButton, { LinkButtonType } from '../../../UI/LinkButton/LinkButton';
 
@@ -12,18 +12,18 @@ type Props = {
     onClick: (itemId: number  | Symbol) => void
 }
 
-const MyAccountToolbarItem = (props: Props) => {
+const LoginToolbarItem = (props: Props) => {
     return (
-        <div className={classes.MyAccount}>
+        <div className={classes.Login}>
             <LinkButton
                 type={LinkButtonType.SUCCESS}
                 boldStyle
-                onClick={ () => {props.onClick(UserMenuItem.MY_ACCOUNT) }}
+                onClick={ () => {props.onClick(UserMenuItem.LOGIN) }}
             >
-                <FormattedMessage id="toolbar_my_account" defaultMessage={'My Account'}/>
+                <FormattedMessage id="toolbar_login" defaultMessage={'Login'}/>
             </LinkButton>
         </div>
     );
 }
 
-export default MyAccountToolbarItem;
+export default LoginToolbarItem;
