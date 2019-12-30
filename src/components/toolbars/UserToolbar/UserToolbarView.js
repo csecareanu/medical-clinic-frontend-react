@@ -38,7 +38,8 @@ const UserToolbarView = (props: Props) => (
                     )
                 }
                 
-                <ToolbarGroup.VerticalSep />
+                <ToolbarGroup.VerticalSep repeat={2}/>
+
                 <MyAccountToolbarItem 
                     onClick={props.onClinicMenuItemSelect}
                 />
