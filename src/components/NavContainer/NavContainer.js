@@ -91,7 +91,8 @@ const containerData = {
                 history.push({pathname: DoctorLinkLocationName.LOG_INTO_PATIENT_ACCOUNT});
                 break;
             case DoctorMenuItem.LOG_OUT_PATIENT_ACCOUNT:
-                history.push({pathname: DoctorLinkLocationName.LOG_OUT_PATIENT_ACCOUNT});
+                uiStateContext.setUserConnectedToPatientAccount(false);
+                history.push({pathname: ClinicLinkLocationName.HOME});
                 break;  
             case DoctorMenuItem.MY_ACCOUNT:
                 history.push({pathname: DoctorLinkLocationName.MY_ACCOUNT});
