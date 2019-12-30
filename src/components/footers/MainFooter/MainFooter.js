@@ -72,7 +72,7 @@ const MainFooter = () => (
         </div>
 
         <hr className={classes.HorizLine} />
-        <div className={classes.CopyrightBox}><p>© 2019 Tai Chi Medical</p></div>
+        <div className={classes.CopyrightBox}><p>© 2020 Tai Chi Medical</p></div>
     </footer>
 );
 
