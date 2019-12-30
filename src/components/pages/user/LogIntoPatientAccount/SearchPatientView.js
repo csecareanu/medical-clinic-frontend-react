@@ -22,10 +22,13 @@ export const SearchPatientFilterType = {
 type Props = {
     formType: number, // TODO typeof LogIntoPatientAccountFormType;
     onChangeSearchPatientFilter: (newFilterType: number/*TODO*/) => void,
-    onShowCreateAccountPage: () => void
+    onShowCreateAccountPage: () => void,
+    onSearchPatientByBirthday: (year: number, month: number, day: number) => void,
+    onSearchPatientByName: (firstName: string) => void,
+    onSearchPatientByPhoneNo: (phone: string) => void
 }
 
-const logIntoPatientAccountView = (props: Props) => {
+const searchPatientView = (props: Props) => {
     const findPatientText = <FormattedMessage id="label_find_patient" 
                                     defaultMessage={'Find Patient'}/>
 
@@ -71,15 +74,18 @@ const logIntoPatientAccountView = (props: Props) => {
     let alternativeSearchLinks = [];
     switch(props.formType) {
         case SearchPatientFilterType.BY_BIRTHDAY:
-            searchPatientForm = <SearchPatientByBirthday />;
+            searchPatientForm = 
+                <SearchPatientByBirthday onSearchPatients={props.onSearchPatientByBirthday} />;
             alternativeSearchLinks = [searchByNameLink, searchByPhoneNoLink];
             break;
         case SearchPatientFilterType.BY_FIRST_NAME:
-            searchPatientForm = <SearchPatientByName />;
+            searchPatientForm = 
+                <SearchPatientByName onSearchPatients={props.onSearchPatientByName} />;
             alternativeSearchLinks = [searchByBirthdayLink, searchByPhoneNoLink];
             break;
         case SearchPatientFilterType.BY_PHONE_NUMBER:
-            searchPatientForm = <SearchPatientByPhoneNo />;
+            searchPatientForm = 
+                <SearchPatientByPhoneNo onSearchPatients={props.onSearchPatientByPhoneNo} />;
             alternativeSearchLinks = [searchByBirthdayLink, searchByNameLink];
             break;
         default:
@@ -133,4 +139,4 @@ const logIntoPatientAccountView = (props: Props) => {
     );
 }
 
-export default logIntoPatientAccountView;
+export default searchPatientView;

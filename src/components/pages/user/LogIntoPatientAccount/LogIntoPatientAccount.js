@@ -40,7 +40,17 @@ const LogIntoPatientAccount = (props: Props) => {
                                                 containerData.onChangeSearchPatientFilter
                                             }
                                         onShowCreateAccountPage={
-                                            containerData.onShowCreateAccountPage}
+                                            containerData.onShowCreateAccountPage
+                                            }
+                                        onSearchPatientByBirthday={
+                                            containerData.onSearchPatientByBirthday
+                                        }
+                                        onSearchPatientByName={
+                                            containerData.onSearchPatientByName
+                                        }
+                                        onSearchPatientByPhoneNo={
+                                            containerData.onSearchPatientByPhoneNo
+                                        }
                                     />
                                 ) : null 
                             }

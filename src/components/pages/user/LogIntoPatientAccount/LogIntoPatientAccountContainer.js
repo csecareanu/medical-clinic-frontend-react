@@ -30,7 +30,10 @@ export type ContainerData = {
             (newFilterType: number /*TODO typeof SearchPatientFilterType*/) => void,
     onShowCreateAccountPage: () => void,
     onShowSearchAccountPage: () => void,
-    onCreatePatientAccount: () => void
+    onCreatePatientAccount: () => void,
+    onSearchPatientByBirthday: (year: number, month: number, day: number) => void,
+    onSearchPatientByName: (firstName: string) => void,
+    onSearchPatientByPhoneNo: (phone: string) => void
 }
 
 type Props = {
@@ -74,7 +77,11 @@ class LogIntoPatientAccountContainer extends React.Component<Props, State>
             onShowCreateAccountPage: this.onShowCreateAccountPage,
             onShowSearchAccountPage: this.onShowSearchAccountPage,
 
-            onCreatePatientAccount: this.onCreatePatientAccount
+            onCreatePatientAccount: this.onCreatePatientAccount,
+
+            onSearchPatientByBirthday: this.onSearchPatientByBirthday,
+            onSearchPatientByName: this.onSearchPatientByName,
+            onSearchPatientByPhoneNo: this.onSearchPatientByPhoneNo
         }
     }
 
@@ -153,6 +160,18 @@ class LogIntoPatientAccountContainer extends React.Component<Props, State>
         const uiStateContext = this.context;
         uiStateContext.setUserConnectedToPatientAccount(true);
         this.props.history.push({pathname: PatientLinkLocationName.MY_ACCOUNT});
+    }
+
+    onSearchPatientByBirthday = (year: number, month: number, day: number) => {
+       
+    }
+
+    onSearchPatientByName = (firstName: string) => {
+       
+    }
+
+    onSearchPatientByPhoneNo = (phone: string) => {
+       
     }
 
     /*??????*/
