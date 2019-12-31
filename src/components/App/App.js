@@ -14,8 +14,10 @@ import UserLogin from '../pages/user/UserLogin/UserLogin';
 import UserLogout from '../pages/user/UserLogout/UserLogout';
 import MyAccount from '../pages/user/MyAccount/MyAccount';
 
-import LogIntoPatientAccount from '../pages/user/LogIntoPatientAccount/LogIntoPatientAccount';
-import LogOutPatientAccount from '../pages/user/LogOutPatientAccount/LogOutPatientAccount';
+import LogIntoPatientAccount 
+    from '../pages/patientsManagement/LogIntoPatientAccount/LogIntoPatientAccount';
+import LogOutPatientAccount 
+    from '../pages/patientsManagement/LogOutPatientAccount/LogOutPatientAccount';
 
 import DoctorMain from '../pages/doctor/DoctorMain/DoctorMain';
 import DoctorMyAccount from '../pages/doctor/DoctorMyAccount/DoctorMyAccount';

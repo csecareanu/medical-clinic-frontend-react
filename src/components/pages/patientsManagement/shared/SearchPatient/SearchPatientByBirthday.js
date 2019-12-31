@@ -4,7 +4,7 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import BirthdayUserEntryElement 
-    from '../userEntryElement/BirthdayUserEntryElement/BirthdayUserEntryElement';
+    from '../../../../UI/userEntryElement/BirthdayUserEntryElement/BirthdayUserEntryElement';
 import FormControl from '../../../../UI/FormControl/FormControl';
 import Button, { ButtonType } from '../../../../UI/Button/Button';
 

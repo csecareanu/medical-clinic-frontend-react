@@ -6,7 +6,7 @@ import { FormattedMessage } from 'react-intl';
 import FormControl from '../../../../UI/FormControl/FormControl';
 import Button, { ButtonType } from '../../../../UI/Button/Button';
 import UserEntryElement, { UserEntryFieldType } 
-    from '../userEntryElement/UserEntryElement/UserEntryElement';
+    from '../../../../UI/userEntryElement/UserEntryElement/UserEntryElement';
 
 
 type OnSearchPatientsType = (phoneNo: string) => void;

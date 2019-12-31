@@ -6,9 +6,9 @@ import { FormattedMessage } from 'react-intl';
 import Button, { ButtonType } from '../../../../UI/Button/Button';
 import FormControl from '../../../../UI/FormControl/FormControl';
 import BirthdayUserEntryElement 
-    from '../userEntryElement/BirthdayUserEntryElement/BirthdayUserEntryElement';
+    from '../../../../UI/userEntryElement/BirthdayUserEntryElement/BirthdayUserEntryElement';
 import GenderUserEntryElement 
-    from '../userEntryElement/GenderUserEntryElement/GenderUserEntryElement';
+    from '../../../../UI/userEntryElement/GenderUserEntryElement/GenderUserEntryElement';
 
 
 const ELEMENTS = {

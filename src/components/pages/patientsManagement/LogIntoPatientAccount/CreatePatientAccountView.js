@@ -4,7 +4,7 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import classes from './CreatePatientAccountView.module.css';
-import CreatePatientAccount from '../shared/CreatePatientAccount/CreatePatientAccount';
+import CreatePatientAccount from '../../user/shared/CreatePatientAccount/CreatePatientAccount';
 import { PageHeaderType }  from '../../../../shared/PageHeaderType';
 import MainLayout from '../../../layouts/MainLayout/MainLayout';
 import FormControl from '../../../UI/FormControl/FormControl';

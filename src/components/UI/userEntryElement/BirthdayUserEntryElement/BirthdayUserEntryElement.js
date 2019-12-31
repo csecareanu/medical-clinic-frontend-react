@@ -4,7 +4,7 @@ import * as React from 'react';
 import { typeof FormattedMessage } from 'react-intl';
 
 import classes from './BirthdayUserEntryElement.module.css';
-import FormControl from '../../../../../UI/FormControl/FormControl';
+import FormControl from '../../FormControl/FormControl';
 
 const ELEMENTS = {
     BIRTH_DAY: 0,

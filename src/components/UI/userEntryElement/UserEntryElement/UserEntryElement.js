@@ -3,7 +3,7 @@
 import React from 'react';
 import { typeof FormattedMessage } from 'react-intl';
 
-import FormControl from '../../../../../UI/FormControl/FormControl';
+import FormControl from '../../FormControl/FormControl';
 
 
 export const UserEntryFieldType = {
