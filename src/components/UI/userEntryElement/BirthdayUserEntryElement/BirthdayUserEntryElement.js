@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import { typeof FormattedMessage } from 'react-intl';
+import { FormattedMessage } from 'react-intl';
 
 import classes from './BirthdayUserEntryElement.module.css';
 import FormControl from '../../FormControl/FormControl';
@@ -13,7 +13,7 @@ const ELEMENTS = {
 };
 
 type Props = {
-    label?: string | FormattedMessage
+
 }
 
 type State = {
@@ -59,6 +59,7 @@ class BirthdayUserEntryElement extends React.Component<Props, State> {
         const birthMonthElem = this.state.elementsStatus[ELEMENTS.BIRTH_MONTH];
         const birthYearElem = this.state.elementsStatus[ELEMENTS.BIRTH_YEAR];
         
+        const birthdayLabel = <FormattedMessage id="label_birthday" defaultMessage={'Birthday:'}/>
         //TODO 
         /*
         const dayText = <FormattedMessage id="birthday_day" defaultMessage={'day'}/>
@@ -68,8 +69,6 @@ class BirthdayUserEntryElement extends React.Component<Props, State> {
        const dayText = 'day';
        const monthText = 'month';
        const yearText = 'year';
-
-       const birthdayLabel = this.props.label? this.props.label : '';
 
         return (
             <FormControl.Group name={birthdayLabel}>

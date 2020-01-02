@@ -5,6 +5,7 @@
 
 .Group {
     display: flex;
+    flex-flow: row;
     color: #6B2022;
     font-weight: bold;
 }

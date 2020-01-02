@@ -12,13 +12,13 @@ import GenderUserEntryElement
 
 
 const ELEMENTS = {
-    FIRST_NAME: 0,
-    LAST_NAME: 1,
-    PHONE_NO: 2,
-    PASSWORD: 3,
-    PASSWORD_REPEAT: 4,
-    CITY: 5,
-    COUNTY: 6
+    FIRST_NAME: 1,
+    LAST_NAME: 2,
+    PHONE_NO: 3,
+    PASSWORD: 4,
+    PASSWORD_REPEAT: 5,
+    CITY: 6,
+    COUNTY: 7
 }
 
 /**
@@ -39,7 +39,7 @@ type Props = {
  }
 
 type State = {
-    elementsStatus: { 
+    elementsStatus: {
         [number]: { value: string}
     }
 }

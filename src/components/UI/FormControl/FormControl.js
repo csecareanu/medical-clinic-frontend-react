@@ -28,6 +28,7 @@ const FormControl = () =>{return null;}
  */
  type GroupProps = { 
     name?: string | FormattedMessage,
+    nameLine2?: string | FormattedMessage,
     stressedName?: boolean,
     contentPadding?: boolean,
     noHorizontalSepAfter?: boolean,
@@ -47,12 +48,17 @@ FormControl.Group = (props: GroupProps) => {
     return (
         <React.Fragment>
             <div className={classes.Group}>
-                { props.name?
-                    <label className={stressedNameClasses.join(' ')}>{props.name}</label>
-                    :
-                    null
+                { props.name
+                    ? <div className={stressedNameClasses.join(' ')}>{props.name}</div>
+                    : null
                 }
             </div>
+            { props.nameLine2
+                ? <div className={classes.Group}>
+                    <div className={stressedNameClasses.join(' ')}>{props.nameLine2}</div>
+                    </div>
+                : null
+            }
             <div className={contentClasses.join(' ')}>
                 {props.children}
             </div>
@@ -80,7 +86,7 @@ FormControl.Group = (props: GroupProps) => {
  */
  type TextProps = {
      size: number,
-     placeholder: string | FormattedMessage,
+     placeholder?: string | FormattedMessage,
      value: string,
      onChange: (event: SyntheticInputEvent<HTMLInputElement>) => void,
      noHorizontalSepAfter?: boolean
@@ -88,12 +94,13 @@ FormControl.Group = (props: GroupProps) => {
 FormControl.Text = (props: TextProps) => {
     let validationError = null;
     const inputClasses = [classes.TextElement];
+    const placeholder = props.placeholder? props.placeholder : '';
 
     const inputElement = <input 
             type='text'
             className={inputClasses.join(' ')} 
             size={props.size}
-            placeholder={props.placeholder}
+            placeholder={placeholder}
             value={props.value}
             onChange={props.onChange}
         />;
