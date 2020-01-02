@@ -6,7 +6,7 @@ import { FormattedMessage } from 'react-intl';
 import FormControl from '../../../../UI/FormControl/FormControl';
 import Button, { ButtonType } from '../../../../UI/Button/Button';
 
-const ELEMENTS = {
+const Elements = {
     SMS_CODE: 1
 }
 
@@ -27,7 +27,7 @@ class CheckSMSCode extends React.Component<Props, State> {
 
     state = {
         elementsStatus: {
-            [ELEMENTS.SMS_CODE]: {
+            [Elements.SMS_CODE]: {
                 value: ''
             }
         }
@@ -48,7 +48,7 @@ class CheckSMSCode extends React.Component<Props, State> {
     }
 
     onCheckCode = (onCheckCodeCallback: CheckCodeCallback) => {
-        onCheckCodeCallback(this.state.elementsStatus[ELEMENTS.SMS_CODE].value);
+        onCheckCodeCallback(this.state.elementsStatus[Elements.SMS_CODE].value);
     }
 
     render () {
@@ -74,8 +74,8 @@ class CheckSMSCode extends React.Component<Props, State> {
                 >
                     <FormControl.Text
                         size={20}
-                        value={this.state.elementsStatus[ELEMENTS.SMS_CODE].value}
-                        onChange={(event) => { this.inputChangedHandler(event, ELEMENTS.SMS_CODE) }}
+                        value={this.state.elementsStatus[Elements.SMS_CODE].value}
+                        onChange={(event) => { this.inputChangedHandler(event, Elements.SMS_CODE) }}
                     />
                 </FormControl.Group>
 

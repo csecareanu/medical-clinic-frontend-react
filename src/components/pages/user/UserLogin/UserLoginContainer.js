@@ -6,6 +6,10 @@ import UIStateContext from '../../../../react-context/UIState/UIState-context';
 import { UserAuthType } from '../../../../shared/UserAuthType';
 import type { RouterHistory } from 'react-router';
 
+const AuthenticationStatus = {
+    
+}
+
 const containerData = {
     _uiStateContext: (null: null | UIStateContext),
     displayLoginComponent: (false: boolean),
@@ -20,10 +24,10 @@ const containerData = {
 
         let newAuthStatus = UserAuthType.UNAUTHENTICATED;
 
-        if(phoneNo === "d" && password === "d") {
+        if(phoneNo === "m" && password === "m") {
             newAuthStatus = UserAuthType.DOCTOR;
         }
-        else if (phoneNo === "s" && password === "s") {
+        else if (phoneNo === "a" && password === "a") {
             newAuthStatus = UserAuthType.SITE_ADMIN;
         }
         else {
@@ -53,6 +57,10 @@ const containerData = {
             history.push({pathname: uiStateContext.navigateToURIOnSuccessfullyLogin});
             uiStateContext.setNavigateToURIOnSuccessfullyLogin(null);
         }
+    },
+
+    onCreateAccountCheckSMSCode: (code: string) : void => {
+
     },
 
     onCancel: (history: RouterHistory) : void => {

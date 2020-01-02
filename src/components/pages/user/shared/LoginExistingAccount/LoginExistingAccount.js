@@ -9,7 +9,7 @@ import LinkButton, { LinkButtonType } from '../../../../UI/LinkButton/LinkButton
 import FormControl from '../../../../UI/FormControl/FormControl';
 
 
-const ELEMENTS = {
+const Elements = {
     PHONE_NO: 1,
     PASSWORD: 2
 }
@@ -34,10 +34,10 @@ class LoginExistingAccount extends React.Component<Props, State> {
 
     state = {
         elementsStatus: {
-            [ELEMENTS.PHONE_NO]: {
+            [Elements.PHONE_NO]: {
                 value: ''
             },
-            [ELEMENTS.PASSWORD]: {
+            [Elements.PASSWORD]: {
                 value: ''
             }
         }
@@ -65,8 +65,8 @@ class LoginExistingAccount extends React.Component<Props, State> {
      */
     onLogin = (authenticationCallback: AuthenticationCallback ) => {
         if (authenticationCallback) {
-            authenticationCallback(this.state.elementsStatus[ELEMENTS.PHONE_NO].value,
-                this.state.elementsStatus[ELEMENTS.PASSWORD].value);
+            authenticationCallback(this.state.elementsStatus[Elements.PHONE_NO].value,
+                this.state.elementsStatus[Elements.PASSWORD].value);
         }
     }
 
@@ -80,15 +80,15 @@ class LoginExistingAccount extends React.Component<Props, State> {
                 <FormControl.Text 
                     size={20}
                     placeholder={phoneNoText}
-                    value={this.state.elementsStatus[ELEMENTS.PHONE_NO].value}
-                    onChange={(event) => {this.inputChangedHandler(event, ELEMENTS.PHONE_NO)}}
+                    value={this.state.elementsStatus[Elements.PHONE_NO].value}
+                    onChange={(event) => {this.inputChangedHandler(event, Elements.PHONE_NO)}}
                 />
 
                 <FormControl.Text 
                     size={20}
                     placeholder={passwordText}
-                    value={this.state.elementsStatus[ELEMENTS.PASSWORD].value}
-                    onChange={(event) => {this.inputChangedHandler(event, ELEMENTS.PASSWORD)}}
+                    value={this.state.elementsStatus[Elements.PASSWORD].value}
+                    onChange={(event) => {this.inputChangedHandler(event, Elements.PASSWORD)}}
                 />
 
                 <FormControl.HorizontalSep repeat={2}/>

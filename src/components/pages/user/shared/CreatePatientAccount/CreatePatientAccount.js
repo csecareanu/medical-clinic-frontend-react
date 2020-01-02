@@ -11,7 +11,7 @@ import GenderUserEntryElement
     from '../../../../UI/userEntryElement/GenderUserEntryElement/GenderUserEntryElement';
 
 
-const ELEMENTS = {
+const Elements = {
     FIRST_NAME: 1,
     LAST_NAME: 2,
     PHONE_NO: 3,
@@ -48,25 +48,25 @@ class CreatePatientAccount extends React.Component<Props, State> {
 
     state = {
         elementsStatus: {
-            [ELEMENTS.FIRST_NAME]: {
+            [Elements.FIRST_NAME]: {
                 value: ''
             },
-            [ELEMENTS.LAST_NAME]: {
+            [Elements.LAST_NAME]: {
                 value: ''
             },
-            [ELEMENTS.PHONE_NO]: {
+            [Elements.PHONE_NO]: {
                 value: ''
             },
-            [ELEMENTS.PASSWORD]: {
+            [Elements.PASSWORD]: {
                 value: ''
             },
-            [ELEMENTS.PASSWORD_REPEAT]: {
+            [Elements.PASSWORD_REPEAT]: {
                 value: ''
             },
-            [ELEMENTS.CITY]: {
+            [Elements.CITY]: {
                 value: ''
             },
-            [ELEMENTS.COUNTY]: {
+            [Elements.COUNTY]: {
                 value: ''
             }
         }
@@ -118,53 +118,53 @@ class CreatePatientAccount extends React.Component<Props, State> {
                 <FormControl.Text
                     size={20}
                     placeholder={firstNameText}
-                    value={this.state.elementsStatus[ELEMENTS.FIRST_NAME].value}
-                    onChange={(event) => { this.inputChangedHandler(event, ELEMENTS.FIRST_NAME) }}
+                    value={this.state.elementsStatus[Elements.FIRST_NAME].value}
+                    onChange={(event) => { this.inputChangedHandler(event, Elements.FIRST_NAME) }}
                 />
 
                 <FormControl.Text
                     size={20}
                     placeholder={lastNameText}
-                    value={this.state.elementsStatus[ELEMENTS.LAST_NAME].value}
-                    onChange={(event) => { this.inputChangedHandler(event, ELEMENTS.LAST_NAME) }}
+                    value={this.state.elementsStatus[Elements.LAST_NAME].value}
+                    onChange={(event) => { this.inputChangedHandler(event, Elements.LAST_NAME) }}
                 />
 
                 <FormControl.Text
                     size={20}
                     placeholder={phoneNoText}
-                    value={this.state.elementsStatus[ELEMENTS.PHONE_NO].value}
-                    onChange={(event) => { this.inputChangedHandler(event, ELEMENTS.PHONE_NO) }}
+                    value={this.state.elementsStatus[Elements.PHONE_NO].value}
+                    onChange={(event) => { this.inputChangedHandler(event, Elements.PHONE_NO) }}
                 />
 
                 <FormControl.Text
                     size={20}
                     placeholder={passwordText}
-                    value={this.state.elementsStatus[ELEMENTS.PASSWORD].value}
-                    onChange={(event) => { this.inputChangedHandler(event, ELEMENTS.PASSWORD) }}
+                    value={this.state.elementsStatus[Elements.PASSWORD].value}
+                    onChange={(event) => { this.inputChangedHandler(event, Elements.PASSWORD) }}
                 />
 
                 <FormControl.Text
                     size={20}
                     placeholder={passwordRepeatText}
-                    value={this.state.elementsStatus[ELEMENTS.PASSWORD_REPEAT].value}
+                    value={this.state.elementsStatus[Elements.PASSWORD_REPEAT].value}
                     onChange={(event) => {
                         this.inputChangedHandler(event,
-                            ELEMENTS.PASSWORD_REPEAT)
+                            Elements.PASSWORD_REPEAT)
                     }}
                 />
 
                 <FormControl.Text
                     size={20}
                     placeholder={cityText}
-                    value={this.state.elementsStatus[ELEMENTS.CITY].value}
-                    onChange={(event) => { this.inputChangedHandler(event, ELEMENTS.CITY) }}
+                    value={this.state.elementsStatus[Elements.CITY].value}
+                    onChange={(event) => { this.inputChangedHandler(event, Elements.CITY) }}
                 />
 
                 <FormControl.Text
                     size={20}
                     placeholder={countyText}
-                    value={this.state.elementsStatus[ELEMENTS.COUNTY].value}
-                    onChange={(event) => { this.inputChangedHandler(event, ELEMENTS.COUNTY) }}
+                    value={this.state.elementsStatus[Elements.COUNTY].value}
+                    onChange={(event) => { this.inputChangedHandler(event, Elements.COUNTY) }}
                 />
 
                 <BirthdayUserEntryElement />

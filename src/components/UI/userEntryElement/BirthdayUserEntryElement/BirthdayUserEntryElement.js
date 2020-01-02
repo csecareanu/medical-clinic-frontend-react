@@ -6,7 +6,7 @@ import { FormattedMessage } from 'react-intl';
 import classes from './BirthdayUserEntryElement.module.css';
 import FormControl from '../../FormControl/FormControl';
 
-const ELEMENTS = {
+const Elements = {
     BIRTH_DAY: 0,
     BIRTH_MONTH: 1,
     BIRTH_YEAR: 2
@@ -29,13 +29,13 @@ type State = {
 class BirthdayUserEntryElement extends React.Component<Props, State> {
     state = {
         elementsStatus: {
-            [ELEMENTS.BIRTH_DAY]: {
+            [Elements.BIRTH_DAY]: {
                 value: ''
             },
-            [ELEMENTS.BIRTH_MONTH]: {
+            [Elements.BIRTH_MONTH]: {
                 value: ''
             },
-            [ELEMENTS.BIRTH_YEAR]: {
+            [Elements.BIRTH_YEAR]: {
                 value: ''
             }
         }
@@ -55,9 +55,9 @@ class BirthdayUserEntryElement extends React.Component<Props, State> {
     }
 
     render() {
-        const birthDayElem = this.state.elementsStatus[ELEMENTS.BIRTH_DAY];
-        const birthMonthElem = this.state.elementsStatus[ELEMENTS.BIRTH_MONTH];
-        const birthYearElem = this.state.elementsStatus[ELEMENTS.BIRTH_YEAR];
+        const birthDayElem = this.state.elementsStatus[Elements.BIRTH_DAY];
+        const birthMonthElem = this.state.elementsStatus[Elements.BIRTH_MONTH];
+        const birthYearElem = this.state.elementsStatus[Elements.BIRTH_YEAR];
         
         const birthdayLabel = <FormattedMessage id="label_birthday" defaultMessage={'Birthday:'}/>
         //TODO 
@@ -78,7 +78,7 @@ class BirthdayUserEntryElement extends React.Component<Props, State> {
                         placeholder={dayText}
                         value={birthDayElem.value}
                         onChange={
-                            (event) => {this.inputChangedHandler(event, ELEMENTS.BIRTH_DAY)}
+                            (event) => {this.inputChangedHandler(event, Elements.BIRTH_DAY)}
                         }
                     />
                     <FormControl.VerticalSep/>
@@ -87,7 +87,7 @@ class BirthdayUserEntryElement extends React.Component<Props, State> {
                         placeholder= {monthText}
                         value={birthMonthElem.value}
                         onChange={
-                            (event) => {this.inputChangedHandler(event, ELEMENTS.BIRTH_MONTH)}
+                            (event) => {this.inputChangedHandler(event, Elements.BIRTH_MONTH)}
                         }
                     />
                     <FormControl.VerticalSep/>
@@ -96,7 +96,7 @@ class BirthdayUserEntryElement extends React.Component<Props, State> {
                         placeholder={yearText}
                         value={birthYearElem.value}
                         onChange={
-                            (event) => {this.inputChangedHandler(event, ELEMENTS.BIRTH_YEAR)}
+                            (event) => {this.inputChangedHandler(event, Elements.BIRTH_YEAR)}
                         }
                     />
                 </div>
