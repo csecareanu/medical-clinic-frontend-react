@@ -1,14 +1,35 @@
 // @flow
 
 import React from 'react';
-import { withRouter } from 'react-router-dom';
-import type { RouterHistory } from 'react-router';
 
 import UserLoginView from './UserLoginView';
 import UserLoginContainer from './UserLoginContainer';
 
+export const LoginStatus = {
+    WaitingUserAction: 1,
+    LoginExistingUser: 2,
+    CreateNewAccount: 3
+}
+
+export type AuthenticationState = {
+    loginStatus: number, //TODO: typeof LoginStatus,
+    loginStates: {
+        waitingUserAction: {
+
+        },
+
+        loginExistingUser: {
+
+        },
+
+        createNewAccount: {
+            checkingSMSCode: boolean,
+            isSMSCodeValid: boolean
+        }
+    }
+}
+
 type Props = {
-    history: RouterHistory
 }
 
 /**
@@ -23,8 +44,6 @@ type Props = {
 const UserLogin = (props: Props) => {
     //TODO log all user actions in order to reproduce all his/her steps at debug time
 
-    // keep the value of the props.history inside closure
-    const history = props.history;
     return (
         <UserLoginContainer>
             {
@@ -32,14 +51,15 @@ const UserLogin = (props: Props) => {
                     containerData.displayLoginComponent
                         ? (
                             <UserLoginView
+                                authenticationState={containerData.authenticationState}
                                 onAuthenticate={(phoneNo, password) => {
-                                    containerData.onAuthenticate(history, phoneNo, password)
+                                    containerData.onAuthenticate(phoneNo, password)
                                 }}
                                 onCreateAccount={(/*accountInfo*/) => {
-                                    containerData.onCreateAccount(history /*, accountInfo*/);
+                                    containerData.onCreateAccount(/*, accountInfo*/);
                                 }}
                                 onCancel={() => {
-                                    containerData.onCancel(history);
+                                    containerData.onCancel();
                                 }}
                             />
                         )
@@ -50,4 +70,4 @@ const UserLogin = (props: Props) => {
     );
 }
 
-export default withRouter(UserLogin);
+export default UserLogin;

@@ -1,26 +1,71 @@
 // @flow
 
 import * as React from 'react';
+import { withRouter } from 'react-router-dom';
+import type { RouterHistory } from 'react-router';
 
 import UIStateContext from '../../../../react-context/UIState/UIState-context';
 import { UserAuthType } from '../../../../shared/UserAuthType';
-import type { RouterHistory } from 'react-router';
+import { LoginStatus } from './UserLogin';
+import { type AuthenticationState } from './UserLogin';
 
-const AuthenticationStatus = {
-    
+
+export type ContainerData = {
+    displayLoginComponent: boolean,
+    authenticationState: AuthenticationState,
+    onAuthenticate: (phoneNo: string, password: string) => void,
+    onCreateAccount: (/*, accountInfo*/) => void,
+    onCreateAccountCheckSMSCode: (code: string) => void,
+    onCancel: () => void
 }
 
-const containerData = {
-    _uiStateContext: (null: null | UIStateContext),
-    displayLoginComponent: (false: boolean),
+type Props = {
+    children: (containerData: ContainerData) => React.Node,
+    history: RouterHistory
+}
 
-    onAuthenticate: (history: RouterHistory, phoneNo: string, password: string) : void => {
 
-        if(containerData._uiStateContext == null) {
-            console.log("UserLoginContainer. uiStateContext not set");
-            return;
+class UserLoginContainer extends React.Component<Props, AuthenticationState> 
+{
+    containerData: ContainerData;
+    state: AuthenticationState;
+
+    constructor () {
+        super();
+
+        this.state = {
+            loginStatus: LoginStatus.WaitingUserAction,
+
+            loginStates: {
+                waitingUserAction: {
+
+                },
+
+                loginExistingUser: {
+
+                },
+
+                createNewAccount: {
+                    checkingSMSCode: false,
+                    isSMSCodeValid: false
+                }
+            }
         }
-        const uiStateContext = containerData._uiStateContext;
+
+        this.containerData = {
+            displayLoginComponent: false,
+            authenticationState: this.state,
+            onAuthenticate: this.onAuthenticate,
+            onCreateAccount: this.onCreateAccount,
+            onCreateAccountCheckSMSCode: this.onCreateAccountCheckSMSCode,
+            onCancel: this.onCancel
+        }
+    }
+
+    static contextType = UIStateContext;
+
+    onAuthenticate = (phoneNo: string, password: string) : void => {
+        const uiStateContext = this.context;
 
         let newAuthStatus = UserAuthType.UNAUTHENTICATED;
 
@@ -38,52 +83,75 @@ const containerData = {
         uiStateContext.setDisplayLoginComponent(false);
 
         if (uiStateContext.navigateToURIOnSuccessfullyLogin) {
-            history.push({pathname: uiStateContext.navigateToURIOnSuccessfullyLogin});
+            this.props.history.push({
+                pathname: uiStateContext.navigateToURIOnSuccessfullyLogin
+            });
             uiStateContext.setNavigateToURIOnSuccessfullyLogin(null);
         }        
-    },
+    }
 
-    onCreateAccount: (history: RouterHistory /*, accountInfo*/) : void => {
-        if(containerData._uiStateContext == null) {
-            console.log("onCreateAccount. uiStateContext not set");
-            return;
+    onCreateAccount = (/*, accountInfo*/) : void => {
+        //const uiStateContext = this.context;
+
+        const createNewAccount = {
+            ...this.state.loginStates.createNewAccount,
+            checkingSMSCode: true,
+            isSMSCodeValid: false
         }
-        const uiStateContext = containerData._uiStateContext;
 
+        const state = {
+            ...this.state,
+            loginStatus: LoginStatus.CreateNewAccount
+        }
+
+        state.loginStates.createNewAccount = createNewAccount;
+
+        this.setState(state);
+
+        /*
         uiStateContext.setUserAuthenticationStatus(UserAuthType.PATIENT);
         uiStateContext.setDisplayLoginComponent(false);
 
         if (uiStateContext.navigateToURIOnSuccessfullyLogin) {
-            history.push({pathname: uiStateContext.navigateToURIOnSuccessfullyLogin});
+            this.props.history.push({
+                pathname: uiStateContext.navigateToURIOnSuccessfullyLogin
+            });
             uiStateContext.setNavigateToURIOnSuccessfullyLogin(null);
         }
-    },
+        */
+    }
 
-    onCreateAccountCheckSMSCode: (code: string) : void => {
+    onCreateAccountCheckSMSCode = (code: string) : void => {
 
-    },
+    }
 
-    onCancel: (history: RouterHistory) : void => {
-        if(containerData._uiStateContext == null) {
-            console.log("onCancel. uiStateContext not set");
-            return;
+    onCancel = () : void => {
+        const state = {
+            ...this.state,
+            loginStatus: LoginStatus.WaitingUserAction
         }
-        const uiStateContext = containerData._uiStateContext;
+
+        this.setState(state);        
+
+        const uiStateContext = this.context;
         uiStateContext.setDisplayLoginComponent(false);
 
         if (uiStateContext.navigateToURIOnCancelLogin) {
-            history.push({pathname: uiStateContext.navigateToURIOnCancelLogin});
+            this.props.history.push({
+                pathname: uiStateContext.navigateToURIOnCancelLogin
+            });
             uiStateContext.setNavigateToURIOnCancelLogin(null);
         }        
     }
+
+    render() {
+        const uiStateContext = this.context;
+        //updating the container data parameter with the latest values
+        this.containerData.displayLoginComponent = uiStateContext.displayLoginComponent;
+        this.containerData.authenticationState = this.state;
+
+        return (this.props.children)(this.containerData);
+    }
 }
 
-type Props = {
-    children: (containerData: typeof containerData) => React.Node
-}
-export default (props: Props) => {
-    let uiStateContext = React.useContext(UIStateContext);
-    containerData._uiStateContext = uiStateContext;
-    containerData.displayLoginComponent = uiStateContext.displayLoginComponent;
-    return (props.children)(containerData);
-}
+export default withRouter(UserLoginContainer);

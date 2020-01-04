@@ -19,7 +19,7 @@ type Props = {
 
 type State = {
     elementsStatus: {
-        [number]: { value: string}
+        [number]: { value: string }
     }
 }
 
@@ -49,6 +49,11 @@ class CheckSMSCode extends React.Component<Props, State> {
 
     onCheckCode = (onCheckCodeCallback: CheckCodeCallback) => {
         onCheckCodeCallback(this.state.elementsStatus[Elements.SMS_CODE].value);
+    }
+
+    componentDidMount() {
+        // make the top of the window visible if the page is scrolled
+        window.scrollTo(0, 0);
     }
 
     render () {

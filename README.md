@@ -21,6 +21,8 @@
 15. Structuring projects and naming components in React: https://hackernoon.com/structuring-projects-and-naming-components-in-react-1261b6e18d76
 16. React components naming convention: https://medium.com/@wittydeveloper/react-components-naming-convention-%EF%B8%8F-b50303551505
 ---
+17. XSTATE A state transition which defines what the next state is, given the current state and event: https://xstate.js.org/docs/guides/transitions.html#machine-transition-method
+--
 
 View - a view will not navigate to another page
 Controller

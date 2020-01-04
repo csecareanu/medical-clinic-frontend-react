@@ -9,6 +9,8 @@ import CheckSMSCode from '../shared/CheckSMSCode/CheckSMSCode';
 import Button, { ButtonType } from '../../../UI/Button/Button';
 import FormControl from '../../../UI/FormControl/FormControl';
 import Backdrop from '../../../UI/Backdrop/Backdrop';
+import { type AuthenticationState } from './UserLogin';
+import { LoginStatus } from './UserLogin';
 
 const onComponentLoaded = () => {
     // make the top of the window visible if the page is scrolled
@@ -28,6 +30,7 @@ const useEffectSetup = () => {
 }
 
 type Props = {
+    authenticationState: AuthenticationState,
     onAuthenticate: (phoneNo: string, password: string) => void,
     onCreateAccount: () => void,
     onCancel: () => void
@@ -49,6 +52,40 @@ const UserLoginView = (props: Props) => {
     
     const phoneNoValidationText = <FormattedMessage id="label_phone_no_check"
                                     defaultMessage ={"Phone number validation"} />
+
+
+    if (props.authenticationState.loginStatus === LoginStatus.CreateNewAccount &&
+        props.authenticationState.loginStates.createNewAccount.checkingSMSCode === true ) {
+            return (
+                <React.Fragment>
+                    <Backdrop show={true} />
+                    <div className={classes.Login}>
+                        <div className={classes.LoginContent}>
+                            <div className={classes.CancelButton}>
+                                <Button
+                                    type={ButtonType.DANGER}
+                                    onClick={props.onCancel}
+                                >
+                                    <FormattedMessage id="cancel" defaultMessage={'Cancel'}/>
+                                </Button>
+                            </div>
+
+                            <FormControl.HorizontalSep repeat={2}/>
+
+                            {/* Check the SMS code in order to verify the phone number is valid */}
+                            <FormControl.Group name={phoneNoValidationText} stressedName>
+                                <FormControl.HorizontalSep repeat={2}/>
+                                <CheckSMSCode 
+                                    phoneNoToCheck="0766666666"
+                                    onCheckCode={ (code: string) => {} }
+                                />
+                            </FormControl.Group>
+
+                        </div>
+                    </div>
+                </React.Fragment>
+            );
+        }
 
     return (
         <React.Fragment>
@@ -76,15 +113,6 @@ const UserLoginView = (props: Props) => {
                         <FormControl.HorizontalSep repeat={2}/>
                         <CreatePatientAccount 
                             onCreateAccount={ props.onCreateAccount } 
-                        />
-                    </FormControl.Group>
-
-                    {/* Check the SMS code in order to verify the phone number is valid */}
-                    <FormControl.Group name={phoneNoValidationText} stressedName>
-                        <FormControl.HorizontalSep repeat={2}/>
-                        <CheckSMSCode 
-                            phoneNoToCheck="0766666666"
-                            onCheckCode={ (code: string) => {} }
                         />
                     </FormControl.Group>
 
