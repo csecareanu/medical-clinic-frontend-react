@@ -37,7 +37,9 @@ const createPatientAccountView = (props: Props) => {
                         <FormControl.HorizontalSep repeat={4}/>
                         <CreatePatientAccount 
                             showAdminControls 
-                            onCreateAccount={() => {
+                            onCreateAccountPending={ () => {}}
+                            onCancelCreateAccount={ () => {}}
+                            onAccountCreated={() => {
                                 props.onCreatePatientAccount();
                             }}
                         />

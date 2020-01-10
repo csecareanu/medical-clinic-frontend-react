@@ -10,7 +10,7 @@ import ClinicContactPage from '../pages/clinic/ClinicContactPage/ClinicContactPa
 import ClinicDoctorsPage from '../pages/clinic/ClinicDoctorsPage/ClinicDoctorsPage';
 import ClinicPricesPage from '../pages/clinic/ClinicPricesPage/ClinicPricesPage';
 
-import UserLogin from '../pages/user/UserLogin/UserLogin';
+import UserAuthenticate from '../pages/user/UserAuthenticate/UserAuthenticate';
 import UserLogout from '../pages/user/UserLogout/UserLogout';
 import MyAccount from '../pages/user/MyAccount/MyAccount';
 
@@ -72,7 +72,7 @@ function App() {
         <Route
           path={UserLinkLocationName.LOGIN}
           component={() => (
-            <UserLogin navigateToURIOnCancel={ClinicLinkLocationName.HOME} />
+            <UserAuthenticate navigateToURIOnCancel={ClinicLinkLocationName.HOME} />
             ) } 
         />
         <Route

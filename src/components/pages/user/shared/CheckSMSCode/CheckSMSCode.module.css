@@ -1,10 +1,10 @@
 
-.Login {
+.MainWindow {
     display: flex;
     justify-content: center;
 }
 
-.LoginContent {
+.MainWindowContent {
     background-color: #F8E8B7;
     padding: 0.5rem;
     max-width: 30rem;

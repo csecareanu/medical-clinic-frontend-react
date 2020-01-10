@@ -1,0 +1,19 @@
+
+.Auth {
+    display: flex;
+    justify-content: center;
+}
+
+.AuthContent {
+    background-color: #F8E8B7;
+    padding: 0.5rem;
+    max-width: 30rem;
+    /* the z-index must be higher than the one of Backdrop (100)*/
+    z-index: 200;
+    position: absolute;
+}
+
+.CancelButton {
+    display: flex;
+    justify-content: flex-end;
+}
