@@ -18,9 +18,9 @@ type State = {
   navigateToURIOnCancelAuth: string | null,
   navigateToURIOnSuccessfullyAuth: string | null,
 
-  displayLogoutComponent: boolean,
+  displayUserLogoutModal: boolean,
 
-  displayMenuSideDrawerComponent: boolean
+  displayMenuSideDrawerModal: boolean
 };
 
 /**
@@ -44,9 +44,9 @@ class UIState extends React.Component<Props, State> {
         navigateToURIOnCancelAuth: null,
         navigateToURIOnSuccessfullyAuth: null,
 
-        displayLogoutComponent: false,
+        displayUserLogoutModal: false,
 
-        displayMenuSideDrawerComponent: false
+        displayMenuSideDrawerModal: false
     }
 
     render () {
@@ -59,8 +59,8 @@ class UIState extends React.Component<Props, State> {
                     displayUserAuthenticateModal: this.state.displayUserAuthenticateModal,
                     navigateToURIOnCancelAuth: this.state.navigateToURIOnCancelAuth,
                     navigateToURIOnSuccessfullyAuth: this.state.navigateToURIOnSuccessfullyAuth,
-                    displayLogoutComponent: this.state.displayLogoutComponent,
-                    displayMenuSideDrawerComponent: this.state.displayMenuSideDrawerComponent,
+                    displayUserLogoutModal: this.state.displayUserLogoutModal,
+                    displayMenuSideDrawerModal: this.state.displayMenuSideDrawerModal,
                     // methods
                     setUserAuthenticationStatus: (userAuthenticationType: number) => { 
                         this.setState({userAuthenticationStatus: userAuthenticationType}) 
@@ -77,11 +77,11 @@ class UIState extends React.Component<Props, State> {
                     setNavigateToURIOnSuccessfullyAuth: (uri: string | null) => {
                         this.setState({navigateToURIOnSuccessfullyAuth: uri})
                     },
-                    setDisplayLogoutComponent: (show: boolean) => {
-                        this.setState({displayLogoutComponent: show})
+                    setDisplayUserLogoutModal: (show: boolean) => {
+                        this.setState({displayUserLogoutModal: show})
                     },
-                    setDisplayMenuSideDrawerComponent: (show: boolean) => {
-                        this.setState({displayMenuSideDrawerComponent: show})
+                    setDisplayMenuSideDrawerModal: (show: boolean) => {
+                        this.setState({displayMenuSideDrawerModal: show})
                     }
                 }}
             >

@@ -13,7 +13,7 @@ const MainMenuSideDrawer = () => (
     <MenuSideDrawerContainer>
         {
             (containerData) => (
-                containerData.displayMenuSideDrawerComponent
+                containerData.displayMenuSideDrawerModal
                     ? (
                         <MainMenuSideDrawerView
                             onClose={containerData.onCloseMenuSideDrawer}

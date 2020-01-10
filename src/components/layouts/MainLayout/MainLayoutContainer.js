@@ -14,7 +14,7 @@ const containerData = {
             console.log("MainLayoutContainer. onOpenMenuSideDrawer. uiStateContext not set");
             return;
         }        
-        containerData._uiStateContext.setDisplayMenuSideDrawerComponent(true);
+        containerData._uiStateContext.setDisplayMenuSideDrawerModal(true);
     }
 }
 

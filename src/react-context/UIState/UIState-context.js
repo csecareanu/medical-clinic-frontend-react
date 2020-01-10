@@ -22,17 +22,17 @@ const UIStateContext = React.createContext({
     navigateToURIOnCancelAuth: null,
     navigateToURIOnSuccessfullyAuth: null,
 
-    displayLogoutComponent: false,
+    displayUserLogoutModal: false,
 
-    displayMenuSideDrawerComponent: false,
+    displayMenuSideDrawerModal: false,
 
     setUserAuthenticationStatus: (userAuthenticationStatus) => {},
     setUserConnectedToPatientAccount: (isConnected) => {},   
     setDisplayUserAuthenticateModal: (show) => {},
     setNavigateToURIOnCancelAuth: (uri) => {},
     setNavigateToURIOnSuccessfullyAuth: (uri) => {},
-    setDisplayLogoutComponent: (show) => {},
-    setDisplayMenuSideDrawerComponent: (show) => {}
+    setDisplayUserLogoutModal: (show) => {},
+    setDisplayMenuSideDrawerModal: (show) => {}
 });
 
 export default UIStateContext;

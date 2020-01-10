@@ -7,7 +7,7 @@ import { UserAuthType } from '../../../shared/UserAuthType';
 
 const sideDrawerContainer = {
     _uiStateContext: (null: null | UIStateContext),
-    displayMenuSideDrawerComponent: (false: boolean),
+    displayMenuSideDrawerModal: (false: boolean),
     userAuthenticationStatus: (UserAuthType.UNAUTHENTICATED: number | Symbol),
 
     onCloseMenuSideDrawer: () : void => {
@@ -15,7 +15,7 @@ const sideDrawerContainer = {
             console.log("MenuSideDrawerContainer. onCloseMenuSideDrawer. uiStateContext not set");
             return;
         }        
-        sideDrawerContainer._uiStateContext.setDisplayMenuSideDrawerComponent(false);
+        sideDrawerContainer._uiStateContext.setDisplayMenuSideDrawerModal(false);
     }    
 }
 
@@ -32,8 +32,8 @@ type Props = {
 const MenuSideDrawerContainer = (props: Props) => {
     const uiStateContext = React.useContext(UIStateContext);
     sideDrawerContainer._uiStateContext = uiStateContext;
-    sideDrawerContainer.displayMenuSideDrawerComponent = 
-                uiStateContext.displayMenuSideDrawerComponent;
+    sideDrawerContainer.displayMenuSideDrawerModal = 
+                uiStateContext.displayMenuSideDrawerModal;
     sideDrawerContainer.userAuthenticationStatus = uiStateContext.userAuthenticationStatus;
     
     return (props.children)(sideDrawerContainer);
