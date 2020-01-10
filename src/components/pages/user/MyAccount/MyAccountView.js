@@ -8,10 +8,10 @@ import PatientMyAccount from '../../patient/PatientMyAccount/PatientMyAccount';
 import DoctorMyAccount from '../../doctor/DoctorMyAccount/DoctorMyAccount';
 
 type Props = {
-    userAuthStatus: number | Symbol
+    userAuthenticationStatus: number | Symbol
 }
 export default (props: Props) => {
-    switch (props.userAuthStatus) {
+    switch (props.userAuthenticationStatus) {
         case UserAuthType.PATIENT:
             return <PatientMyAccount />;
         case UserAuthType.DOCTOR:
@@ -20,7 +20,7 @@ export default (props: Props) => {
             return <NotificationMessage typeNeedAuthentication />
         default:
             console.log("MyAccountView. No account component when user authentication type is: ",
-                props.userAuthStatus);
+                props.userAuthenticationStatus);
             return null;
     }
 }

@@ -23,7 +23,7 @@ const NavItemButtonCSS = withProps(NavItemButton,
 
 type Props = {
     onItemSelect?: (itemId: number) => void,
-    userAuthStatus: number | Symbol,
+    userAuthenticationStatus: number | Symbol,
     isUserConnectedToAPatientAccount: boolean
 }
 

@@ -24,7 +24,7 @@ const NavItemButtonCSS = withProps(NavItemButton,
 
 type Props = {
     onItemSelect: (itemType: number) => void,
-    userAuthStatus: number | Symbol
+    userAuthenticationStatus: number | Symbol
 }
 
 const ClinicMenuView = (props: Props) => {

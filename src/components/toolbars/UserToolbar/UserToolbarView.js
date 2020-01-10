@@ -12,7 +12,7 @@ import PatientAccountToolbarItem from './PatientAccountToolbarItem/PatientAccoun
 import ToolbarGroup from '../shared/ToolbarGroup/ToolbarGroup';
 
 type Props = {
-    userAuthStatus: number | Symbol,
+    userAuthenticationStatus: number | Symbol,
     isUserConnectedToAPatientAccount: boolean,
     onClinicMenuItemSelect: (itemId: number | Symbol) => void
 }
@@ -25,7 +25,7 @@ const UserToolbarView = (props: Props) => (
             />
 
             <div className={classes.UserItems}>
-                { props.userAuthStatus === UserAuthType.UNAUTHENTICATED
+                { props.userAuthenticationStatus === UserAuthType.UNAUTHENTICATED
                     ? (
                         <LoginToolbarItem
                             onClick={props.onClinicMenuItemSelect}

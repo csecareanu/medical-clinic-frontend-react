@@ -17,7 +17,7 @@ const DoctorMenuSideDrawer = () => (
                     ? (
                         <DoctorMenuSideDrawerView
                             onClose={containerData.onCloseMenuSideDrawer}
-                            userAuthStatus={containerData.userAuthStatus}
+                            userAuthenticationStatus={containerData.userAuthenticationStatus}
                         />
                     )
                     : null

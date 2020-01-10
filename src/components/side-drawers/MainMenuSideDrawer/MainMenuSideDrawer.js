@@ -17,7 +17,7 @@ const MainMenuSideDrawer = () => (
                     ? (
                         <MainMenuSideDrawerView
                             onClose={containerData.onCloseMenuSideDrawer}
-                            userAuthStatus={containerData.userAuthStatus}
+                            userAuthenticationStatus={containerData.userAuthenticationStatus}
                         />
                     )
                     : null

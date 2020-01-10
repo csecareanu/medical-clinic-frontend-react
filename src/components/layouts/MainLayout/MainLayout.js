@@ -18,7 +18,7 @@ const MainLayout = (props: Props) => {
                 (containerData) => (
                     <MainLayoutView
                         onOpenMenuSideDrawer={containerData.onOpenMenuSideDrawer}
-                        userAuthStatus={containerData.userAuthStatus}
+                        userAuthenticationStatus={containerData.userAuthenticationStatus}
                         headerType={props.headerType} 
                     >
                         {props.children}

@@ -16,7 +16,7 @@ import DoctorMenuSideDrawer from '../../side-drawers/DoctorMenuSideDrawer/Doctor
 type Props = {
     headerType: PageHeaderType,
     onOpenMenuSideDrawer: () => void,
-    userAuthStatus: number | Symbol,
+    userAuthenticationStatus: number | Symbol,
     children: React.Node
 }
 
@@ -53,7 +53,7 @@ const getHeaderComponent = (props: Props) : React.Node => {
         case PageHeaderType.MAIN:
             return (
                 <MainHeader
-                    userAuthStatus={props.userAuthStatus}
+                    userAuthenticationStatus={props.userAuthenticationStatus}
                     onOpenMenuSideDrawer={props.onOpenMenuSideDrawer}
             /> );
         case PageHeaderType.DOCTOR:

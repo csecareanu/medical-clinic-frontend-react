@@ -5,7 +5,7 @@ import * as React from 'react';
 import UIStateContext from '../../../../react-context/UIState/UIState-context';
 
 type ContainerData = {
-    displayLoginComponent: boolean,
+    displayUserAuthenticateModal: boolean,
     navigateToURIOnSuccessfullyAuth: string,
     navigateToURIOnCancelAuth: string,
     createAccountPending: boolean,
@@ -43,12 +43,12 @@ class UserAuthenticateContainer extends React.Component<Props, State> {
             loginUserPending: false
         }
 
-        //TODO change navigateToURIOnSuccessfullyLogin -> navigateToURIOnSuccessfullyAuth and
-        // navigateToURIOnCancelLogin -> navigateToURIOnCancelAuth
+        //TODO change navigateToURIOnSuccessfullyAuth -> navigateToURIOnSuccessfullyAuth and
+        // navigateToURIOnCancelAuth -> navigateToURIOnCancelAuth
         this.containerData = {
-            displayLoginComponent: context.displayLoginComponent,
-            navigateToURIOnSuccessfullyAuth: context.navigateToURIOnSuccessfullyLogin,
-            navigateToURIOnCancelAuth: context.navigateToURIOnCancelLogin,
+            displayUserAuthenticateModal: context.displayUserAuthenticateModal,
+            navigateToURIOnSuccessfullyAuth: context.navigateToURIOnSuccessfullyAuth,
+            navigateToURIOnCancelAuth: context.navigateToURIOnCancelAuth,
 
             createAccountPending: this.state.createAccountPending,
             loginUserPending: this.state.loginUserPending,
@@ -97,7 +97,7 @@ class UserAuthenticateContainer extends React.Component<Props, State> {
     // A new account has been created
     onAccountCreated = () => {
         this.updateStateResetAuthPending();
-        this.context.setDisplayLoginComponent(false);
+        this.context.setDisplayUserAuthenticateModal(false);
     }
 
     // The user chose to use the 'login existing user' form
@@ -122,20 +122,21 @@ class UserAuthenticateContainer extends React.Component<Props, State> {
     }
 
     closeLoginComponent = () => {
-        this.context.setNavigateToURIOnCancelLogin(null);
-        this.context.setNavigateToURIOnSuccessfullyLogin(null);
-        this.context.setDisplayLoginComponent(false);
+        this.context.setNavigateToURIOnCancelAuth(null);
+        this.context.setNavigateToURIOnSuccessfullyAuth(null);
+        this.context.setDisplayUserAuthenticateModal(false);
     }
 
     render() {
         const uiStateContext = this.context;
 
         //updating the container data parameter with the latest values
-        this.containerData.displayLoginComponent = uiStateContext.displayLoginComponent;
+        this.containerData.displayUserAuthenticateModal = 
+                    uiStateContext.displayUserAuthenticateModal;
         this.containerData.navigateToURIOnSuccessfullyAuth = 
-                uiStateContext.navigateToURIOnSuccessfullyLogin;
+                uiStateContext.navigateToURIOnSuccessfullyAuth;
         this.containerData.navigateToURIOnCancelAuth = 
-                uiStateContext.navigateToURIOnCancelLogin;
+                uiStateContext.navigateToURIOnCancelAuth;
 
         this.containerData.createAccountPending = this.state.createAccountPending;
         this.containerData.loginUserPending = this.state.loginUserPending;

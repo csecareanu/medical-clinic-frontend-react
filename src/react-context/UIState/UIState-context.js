@@ -13,24 +13,24 @@ import { UserAuthType } from '../../shared/UserAuthType';
  * 
  */
 const UIStateContext = React.createContext({
-    userAuthStatus: UserAuthType.UNAUTHENTICATED,
+    userAuthenticationStatus: UserAuthType.UNAUTHENTICATED,
     // a doctor can connect to a patient account in order to create an appointment 
     // or change patient's personal data.
     isUserConnectedToAPatientAccount: false,
 
-    displayLoginComponent: false,
-    navigateToURIOnCancelLogin: null,
-    navigateToURIOnSuccessfullyLogin: null,
+    displayUserAuthenticateModal: false,
+    navigateToURIOnCancelAuth: null,
+    navigateToURIOnSuccessfullyAuth: null,
 
     displayLogoutComponent: false,
 
     displayMenuSideDrawerComponent: false,
 
-    setUserAuthenticationStatus: (userAuthStatus) => {},
+    setUserAuthenticationStatus: (userAuthenticationStatus) => {},
     setUserConnectedToPatientAccount: (isConnected) => {},   
-    setDisplayLoginComponent: (show) => {},
-    setNavigateToURIOnCancelLogin: (uri) => {},
-    setNavigateToURIOnSuccessfullyLogin: (uri) => {},
+    setDisplayUserAuthenticateModal: (show) => {},
+    setNavigateToURIOnCancelAuth: (uri) => {},
+    setNavigateToURIOnSuccessfullyAuth: (uri) => {},
     setDisplayLogoutComponent: (show) => {},
     setDisplayMenuSideDrawerComponent: (show) => {}
 });

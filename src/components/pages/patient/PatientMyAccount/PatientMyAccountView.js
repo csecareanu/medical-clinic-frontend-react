@@ -13,7 +13,7 @@ import MainLayout from '../../../layouts/MainLayout/MainLayout';
 import UnderConstruction from '../../shared/UnderConstruction/UnderConstruction';
 
 type Props = {
-    userAuthStatus: number | Symbol,
+    userAuthenticationStatus: number | Symbol,
     isUserConnectedToAPatientAccount: boolean,
     onNavigationItemSelect: (itemType: number | Symbol) => void 
 }
@@ -21,9 +21,9 @@ type Props = {
 const PatientAccountView = (props: Props) => {
 
     // Only a patient or a doctor connected to a patient account can see this page
-    if (props.userAuthStatus !== UserAuthType.PATIENT) {
+    if (props.userAuthenticationStatus !== UserAuthType.PATIENT) {
 
-        if (props.userAuthStatus !== UserAuthType.DOCTOR) {
+        if (props.userAuthenticationStatus !== UserAuthType.DOCTOR) {
             return <NotificationMessage typeAccessNotAllowed />;
         }
 

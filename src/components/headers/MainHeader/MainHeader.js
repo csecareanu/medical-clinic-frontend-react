@@ -15,7 +15,7 @@ import SideDrawerToolbar from '../../toolbars/SideDrawerToolbar/SideDrawerToolba
 import { UserAuthType } from '../../../shared/UserAuthType';
 
 type Props = {
-    userAuthStatus: number | Symbol,
+    userAuthenticationStatus: number | Symbol,
     onOpenMenuSideDrawer: () => void
 }
 
@@ -37,7 +37,7 @@ const MainHeader = (props: Props) => {
 
                 <div className={commonClasses.LargeScreenOnly} >
                     <MenuToolbar>
-                        {props.userAuthStatus === UserAuthType.DOCTOR ? 
+                        {props.userAuthenticationStatus === UserAuthType.DOCTOR ? 
                             <DoctorMainMenu /> : null
                         }
                         <ClinicMenu />

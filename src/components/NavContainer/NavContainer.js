@@ -22,7 +22,7 @@ import UIStateContext from '../../react-context/UIState/UIState-context.js';
 const containerData = {
     history: (null: null | RouterHistory),
     _uiStateContext: (null: null | UIStateContext),
-    userAuthStatus: (UserAuthType.UNAUTHENTICATED: number | Symbol),
+    userAuthenticationStatus: (UserAuthType.UNAUTHENTICATED: number | Symbol),
     isUserConnectedToAPatientAccount: (false: boolean),
 
     onClinicMenuItemSelect: (itemType: number) => {
@@ -40,7 +40,7 @@ const containerData = {
 
         switch (itemType) {
             case UserMenuItem.LOGIN:
-                containerData._uiStateContext.setDisplayLoginComponent(true);
+                containerData._uiStateContext.setDisplayUserAuthenticateModal(true);
                 break;
             case UserMenuItem.LOGOUT:
                 uiStateContext.setUserAuthenticationStatus(UserAuthType.UNAUTHENTICATED);
@@ -49,10 +49,10 @@ const containerData = {
                 history.push({pathname: ClinicLinkLocationName.HOME});
                 break;
             case UserMenuItem.MY_ACCOUNT:
-                if (uiStateContext.userAuthStatus === UserAuthType.UNAUTHENTICATED) {
-                    uiStateContext.setNavigateToURIOnSuccessfullyLogin(
+                if (uiStateContext.userAuthenticationStatus === UserAuthType.UNAUTHENTICATED) {
+                    uiStateContext.setNavigateToURIOnSuccessfullyAuth(
                             UserLinkLocationName.MY_ACCOUNT);
-                    uiStateContext.setDisplayLoginComponent(true);
+                    uiStateContext.setDisplayUserAuthenticateModal(true);
                     break;
                 }
                 history.push({pathname: UserLinkLocationName.MY_ACCOUNT});            
@@ -76,10 +76,10 @@ const containerData = {
                 history.push({pathname: PatientLinkLocationName.MY_ACCOUNT});
                 break;
             case PatientMenuItem.NEW_APPOINTMENT:
-                if (uiStateContext.userAuthStatus === UserAuthType.UNAUTHENTICATED) {
-                    uiStateContext.setNavigateToURIOnSuccessfullyLogin(
+                if (uiStateContext.userAuthenticationStatus === UserAuthType.UNAUTHENTICATED) {
+                    uiStateContext.setNavigateToURIOnSuccessfullyAuth(
                             PatientLinkLocationName.NEW_APPOINTMENT);
-                    uiStateContext.setDisplayLoginComponent(true);
+                    uiStateContext.setDisplayUserAuthenticateModal(true);
                     break;
                 }
                 history.push({pathname: PatientLinkLocationName.NEW_APPOINTMENT});
@@ -123,7 +123,7 @@ const NavContainer = (props: Props) => {
     const uiStateContext = React.useContext(UIStateContext);
     containerData._uiStateContext = uiStateContext;
     containerData.history = props.history;
-    containerData.userAuthStatus = uiStateContext.userAuthStatus;
+    containerData.userAuthenticationStatus = uiStateContext.userAuthenticationStatus;
     containerData.isUserConnectedToAPatientAccount = uiStateContext.isUserConnectedToAPatientAccount;
 
     return (props.children)(containerData);

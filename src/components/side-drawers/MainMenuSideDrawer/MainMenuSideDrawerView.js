@@ -9,7 +9,7 @@ import { UserAuthType } from '../../../shared/UserAuthType';
 /**
  * Presentational component used to display the main menu in a side drawer window.
  * 
- * @param {boolean} props.userAuthStatus - True if the logged user is a doctor. 
+ * @param {boolean} props.userAuthenticationStatus - True if the logged user is a doctor. 
  * The menu differs depending on user type.
  * @param {function} props.onClose - Callback used to notify the parent to close the side drawer.
   * The component doesn't send directly a close request to the user interface context because 
@@ -19,7 +19,7 @@ const MainMenuSideDrawerView = (props) => {
     return (
         <div className={commonClasses.SmallScreenOnly}>
             <SideDrawerView show onClose={props.onClose}>
-                {props.userAuthStatus === UserAuthType.DOCTOR 
+                {props.userAuthenticationStatus === UserAuthType.DOCTOR 
                     ? <DoctorMainMenu onItemSelect={props.onClose} /> 
                     : null
                 }

@@ -11,7 +11,7 @@ const UserAuthenticate = () => (
     {
         (userAuthData/* ContainerData */) => {
 
-            if (userAuthData.displayLoginComponent === false) {
+            if (userAuthData.displayUserAuthenticateModal === false) {
                 return null;
             }
 

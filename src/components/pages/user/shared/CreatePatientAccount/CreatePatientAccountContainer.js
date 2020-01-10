@@ -50,13 +50,13 @@ class CreatePatientAccountContainer extends React.Component<Props, CreateNewAcco
 
         /*
         uiStateContext.setUserAuthenticationStatus(UserAuthType.PATIENT);
-        uiStateContext.setDisplayLoginComponent(false);
+        uiStateContext.setDisplayUserAuthenticateModal(false);
 
-        if (uiStateContext.navigateToURIOnSuccessfullyLogin) {
+        if (uiStateContext.navigateToURIOnSuccessfullyAuth) {
             this.props.history.push({
-                pathname: uiStateContext.navigateToURIOnSuccessfullyLogin
+                pathname: uiStateContext.navigateToURIOnSuccessfullyAuth
             });
-            uiStateContext.setNavigateToURIOnSuccessfullyLogin(null);
+            uiStateContext.setNavigateToURIOnSuccessfullyAuth(null);
         }
         */
     }

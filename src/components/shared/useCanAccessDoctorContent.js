@@ -9,7 +9,7 @@ import { UserAuthType } from '../../shared/UserAuthType';
  */
 const useCanAccessDoctorContent = () => {
     const uiStateContext = useContext(UIStateContext);
-    if(uiStateContext.userAuthStatus !== UserAuthType.DOCTOR) {
+    if(uiStateContext.userAuthenticationStatus !== UserAuthType.DOCTOR) {
         return false;
     }
     return true;

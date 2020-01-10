@@ -13,12 +13,12 @@ import NotificationMessage from '../../shared/NotificationMessage/NotificationMe
 import UnderConstruction from '../../shared/UnderConstruction/UnderConstruction';
 
 type Props = {
-    userAuthStatus: number | Symbol,
+    userAuthenticationStatus: number | Symbol,
     onNavigationItemSelect: (itemType: number | Symbol) => void 
 }
 
 const DoctorMyAccountView = (props: Props) => {
-    if (props.userAuthStatus !== UserAuthType.DOCTOR) {
+    if (props.userAuthenticationStatus !== UserAuthType.DOCTOR) {
         return <NotificationMessage typeAccessNotAllowed />;
     }
 

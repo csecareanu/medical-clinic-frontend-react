@@ -14,7 +14,7 @@ const DoctorMenu = (props: Props) => (
     {
         (navigationData) => (
             <DoctorMainMenuView
-                userAuthStatus={navigationData.userAuthStatus}
+                userAuthenticationStatus={navigationData.userAuthenticationStatus}
                 isUserConnectedToAPatientAccount={navigationData.isUserConnectedToAPatientAccount}
                 onItemSelect={ (itemType: number) => {
                     navigationData.onClinicMenuItemSelect(itemType);

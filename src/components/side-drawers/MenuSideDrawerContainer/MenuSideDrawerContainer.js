@@ -8,7 +8,7 @@ import { UserAuthType } from '../../../shared/UserAuthType';
 const sideDrawerContainer = {
     _uiStateContext: (null: null | UIStateContext),
     displayMenuSideDrawerComponent: (false: boolean),
-    userAuthStatus: (UserAuthType.UNAUTHENTICATED: number | Symbol),
+    userAuthenticationStatus: (UserAuthType.UNAUTHENTICATED: number | Symbol),
 
     onCloseMenuSideDrawer: () : void => {
         if(sideDrawerContainer._uiStateContext == null) {
@@ -34,7 +34,7 @@ const MenuSideDrawerContainer = (props: Props) => {
     sideDrawerContainer._uiStateContext = uiStateContext;
     sideDrawerContainer.displayMenuSideDrawerComponent = 
                 uiStateContext.displayMenuSideDrawerComponent;
-    sideDrawerContainer.userAuthStatus = uiStateContext.userAuthStatus;
+    sideDrawerContainer.userAuthenticationStatus = uiStateContext.userAuthenticationStatus;
     
     return (props.children)(sideDrawerContainer);
 }

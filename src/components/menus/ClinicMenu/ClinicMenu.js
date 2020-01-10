@@ -14,7 +14,7 @@ const ClinicMenu = (props: Props) => (
     {
         (navigationData) => (
             <ClinicMenuView 
-                userAuthStatus={navigationData.userAuthStatus}
+                userAuthenticationStatus={navigationData.userAuthenticationStatus}
                 onItemSelect={ (itemType: number) => {
                     navigationData.onClinicMenuItemSelect(itemType);
                     if (props.onItemSelect) {

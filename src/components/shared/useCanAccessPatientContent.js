@@ -11,7 +11,7 @@ import { UserAuthType } from '../../shared/UserAuthType';
 const useCanAccessPatientContent = () => {
     const uiStateContext = useContext(UIStateContext);
 
-    if(uiStateContext.userAuthStatus === UserAuthType.PATIENT) {
+    if(uiStateContext.userAuthenticationStatus === UserAuthType.PATIENT) {
         return true;
     }
 

@@ -10,7 +10,7 @@ const PatientAccount = () => (
     {
         (navigationData) => (
             <PatientMyAccountView
-                userAuthStatus={navigationData.userAuthStatus}
+                userAuthenticationStatus={navigationData.userAuthenticationStatus}
                 isUserConnectedToAPatientAccount={navigationData.isUserConnectedToAPatientAccount}
                 onNavigationItemSelect={ (itemType: number | Symbol) => {
                     navigationData.onClinicMenuItemSelect(itemType);

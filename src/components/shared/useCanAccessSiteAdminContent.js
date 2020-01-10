@@ -9,7 +9,7 @@ import { UserAuthType } from '../../shared/UserAuthType';
 const useCanAccessSiteAdminContent = () => {
     const uiStateContext = useContext(UIStateContext);
 
-    if(uiStateContext.userAuthStatus === UserAuthType.SITE_ADMIN) {
+    if(uiStateContext.userAuthenticationStatus === UserAuthType.SITE_ADMIN) {
         return true;
     }
 

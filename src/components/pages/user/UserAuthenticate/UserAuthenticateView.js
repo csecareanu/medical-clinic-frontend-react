@@ -29,7 +29,7 @@ const useEffectSetup = () => {
 }
 
 type Props = {
-    displayLoginComponent: boolean,
+    displayUserAuthenticateModal: boolean,
     navigateToURIOnSuccessfullyAuth: string,
     navigateToURIOnCancelAuth: string,
     createAccountPending: boolean,

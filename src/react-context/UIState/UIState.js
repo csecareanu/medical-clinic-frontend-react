@@ -10,13 +10,13 @@ type Props = {
 };
 
 type State = {
-  userAuthStatus: number | Symbol,
+  userAuthenticationStatus: number | Symbol,
 
   isUserConnectedToAPatientAccount: boolean,
 
-  displayLoginComponent: boolean,
-  navigateToURIOnCancelLogin: string | null,
-  navigateToURIOnSuccessfullyLogin: string | null,
+  displayUserAuthenticateModal: boolean,
+  navigateToURIOnCancelAuth: string | null,
+  navigateToURIOnSuccessfullyAuth: string | null,
 
   displayLogoutComponent: boolean,
 
@@ -36,13 +36,13 @@ type State = {
 class UIState extends React.Component<Props, State> {
 
     state = {
-        userAuthStatus: UserAuthType.UNAUTHENTICATED,
+        userAuthenticationStatus: UserAuthType.UNAUTHENTICATED,
 
         isUserConnectedToAPatientAccount: false,
 
-        displayLoginComponent: false,
-        navigateToURIOnCancelLogin: null,
-        navigateToURIOnSuccessfullyLogin: null,
+        displayUserAuthenticateModal: false,
+        navigateToURIOnCancelAuth: null,
+        navigateToURIOnSuccessfullyAuth: null,
 
         displayLogoutComponent: false,
 
@@ -54,28 +54,28 @@ class UIState extends React.Component<Props, State> {
             <UIStateContext.Provider
                 value={{
                     // variables
-                    userAuthStatus: this.state.userAuthStatus,
+                    userAuthenticationStatus: this.state.userAuthenticationStatus,
                     isUserConnectedToAPatientAccount: this.state.isUserConnectedToAPatientAccount,
-                    displayLoginComponent: this.state.displayLoginComponent,
-                    navigateToURIOnCancelLogin: this.state.navigateToURIOnCancelLogin,
-                    navigateToURIOnSuccessfullyLogin: this.state.navigateToURIOnSuccessfullyLogin,
+                    displayUserAuthenticateModal: this.state.displayUserAuthenticateModal,
+                    navigateToURIOnCancelAuth: this.state.navigateToURIOnCancelAuth,
+                    navigateToURIOnSuccessfullyAuth: this.state.navigateToURIOnSuccessfullyAuth,
                     displayLogoutComponent: this.state.displayLogoutComponent,
                     displayMenuSideDrawerComponent: this.state.displayMenuSideDrawerComponent,
                     // methods
                     setUserAuthenticationStatus: (userAuthenticationType: number) => { 
-                        this.setState({userAuthStatus: userAuthenticationType}) 
+                        this.setState({userAuthenticationStatus: userAuthenticationType}) 
                     },
                     setUserConnectedToPatientAccount: (isConnected: boolean) => {
                         this.setState({isUserConnectedToAPatientAccount: isConnected})
                     },
-                    setDisplayLoginComponent: (show: boolean) => {
-                        this.setState({displayLoginComponent: show})
+                    setDisplayUserAuthenticateModal: (show: boolean) => {
+                        this.setState({displayUserAuthenticateModal: show})
                     },
-                    setNavigateToURIOnCancelLogin: (uri: string | null) => {
-                        this.setState({navigateToURIOnCancelLogin: uri})
+                    setNavigateToURIOnCancelAuth: (uri: string | null) => {
+                        this.setState({navigateToURIOnCancelAuth: uri})
                     },
-                    setNavigateToURIOnSuccessfullyLogin: (uri: string | null) => {
-                        this.setState({navigateToURIOnSuccessfullyLogin: uri})
+                    setNavigateToURIOnSuccessfullyAuth: (uri: string | null) => {
+                        this.setState({navigateToURIOnSuccessfullyAuth: uri})
                     },
                     setDisplayLogoutComponent: (show: boolean) => {
                         this.setState({displayLogoutComponent: show})

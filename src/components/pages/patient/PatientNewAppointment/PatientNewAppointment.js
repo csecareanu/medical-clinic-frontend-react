@@ -12,14 +12,14 @@ const PatientAccount = () => (
     <NavContainer>
     {
         (navigationData) => {
-            if (navigationData.userAuthStatus === UserAuthType.DOCTOR && 
+            if (navigationData.userAuthenticationStatus === UserAuthType.DOCTOR && 
                 navigationData.isUserConnectedToAPatientAccount === false) {
                     navigationData.onClinicMenuItemSelect(DoctorMenuItem.LOG_INTO_PATIENT_ACCOUNT);
             }
             
             return (
                 <PatientNewAppointmentView
-                    userAuthStatus={navigationData.userAuthStatus}
+                    userAuthenticationStatus={navigationData.userAuthenticationStatus}
                     isUserConnectedToAPatientAccount={navigationData.isUserConnectedToAPatientAccount}
                 />
             );

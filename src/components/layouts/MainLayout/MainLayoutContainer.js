@@ -7,7 +7,7 @@ import { UserAuthType } from '../../../shared/UserAuthType';
 
 const containerData = {
     _uiStateContext: (null: null | UIStateContext),
-    userAuthStatus: (UserAuthType.UNAUTHENTICATED: number | Symbol),
+    userAuthenticationStatus: (UserAuthType.UNAUTHENTICATED: number | Symbol),
 
     onOpenMenuSideDrawer: () : void => {
         if(containerData._uiStateContext == null) {
@@ -25,7 +25,7 @@ type Props = {
 const MainLayoutContainer = (props: Props) => {
     const uiStateContext = React.useContext(UIStateContext);
     containerData._uiStateContext = uiStateContext;
-    containerData.userAuthStatus = uiStateContext.userAuthStatus;
+    containerData.userAuthenticationStatus = uiStateContext.userAuthenticationStatus;
 
     return (props.children)(containerData);
 }

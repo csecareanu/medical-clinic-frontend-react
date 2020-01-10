@@ -10,7 +10,7 @@ const PatientAccount = () => (
     {
         (navigationData) => (
             <MyAccountView
-                userAuthStatus={navigationData.userAuthStatus}
+                userAuthenticationStatus={navigationData.userAuthenticationStatus}
             />
         )
     }
