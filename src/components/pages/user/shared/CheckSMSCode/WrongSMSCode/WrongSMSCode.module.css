@@ -1,0 +1,12 @@
+
+
+.WrongCode {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.Message {
+    font-weight: bold;
+    color: #6B2022;
+}

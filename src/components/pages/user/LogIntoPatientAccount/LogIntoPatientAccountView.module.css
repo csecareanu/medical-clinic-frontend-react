@@ -1,11 +1,11 @@
-.NewAccount {
+.Login {
     display: flex;
     justify-content: center;
     width:100%;
     background-color: #ffffff;
 }
 
-.NewAccountContent {
+.LoginContent {
     background-color: #ffffff;
     padding: 0.5rem;
     max-width: 30rem;  

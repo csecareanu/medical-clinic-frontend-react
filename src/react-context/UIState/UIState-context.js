@@ -18,7 +18,7 @@ const UIStateContext = React.createContext({
     // or change patient's personal data.
     isUserConnectedToAPatientAccount: false,
 
-    displayUserAuthenticateModal: false,
+    displayUserAuthenticationModal: false,
     navigateToURIOnCancelAuth: null,
     navigateToURIOnSuccessfullyAuth: null,
 
@@ -28,7 +28,7 @@ const UIStateContext = React.createContext({
 
     setUserAuthenticationStatus: (userAuthenticationStatus) => {},
     setUserConnectedToPatientAccount: (isConnected) => {},   
-    setDisplayUserAuthenticateModal: (show) => {},
+    setDisplayUserAuthenticationModal: (show) => {},
     setNavigateToURIOnCancelAuth: (uri) => {},
     setNavigateToURIOnSuccessfullyAuth: (uri) => {},
     setDisplayUserLogoutModal: (show) => {},

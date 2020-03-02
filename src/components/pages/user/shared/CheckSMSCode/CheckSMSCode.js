@@ -75,48 +75,46 @@ class CheckSMSCode extends React.Component<Props, State> {
                 }}
             />           
         return (
-            <div className={classes.MainWindow}>
-                <div className={classes.MainWindowContent}>
-                    <div className={classes.CancelButton}>
-                        <Button
-                            type={ButtonType.DANGER}
-                            onClick={this.props.onCancel}
-                        >
-                            <FormattedMessage id="cancel" defaultMessage={'Cancel'}/>
-                        </Button>
-                    </div>
-
-                    <FormControl.HorizontalSep repeat={2}/>
-
-                    {/* Check the SMS code in order to verify the phone number is valid */}
-                    <FormControl.Group name={this.props.title} stressedName>
-                        <FormControl.HorizontalSep repeat={2}/>
-            
-                        <FormControl.Group
-                            name={checkSMSCodeLine1Text}
-                            nameLine2={checkSMSCodeLine2Text}
-                        >
-                            <FormControl.Text
-                                size={20}
-                                value={this.state.elementsStatus[Elements.SMS_CODE].value}
-                                onChange={(event) => { 
-                                    this.inputChangedHandler(event, Elements.SMS_CODE) 
-                                }}
-                            />
-                        </FormControl.Group>
-
-                        <FormControl.HorizontalSep repeat={2} />
-
-                        <Button
-                            type={ButtonType.SUCCESS}
-                            fullWidth
-                            onClick={() => { this.onCheckCode(this.props.onCheckCode) }}
-                        >
-                            <FormattedMessage id="verify_code" defaultMessage={'Verify'} />
-                        </Button>
-                    </FormControl.Group>
+            <React.Fragment>
+                <div className={classes.CancelButton}>
+                    <Button
+                        type={ButtonType.DANGER}
+                        onClick={this.props.onCancel}
+                    >
+                        <FormattedMessage id="cancel" defaultMessage={'Cancel'}/>
+                    </Button>
                 </div>
-            </div>
+
+                <FormControl.HorizontalSep repeat={2} />
+
+                {/* Check the SMS code in order to verify the phone number is valid */}
+                <FormControl.Group name={this.props.title} stressedName>
+                    <FormControl.HorizontalSep repeat={2} />
+        
+                    <FormControl.Group
+                        name={checkSMSCodeLine1Text}
+                        nameLine2={checkSMSCodeLine2Text}
+                    >
+                        <FormControl.Text
+                            size={20}
+                            value={this.state.elementsStatus[Elements.SMS_CODE].value}
+                            onChange={(event) => { 
+                                this.inputChangedHandler(event, Elements.SMS_CODE) 
+                            }}
+                        />
+                    </FormControl.Group>
+
+                    <FormControl.HorizontalSep repeat={2} />
+
+                    <Button
+                        type={ButtonType.SUCCESS}
+                        fullWidth
+                        onClick={() => { this.onCheckCode(this.props.onCheckCode) }}
+                    >
+                        <FormattedMessage id="verify_code" defaultMessage={'Verify'} />
+                    </Button>
+                </FormControl.Group>
+            </React.Fragment>
         )
     }
 }

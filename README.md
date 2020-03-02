@@ -24,7 +24,11 @@
 17. XSTATE A state transition which defines what the next state is, given the current state and event: https://xstate.js.org/docs/guides/transitions.html#machine-transition-method
 --
 
-View - a view will not navigate to another page
+-
+View 
+    - a view will not navigate to another page
+    - will not import data from a container
+
 Controller
 Container
 
@@ -45,6 +49,26 @@ Connect component: legacy connect components
 forms components: Input , Upload , etc …
 
 From Presentational and Container Components by Dan Abramov: https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0
+
+- 
+
+Codul ce foloseste starea aplicatiei (UIStateContext) ar trebui izolat in cat mai putine containere. 
+Daca complexitatea unui container creste atunci:
+    - sparte container-ul in mai multe containere in functie de functionalitate
+ 
+ Daca un view este folosit in mai multe containere, iar functionaliatea view-ului este 
+ intr-un container, atunci muta functionalitatea din container in view (creeate container)
+ pentru view. In cazul in care noul container (al view-ului) trebuie sa modifice diferit
+ starea aplicatiei, atunci adauga parametrii in view incat sa poti face ambele lucruri in
+ container-ul view-ului.
+
+Chiar daca este bine sa folosim cat mai putine container-e, iar logica de container dintr-o componenta sa o mutam in jos spre un alt container parinte, trebuie totusi pastrat un echilibru si sa nu aglomeram container-ul parinte, sa il punem sa faca multe lucruri pe care apoi sa le transimta care copiii copiilor.
+
+ex: UserAuthenticationContaier (care este o fereastra modala) are copii pe LoginExistingAccount si CreatePatientAccount.
+Ambele componente copil ar putea fi simple view-uri iar parintele sa se ocupe de procesul de logare si cel de create de cont nou.
+Insa LoginExistingAccount si CreatePatientAccount pot fi folosite si de alt container care va trebui sa implemtenteze si el functionalitatea. 
+Atunci putem muta functionaliteata in containere create pentru LoginExistingAccount si CreatePatientAccount si prin parametrii putem modifica comportamentul containerelor nou create (adica sa logeze user-ul pe succes sau sa ataseze un pacient la user-ul medic deja logat)
+In cazul asta partea neplacta este ca accesam starea aplicatiei din multe componente mici.
 
 Presentational components:
 * Are concerned with how things look.

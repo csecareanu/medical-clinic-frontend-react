@@ -1,71 +1,128 @@
-import * as React from 'react';
-import { withRouter } from 'react-router-dom';
-import type { RouterHistory } from 'react-router';
+// @flow
 
-import { type CreateNewAccountState } from './CreatePatientAccount';
+import * as React from 'react';
+
+import { CreateAccountStatus, NewAccountRegMode } from './CreatePatientAccount';
+import UIStateContext from '../../../../../react-context/UIState/UIState-context';
+import { UserAuthType } from '../../../../../shared/UserAuthType';
 
 export type ContainerData = {
-    authenticationState: AuthenticationState,
-    onCreateAccount: () => void
+    createAccountStatus: $Values<typeof CreateAccountStatus>,
+    onCreateAccount: () => void,
+    onCheckSMSCode: (code: string) => void,
+    onResendSMSCode: () => void,
+    onCloseWrongSMSCode: () => void,
+    onCancelCheckSMSCode: () => void
 }
-
 
 type Props = {
-    navigateToURIOnSuccessfullyAuth: string,
-    onCreateAccountPending: () => void,
-    onCancelCreateAccount: () => void,
-    onAccountCreated: () => void,
-    children: (containerData: ContainerData) => React.Node,
-    history: RouterHistory
+    registrationMode: $Values<typeof NewAccountRegMode>,
+    children: (containerData: ContainerData) => React.Node
 }
 
-class CreatePatientAccountContainer extends React.Component<Props, CreateNewAccountState> {
+type State = {
+    createAccountStatus: $Values<typeof CreateAccountStatus>
+}
+
+/**
+ * This class is intended only to create a new account. It should not alter the UIStateContext
+ * because it is in a 'shared' folder and it is not its scope to know if a patient wants to
+ * log in creating a new account or a doctor wants to log in as a patient creating a new patient
+ * account. 
+ * Do not use UIStateContext (do not use code like 
+ * 'uiStateContext.setUserAuthenticationStatus(UserAuthType.PATIENT);')
+ */
+class CreatePatientAccountContainer extends React.Component<Props, State> {
     containerData: ContainerData;
+
+    static contextType = UIStateContext;
 
     constructor () {
         super();
 
         this.state = {
-            waitingUserToEnterData: true,
-            checkingSMSCode: false,
-            isSMSCodeValid: false
+            createAccountStatus: CreateAccountStatus.WAIT_USER_DATA
         }
 
         this.containerData = {
-            authenticationState: this.state,
-            onCreateAccount: this.onCreateAccount
+            createAccountStatus: this.state.createAccountStatus,
+            onCreateAccount: this.onCreateAccount,
+            onCheckSMSCode: this.onCheckSMSCode,
+            onResendSMSCode: this.onResendSMSCode,
+            onCloseWrongSMSCode: this.onCloseWrongSMSCode,
+            onCancelCheckSMSCode: this.onCancelCheckSMSCode
         }
     }
 
     onCreateAccount = (/*, accountInfo*/) : void => {
-        //const uiStateContext = this.context;
+        this.setState({
+            createAccountStatus: CreateAccountStatus.CHECK_SMS_CODE
+        });
+    }
 
-        const state = {
-            waitingUserToEnterData: false,
-            checkingSMSCode: true,
-            isSMSCodeValid: false
-        }
+    onCheckSMSCode = (code: string) => {
+        const uiStateContext = this.context;
 
-        this.setState(state);
-
-        /*
-        uiStateContext.setUserAuthenticationStatus(UserAuthType.PATIENT);
-        uiStateContext.setDisplayUserAuthenticateModal(false);
-
-        if (uiStateContext.navigateToURIOnSuccessfullyAuth) {
-            this.props.history.push({
-                pathname: uiStateContext.navigateToURIOnSuccessfullyAuth
+        if (code === '0') {
+            this.setState({
+                createAccountStatus: CreateAccountStatus.CHECK_SMS_CODE_VALIDATE_WRONG
             });
-            uiStateContext.setNavigateToURIOnSuccessfullyAuth(null);
+            return;
         }
-        */
+
+        this.setState({
+            createAccountStatus: CreateAccountStatus.CHECK_SMS_CODE_VALIDATE_SUCCESS
+        });
+
+        if (this.props.registrationMode === NewAccountRegMode.AS_NEW_USER) {
+
+            let newAuthStatus = UserAuthType.UNAUTHENTICATED;
+
+            if(code === "m") {
+                newAuthStatus = UserAuthType.DOCTOR;
+            }
+            else if (code === "a") {
+                newAuthStatus = UserAuthType.SITE_ADMIN;
+            }
+            else {
+                newAuthStatus = UserAuthType.PATIENT;
+            }
+
+            uiStateContext.setUserAuthenticationStatus(newAuthStatus);
+
+        } else if (this.props.registrationMode === 
+                    NewAccountRegMode.AS_PATIENT_ATTACHED_TO_DOCTOR_ACCOUNT) {
+            uiStateContext.setUserConnectedToPatientAccount(true);
+        } else {
+            console.log("CreatePatientAccountContainer. onCheckSMSCode. Unknown registrationMode: ", 
+                this.props.registrationMode);
+            return;
+        }
+    }
+
+    onResendSMSCode = () => {
+        this.setState({
+            createAccountStatus: CreateAccountStatus.CHECK_SMS_CODE
+        });
+    }
+
+    onCancelCheckSMSCode = () : void => {
+        this.setState({
+            createAccountStatus: CreateAccountStatus.WAIT_USER_DATA
+        });
+    }
+
+    onCloseWrongSMSCode = () : void => {
+        this.setState({
+            createAccountStatus: CreateAccountStatus.CHECK_SMS_CODE
+        });
     }
 
     render() {
         // Updating the container data parameter with the latest values
-        this.containerData.authenticationState = this.state;
+        this.containerData.createAccountStatus = this.state.createAccountStatus;
         return (this.props.children)(this.containerData);
     }
 }
 
-export default withRouter(CreatePatientAccountContainer);
+export default CreatePatientAccountContainer;

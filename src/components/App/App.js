@@ -10,14 +10,14 @@ import ClinicContactPage from '../pages/clinic/ClinicContactPage/ClinicContactPa
 import ClinicDoctorsPage from '../pages/clinic/ClinicDoctorsPage/ClinicDoctorsPage';
 import ClinicPricesPage from '../pages/clinic/ClinicPricesPage/ClinicPricesPage';
 
-import UserAuthenticate from '../pages/user/UserAuthenticate/UserAuthenticate';
+import UserAuthentication from '../pages/user/UserAuthentication/UserAuthentication';
 import UserLogout from '../pages/user/UserLogout/UserLogout';
 import MyAccount from '../pages/user/MyAccount/MyAccount';
 
 import LogIntoPatientAccount 
-    from '../pages/patientsManagement/LogIntoPatientAccount/LogIntoPatientAccount';
+    from '../pages/user/LogIntoPatientAccount/LogIntoPatientAccount';
 import LogOutPatientAccount 
-    from '../pages/patientsManagement/LogOutPatientAccount/LogOutPatientAccount';
+    from '../pages/user/LogOutPatientAccount/LogOutPatientAccount';
 
 import DoctorMain from '../pages/doctor/DoctorMain/DoctorMain';
 import DoctorMyAccount from '../pages/doctor/DoctorMyAccount/DoctorMyAccount';
@@ -72,7 +72,7 @@ function App() {
         <Route
           path={UserLinkLocationName.LOGIN}
           component={() => (
-            <UserAuthenticate navigateToURIOnCancel={ClinicLinkLocationName.HOME} />
+            <UserAuthentication navigateToURIOnCancel={ClinicLinkLocationName.HOME} />
             ) } 
         />
         <Route

@@ -1,6 +1,6 @@
 // @flow
 
-import React from 'react';
+import * as React from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import classes from './LoginExistingAccountView.module.css';
@@ -17,12 +17,15 @@ const Elements = {
 type AuthenticationCallback = (phoneNo: string, password: string) => void;
 
 type Props = {
-    onAuthenticate: AuthenticationCallback
+    renderHeaderWhenLoginActionNotInPending?: () => React.Node,
+    renderFooterWhenLoginActionNotInPending?: () => React.Node,
+    onAuthenticate: AuthenticationCallback,
+    onCancelAuthentication: () => void
 }
 
 type State = {
     elementsStatus: { 
-        [number]: { value: string}
+        [number]: {value: string}
     }
 }
 
@@ -30,7 +33,7 @@ type State = {
  * @param {function(phoneNo, password)} props.onAuthenticate - Callback function to be called 
  * with the user provided parameters in order to authenticate the user on the server.
  */
-class LoginExistingAccount extends React.Component<Props, State> {
+class LoginExistingAccountView extends React.Component<Props, State> {
 
     state = {
         elementsStatus: {
@@ -70,13 +73,33 @@ class LoginExistingAccount extends React.Component<Props, State> {
         }
     }
 
-    render () {
+    componentDidMount() {
+        // make the top of the window visible if the page is scrolled
+        window.scrollTo(0, 0);
+    }
 
+    render () {
         //TODO 
         const phoneNoText = "Phone No";
         const passwordText = "Password";
         return (
-            <form>
+            <React.Fragment>
+                <div className={classes.CancelButton}>
+                    <Button
+                        type={ButtonType.DANGER}
+                        onClick={this.props.onCancelAuthentication}
+                    >
+                        <FormattedMessage id="cancel" defaultMessage={'Cancel'}/>
+                    </Button>
+                </div>
+
+                <FormControl.HorizontalSep repeat={4}/>
+
+                {this.props.renderHeaderWhenLoginActionNotInPending
+                    ? this.props.renderHeaderWhenLoginActionNotInPending()
+                    : null
+                }
+
                 <FormControl.Text 
                     size={20}
                     placeholder={phoneNoText}
@@ -101,7 +124,7 @@ class LoginExistingAccount extends React.Component<Props, State> {
                     <FormattedMessage id="log_in" defaultMessage={'Login'}/>
                 </Button>
 
-                <FormControl.HorizontalSep repeat={2}/>
+                <FormControl.HorizontalSep repeat={2} />
                 <div className={classes.ForgotPassButton}>
                     <LinkButton  type={LinkButtonType.DANGER}>
                             <FormattedMessage id="ask_forgot_password" 
@@ -109,9 +132,14 @@ class LoginExistingAccount extends React.Component<Props, State> {
 
                     </LinkButton>
                 </div>
-            </form>
+
+                {this.props.renderFooterWhenLoginActionNotInPending
+                    ? this.props.renderFooterWhenLoginActionNotInPending()
+                    : null
+                }
+            </React.Fragment>
         );    
     }
 }
 
-export default LoginExistingAccount;
+export default LoginExistingAccountView;

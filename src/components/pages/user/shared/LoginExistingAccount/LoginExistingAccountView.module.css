@@ -1,3 +1,9 @@
+
+.CancelButton {
+    display: flex;
+    justify-content: flex-end;
+}
+
 .ForgotPassButton {
     display: flex;
     justify-content: flex-end;

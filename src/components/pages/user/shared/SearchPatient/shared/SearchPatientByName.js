@@ -3,10 +3,10 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
-import FormControl from '../../../../UI/FormControl/FormControl';
-import Button, { ButtonType } from '../../../../UI/Button/Button';
+import FormControl from '../../../../../UI/FormControl/FormControl';
+import Button, { ButtonType } from '../../../../../UI/Button/Button';
 import UserEntryElement, { UserEntryFieldType } 
-    from '../../../../UI/userEntryElement/UserEntryElement/UserEntryElement';
+    from '../../../../../UI/userEntryElement/UserEntryElement/UserEntryElement';
 
 type OnSearchPatientsType = (firstName: string) => void;
 
@@ -21,9 +21,9 @@ type Props = {
 }
 
 const SearchPatientByName = (props: Props) => {
-   const patientNameLabel = <FormattedMessage id="label_first_name" defaultMessage={'First Name'}/>
+   const patientNameLabel = <FormattedMessage id="label_first_name" defaultMessage={'First Name:'}/>
     return (
-        <form>
+        <React.Fragment>
             <UserEntryElement 
                 label={patientNameLabel}
                 type={UserEntryFieldType.LAST_NAME}
@@ -36,7 +36,7 @@ const SearchPatientByName = (props: Props) => {
             >
                 <FormattedMessage id="show_patients" defaultMessage={'Show Patients'}/>
             </Button>
-        </form>
+        </React.Fragment>
     );
 }
 

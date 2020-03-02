@@ -1,15 +1,15 @@
 // @flow
 
-import React from 'react';
+import * as React from 'react';
 import { FormattedMessage } from 'react-intl';
 
+import classes from './CreatePatientAccountView.module.css';
 import Button, { ButtonType } from '../../../../UI/Button/Button';
 import FormControl from '../../../../UI/FormControl/FormControl';
 import BirthdayUserEntryElement 
     from '../../../../UI/userEntryElement/BirthdayUserEntryElement/BirthdayUserEntryElement';
 import GenderUserEntryElement 
     from '../../../../UI/userEntryElement/GenderUserEntryElement/GenderUserEntryElement';
-
 
 const Elements = {
     FIRST_NAME: 1,
@@ -22,7 +22,7 @@ const Elements = {
 }
 
 /**
- * Form which displays the controls and buttons to create a new account.
+ * Form which displays the controls to create a new account.
  * 
  * The component is still a presentational one even though it uses an internal state
  * to store values from keyboard input.
@@ -34,8 +34,12 @@ const Elements = {
  */
 
 type Props = {
+    showAdminControls?: boolean,
+    showCancelAuthenticationBtn?: boolean,
+    renderHeaderWhenCreateActionNotInPending?: () => React.Node,
+    renderFooterWhenCreateActionNotInPending?: () => React.Node,
     onCreateAccount: () => void,
-    showAdminControls?: boolean
+    onCancelAuthentication?: () => void
  }
 
 type State = {
@@ -92,6 +96,17 @@ class CreatePatientAccount extends React.Component<Props, State> {
         }
     }
 
+    componentDidMount = () => {
+        // make the top of the window visible if the page is scrolled
+        window.scrollTo(0, 0);
+    }
+
+    onCancelAuthentication = (onCancelCallback?: () => void) => {
+        if (onCancelCallback) {
+            onCancelCallback();
+        }
+    }
+
     render() {
         //TODO 
         const firstNameText = "First Name";
@@ -114,7 +129,30 @@ class CreatePatientAccount extends React.Component<Props, State> {
         );
 
         return (
-            <form>
+            <React.Fragment>
+
+                {this.props.showCancelAuthenticationBtn
+                    ?   <React.Fragment>
+                            <div className={classes.CancelButton}>
+                                <Button
+                                    type={ButtonType.DANGER}
+                                    onClick={ () => { 
+                                        this.onCancelAuthentication(this.props.onCancelAuthentication);
+                                    }}
+                                >
+                                    <FormattedMessage id="cancel" defaultMessage={'Cancel'}/>
+                                </Button>
+                            </div>
+                            <FormControl.HorizontalSep repeat={4}/>
+                        </React.Fragment>
+                    : null
+                }
+
+                {this.props.renderHeaderWhenCreateActionNotInPending 
+                    ? this.props.renderHeaderWhenCreateActionNotInPending()
+                    : null
+                }
+
                 <FormControl.Text
                     size={20}
                     placeholder={firstNameText}
@@ -182,7 +220,13 @@ class CreatePatientAccount extends React.Component<Props, State> {
                 </Button>
 
                 {this.props.showAdminControls ? noPhoneCheckButton : null}
-            </form>
+
+                {this.props.renderFooterWhenCreateActionNotInPending 
+                    ? this.props.renderFooterWhenCreateActionNotInPending()
+                    : null
+                }
+
+            </React.Fragment>
         );
     }
 }

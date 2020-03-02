@@ -1,9 +1,8 @@
 // @flow
 
 import * as React from 'react';
-import type { RouterHistory } from 'react-router';
-import { withRouter } from 'react-router-dom';
 
+import { ExistingAccountRegMode } from './LoginExistingAccount';
 import UIStateContext from '../../../../../react-context/UIState/UIState-context';
 import { UserAuthType } from '../../../../../shared/UserAuthType';
 
@@ -12,12 +11,10 @@ export type ContainerData = {
 }
 
 type Props = {
-    navigateToURIOnSuccessfullyAuth: string,
-    onLoginUserPending: () => void,
-    onCancelLoginUser: () => void,
+    registrationMode: $Values<typeof ExistingAccountRegMode>,
     onUserAuthenticated: () => void,
-    children: (containerData: ContainerData) => React.Node,
-    history: RouterHistory
+
+    children: (containerData: ContainerData) => React.Node
 }
 
 class LoginExistingAccountContainer extends React.Component<Props, void> {
@@ -37,31 +34,29 @@ class LoginExistingAccountContainer extends React.Component<Props, void> {
     onAuthenticate = (phoneNo: string, password: string) : void => {
         const uiStateContext = this.context;
 
-        this.props.onLoginUserPending();
+        if (this.props.registrationMode === ExistingAccountRegMode.AS_NEW_USER) {
 
-        let newAuthStatus = UserAuthType.UNAUTHENTICATED;
+            let newAuthStatus = UserAuthType.UNAUTHENTICATED;
 
-        if(phoneNo === "c" && password === "c") {
-            this.props.onCancelLoginUser();
+            if(phoneNo === "m" && password === "m") {
+                newAuthStatus = UserAuthType.DOCTOR;
+            }
+            else if (phoneNo === "a" && password === "a") {
+                newAuthStatus = UserAuthType.SITE_ADMIN;
+            }
+            else {
+                newAuthStatus = UserAuthType.PATIENT;
+            }
+
+            uiStateContext.setUserAuthenticationStatus(newAuthStatus);
+
+        } else if (this.props.registrationMode === 
+                    ExistingAccountRegMode.AS_PATIENT_ATTACHED_TO_DOCTOR_ACCOUNT) {
+            uiStateContext.setUserConnectedToPatientAccount(true);
+        } else {
+            console.log("LoginExistingAccountContainer. onAuthenticate. Unknown registrationMode: ", 
+                this.props.registrationMode);
             return;
-        }
-
-        if(phoneNo === "m" && password === "m") {
-            newAuthStatus = UserAuthType.DOCTOR;
-        }
-        else if (phoneNo === "a" && password === "a") {
-            newAuthStatus = UserAuthType.SITE_ADMIN;
-        }
-        else {
-            newAuthStatus = UserAuthType.PATIENT;
-        }
-
-        uiStateContext.setUserAuthenticationStatus(newAuthStatus);
-
-        if (this.props.navigateToURIOnSuccessfullyAuth) {
-            this.props.history.push({
-                pathname: this.props.navigateToURIOnSuccessfullyAuth
-            });
         }
 
         this.props.onUserAuthenticated();
@@ -72,4 +67,4 @@ class LoginExistingAccountContainer extends React.Component<Props, void> {
     }
 }
 
-export default withRouter(LoginExistingAccountContainer);
+export default LoginExistingAccountContainer;

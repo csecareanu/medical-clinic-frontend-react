@@ -8,7 +8,7 @@ import MainHeader from '../../headers/MainHeader/MainHeader';
 import DoctorHeader from '../../headers/DoctorHeader/DoctorHeader';
 import SiteAdminHeader from '../../headers/SiteAdminHeader/SiteAdminHeader';
 import MainFooter from '../../footers/MainFooter/MainFooter';
-import UserAuthenticate from '../../pages/user/UserAuthenticate/UserAuthenticate';
+import UserAuthentication from '../../pages/user/UserAuthentication/UserAuthentication';
 import UserLogout from '../../pages/user/UserLogout/UserLogout';
 import MainMenuSideDrawer from '../../side-drawers/MainMenuSideDrawer/MainMenuSideDrawer';
 import DoctorMenuSideDrawer from '../../side-drawers/DoctorMenuSideDrawer/DoctorMenuSideDrawer';
@@ -30,7 +30,7 @@ const MainLayoutView = (props: Props) => {
 
             {sideDrawerComponent}
             
-            <UserAuthenticate />
+            <UserAuthentication />
             <UserLogout />
 
             <div className={classes.Header}>

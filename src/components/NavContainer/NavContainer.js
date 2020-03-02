@@ -40,7 +40,7 @@ const containerData = {
 
         switch (itemType) {
             case UserMenuItem.LOGIN:
-                containerData._uiStateContext.setDisplayUserAuthenticateModal(true);
+                containerData._uiStateContext.setDisplayUserAuthenticationModal(true);
                 break;
             case UserMenuItem.LOGOUT:
                 uiStateContext.setUserAuthenticationStatus(UserAuthType.UNAUTHENTICATED);
@@ -52,7 +52,7 @@ const containerData = {
                 if (uiStateContext.userAuthenticationStatus === UserAuthType.UNAUTHENTICATED) {
                     uiStateContext.setNavigateToURIOnSuccessfullyAuth(
                             UserLinkLocationName.MY_ACCOUNT);
-                    uiStateContext.setDisplayUserAuthenticateModal(true);
+                    uiStateContext.setDisplayUserAuthenticationModal(true);
                     break;
                 }
                 history.push({pathname: UserLinkLocationName.MY_ACCOUNT});            
@@ -79,7 +79,7 @@ const containerData = {
                 if (uiStateContext.userAuthenticationStatus === UserAuthType.UNAUTHENTICATED) {
                     uiStateContext.setNavigateToURIOnSuccessfullyAuth(
                             PatientLinkLocationName.NEW_APPOINTMENT);
-                    uiStateContext.setDisplayUserAuthenticateModal(true);
+                    uiStateContext.setDisplayUserAuthenticationModal(true);
                     break;
                 }
                 history.push({pathname: PatientLinkLocationName.NEW_APPOINTMENT});

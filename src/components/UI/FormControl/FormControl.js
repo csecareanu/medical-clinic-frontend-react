@@ -32,7 +32,7 @@ const FormControl = () =>{return null;}
     stressedName?: boolean,
     contentPadding?: boolean,
     noHorizontalSepAfter?: boolean,
-    children: React.Node
+    children?: React.Node
  }
 FormControl.Group = (props: GroupProps) => {
     const stressedNameClasses = [];
@@ -60,7 +60,7 @@ FormControl.Group = (props: GroupProps) => {
                 : null
             }
             <div className={contentClasses.join(' ')}>
-                {props.children}
+                {props.children? props.children : null}
             </div>
             {/* setting some margin to the bottom */}
             {props.noHorizontalSepAfter? null : <FormControl.HorizontalSep/>}

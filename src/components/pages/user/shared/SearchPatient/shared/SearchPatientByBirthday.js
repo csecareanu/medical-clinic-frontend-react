@@ -4,9 +4,9 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import BirthdayUserEntryElement 
-    from '../../../../UI/userEntryElement/BirthdayUserEntryElement/BirthdayUserEntryElement';
-import FormControl from '../../../../UI/FormControl/FormControl';
-import Button, { ButtonType } from '../../../../UI/Button/Button';
+    from '../../../../../UI/userEntryElement/BirthdayUserEntryElement/BirthdayUserEntryElement';
+import FormControl from '../../../../../UI/FormControl/FormControl';
+import Button, { ButtonType } from '../../../../../UI/Button/Button';
 
 type OnSearchPatientsType = (year: number, month: number, day: number) => void;
 
@@ -25,7 +25,7 @@ type Props = {
 const SearchPatientByBirthday = (props: Props) => {
     const birthDayLabel = <FormattedMessage id="label_birthday" defaultMessage={'Birthday'}/>
     return (
-        <form>
+        <React.Fragment>
             <BirthdayUserEntryElement label={birthDayLabel}/>
             <FormControl.HorizontalSep repeat={2}/>
             <Button 
@@ -37,7 +37,7 @@ const SearchPatientByBirthday = (props: Props) => {
             >
                 <FormattedMessage id="show_patients" defaultMessage={'Show Patients'}/>
             </Button>
-        </form>
+        </React.Fragment>
     );
 }
 

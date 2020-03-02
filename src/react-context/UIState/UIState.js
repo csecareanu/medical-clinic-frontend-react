@@ -14,7 +14,7 @@ type State = {
 
   isUserConnectedToAPatientAccount: boolean,
 
-  displayUserAuthenticateModal: boolean,
+  displayUserAuthenticationModal: boolean,
   navigateToURIOnCancelAuth: string | null,
   navigateToURIOnSuccessfullyAuth: string | null,
 
@@ -40,7 +40,7 @@ class UIState extends React.Component<Props, State> {
 
         isUserConnectedToAPatientAccount: false,
 
-        displayUserAuthenticateModal: false,
+        displayUserAuthenticationModal: false,
         navigateToURIOnCancelAuth: null,
         navigateToURIOnSuccessfullyAuth: null,
 
@@ -56,7 +56,7 @@ class UIState extends React.Component<Props, State> {
                     // variables
                     userAuthenticationStatus: this.state.userAuthenticationStatus,
                     isUserConnectedToAPatientAccount: this.state.isUserConnectedToAPatientAccount,
-                    displayUserAuthenticateModal: this.state.displayUserAuthenticateModal,
+                    displayUserAuthenticationModal: this.state.displayUserAuthenticationModal,
                     navigateToURIOnCancelAuth: this.state.navigateToURIOnCancelAuth,
                     navigateToURIOnSuccessfullyAuth: this.state.navigateToURIOnSuccessfullyAuth,
                     displayUserLogoutModal: this.state.displayUserLogoutModal,
@@ -68,8 +68,8 @@ class UIState extends React.Component<Props, State> {
                     setUserConnectedToPatientAccount: (isConnected: boolean) => {
                         this.setState({isUserConnectedToAPatientAccount: isConnected})
                     },
-                    setDisplayUserAuthenticateModal: (show: boolean) => {
-                        this.setState({displayUserAuthenticateModal: show})
+                    setDisplayUserAuthenticationModal: (show: boolean) => {
+                        this.setState({displayUserAuthenticationModal: show})
                     },
                     setNavigateToURIOnCancelAuth: (uri: string | null) => {
                         this.setState({navigateToURIOnCancelAuth: uri})
