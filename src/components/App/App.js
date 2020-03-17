@@ -10,32 +10,36 @@ import ClinicContactPage from '../pages/clinic/ClinicContactPage/ClinicContactPa
 import ClinicDoctorsPage from '../pages/clinic/ClinicDoctorsPage/ClinicDoctorsPage';
 import ClinicPricesPage from '../pages/clinic/ClinicPricesPage/ClinicPricesPage';
 
-import UserAuthentication from '../pages/user/UserAuthentication/UserAuthentication';
+import UserAuthenticationModal from '../pages/user/UserAuthenticationModal/UserAuthenticationModal';
 import UserLogout from '../pages/user/UserLogout/UserLogout';
-import MyAccount from '../pages/user/MyAccount/MyAccount';
+import MyAccountPage from '../pages/user/MyAccountPage/MyAccountPage';
 
-import LogIntoPatientAccount 
-    from '../pages/user/LogIntoPatientAccount/LogIntoPatientAccount';
+import LogIntoPatientAccountPage 
+    from '../pages/user/LogIntoPatientAccountPage/LogIntoPatientAccountPage';
 import LogOutPatientAccount 
     from '../pages/user/LogOutPatientAccount/LogOutPatientAccount';
 
-import DoctorMain from '../pages/doctor/DoctorMain/DoctorMain';
-import DoctorMyAccount from '../pages/doctor/DoctorMyAccount/DoctorMyAccount';
-import DoctorApptsInfo from '../pages/doctor/DoctorApptsInfo/DoctorApptsInfo';
-import DoctorLogEvents from '../pages/doctor/DoctorLogEvents/DoctorLogEvents';
-import DoctorNotificationsMessages from '../pages/doctor/DoctorNotificationsMessages/DoctorNotificationsMessages';
-import DoctorWorkingTime from '../pages/doctor/DoctorWorkingTime/DoctorWorkingTime';
+import DoctorMainPage from '../pages/doctor/DoctorMainPage/DoctorMainPage';
+import DoctorMyAccountPage from '../pages/doctor/DoctorMyAccountPage/DoctorMyAccountPage';
+import DoctorApptsInfoPage from '../pages/doctor/DoctorApptsInfoPage/DoctorApptsInfoPage';
+import DoctorLogEventsPage from '../pages/doctor/DoctorLogEventsPage/DoctorLogEventsPage';
+import DoctorNotificationsMessagesPage 
+  from '../pages/doctor/DoctorNotificationsMessagesPage/DoctorNotificationsMessagesPage';
+import DoctorWorkingTimePage from '../pages/doctor/DoctorWorkingTimePage/DoctorWorkingTimePage';
 
-import PatientNewAppointment from '../pages/patient/PatientNewAppointment/PatientNewAppointment';
-import PatientMyAccount from '../pages/patient/PatientMyAccount/PatientMyAccount';
+import PatientNewAppointmentPage 
+  from '../pages/patient/PatientNewAppointmentPage/PatientNewAppointmentPage';
+import PatientMyAccountPage from '../pages/patient/PatientMyAccountPage/PatientMyAccountPage';
 
-import SiteAdminMain from '../pages/siteAdmin/SiteAdminMain/SiteAdminMain';
-import SiteAdminDoctors from '../pages/siteAdmin/SiteAdminDoctors/SiteAdminDoctors';
-import SiteAdminDoctorToServices from '../pages/siteAdmin/SiteAdminDoctorToServices/SiteAdminDoctorToServices';
-import SiteAdminLogEvents from '../pages/siteAdmin/SiteAdminLogEvents/SiteAdminLogEvents';
-import SiteAdminServices from '../pages/siteAdmin/SiteAdminServices/SiteAdminServices';
-import SiteAdminSettings from '../pages/siteAdmin/SiteAdminSettings/SiteAdminSettings';
-import SiteAdminSpecialties from '../pages/siteAdmin/SiteAdminSpecialties/SiteAdminSpecialties';
+import SiteAdminMainPage from '../pages/siteAdmin/SiteAdminMainPage/SiteAdminMainPage';
+import SiteAdminDoctorsPage from '../pages/siteAdmin/SiteAdminDoctorsPage/SiteAdminDoctorsPage';
+import SiteAdminDoctorToServicesPage 
+  from '../pages/siteAdmin/SiteAdminDoctorToServicesPage/SiteAdminDoctorToServicesPage';
+import SiteAdminLogEventsPage from '../pages/siteAdmin/SiteAdminLogEventsPage/SiteAdminLogEventsPage';
+import SiteAdminServicesPage from '../pages/siteAdmin/SiteAdminServicesPage/SiteAdminServicesPage';
+import SiteAdminSettingsPage from '../pages/siteAdmin/SiteAdminSettingsPage/SiteAdminSettingsPage';
+import SiteAdminSpecialtiesPage 
+  from '../pages/siteAdmin/SiteAdminSpecialtiesPage/SiteAdminSpecialtiesPage';
 
 
 import { 
@@ -72,7 +76,7 @@ function App() {
         <Route
           path={UserLinkLocationName.LOGIN}
           component={() => (
-            <UserAuthentication navigateToURIOnCancel={ClinicLinkLocationName.HOME} />
+            <UserAuthenticationModal navigateToURIOnCancel={ClinicLinkLocationName.HOME} />
             ) } 
         />
         <Route
@@ -80,67 +84,67 @@ function App() {
           component={UserLogout} />
         <Route
           path={UserLinkLocationName.MY_ACCOUNT} 
-          component={MyAccount} />
+          component={MyAccountPage} />
 
         {/* PatientLinkLocationName */}
         <Route 
           path={PatientLinkLocationName.NEW_APPOINTMENT} 
-          component={PatientNewAppointment} />
+          component={PatientNewAppointmentPage} />
         <Route 
           path={PatientLinkLocationName.MY_ACCOUNT} 
-          component={PatientMyAccount} />
+          component={PatientMyAccountPage} />
 
         {/* DoctorLinkLocationName */}
         <Route 
           path={DoctorLinkLocationName.LOG_INTO_PATIENT_ACCOUNT} 
-          component={LogIntoPatientAccount} />
+          component={LogIntoPatientAccountPage} />
         <Route 
           path={DoctorLinkLocationName.LOG_OUT_PATIENT_ACCOUNT}  
           component={LogOutPatientAccount} />          
         <Route 
           path={DoctorLinkLocationName.HOME} 
           exact 
-          component={DoctorMain} />
+          component={DoctorMainPage} />
         <Route 
           path={DoctorLinkLocationName.MY_ACCOUNT} 
           exact 
-          component={DoctorMyAccount} />
+          component={DoctorMyAccountPage} />
         <Route 
           path={DoctorLinkLocationName.APPOINTMENTS} 
-          component={DoctorApptsInfo} />
+          component={DoctorApptsInfoPage} />
         <Route 
           path={DoctorLinkLocationName.WORKING_TIME} 
-          component={DoctorWorkingTime} />
+          component={DoctorWorkingTimePage} />
         <Route 
           path={DoctorLinkLocationName.NOTIFICATION_MESSAGES} 
-          component={DoctorNotificationsMessages} />
+          component={DoctorNotificationsMessagesPage} />
         <Route 
           path={DoctorLinkLocationName.LOG_EVENTS} 
-          component={DoctorLogEvents} />
+          component={DoctorLogEventsPage} />
 
         {/* SiteAdminLinkLocationName */}
         <Route 
           path={SiteAdminLinkLocationName.HOME} 
           exact 
-          component={SiteAdminMain} />
+          component={SiteAdminMainPage} />
         <Route 
           path={SiteAdminLinkLocationName.DOCTORS} 
-          component={SiteAdminDoctors} />
+          component={SiteAdminDoctorsPage} />
         <Route 
           path={SiteAdminLinkLocationName.SPECIALTIES} 
-          component={SiteAdminSpecialties} />
+          component={SiteAdminSpecialtiesPage} />
         <Route 
           path={SiteAdminLinkLocationName.SERVICES} 
-          component={SiteAdminServices} />
+          component={SiteAdminServicesPage} />
         <Route 
           path={SiteAdminLinkLocationName.ASSIGN_SERVICES_TO_DOCTOR} 
-          component={SiteAdminDoctorToServices} />
+          component={SiteAdminDoctorToServicesPage} />
         <Route 
           path={SiteAdminLinkLocationName.LOG_EVENTS} 
-          component={SiteAdminLogEvents} />
+          component={SiteAdminLogEventsPage} />
         <Route 
           path={SiteAdminLinkLocationName.SETTINGS} 
-          component={SiteAdminSettings} />
+          component={SiteAdminSettingsPage} />
       </Switch>
     </UIState>
  );
