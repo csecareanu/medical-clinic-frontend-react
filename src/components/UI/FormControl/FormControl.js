@@ -88,6 +88,7 @@ FormControl.Group = (props: GroupProps) => {
      size: number,
      placeholder?: string | FormattedMessage,
      value: string,
+     autoFocus?: boolean,
      onChange: (event: SyntheticInputEvent<HTMLInputElement>) => void,
      noHorizontalSepAfter?: boolean
  }
@@ -102,6 +103,7 @@ FormControl.Text = (props: TextProps) => {
             size={props.size}
             placeholder={placeholder}
             value={props.value}
+            autoFocus={props.autoFocus? props.autoFocus : false}
             onChange={props.onChange}
         />;
     return (

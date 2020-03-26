@@ -126,7 +126,6 @@ const onComponentUnloaded = () => {
 
 const useEffectSetup = (pageTitleComponent: {| current: null | React$ElementRef<string> |}) => {
     React.useEffect( () => {
-        console.log("useEffectSetup");
         onComponentLoaded(pageTitleComponent);
         return () => {
             onComponentUnloaded();

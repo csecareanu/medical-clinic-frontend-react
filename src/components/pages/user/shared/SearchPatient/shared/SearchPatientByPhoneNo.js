@@ -17,6 +17,7 @@ const onSearchPatients = (onSearchPatientsCallback: OnSearchPatientsType, phoneF
 }
 
 type Props = {
+    autoFocus?: boolean,
     onSearchPatients: OnSearchPatientsType
 }
 
@@ -28,6 +29,7 @@ const SearchPatientByPhoneNo = (props: Props) => {
             <UserEntryElement 
                 label={patientNameLabel}
                 type={UserEntryFieldType.PHONE_NUMBER}
+                autoFocus={props.autoFocus? props.autoFocus : false}
             />
             <FormControl.HorizontalSep repeat={2}/>
             <Button 

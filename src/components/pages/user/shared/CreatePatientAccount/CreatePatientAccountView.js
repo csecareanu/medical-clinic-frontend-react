@@ -157,6 +157,7 @@ class CreatePatientAccount extends React.Component<Props, State> {
                     size={20}
                     placeholder={firstNameText}
                     value={this.state.elementsStatus[Elements.FIRST_NAME].value}
+                    autoFocus
                     onChange={(event) => { this.inputChangedHandler(event, Elements.FIRST_NAME) }}
                 />
 

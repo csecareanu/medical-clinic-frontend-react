@@ -104,6 +104,7 @@ class LoginExistingAccountView extends React.Component<Props, State> {
                     size={20}
                     placeholder={phoneNoText}
                     value={this.state.elementsStatus[Elements.PHONE_NO].value}
+                    autoFocus
                     onChange={(event) => {this.inputChangedHandler(event, Elements.PHONE_NO)}}
                 />
 

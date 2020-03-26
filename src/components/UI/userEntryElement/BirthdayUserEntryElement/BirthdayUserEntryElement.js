@@ -13,7 +13,7 @@ const Elements = {
 };
 
 type Props = {
-
+    autoFocus?: boolean
 }
 
 type State = {
@@ -77,6 +77,7 @@ class BirthdayUserEntryElement extends React.Component<Props, State> {
                         size={6}
                         placeholder={dayText}
                         value={birthDayElem.value}
+                        autoFocus={this.props.autoFocus? this.props.autoFocus : false}
                         onChange={
                             (event) => {this.inputChangedHandler(event, Elements.BIRTH_DAY)}
                         }

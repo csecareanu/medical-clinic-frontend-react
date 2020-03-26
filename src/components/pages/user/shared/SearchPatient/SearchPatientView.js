@@ -66,6 +66,7 @@ const SearchPatientView = (props: Props) => {
         case SearchPatientFormType.SEARCH_BY_BIRTHDAY:
             searchPatientForm = (
                 <SearchPatientByBirthday 
+                    autoFocus
                     onSearchPatients={props.onSearchPatientByBirthday} 
                 /> );
             alternativeSearchLinks = [searchByNameLink, searchByPhoneNoLink];
@@ -73,6 +74,7 @@ const SearchPatientView = (props: Props) => {
         case SearchPatientFormType.SEARCH_BY_NAME:
             searchPatientForm = (
                 <SearchPatientByName 
+                    autoFocus
                     onSearchPatients={props.onSearchPatientByName} 
                 /> );
             alternativeSearchLinks = [searchByBirthdayLink, searchByPhoneNoLink];
@@ -80,6 +82,7 @@ const SearchPatientView = (props: Props) => {
         case SearchPatientFormType.SEARCH_BY_PHONE:
             searchPatientForm = (
                 <SearchPatientByPhoneNo 
+                    autoFocus
                     onSearchPatients={props.onSearchPatientByPhoneNo} 
                 /> );
             alternativeSearchLinks = [searchByBirthdayLink, searchByNameLink];

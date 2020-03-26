@@ -18,6 +18,7 @@ type Props = {
     label?: string | FormattedMessage,
     value?: string,
     placeholder?: string | FormattedMessage,
+    autoFocus?: boolean,
     type: number // TODO: typeof DataEntryFieldType
 }
 
@@ -41,6 +42,7 @@ class UserEntryElement extends React.Component<Props, State> {
                     size={20}
                     placeholder={this.props.placeholder? this.props.placeholder : '' }
                     value={this.state.value? this.state.value : ''}
+                    autoFocus={this.props.autoFocus? this.props.autoFocus : false}
                     onChange={(event) => { this.inputChangedHandler(event) }}
                 />
             );

@@ -18,6 +18,7 @@ const onSearchPatients = (onSearchPatientsCallback: OnSearchPatientsType,
 }
 
 type Props = {
+    autoFocus?:boolean,
     onSearchPatients: OnSearchPatientsType
 }
 
@@ -26,7 +27,10 @@ const SearchPatientByBirthday = (props: Props) => {
     const birthDayLabel = <FormattedMessage id="label_birthday" defaultMessage={'Birthday'}/>
     return (
         <React.Fragment>
-            <BirthdayUserEntryElement label={birthDayLabel}/>
+            <BirthdayUserEntryElement 
+                label={birthDayLabel}
+                autoFocus={props.autoFocus? props.autoFocus : false}
+            />
             <FormControl.HorizontalSep repeat={2}/>
             <Button 
                 type={ButtonType.SUCCESS} 

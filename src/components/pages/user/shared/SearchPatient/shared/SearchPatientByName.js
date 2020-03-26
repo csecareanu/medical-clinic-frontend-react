@@ -17,6 +17,7 @@ const onSearchPatients = (onSearchPatientsCallback: OnSearchPatientsType, firstN
 }
 
 type Props = {
+    autoFocus?: boolean,
     onSearchPatients: OnSearchPatientsType
 }
 
@@ -27,6 +28,7 @@ const SearchPatientByName = (props: Props) => {
             <UserEntryElement 
                 label={patientNameLabel}
                 type={UserEntryFieldType.LAST_NAME}
+                autoFocus={props.autoFocus? props.autoFocus : false}
             />
             <FormControl.HorizontalSep repeat={2}/>
             <Button 

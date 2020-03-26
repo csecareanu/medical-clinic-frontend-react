@@ -98,6 +98,7 @@ class CheckSMSCode extends React.Component<Props, State> {
                         <FormControl.Text
                             size={20}
                             value={this.state.elementsStatus[Elements.SMS_CODE].value}
+                            autoFocus
                             onChange={(event) => { 
                                 this.inputChangedHandler(event, Elements.SMS_CODE) 
                             }}
