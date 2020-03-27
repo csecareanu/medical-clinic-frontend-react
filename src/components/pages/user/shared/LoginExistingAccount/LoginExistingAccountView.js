@@ -99,31 +99,31 @@ class LoginExistingAccountView extends React.Component<Props, State> {
                     ? this.props.renderHeaderWhenLoginActionNotInPending()
                     : null
                 }
+                <form onSubmit={ () => {this.onLogin(this.props.onAuthenticate)} }>
+                    <FormControl.Text 
+                        size={20}
+                        placeholder={phoneNoText}
+                        value={this.state.elementsStatus[Elements.PHONE_NO].value}
+                        autoFocus
+                        onChange={(event) => {this.inputChangedHandler(event, Elements.PHONE_NO)}}
+                    />
 
-                <FormControl.Text 
-                    size={20}
-                    placeholder={phoneNoText}
-                    value={this.state.elementsStatus[Elements.PHONE_NO].value}
-                    autoFocus
-                    onChange={(event) => {this.inputChangedHandler(event, Elements.PHONE_NO)}}
-                />
+                    <FormControl.Text 
+                        size={20}
+                        placeholder={passwordText}
+                        value={this.state.elementsStatus[Elements.PASSWORD].value}
+                        onChange={(event) => {this.inputChangedHandler(event, Elements.PASSWORD)}}
+                    />
 
-                <FormControl.Text 
-                    size={20}
-                    placeholder={passwordText}
-                    value={this.state.elementsStatus[Elements.PASSWORD].value}
-                    onChange={(event) => {this.inputChangedHandler(event, Elements.PASSWORD)}}
-                />
+                    <FormControl.HorizontalSep repeat={2}/>
 
-                <FormControl.HorizontalSep repeat={2}/>
-
-                <Button 
-                    type={ButtonType.SUCCESS} 
-                    fullWidth 
-                    onClick={ () => {this.onLogin(this.props.onAuthenticate)} }
-                >
-                    <FormattedMessage id="log_in" defaultMessage={'Login'}/>
-                </Button>
+                    <Button 
+                        type={ButtonType.SUCCESS} 
+                        fullWidth
+                    >
+                        <FormattedMessage id="log_in" defaultMessage={'Login'}/>
+                    </Button>
+                </form>
 
                 <FormControl.HorizontalSep repeat={2} />
                 <div className={classes.ForgotPassButton}>

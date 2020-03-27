@@ -153,75 +153,77 @@ class CreatePatientAccount extends React.Component<Props, State> {
                     : null
                 }
 
-                <FormControl.Text
-                    size={20}
-                    placeholder={firstNameText}
-                    value={this.state.elementsStatus[Elements.FIRST_NAME].value}
-                    autoFocus
-                    onChange={(event) => { this.inputChangedHandler(event, Elements.FIRST_NAME) }}
-                />
+                <form onSubmit={() => { this.onCreateAccount(this.props.onCreateAccount) } }>
+                    <FormControl.Text
+                        size={20}
+                        placeholder={firstNameText}
+                        value={this.state.elementsStatus[Elements.FIRST_NAME].value}
+                        autoFocus
+                        onChange={(event) => { this.inputChangedHandler(event, Elements.FIRST_NAME) }}
+                    />
 
-                <FormControl.Text
-                    size={20}
-                    placeholder={lastNameText}
-                    value={this.state.elementsStatus[Elements.LAST_NAME].value}
-                    onChange={(event) => { this.inputChangedHandler(event, Elements.LAST_NAME) }}
-                />
+                    <FormControl.Text
+                        size={20}
+                        placeholder={lastNameText}
+                        value={this.state.elementsStatus[Elements.LAST_NAME].value}
+                        onChange={(event) => { this.inputChangedHandler(event, Elements.LAST_NAME) }}
+                    />
 
-                <FormControl.Text
-                    size={20}
-                    placeholder={phoneNoText}
-                    value={this.state.elementsStatus[Elements.PHONE_NO].value}
-                    onChange={(event) => { this.inputChangedHandler(event, Elements.PHONE_NO) }}
-                />
+                    <FormControl.Text
+                        size={20}
+                        placeholder={phoneNoText}
+                        value={this.state.elementsStatus[Elements.PHONE_NO].value}
+                        onChange={(event) => { this.inputChangedHandler(event, Elements.PHONE_NO) }}
+                    />
 
-                <FormControl.Text
-                    size={20}
-                    placeholder={passwordText}
-                    value={this.state.elementsStatus[Elements.PASSWORD].value}
-                    onChange={(event) => { this.inputChangedHandler(event, Elements.PASSWORD) }}
-                />
+                    <FormControl.Text
+                        size={20}
+                        placeholder={passwordText}
+                        value={this.state.elementsStatus[Elements.PASSWORD].value}
+                        onChange={(event) => { this.inputChangedHandler(event, Elements.PASSWORD) }}
+                    />
 
-                <FormControl.Text
-                    size={20}
-                    placeholder={passwordRepeatText}
-                    value={this.state.elementsStatus[Elements.PASSWORD_REPEAT].value}
-                    onChange={(event) => {
-                        this.inputChangedHandler(event,
-                            Elements.PASSWORD_REPEAT)
-                    }}
-                />
+                    <FormControl.Text
+                        size={20}
+                        placeholder={passwordRepeatText}
+                        value={this.state.elementsStatus[Elements.PASSWORD_REPEAT].value}
+                        onChange={(event) => {
+                            this.inputChangedHandler(event,
+                                Elements.PASSWORD_REPEAT)
+                        }}
+                    />
 
-                <FormControl.Text
-                    size={20}
-                    placeholder={cityText}
-                    value={this.state.elementsStatus[Elements.CITY].value}
-                    onChange={(event) => { this.inputChangedHandler(event, Elements.CITY) }}
-                />
+                    <FormControl.Text
+                        size={20}
+                        placeholder={cityText}
+                        value={this.state.elementsStatus[Elements.CITY].value}
+                        onChange={(event) => { this.inputChangedHandler(event, Elements.CITY) }}
+                    />
 
-                <FormControl.Text
-                    size={20}
-                    placeholder={countyText}
-                    value={this.state.elementsStatus[Elements.COUNTY].value}
-                    onChange={(event) => { this.inputChangedHandler(event, Elements.COUNTY) }}
-                />
+                    <FormControl.Text
+                        size={20}
+                        placeholder={countyText}
+                        value={this.state.elementsStatus[Elements.COUNTY].value}
+                        onChange={(event) => { this.inputChangedHandler(event, Elements.COUNTY) }}
+                    />
 
-                <BirthdayUserEntryElement />
+                    <BirthdayUserEntryElement />
 
-                <GenderUserEntryElement />
+                    <GenderUserEntryElement />
 
-                <FormControl.HorizontalSep repeat={2} />
+                    <FormControl.HorizontalSep repeat={2} />
 
-                <Button
-                    type={ButtonType.SUCCESS}
-                    fullWidth
-                    onClick={() => { this.onCreateAccount(this.props.onCreateAccount) }}
-                >
-                    <FormattedMessage id="create_account" defaultMessage={'Create Account'} />
-                </Button>
+                    <Button
+                        type={ButtonType.SUCCESS}
+                        fullWidth
+                    >
+                        <FormattedMessage id="create_account" defaultMessage={'Create Account'} />
+                    </Button>
+
+                </form>
 
                 {this.props.showAdminControls ? noPhoneCheckButton : null}
-
+                
                 {this.props.renderFooterWhenCreateActionNotInPending 
                     ? this.props.renderFooterWhenCreateActionNotInPending()
                     : null

@@ -87,34 +87,35 @@ class CheckSMSCode extends React.Component<Props, State> {
 
                 <FormControl.HorizontalSep repeat={2} />
 
-                {/* Check the SMS code in order to verify the phone number is valid */}
-                <FormControl.Group name={this.props.title} stressedName>
-                    <FormControl.HorizontalSep repeat={2} />
-        
-                    <FormControl.Group
-                        name={checkSMSCodeLine1Text}
-                        nameLine2={checkSMSCodeLine2Text}
-                    >
-                        <FormControl.Text
-                            size={20}
-                            value={this.state.elementsStatus[Elements.SMS_CODE].value}
-                            autoFocus
-                            onChange={(event) => { 
-                                this.inputChangedHandler(event, Elements.SMS_CODE) 
-                            }}
-                        />
+                <form onSubmit={() => { this.onCheckCode(this.props.onCheckCode) }}>
+                    {/* Check the SMS code in order to verify the phone number is valid */}
+                    <FormControl.Group name={this.props.title} stressedName>
+                        <FormControl.HorizontalSep repeat={2} />
+            
+                        <FormControl.Group
+                            name={checkSMSCodeLine1Text}
+                            nameLine2={checkSMSCodeLine2Text}
+                        >
+                            <FormControl.Text
+                                size={20}
+                                value={this.state.elementsStatus[Elements.SMS_CODE].value}
+                                autoFocus
+                                onChange={(event) => { 
+                                    this.inputChangedHandler(event, Elements.SMS_CODE) 
+                                }}
+                            />
+                        </FormControl.Group>
+
+                        <FormControl.HorizontalSep repeat={2} />
+
+                        <Button
+                            type={ButtonType.SUCCESS}
+                            fullWidth
+                        >
+                            <FormattedMessage id="verify_code" defaultMessage={'Verify'} />
+                        </Button>
                     </FormControl.Group>
-
-                    <FormControl.HorizontalSep repeat={2} />
-
-                    <Button
-                        type={ButtonType.SUCCESS}
-                        fullWidth
-                        onClick={() => { this.onCheckCode(this.props.onCheckCode) }}
-                    >
-                        <FormattedMessage id="verify_code" defaultMessage={'Verify'} />
-                    </Button>
-                </FormControl.Group>
+                </form>
             </React.Fragment>
         )
     }

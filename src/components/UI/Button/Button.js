@@ -52,7 +52,11 @@ export default (props) => {
         <button
             disabled={props.disabled}
             className={[classes.Button, btnTypeClassName, fullWidthClassName].join(' ')}
-            onClick={ (event) => { onClick(event, props.onClick) } }
+            onClick={ 
+                props.onClick
+                    ? (event) => { onClick(event, props.onClick) } 
+                    : null
+            }
         >
             {props.children}
         </button>
