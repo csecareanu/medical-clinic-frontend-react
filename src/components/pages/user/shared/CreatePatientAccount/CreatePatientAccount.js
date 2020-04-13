@@ -40,7 +40,7 @@ export const CreateAccountStatus = {
 }
 
 type Props = {
-    registrationMode: $Values<typeof NewAccountRegMode>,
+    userRegistrationMode: $Values<typeof NewAccountRegMode>,
     showAdminControls?: boolean,
     showCancelAuthenticationBtn?: boolean,
     renderHeaderWhenCreateActionNotInPending?: () => React.Node,
@@ -56,7 +56,7 @@ const CreatePatientAccount = (props: Props) => {
 
     return (
         <CreatePatientAccountContainer
-            registrationMode={props.registrationMode}
+            userRegistrationMode={props.userRegistrationMode}
         >
         {
             (accountData: ContainerData) => (

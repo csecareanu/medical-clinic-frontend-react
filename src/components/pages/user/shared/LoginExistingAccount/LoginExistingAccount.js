@@ -2,6 +2,7 @@
 import * as React from 'react';
 
 import type { ContainerData } from './LoginExistingAccountContainer';
+import AccountRegistrationMode from '../shared/AccountRegistrationMode';
 import LoginExistingAccountContainer from './LoginExistingAccountContainer';
 import LoginExistingAccountView from './LoginExistingAccountView';
 
@@ -20,7 +21,7 @@ export const ExistingAccountRegMode = {
 }
 
 type Props = {
-    registrationMode: $Values<typeof ExistingAccountRegMode>,
+    userRegistrationMode: $Values<typeof ExistingAccountRegMode>,
     renderHeaderWhenLoginActionNotInPending?: () => React.Node,
     renderFooterWhenLoginActionNotInPending?: () => React.Node,
     onUserAuthenticated: () => void,
@@ -29,7 +30,7 @@ type Props = {
 
 const LoginExistingAccount = (props: Props) => (
     <LoginExistingAccountContainer
-        registrationMode={props.registrationMode}
+        userRegistrationMode={props.userRegistrationMode}
         onUserAuthenticated={props.onUserAuthenticated}
     >
     {

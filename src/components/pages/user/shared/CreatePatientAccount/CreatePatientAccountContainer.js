@@ -16,7 +16,7 @@ export type ContainerData = {
 }
 
 type Props = {
-    registrationMode: $Values<typeof NewAccountRegMode>,
+    userRegistrationMode: $Values<typeof NewAccountRegMode>,
     children: (containerData: ContainerData) => React.Node
 }
 
@@ -74,7 +74,7 @@ class CreatePatientAccountContainer extends React.Component<Props, State> {
             createAccountStatus: CreateAccountStatus.CHECK_SMS_CODE_VALIDATE_SUCCESS
         });
 
-        if (this.props.registrationMode === NewAccountRegMode.AS_NEW_USER) {
+        if (this.props.userRegistrationMode === NewAccountRegMode.AS_NEW_USER) {
 
             let newAuthStatus = UserAuthType.UNAUTHENTICATED;
 
@@ -90,12 +90,12 @@ class CreatePatientAccountContainer extends React.Component<Props, State> {
 
             uiStateContext.setUserAuthenticationStatus(newAuthStatus);
 
-        } else if (this.props.registrationMode === 
+        } else if (this.props.userRegistrationMode === 
                     NewAccountRegMode.AS_PATIENT_ATTACHED_TO_DOCTOR_ACCOUNT) {
             uiStateContext.setUserConnectedToPatientAccount(true);
         } else {
-            console.log("CreatePatientAccountContainer. onCheckSMSCode. Unknown registrationMode: ", 
-                this.props.registrationMode);
+            console.log("CreatePatientAccountContainer. onCheckSMSCode. " +
+                "Unknown userRegistrationMode: ", this.props.userRegistrationMode);
             return;
         }
     }

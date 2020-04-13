@@ -107,7 +107,7 @@ const UserAuthenticationView = (props: Props) => {
                 <div className={classes.AuthContent}>
                     {props.displayedForm === UserAuthenticationFormType.LOGIN_FORM
                         ?   <LoginExistingAccount 
-                                registrationMode={ExistingAccountRegMode.AS_NEW_USER}
+                                userRegistrationMode={ExistingAccountRegMode.AS_NEW_USER}
                                 renderFooterWhenLoginActionNotInPending={ () => (
                                     getFooterWhenLoginActionNotInPending(props) )
                                 }
@@ -118,7 +118,7 @@ const UserAuthenticationView = (props: Props) => {
                     }
                     {props.displayedForm === UserAuthenticationFormType.CREATE_NEW_ACCOUNT_FORM
                         ?   <CreatePatientAccount
-                                registrationMode={NewAccountRegMode.AS_NEW_USER}
+                                userRegistrationMode={NewAccountRegMode.AS_NEW_USER}
                                 showCancelAuthenticationBtn
                                 renderFooterWhenCreateActionNotInPending={ () => (
                                     getFooterWhenCreateActionNotInPending(props) )

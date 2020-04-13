@@ -11,7 +11,7 @@ export type ContainerData = {
 }
 
 type Props = {
-    registrationMode: $Values<typeof ExistingAccountRegMode>,
+    userRegistrationMode: $Values<typeof ExistingAccountRegMode>,
     onUserAuthenticated: () => void,
 
     children: (containerData: ContainerData) => React.Node
@@ -34,7 +34,7 @@ class LoginExistingAccountContainer extends React.Component<Props, void> {
     onAuthenticate = (phoneNo: string, password: string) : void => {
         const uiStateContext = this.context;
 
-        if (this.props.registrationMode === ExistingAccountRegMode.AS_NEW_USER) {
+        if (this.props.userRegistrationMode === ExistingAccountRegMode.AS_NEW_USER) {
 
             let newAuthStatus = UserAuthType.UNAUTHENTICATED;
 
@@ -50,12 +50,12 @@ class LoginExistingAccountContainer extends React.Component<Props, void> {
 
             uiStateContext.setUserAuthenticationStatus(newAuthStatus);
 
-        } else if (this.props.registrationMode === 
+        } else if (this.props.userRegistrationMode === 
                     ExistingAccountRegMode.AS_PATIENT_ATTACHED_TO_DOCTOR_ACCOUNT) {
             uiStateContext.setUserConnectedToPatientAccount(true);
         } else {
-            console.log("LoginExistingAccountContainer. onAuthenticate. Unknown registrationMode: ", 
-                this.props.registrationMode);
+            console.log("LoginExistingAccountContainer. onAuthenticate. " +
+                + "Unknown userRegistrationMode: ", this.props.userRegistrationMode);
             return;
         }
 

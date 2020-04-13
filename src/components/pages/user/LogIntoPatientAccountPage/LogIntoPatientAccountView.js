@@ -168,7 +168,7 @@ const LogIntoPatientAccountView = (props: Props) => {
                     }
                     {props.displayedForm === LoginIntoAccountFormType.CREATE_NEW_ACCOUNT_FORM
                         ?   <CreatePatientAccount 
-                                registrationMode={
+                                userRegistrationMode={
                                     NewAccountRegMode.AS_PATIENT_ATTACHED_TO_DOCTOR_ACCOUNT}
                                 renderHeaderWhenCreateActionNotInPending={ () => (
                                     getHeaderWhenCreateActionNotInPending(props) )
