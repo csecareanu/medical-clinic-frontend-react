@@ -96,11 +96,6 @@ class CreatePatientAccount extends React.Component<Props, State> {
         }
     }
 
-    componentDidMount = () => {
-        // make the top of the window visible if the page is scrolled
-        window.scrollTo(0, 0);
-    }
-
     onCancelAuthentication = (onCancelCallback?: () => void) => {
         if (onCancelCallback) {
             onCancelCallback();

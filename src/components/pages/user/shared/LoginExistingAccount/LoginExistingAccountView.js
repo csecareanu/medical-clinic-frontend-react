@@ -73,11 +73,6 @@ class LoginExistingAccountView extends React.Component<Props, State> {
         }
     }
 
-    componentDidMount() {
-        // make the top of the window visible if the page is scrolled
-        window.scrollTo(0, 0);
-    }
-
     render () {
         //TODO 
         const phoneNoText = "Phone No";

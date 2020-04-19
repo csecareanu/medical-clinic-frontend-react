@@ -112,32 +112,8 @@ const getSearchExistingAccountLink = (props) => {
     )
 }
 
-const onComponentLoaded = (pageTitleElemRef: {| current: null | React$ElementRef<string> |}) => {
-    
-    // the page may not contain this element (e.g: when an error message is displayed on the page)
-    if (pageTitleElemRef.current) {
-        // make the top of the window visible if the page is scrolled
-        window.scrollTo(0, pageTitleElemRef.current.offsetTop);
-    }
-}
-
-const onComponentUnloaded = () => {
-}
-
-const useEffectSetup = (pageTitleComponent: {| current: null | React$ElementRef<string> |}) => {
-    React.useEffect( () => {
-        onComponentLoaded(pageTitleComponent);
-        return () => {
-            onComponentUnloaded();
-        }
-    });
-}
-
 
 const LogIntoPatientAccountView = (props: Props) => {
-    // take a reference to the page title's component in order to scroll to it on page load
-    var pageTitleComponent = React.useRef(null);
-    useEffectSetup(pageTitleComponent);
 
     if (!useCanAccessDoctorContent()) {
         return <NotificationMessage typeAccessNotAllowed />;
@@ -147,7 +123,7 @@ const LogIntoPatientAccountView = (props: Props) => {
         <MainLayout headerType={PageHeaderType.MAIN}>
             <div className={classes.Login}>
                 <div className={classes.LoginContent}>
-                    <h1 ref={pageTitleComponent} className={classes.Title}>
+                    <h1 className={classes.Title}>
                         <FormattedMessage id="title_log_into_patient_account" 
                                     defaultMessage={"Log into patient account"} />
                     </h1>

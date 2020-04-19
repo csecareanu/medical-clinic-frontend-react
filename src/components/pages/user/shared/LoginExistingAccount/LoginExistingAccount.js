@@ -2,7 +2,6 @@
 import * as React from 'react';
 
 import type { ContainerData } from './LoginExistingAccountContainer';
-import AccountRegistrationMode from '../shared/AccountRegistrationMode';
 import LoginExistingAccountContainer from './LoginExistingAccountContainer';
 import LoginExistingAccountView from './LoginExistingAccountView';
 
