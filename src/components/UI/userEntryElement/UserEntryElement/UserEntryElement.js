@@ -7,7 +7,7 @@ import FormControl from '../../FormControl/FormControl';
 
 const hasSymbol = typeof Symbol === 'function';
 
-export const UserEntryFieldType = {
+export const UserEntryType = {
     FIRST_NAME: hasSymbol
       ? Symbol("FIRST_NAME")
       : 0,
@@ -31,15 +31,15 @@ type Props = {
     isValid: boolean,
     placeholder?: string | FormattedMessage,
     autoFocus?: boolean,
-    type: $Values<typeof UserEntryFieldType>,
+    type: $Values<typeof UserEntryType>,
     onInputChange: (value: string, isValid: boolean) => void
 }
 
 
 /**
- * Component used to add an element of UserEntryFieldType type on a form.
- * This component uses different existing controls and add specific input restrictions depending on
- * the control type displayed.
+ * Component used to add an element of UserEntryType type on a form.
+ * This component uses different existing user entry controls and add specific input restrictions 
+ * depending on the control type displayed.
  */
 const UserEntryElement = (props: Props) => {
       const addGroup = props.label != null;

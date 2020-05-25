@@ -5,7 +5,7 @@ import { FormattedMessage } from 'react-intl';
 
 import FormControl from '../../../../../UI/FormControl/FormControl';
 import Button, { ButtonType } from '../../../../../UI/Button/Button';
-import UserEntryElement, { UserEntryFieldType } 
+import UserEntryElement, { UserEntryType } 
     from '../../../../../UI/userEntryElement/UserEntryElement/UserEntryElement';
 
 type SearchPatientsCallbackType = (phoneNo: string) => void;
@@ -47,7 +47,7 @@ class SearchPatientByPhoneNo extends React.Component<Props, State> {
                label={patientNameLabel}
                value={this.state.phoneNo}
                isValid={this.state.isValid}
-               type={UserEntryFieldType.PHONE_NUMBER}
+               type={UserEntryType.PHONE_NUMBER}
                autoFocus={this.props.autoFocus? this.props.autoFocus : false}
                onInputChange={this.handleInputChange}
             />

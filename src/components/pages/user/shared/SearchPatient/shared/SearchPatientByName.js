@@ -5,7 +5,7 @@ import { FormattedMessage } from 'react-intl';
 
 import FormControl from '../../../../../UI/FormControl/FormControl';
 import Button, { ButtonType } from '../../../../../UI/Button/Button';
-import UserEntryElement, { UserEntryFieldType } 
+import UserEntryElement, { UserEntryType } 
     from '../../../../../UI/userEntryElement/UserEntryElement/UserEntryElement';
 
 
@@ -45,7 +45,7 @@ class SearchPatientByName extends React.Component<Props, State> {
                   label={patientNameLabel}
                   value={this.state.name}
                   isValid={this.state.isValid}
-                  type={UserEntryFieldType.LAST_NAME}
+                  type={UserEntryType.LAST_NAME}
                   autoFocus={this.props.autoFocus? this.props.autoFocus : false}
                   onInputChange={this.handleInputChange}
                />
