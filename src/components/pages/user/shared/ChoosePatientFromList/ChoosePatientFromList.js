@@ -3,7 +3,7 @@
 import React from 'react';
 
 const ChoosePatientFromList = () => {
-    return <div></div>
+    return <div>ChoosePatientFromList</div>
 }
 
 export default ChoosePatientFromList;

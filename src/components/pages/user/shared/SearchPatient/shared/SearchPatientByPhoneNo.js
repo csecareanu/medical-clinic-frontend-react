@@ -8,39 +8,60 @@ import Button, { ButtonType } from '../../../../../UI/Button/Button';
 import UserEntryElement, { UserEntryFieldType } 
     from '../../../../../UI/userEntryElement/UserEntryElement/UserEntryElement';
 
-type OnSearchPatientsType = (phoneNo: string) => void;
-
-const onSearchPatients = (onSearchPatientsCallback: OnSearchPatientsType, phoneFilter: string) => {
-    if(onSearchPatientsCallback) {
-        onSearchPatientsCallback(phoneFilter);
-    }
-}
+type SearchPatientsCallbackType = (phoneNo: string) => void;
 
 type Props = {
     autoFocus?: boolean,
-    onSearchPatients: OnSearchPatientsType
+    onSearchPatients: SearchPatientsCallbackType
 }
 
-const SearchPatientByPhoneNo = (props: Props) => {
-   const patientNameLabel = 
-        <FormattedMessage id="label_phone_number" defaultMessage={'Phone Number:'}/>
-    return (
-        <React.Fragment>
-            <UserEntryElement 
-                label={patientNameLabel}
-                type={UserEntryFieldType.PHONE_NUMBER}
-                autoFocus={props.autoFocus? props.autoFocus : false}
+type State = {
+   phoneNo: string,
+   isValid: boolean
+}
+
+class SearchPatientByPhoneNo extends React.Component<Props, State> {
+
+   state: State = {
+      phoneNo: "",
+      isValid: true
+   }
+
+   handleSearchPatients = () => {
+      this.props.onSearchPatients(this.state.phoneNo);
+   }
+
+   handleInputChange = (value: string, isValid: boolean) => {
+      this.setState({
+         phoneNo: value,
+         isValid: isValid
+      })
+   }
+
+   render() {
+      const patientNameLabel = 
+         <FormattedMessage id="label_phone_number" defaultMessage={'Phone Number:'}/>
+      return (
+         <React.Fragment>
+            <UserEntryElement
+               label={patientNameLabel}
+               value={this.state.phoneNo}
+               isValid={this.state.isValid}
+               type={UserEntryFieldType.PHONE_NUMBER}
+               autoFocus={this.props.autoFocus? this.props.autoFocus : false}
+               onInputChange={this.handleInputChange}
             />
             <FormControl.HorizontalSep repeat={2}/>
-            <Button 
-                type={ButtonType.SUCCESS} 
-                fullWidth
-                onClick={ () => {onSearchPatients(props.onSearchPatients, 'phone')} }
+            <Button
+               type={ButtonType.SUCCESS}
+               fullWidth
+               onClick={this.handleSearchPatients}
             >
-                <FormattedMessage id="show_patients" defaultMessage={'Show Patients'}/>
+               <FormattedMessage id="show_patients" defaultMessage={'Show Patients'}/>
             </Button>
-        </React.Fragment>
-    );
+         </React.Fragment>
+      );
+   }
 }
 
 export default SearchPatientByPhoneNo;

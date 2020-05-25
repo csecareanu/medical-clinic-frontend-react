@@ -29,7 +29,7 @@
 
 .TextElement:focus {
     outline: none;
-    background-color: #ccc;
+    background-color: #ddd;
 }
 
 .RadioElement {

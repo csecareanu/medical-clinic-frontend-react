@@ -40,9 +40,9 @@ const SearchPatient = (props: Props) => (
                         props.renderFooterWhenSearchActionNotInPending
                     }
                 onChangeSearchPatientForm={searchPatientData.onChangeSearchPatientForm}
-                onSearchPatientByBirthday={ () => {}}
-                onSearchPatientByName={ () => {}}
-                onSearchPatientByPhoneNo={ () => {}}
+                onSearchPatientByBirthday={ () => { console.log("onSearchPatientByBirthday"); }}
+                onSearchPatientByName={ () => { console.log("onSearchPatientByName"); }}
+                onSearchPatientByPhoneNo={ (phoneNo: string) => { console.log("onSearchPatientByPhoneNo:" + phoneNo);} }
             />
         )
     }

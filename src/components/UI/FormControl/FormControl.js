@@ -97,9 +97,9 @@ FormControl.Text = (props: TextProps) => {
     const inputClasses = [classes.TextElement];
     const placeholder = props.placeholder? props.placeholder : '';
 
-    const inputElement = <input 
+    const inputElement = <input
             type='text'
-            className={inputClasses.join(' ')} 
+            className={inputClasses.join(' ')}
             size={props.size}
             placeholder={placeholder}
             value={props.value}

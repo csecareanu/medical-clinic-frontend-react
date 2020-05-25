@@ -88,7 +88,7 @@ const SearchPatientView = (props: Props) => {
             alternativeSearchLinks = [searchByBirthdayLink, searchByNameLink];
             break;
         default:
-            console.log('logIntoPatientAccountView. [W] Unknown form type: ' + props.displayedForm);
+            console.log('SearchPatientView. [W] Unknown form type: ' + props.displayedForm);
     }
 
     return (
