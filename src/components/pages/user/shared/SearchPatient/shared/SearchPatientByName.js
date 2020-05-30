@@ -38,7 +38,8 @@ class SearchPatientByName extends React.Component<Props, State> {
    }
 
    render () {
-      const patientNameLabel = <FormattedMessage id="label_first_name" defaultMessage={'First Name:'}/>
+      const patientNameLabel = 
+         <FormattedMessage id="label_first_name" defaultMessage={'First Name:'}/>
       return (
          <React.Fragment>
                <UserEntryElement 

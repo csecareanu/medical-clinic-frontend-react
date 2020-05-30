@@ -38,8 +38,8 @@ type Props = {
 
 /**
  * Component used to add an element of UserEntryType type on a form.
- * This component uses different existing user entry controls and add specific input restrictions 
- * depending on the control type displayed.
+ * It uses different existing user entry controls and add specific input restrictions and error 
+ * notifications depending on the control type displayed.
  */
 const UserEntryElement = (props: Props) => {
       const addGroup = props.label != null;
