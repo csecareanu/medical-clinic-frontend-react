@@ -16,10 +16,7 @@ const AccountCreated = (props: Props) => {
     return (
         <div className={classes.WrongCode}>
             <div className={classes.Message}>
-                <FormattedMessage
-                        id="account_created" 
-                        defaultMessage={'The account has been created.'}
-                />
+                <FormattedMessage id="pages.user.create-patient-account.account-created.success" />
 
                 <FormControl.HorizontalSep repeat={2} />
             </div>
@@ -28,10 +25,7 @@ const AccountCreated = (props: Props) => {
                 type={ButtonType.SUCCESS}
                 onClick={ props.onClose }
             >
-                <FormattedMessage 
-                    id="btn_text_close" 
-                    defaultMessage={'Close'}
-                />
+                <FormattedMessage id="btn-close" />
             </Button>
         </div>
     )

@@ -20,7 +20,9 @@ const PatientAccountToolbarItemView = (props: Props) => {
                 boldStyle
                 onClick={ () => {props.onClick(PatientMenuItem.MY_ACCOUNT) }}
             >
-                <FormattedMessage id="toolbar_patient_account" defaultMessage={'Patient Account'}/>
+                <FormattedMessage 
+                  id="toolbars.user-toolbar.patient-account-toolbar-item.patient-account"
+                />
             </LinkButton>
         </div>
     )

@@ -84,7 +84,7 @@ class LoginExistingAccountView extends React.Component<Props, State> {
                         type={ButtonType.DANGER}
                         onClick={this.props.onCancelAuthentication}
                     >
-                        <FormattedMessage id="cancel" defaultMessage={'Cancel'}/>
+                        <FormattedMessage id="btn-cancel" />
                     </Button>
                 </div>
 
@@ -116,16 +116,16 @@ class LoginExistingAccountView extends React.Component<Props, State> {
                         type={ButtonType.SUCCESS} 
                         fullWidth
                     >
-                        <FormattedMessage id="log_in" defaultMessage={'Login'}/>
+                        <FormattedMessage id="btn-login" />
                     </Button>
                 </form>
 
                 <FormControl.HorizontalSep repeat={2} />
                 <div className={classes.ForgotPassButton}>
                     <LinkButton  type={LinkButtonType.DANGER}>
-                            <FormattedMessage id="ask_forgot_password" 
-                                defaultMessage={'Did you forget the password?'}/>
-
+                        <FormattedMessage 
+                           id="pages.user.login-existing-account.btn-ask-forgot-password" 
+                        />
                     </LinkButton>
                 </div>
 

@@ -22,11 +22,16 @@ type Props = {
 }
 
 const getHeaderWhenSearchActionNotInPending = (props: Props): React.Node => {
-    const findPatientText = 
-        <FormattedMessage id="label_find_patient" defaultMessage={'Find Patient'} />
     return (
         <React.Fragment>
-            <FormControl.Group name={findPatientText} stressedName />
+            <FormControl.Group 
+               name={
+                  <FormattedMessage 
+                     id="pages.user.log-into-patient-account-page.label-find-patient" 
+                  />
+               }
+               stressedName 
+            />
             <FormControl.HorizontalSep repeat={2} />
         </React.Fragment>
     );
@@ -40,13 +45,17 @@ const getFooterWhenSearchActionNotInPending = (props: Props): React.Node => (
 )
 
 const getHeaderWhenCreateActionNotInPending = (props: Props): React.Node => {
-
-    const createNewAccountText = <FormattedMessage id="label_create_new_account" 
-                                    defaultMessage={'Create New Account'}/>
     
     return (
         <React.Fragment>
-            <FormControl.Group name={createNewAccountText} stressedName />
+            <FormControl.Group 
+               name={
+                  <FormattedMessage 
+                     id="pages.user.log-into-patient-account-page.label-create-new-account" 
+                  />
+               }
+               stressedName 
+            />
             <FormControl.HorizontalSep repeat={2} />
         </React.Fragment>
     );
@@ -60,12 +69,17 @@ const getFooterWhenCreateActionNotInPending = (props: Props): React.Node => (
 )
 
 const getCreateNewAccountLink = (props) => {
-    const newAccountText = <FormattedMessage id="patient_does_not_have_account"
-                                defaultMessage={"If the patient doesn't have an account"}/>
     return (
         <React.Fragment>
             {/* Button to switch to create a new account */}
-            <FormControl.Group name={newAccountText} stressedName>
+            <FormControl.Group 
+               name={
+                  <FormattedMessage 
+                     id="pages.user.log-into-patient-account-page.if-not-account-yet" 
+                  />
+               } 
+               stressedName
+            >
                 <FormControl.HorizontalSep repeat={2}/>
                     <Button 
                         type={ButtonType.SUCCESS}
@@ -76,8 +90,7 @@ const getCreateNewAccountLink = (props) => {
                         }}
                     >
                         <FormattedMessage 
-                            id="create_new_account" 
-                            defaultMessage={'Create new account'}
+                           id="pages.user.log-into-patient-account-page.btn-create-new-account" 
                         />
                     </Button>
             </FormControl.Group>
@@ -87,12 +100,17 @@ const getCreateNewAccountLink = (props) => {
 
 
 const getSearchExistingAccountLink = (props) => {
-    const searchForAccountText = <FormattedMessage id="label_patient_have_account_search"
-                                    defaultMessage={"If the patient already has an account"}/>
     return (
         <React.Fragment>
             {/* Button to switch to authenticate existing account */}
-            <FormControl.Group name={searchForAccountText} stressedName>
+            <FormControl.Group 
+               name={
+                  <FormattedMessage 
+                     id="pages.user.log-into-patient-account-page.label-if-already-has-account" 
+                  />
+               } 
+               stressedName
+            >
                 <FormControl.HorizontalSep repeat={2}/>
                 <Button 
                     type={ButtonType.SUCCESS} 
@@ -103,9 +121,8 @@ const getSearchExistingAccountLink = (props) => {
                     }}
                 >
                     <FormattedMessage 
-                        id="search_existing_patient_account" 
-                        defaultMessage={'Search for existing patient account'}
-                    />
+                        id="pages.user.log-into-patient-account-page.btn-search-existing-account" 
+                     />
                 </Button>
             </FormControl.Group>
         </React.Fragment>
@@ -124,8 +141,7 @@ const LogIntoPatientAccountView = (props: Props) => {
             <div className={classes.Login}>
                 <div className={classes.LoginContent}>
                     <h1 className={classes.Title}>
-                        <FormattedMessage id="title_log_into_patient_account" 
-                                    defaultMessage={"Log into patient account"} />
+                        <FormattedMessage id="pages.user.log-into-patient-account-page.title" />
                     </h1>
 
                     <FormControl.HorizontalSep repeat={2} />

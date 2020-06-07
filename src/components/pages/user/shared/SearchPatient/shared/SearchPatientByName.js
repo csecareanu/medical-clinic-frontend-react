@@ -38,12 +38,10 @@ class SearchPatientByName extends React.Component<Props, State> {
    }
 
    render () {
-      const patientNameLabel = 
-         <FormattedMessage id="label_first_name" defaultMessage={'First Name:'}/>
       return (
          <React.Fragment>
                <UserEntryElement 
-                  label={patientNameLabel}
+                  label={ <FormattedMessage id="input.label-first-name"/> }
                   value={this.state.name}
                   isValid={this.state.isValid}
                   type={UserEntryType.LAST_NAME}
@@ -58,7 +56,9 @@ class SearchPatientByName extends React.Component<Props, State> {
                      this.handleSearchPatients(this.props, 'first name')
                   }}
                >
-                  <FormattedMessage id="show_patients" defaultMessage={'Show Patients'}/>
+                  <FormattedMessage 
+                     id="pages.user.search-patient.search-patient-by-name.btn-show-patients" 
+                  />
                </Button>
          </React.Fragment>
       );

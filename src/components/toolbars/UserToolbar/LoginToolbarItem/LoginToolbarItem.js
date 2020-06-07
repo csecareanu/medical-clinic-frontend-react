@@ -20,7 +20,7 @@ const LoginToolbarItem = (props: Props) => {
                 boldStyle
                 onClick={ () => {props.onClick(UserMenuItem.LOGIN) }}
             >
-                <FormattedMessage id="toolbar_login" defaultMessage={'Login'}/>
+                <FormattedMessage id="btn-login" />
             </LinkButton>
         </div>
     );

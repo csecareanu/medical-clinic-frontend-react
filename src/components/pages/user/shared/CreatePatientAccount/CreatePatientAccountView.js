@@ -103,22 +103,13 @@ class CreatePatientAccount extends React.Component<Props, State> {
     }
 
     render() {
-        //TODO 
-        const firstNameText = "First Name";
-        const lastNameText = "Last Name";
-        const phoneNoText = "Phone No";
-        const passwordText = "Password";
-        const passwordRepeatText = "Repeat Password";
-        const cityText = "City";
-        const countyText = "County";
-
         const noPhoneCheckButton = (
             <React.Fragment>
                 <FormControl.HorizontalSep repeat={4} />
                 <Button type={ButtonType.DANGER} fullWidth onClick={this.props.onCreateAccount}>
-                    <FormattedMessage id="create_account_without_phone_check"
-                        defaultMessage={'Create Account Without Phone Check'}
-                    />
+                  <FormattedMessage 
+                     id="pages.user.create-patient-account.btn-create-without-phone-check"
+                  />
                 </Button>
             </React.Fragment>
         );
@@ -135,7 +126,7 @@ class CreatePatientAccount extends React.Component<Props, State> {
                                         this.onCancelAuthentication(this.props.onCancelAuthentication);
                                     }}
                                 >
-                                    <FormattedMessage id="cancel" defaultMessage={'Cancel'}/>
+                                    <FormattedMessage id="btn-cancel" />
                                 </Button>
                             </div>
                             <FormControl.HorizontalSep repeat={4}/>
@@ -151,7 +142,7 @@ class CreatePatientAccount extends React.Component<Props, State> {
                 <form onSubmit={() => { this.onCreateAccount(this.props.onCreateAccount) } }>
                     <FormControl.Text
                         size={20}
-                        placeholder={firstNameText}
+                        placeholder={<FormattedMessage id="input.label-first-name" />}
                         value={this.state.elementsStatus[Elements.FIRST_NAME].value}
                         autoFocus
                         onChange={(event) => { this.inputChangedHandler(event, Elements.FIRST_NAME) }}
@@ -159,28 +150,28 @@ class CreatePatientAccount extends React.Component<Props, State> {
 
                     <FormControl.Text
                         size={20}
-                        placeholder={lastNameText}
+                        placeholder={<FormattedMessage id="input.label-last-name" />}
                         value={this.state.elementsStatus[Elements.LAST_NAME].value}
                         onChange={(event) => { this.inputChangedHandler(event, Elements.LAST_NAME) }}
                     />
 
                     <FormControl.Text
                         size={20}
-                        placeholder={phoneNoText}
+                        placeholder={<FormattedMessage id="input.label-phone-no" />}
                         value={this.state.elementsStatus[Elements.PHONE_NO].value}
                         onChange={(event) => { this.inputChangedHandler(event, Elements.PHONE_NO) }}
                     />
 
                     <FormControl.Text
                         size={20}
-                        placeholder={passwordText}
+                        placeholder={<FormattedMessage id="input.label-password" />}
                         value={this.state.elementsStatus[Elements.PASSWORD].value}
                         onChange={(event) => { this.inputChangedHandler(event, Elements.PASSWORD) }}
                     />
 
                     <FormControl.Text
                         size={20}
-                        placeholder={passwordRepeatText}
+                        placeholder={<FormattedMessage id="input.label-repeat-password" />}
                         value={this.state.elementsStatus[Elements.PASSWORD_REPEAT].value}
                         onChange={(event) => {
                             this.inputChangedHandler(event,
@@ -190,14 +181,14 @@ class CreatePatientAccount extends React.Component<Props, State> {
 
                     <FormControl.Text
                         size={20}
-                        placeholder={cityText}
+                        placeholder={<FormattedMessage id="input.label-city" />}
                         value={this.state.elementsStatus[Elements.CITY].value}
                         onChange={(event) => { this.inputChangedHandler(event, Elements.CITY) }}
                     />
 
                     <FormControl.Text
                         size={20}
-                        placeholder={countyText}
+                        placeholder={<FormattedMessage id="input.label-county" />}
                         value={this.state.elementsStatus[Elements.COUNTY].value}
                         onChange={(event) => { this.inputChangedHandler(event, Elements.COUNTY) }}
                     />
@@ -212,7 +203,9 @@ class CreatePatientAccount extends React.Component<Props, State> {
                         type={ButtonType.SUCCESS}
                         fullWidth
                     >
-                        <FormattedMessage id="create_account" defaultMessage={'Create Account'} />
+                        <FormattedMessage 
+                           id="pages.user.create-patient-account.btn-create-account" 
+                        />
                     </Button>
 
                 </form>

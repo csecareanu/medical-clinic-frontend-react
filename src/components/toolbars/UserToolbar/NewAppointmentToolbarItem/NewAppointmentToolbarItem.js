@@ -28,8 +28,7 @@ const NewAppointmentToolbarItemView = (props: Props) => (
                 onClick={props.onClick}
             >
                 <FormattedMessage 
-                    id="toolbar_new_appointment" 
-                    defaultMessage={'New Appointment'}
+                    id="toolbars.user-toolbar.new-appointment-toolbar-item.btn-new-appointment"
                 />
             </NavItemButtonCSS>
         </NavListView>

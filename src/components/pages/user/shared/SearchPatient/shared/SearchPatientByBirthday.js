@@ -22,27 +22,25 @@ type Props = {
     onSearchPatients: OnSearchPatientsType
 }
 
-
-const SearchPatientByBirthday = (props: Props) => {
-    const birthDayLabel = <FormattedMessage id="label_birthday" defaultMessage={'Birthday'}/>
-    return (
-        <React.Fragment>
-            <BirthdayUserEntryElement 
-                label={birthDayLabel}
-                autoFocus={props.autoFocus? props.autoFocus : false}
+const SearchPatientByBirthday = (props: Props) => (
+   <React.Fragment>
+      <BirthdayUserEntryElement 
+            label={ <FormattedMessage id="input.label-birthday" /> }
+            autoFocus={props.autoFocus? props.autoFocus : false}
+      />
+      <FormControl.HorizontalSep repeat={2}/>
+      <Button 
+            type={ButtonType.SUCCESS} 
+            fullWidth
+            onClick={ () => {
+               onSearchPatients(props.onSearchPatients, 2000, 2,  0)
+            }}
+      >
+            <FormattedMessage 
+               id="pages.user.search-patient.search-patient-by-birthday.btn-show-patients" 
             />
-            <FormControl.HorizontalSep repeat={2}/>
-            <Button 
-                type={ButtonType.SUCCESS} 
-                fullWidth
-                onClick={ () => {
-                    onSearchPatients(props.onSearchPatients, 2000, 2,  0)
-                }}
-            >
-                <FormattedMessage id="show_patients" defaultMessage={'Show Patients'}/>
-            </Button>
-        </React.Fragment>
-    );
-}
+      </Button>
+   </React.Fragment>
+);
 
 export default SearchPatientByBirthday;

@@ -58,24 +58,13 @@ class BirthdayUserEntryElement extends React.Component<Props, State> {
         const birthDayElem = this.state.elementsStatus[Elements.BIRTH_DAY];
         const birthMonthElem = this.state.elementsStatus[Elements.BIRTH_MONTH];
         const birthYearElem = this.state.elementsStatus[Elements.BIRTH_YEAR];
-        
-        const birthdayLabel = <FormattedMessage id="label_birthday" defaultMessage={'Birthday:'}/>
-        //TODO 
-        /*
-        const dayText = <FormattedMessage id="birthday_day" defaultMessage={'day'}/>
-        const monthText = <FormattedMessage id="birthday_month" defaultMessage={'month'}/>
-        const yearText = <FormattedMessage id="birthday_year" defaultMessage={'year'}/>
-        */
-       const dayText = 'day';
-       const monthText = 'month';
-       const yearText = 'year';
 
         return (
-            <FormControl.Group name={birthdayLabel}>
+            <FormControl.Group name={ <FormattedMessage id="input.label-birthday" /> }>
                 <div className={classes.Birthday}>
                     <FormControl.Text 
                         size={6}
-                        placeholder={dayText}
+                        placeholder={ <FormattedMessage id="input.label-birthday.day" /> }
                         value={birthDayElem.value}
                         autoFocus={this.props.autoFocus? this.props.autoFocus : false}
                         onChange={
@@ -85,7 +74,7 @@ class BirthdayUserEntryElement extends React.Component<Props, State> {
                     <FormControl.VerticalSep/>
                     <FormControl.Text 
                         size={6} 
-                        placeholder= {monthText}
+                        placeholder= { <FormattedMessage id="input.label-birthday.month" /> }
                         value={birthMonthElem.value}
                         onChange={
                             (event) => {this.inputChangedHandler(event, Elements.BIRTH_MONTH)}
@@ -94,7 +83,7 @@ class BirthdayUserEntryElement extends React.Component<Props, State> {
                     <FormControl.VerticalSep/>
                     <FormControl.Text 
                         size={12}
-                        placeholder={yearText}
+                        placeholder={ <FormattedMessage id="input.label-birthday.year" /> }
                         value={birthYearElem.value}
                         onChange={
                             (event) => {this.inputChangedHandler(event, Elements.BIRTH_YEAR)}

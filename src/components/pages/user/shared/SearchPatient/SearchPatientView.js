@@ -30,7 +30,7 @@ const SearchPatientView = (props: Props) => {
                 props.onChangeSearchPatientForm(SearchPatientFormType.SEARCH_BY_BIRTHDAY) 
             }}
         >
-            <FormattedMessage id="search_by_birthday" defaultMessage={'Search by birthday'}/>
+            <FormattedMessage id="pages.user.search-patient.search-by-birthday" />
         </LinkButton>
     );
 
@@ -41,7 +41,7 @@ const SearchPatientView = (props: Props) => {
                 props.onChangeSearchPatientForm(SearchPatientFormType.SEARCH_BY_NAME) 
             }}
         >
-            <FormattedMessage id="search_by_name" defaultMessage={'Search by name'}/>
+            <FormattedMessage id="pages.user.search-patient.search-by-name" />
         </LinkButton>
     );
 
@@ -52,9 +52,7 @@ const SearchPatientView = (props: Props) => {
                 props.onChangeSearchPatientForm(SearchPatientFormType.SEARCH_BY_PHONE) 
             }}
         >
-            <FormattedMessage id="search_by_phone_no" 
-                defaultMessage={'Search by phone number'}
-            />
+            <FormattedMessage id="pages.user.search-patient.search-by-phone-no" />
         </LinkButton>
     );
 

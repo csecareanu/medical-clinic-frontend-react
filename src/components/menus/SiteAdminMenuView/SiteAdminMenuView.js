@@ -6,6 +6,8 @@ import classesMenu from '../menu.module.css';
 import NavListView from '../../UI/NavListView/NavListView';
 import NavItemButton_NoStyle from '../../UI/NavListView/NavItemButton/NavItemButton';
 import withProps from '../../hoc/withProps';
+import { SiteAdminLinkLocationName } from '../../../shared/LinkLocationNames';
+
 
 const NavItemButton = withProps(NavItemButton_NoStyle, 
     {
@@ -16,23 +18,23 @@ const NavItemButton = withProps(NavItemButton_NoStyle,
 
 export default () => (
     <NavListView style={classesMenu.Menu}>
-        <NavItemButton link="/admin/doctors">
-            <FormattedMessage id="menu_site_admin_doctors" defaultMessage={'DOCTORS'}/>
+        <NavItemButton link={SiteAdminLinkLocationName.DOCTORS}>
+            <FormattedMessage id="site-admin-menu.doctors" />
         </NavItemButton>
-        <NavItemButton link="/admin/specialties">
-            <FormattedMessage id="menu_site_admin_specialties" defaultMessage={'SPECIALTIES'}/>
+        <NavItemButton link={SiteAdminLinkLocationName.SPECIALTIES}>
+            <FormattedMessage id="site-admin-menu.specialties" />
         </NavItemButton>
-        <NavItemButton link="/admin/services">
-            <FormattedMessage id="menu_site_admin_services" defaultMessage={'SERVICES'}/>
+        <NavItemButton link={SiteAdminLinkLocationName.SERVICES}>
+            <FormattedMessage id="site-admin-menu.services" />
         </NavItemButton>
-        <NavItemButton link="/admin/doctor_to_svcs">
-            <FormattedMessage id="menu_site_admin_attach_services" defaultMessage={'ATTACHING SERVICES'}/>
+        <NavItemButton link={SiteAdminLinkLocationName.ASSIGN_SERVICES_TO_DOCTOR}>
+            <FormattedMessage id="site-admin-menu.attach-services" />
         </NavItemButton>
-        <NavItemButton link="/admin/log_events">
-            <FormattedMessage id="menu_site_admin_log_events" defaultMessage={'LOG EVENTS'}/>
+        <NavItemButton link={SiteAdminLinkLocationName.LOG_EVENTS}>
+            <FormattedMessage id="site-admin-menu.log-events" />
         </NavItemButton>
-        <NavItemButton link="/admin/settings">
-            <FormattedMessage id="menu_site_admin_settings" defaultMessage={'SETTINGS'}/>
+        <NavItemButton link={SiteAdminLinkLocationName.SETTINGS}>
+            <FormattedMessage id="site-admin-menu.settings" />
         </NavItemButton>
     </NavListView>
 );

@@ -1,0 +1,27 @@
+{
+   "week-day.Monday": "luni",
+   "week-day.Tuesday": "marți",
+   "week-day.Wednesday": "miercuri",
+   "week-day.Thursday": "joi",
+   "week-day.Friday": "vineri",
+   "week-day.Saturday": "sâmbătă", 
+   "week-day.Sunday": "duminică",
+
+   "work-program.open": "Program",
+   "work-program.start-day-to-end-day": "{start_day} - {end_day} ",
+
+   "main-page.clinic-name": "TAI CHI MEDICAL",
+   "main-page.our-services": "SERVICIILE NOASTRE",
+
+   "main-footer.data-protection": "Protecția datelor",
+   "main-footer.privacy-policy": "Politica de confidențialitate",
+   "main-footer.data-security": "Securitatea datelor",
+   "main-footer.terms-and-conditions": "Termeni și condiții",
+   "main-footer.tai-chi-medical-clinic": "Tai Chi Medical Clinic",
+   "main-footer.services": "Servicii",
+   "main-footer.prices": "Prețuri",
+   "main-footer.contact": "Contact",
+   "main-footer.short-address": "Strada Ion Heliade Radulescu Nr. 19-21, Targoviste",
+
+   "app.copyright": "© 2020 Tai Chi Medical"
+}

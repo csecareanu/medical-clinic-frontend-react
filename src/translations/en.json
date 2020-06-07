@@ -1,0 +1,138 @@
+{
+   "@{ GENERAL": "",
+   "app.copyright": "© 2020 Tai Chi Medical",
+
+   "week-day.Monday": "Monday",
+   "week-day.Tuesday": "Tuesday",
+   "week-day.Wednesday": "Wednesday",
+   "week-day.Thursday": "Thursday",
+   "week-day.Friday": "Friday",
+   "week-day.Saturday": "Saturday", 
+   "week-day.Sunday": "Sunday",
+
+   "btn-cancel": "Cancel",
+   "btn-close": "Close",
+   "btn-login": "Login",
+   "btn-logout": "Logout",
+
+   "input.label-first-name": "First name",
+   "input.label-last-name": "Last name",
+   "input.label-phone-no": "Phone no",
+   "input.label-password": "Password",
+   "input.label-repeat-password": "Repeat password",
+   "input.label-city": "City",
+   "input.label-county": "County",
+   "input.label-birthday": "Birthday",
+   "input.label-birthday.day": "day",
+   "input.label-birthday.month": "month",
+   "input.label-birthday.year": "year",
+
+   "work-program.open": "Open",
+   "work-program.start-day-to-end-day": "{start_day} to {end_day} ",
+   "@} GENERAL": "",
+
+   "@{ UserInterface": "",
+   "ui.brand-large.clinic-incentive": "Traditional Chinese Medicine",
+   "ui.gender-user-entry-element.label-gender": "Gender",
+   "ui.gender-user-entry-element.gender-male": "Male",
+   "ui.gender-user-entry-element.gender-female": "Female",
+   "@} UserInterface": "",
+  
+   "@{ MENU": "",
+   "clinic-menu.home": "HOME",
+   "clinic-menu.doctors": "DOCTORS",
+   "clinic-menu.about-clinic": "ABOUT CLINIC",
+   "clinic-menu.contact": "CONTACT",
+   "clinic-menu.prices": "PRICES",
+
+   "doctor-admin-menu.home": "HOME",
+   "doctor-admin-menu.appts_info": "APPOINTMENTS INFO",
+   "doctor-admin-menu.working_time": "WORKING TIME",
+   "doctor-admin-menu.log_events": "LOG EVENTS",
+   "doctor-admin-menu.notif-msgs": "NOTIFICATION MESSAGES",
+
+   "doctor-main-menu.log-into-patient-account": "LOG INTO PATIENT ACCOUNT",
+   "doctor-main-menu.log-out-patient-account": "LOG OUT PATIENT ACCOUNT",
+   "doctor-main-menu.administration": "ADMINISTRATION",
+
+   "site-admin-menu.doctors": "DOCTORS",
+   "site-admin-menu.specialties": "SPECIALTIES",
+   "site-admin-menu.services": "SERVICES",
+   "site-admin-menu.attach-services": "ATTACHING SERVICES",
+   "site-admin-menu.log-events": "LOG EVENTS",
+   "site-admin-menu.settings": "SETTINGS",
+   "@} MENU": "",
+
+   "@{ TOOLBARS": "",
+   "toolbars.about-clinic-toolbar.phone-toolbar-item.contact_us": "Contact us:",
+
+   "toolbars.user-toolbar.my-account-toolbar-item.btn-my-account": "My Account",
+
+   "toolbars.user-toolbar.new-appointment-toolbar-item.btn-new-appointment": "New Appointment",
+
+   "toolbars.user-toolbar.patient-account-toolbar-item.patient-account": "Patient Account",
+   "@} TOOLBARS": "",
+
+   "@{ PAGES": "",
+   "pages.notification-message.not-allowed-to-access-resource": "You are not allowed to access this resource.",
+   "pages.notification-message.user-need-to-authenticate": "You need to authenticate first.",
+   "pages.notification-message.user-not-connected-to-patient-account": "You are not connected to a patient account.",
+   "pages.notification-message.navigate-to-home-page": "Navigate to home page",
+
+   "pages.user.check-sms-code.label-line1-enter-sms-code": "Enter the SMS code received at the",
+   "pages.user.check-sms-code.label-line2-enter-sms-code": "phone number {phone}:",
+   "pages.user.check-sms-code.btn-verify-code": "Verify",
+   "pages.user.check-sms-code.wrong-sms-code.invalid-code": "The provided SMS code is not valid.",
+
+   "pages.user.create-patient-account.phone-validation": "Phone number validation",
+   "pages.user.create-patient-account.btn-create-without-phone-check": "Create Account Without Phone Check",
+   "pages.user.create-patient-account.btn-create-account": "Create Account",
+   "pages.user.create-patient-account.account-created.success": "The account has been created.",
+
+   "pages.user.login-existing-account.btn-ask-forgot-password": "Did you forget the password?",
+
+   "pages.user.search-patient.search-by-birthday": "Search by birthday",
+   "pages.user.search-patient.search-by-name": "Search by name",
+   "pages.user.search-patient.search-by-phone-no": "Search by phone number",
+
+   "pages.user.search-patient.search-patient-by-birthday.btn-show-patients": "Show Patients",
+
+   "pages.user.search-patient.search-patient-by-name.btn-show-patients": "Show Patients",
+
+   "pages.user.search-patient.search-patient-by-phoneNo.btn-show-patients": "Show Patients",
+
+   "pages.user.user-authentication-modal.if-no-user-account": "If you don't have an account",
+   "pages.user.user-authentication-modal.if-user-has-account": "If you already have an account",
+   "pages.user.user-authentication-modal.btn-create-new-account": "Create new account",
+   "pages.user.user-authentication-modal.login-existing-account": "Login using an existing account",
+
+   "pages.user.user-authentication-modal.": "",
+
+   "pages.clinic-main-page.clinic-name": "TAI CHI MEDICAL",
+   "pages.clinic-main-page.our-services": "OUR SERVICES",
+   "pages.clinic-main-page.clinic-description.paragraph-1": "Acupuncture is a complementary medical practice that entails stimulating certain points on the body, most often with a needle penetrating the skin, to alleviate pain or to help treat various health conditions.",
+   "pages.clinic-main-page.clinic-description.paragraph-2": "Acupuncture dates back to at least 100 B.C., which is when an organized system of diagnosis and treatment using needles was first described in writing in China.",
+   "pages.clinic-main-page.clinic-services.acupuncture": "ACUPUNCTURE",
+   "pages.clinic-main-page.clinic-services.cupping-therapy": "CUPPING THERAPY",
+   "pages.clinic-main-page.clinic-services.laser-therapy": "LASER THERAPY",
+   "pages.clinic-main-page.clinic-services.massage": "MASSAGE",
+
+   "pages.user.log-into-patient-account-page.title": "Log into patient account",
+   "pages.user.log-into-patient-account-page.label-find-patient": "Find Patient",
+   "pages.user.log-into-patient-account-page.label-create-new-account": "Create New Account",
+   "pages.user.log-into-patient-account-page.if-not-account-yet": "If the patient doesn't have an account",
+   "pages.user.log-into-patient-account-page.btn-create-new-account": "Create new account",
+   "pages.user.log-into-patient-account-page.label-if-already-has-account": "If the patient already has an account",
+   "pages.user.log-into-patient-account-page.btn-search-existing-account": "Search for existing patient account",
+   "@} PAGES": "",
+
+   "main-footer.data-protection": "Data protection",
+   "main-footer.privacy-policy": "Privacy policy",
+   "main-footer.data-security": "Data security",
+   "main-footer.terms-and-conditions": "Terms and conditions",
+   "main-footer.tai-chi-medical-clinic": "Tai Chi Medical Clinic",
+   "main-footer.services": "Services",
+   "main-footer.prices": "Prices",
+   "main-footer.contact": "Contact",
+   "main-footer.short-address": "19-21 Ion Heliade Radulescu Street, Targoviste, Dambovita County"
+}

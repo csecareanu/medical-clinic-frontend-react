@@ -55,20 +55,6 @@ class CheckSMSCode extends React.Component<Props, State> {
     }
 
     render () {
-        const checkSMSCodeLine1Text=
-            <FormattedMessage 
-                id="label_line1_enter_sms_code"
-                defaultMessage="Enter the SMS code received at the" 
-            />
-
-         const checkSMSCodeLine2Text=
-            <FormattedMessage 
-                id="label_line2_enter_sms_code"
-                defaultMessage="phone number {phone}:"
-                values={{
-                    phone: this.props.phoneNoToCheck
-                }}
-            />           
         return (
             <React.Fragment>
                 <div className={classes.CancelButton}>
@@ -76,7 +62,7 @@ class CheckSMSCode extends React.Component<Props, State> {
                         type={ButtonType.DANGER}
                         onClick={this.props.onCancel}
                     >
-                        <FormattedMessage id="cancel" defaultMessage={'Cancel'}/>
+                        <FormattedMessage id="btn-cancel" />
                     </Button>
                 </div>
 
@@ -88,8 +74,19 @@ class CheckSMSCode extends React.Component<Props, State> {
                         <FormControl.HorizontalSep repeat={2} />
             
                         <FormControl.Group
-                            name={checkSMSCodeLine1Text}
-                            nameLine2={checkSMSCodeLine2Text}
+                           name={
+                              <FormattedMessage 
+                                 id="pages.user.check-sms-code.label-line1-enter-sms-code" 
+                              />
+                           }
+                           nameLine2={
+                              <FormattedMessage 
+                                 id="pages.user.check-sms-code.label-line2-enter-sms-code"
+                                 values={{
+                                    phone: this.props.phoneNoToCheck
+                                 }}
+                              />
+                           }
                         >
                             <FormControl.Text
                                 size={20}
@@ -107,7 +104,7 @@ class CheckSMSCode extends React.Component<Props, State> {
                             type={ButtonType.SUCCESS}
                             fullWidth
                         >
-                            <FormattedMessage id="verify_code" defaultMessage={'Verify'} />
+                            <FormattedMessage id="pages.user.check-sms-code.btn-verify-code" />
                         </Button>
                     </FormControl.Group>
                 </form>

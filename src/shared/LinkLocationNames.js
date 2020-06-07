@@ -31,11 +31,11 @@ export const DoctorLinkLocationName = {
 }
 
 export const SiteAdminLinkLocationName = {
-    HOME: "/admin",
-    DOCTORS: "/admin/doctors",
-    SPECIALTIES: "/admin/specialties",
-    SERVICES: "/admin/services",
-    ASSIGN_SERVICES_TO_DOCTOR: "/admin/doctor_to_svcs",
-    LOG_EVENTS: "/admin/log_events",
-    SETTINGS: "/admin/settings"
+   HOME: "admin",
+   DOCTORS: "/admin/doctors",
+   SPECIALTIES: "/admin/specialties",
+   SERVICES: "/admin/services",
+   ASSIGN_SERVICES_TO_DOCTOR: "/admin/doctor_to_svcs",
+   LOG_EVENTS: "/admin/log_events",
+   SETTINGS: "/admin/settings"
 }

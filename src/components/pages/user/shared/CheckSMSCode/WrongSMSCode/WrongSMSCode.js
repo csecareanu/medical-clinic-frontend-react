@@ -16,10 +16,7 @@ const WrongSMSCode = (props: Props) => {
     return (
         <div className={classes.WrongCode}>
             <div className={classes.Message}>
-                <FormattedMessage
-                        id="wrong_sms_code" 
-                        defaultMessage={'The provided SMS code is not valid.'}
-                />
+                <FormattedMessage id="pages.user.check-sms-code.wrong-sms-code.invalid-code" />
 
                 <FormControl.HorizontalSep repeat={2} />
             </div>
@@ -28,10 +25,7 @@ const WrongSMSCode = (props: Props) => {
                 type={ButtonType.SUCCESS}
                 onClick={ props.onClose }
             >
-                <FormattedMessage 
-                    id="btn_text_close" 
-                    defaultMessage={'Close'}
-                />
+                <FormattedMessage id="btn-close" />
             </Button>
         </div>
     )

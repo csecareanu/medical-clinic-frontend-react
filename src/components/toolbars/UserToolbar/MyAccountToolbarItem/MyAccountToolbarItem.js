@@ -20,7 +20,9 @@ const MyAccountToolbarItem = (props: Props) => {
                 boldStyle
                 onClick={ () => {props.onClick(UserMenuItem.MY_ACCOUNT) }}
             >
-                <FormattedMessage id="toolbar_my_account" defaultMessage={'My Account'}/>
+                <FormattedMessage 
+                  id="toolbars.user-toolbar.my-account-toolbar-item.btn-my-account" 
+               />
             </LinkButton>
         </div>
     );

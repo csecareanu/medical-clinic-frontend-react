@@ -13,27 +13,32 @@ import imgMassage from '../../../../../static/images/clinic_services/massage.jpg
 
 export default () => 
 {
-    const acupunctureText = 
-        <FormattedMessage id="title_acupuncture" defaultMessage={"ACUPUNCTURE"}/>;
-    const cuppingTherapyText = 
-        <FormattedMessage id="title_cupping_therapy" defaultMessage={"CUPPING THERAPY"}/>;
-    const laserTherapyText = 
-        <FormattedMessage id="title_laser_therapy" defaultMessage={"LASER THERAPY"}/>;
-    const massageText = 
-        <FormattedMessage id="title_massage" defaultMessage={"MASSAGE"}/>;
-    
     return  (
         <React.Fragment>
             <div className={classes.Container}>
-                <ClinicService img={imgAcupuncture} title={acupunctureText} />
-                <ClinicService img={imgCupping} title={cuppingTherapyText} />
+                <ClinicService 
+                  img={imgAcupuncture} 
+                  title={<FormattedMessage 
+                           id="pages.clinic-main-page.clinic-services.acupuncture" />
+                  } />
+                <ClinicService 
+                  img={imgCupping} 
+                  title={<FormattedMessage 
+                           id="pages.clinic-main-page.clinic-services.cupping-therapy" />
+                  } />
             </div>
 
-
-
             <div className={classes.Container}>
-                <ClinicService img={imgLaser} title={laserTherapyText} />
-                <ClinicService img={imgMassage} title={massageText} />
+                <ClinicService 
+                  img={imgLaser} 
+                  title={<FormattedMessage 
+                           id="pages.clinic-main-page.clinic-services.laser-therapy" />
+                  } />
+                <ClinicService 
+                  img={imgMassage} 
+                  title={<FormattedMessage 
+                           id="pages.clinic-main-page.clinic-services.massage" />
+                  } />
             </div>
         </React.Fragment>
     );

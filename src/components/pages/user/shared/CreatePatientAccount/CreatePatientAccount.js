@@ -50,10 +50,6 @@ type Props = {
 }
 
 const CreatePatientAccount = (props: Props) => {
-
-    const checkSMSCodeComponentTitle = <FormattedMessage id="label_phone_no_check"
-                            defaultMessage ={"Phone number validation"} />
-
     return (
         <CreatePatientAccountContainer
             userRegistrationMode={props.userRegistrationMode}
@@ -81,10 +77,12 @@ const CreatePatientAccount = (props: Props) => {
                     }
                     { accountData.createAccountStatus === CreateAccountStatus.CHECK_SMS_CODE
                         ? <CheckSMSCode 
-                                title={checkSMSCodeComponentTitle}
-                                phoneNoToCheck='44444444'
-                                onCheckCode={accountData.onCheckSMSCode}
-                                onCancel={accountData.onCancelCheckSMSCode}
+                              title={
+                                 <FormattedMessage id="create-patient-account.phone-validation" />
+                              }
+                              phoneNoToCheck='44444444'
+                              onCheckCode={accountData.onCheckSMSCode}
+                              onCancel={accountData.onCancelCheckSMSCode}
                             />
                         : null
                     }

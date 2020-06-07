@@ -13,20 +13,18 @@ const GenderType = {
 const RadioGroupName='gender';
 
 const GenderUserEntryElement = () => {
-    const genderLabel = <FormattedMessage id="label_gender" defaultMessage={'Gender:'}/>
-    const maleText = <FormattedMessage id="gender_male" defaultMessage={'Male'}/>;
-    const femaleText = <FormattedMessage id="gender_female" defaultMessage={'Female'}/>;
 
     return (
         <React.Fragment>
-            <FormControl.Group name={genderLabel}>
+            <FormControl.Group 
+               name={ <FormattedMessage id="ui.gender-user-entry-element.label-gender" /> }>
 
                 <FormControl.Radio 
                     name={RadioGroupName}
                     value={GenderType.MALE}
                     noHorizontalSepAfter
                 >
-                    {maleText}
+                    { <FormattedMessage id="ui.gender-user-entry-element.gender-male" /> }
                 </FormControl.Radio>
 
                 <FormControl.VerticalSep repeat={2}/>
@@ -36,7 +34,7 @@ const GenderUserEntryElement = () => {
                     value={GenderType.FEMALE}
                     noHorizontalSepAfter
                 >
-                    {femaleText}
+                    { <FormattedMessage id="ui.gender-user-entry-element.gender-female" /> }
                 </FormControl.Radio>
 
             </FormControl.Group>                     

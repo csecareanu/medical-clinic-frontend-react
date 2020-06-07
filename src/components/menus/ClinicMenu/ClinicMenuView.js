@@ -38,7 +38,7 @@ const ClinicMenuView = (props: Props) => {
                 exact
                 onClick={props.onItemSelect}
             >
-                <FormattedMessage id="menu_home" defaultMessage={'HOME'} />
+                <FormattedMessage id="clinic-menu.home" />
             </NavItemButtonCSS>
 
             <NavItemButtonCSS 
@@ -47,7 +47,7 @@ const ClinicMenuView = (props: Props) => {
                 preventNav
                 onClick={props.onItemSelect}
             >
-                <FormattedMessage id="menu_doctors" defaultMessage={'DOCTORS'} />
+                <FormattedMessage id="clinic-menu.doctors" />
             </NavItemButtonCSS>
 
             <NavItemButtonCSS
@@ -56,7 +56,7 @@ const ClinicMenuView = (props: Props) => {
                 preventNav
                 onClick={props.onItemSelect}
             >
-                <FormattedMessage id="menu_about_clinic" defaultMessage={'ABOUT CLINIC'} />
+                <FormattedMessage id="clinic-menu.about-clinic" />
             </NavItemButtonCSS>
 
             <NavItemButtonCSS
@@ -65,7 +65,7 @@ const ClinicMenuView = (props: Props) => {
                 preventNav
                 onClick={props.onItemSelect}
             >
-                <FormattedMessage id="menu_contact" defaultMessage={'CONTACT'}/>
+                <FormattedMessage id="clinic-menu.contact" />
             </NavItemButtonCSS>
 
             <NavItemButtonCSS
@@ -74,7 +74,7 @@ const ClinicMenuView = (props: Props) => {
                 preventNav
                 onClick={props.onItemSelect}
             >
-                <FormattedMessage id="menu_prices" defaultMessage={'PRICES'}/>
+                <FormattedMessage id="clinic-menu.prices" />
             </NavItemButtonCSS>
 
         </NavListView>

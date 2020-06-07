@@ -8,7 +8,7 @@ export default () => (
     <div className={classes.Brand}>
         <img  src={imgBrand} alt="brand"/>
         <div className={classes.ClinicIncentive}>
-            <FormattedMessage id="clinic_incentive" defaultMessage={'Traditional Chinese Medicine'}/>
+            <FormattedMessage id="ui.brand-large.clinic-incentive" />
         </div>
     </div>
 );

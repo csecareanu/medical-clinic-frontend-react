@@ -40,7 +40,7 @@ class SearchPatientByPhoneNo extends React.Component<Props, State> {
 
    render() {
       const patientNameLabel = 
-         <FormattedMessage id="label_phone_number" defaultMessage={'Phone Number:'}/>
+         <FormattedMessage id="input.label-phone-no" />
       return (
          <React.Fragment>
             <UserEntryElement
@@ -57,7 +57,9 @@ class SearchPatientByPhoneNo extends React.Component<Props, State> {
                fullWidth
                onClick={this.handleSearchPatients}
             >
-               <FormattedMessage id="show_patients" defaultMessage={'Show Patients'}/>
+               <FormattedMessage 
+                  id="pages.user.search-patient.search-patient-by-phoneNo.btn-show-patients" 
+               />
             </Button>
          </React.Fragment>
       );

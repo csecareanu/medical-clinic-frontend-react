@@ -39,7 +39,7 @@ const PatientAccountView = (props: Props) => {
                     type={LinkButtonType.DANGER}
                     onClick={() => {props.onNavigationItemSelect(UserMenuItem.LOGOUT);}}
                 >
-                    <FormattedMessage id="menu_logout" defaultMessage={'Logout'}/>
+                    <FormattedMessage id="btn-logout" />
                 </LinkButton>
 
                 <div style={{width: '100%', align: 'center'}}>

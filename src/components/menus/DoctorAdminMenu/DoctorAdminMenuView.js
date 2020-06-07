@@ -43,10 +43,7 @@ const DoctorAdminMenu = (props: Props) => (
                 exact
                 onClick={props.onItemSelect}
             >
-                <FormattedMessage 
-                    id="menu_home" 
-                    defaultMessage={'HOME'} 
-                />
+                <FormattedMessage id="doctor-admin-menu.home" />
             </NavItemButtonCSS>
         </NavListView>
 
@@ -56,10 +53,7 @@ const DoctorAdminMenu = (props: Props) => (
                 link={DoctorLinkLocationName.APPOINTMENTS}
                 onClick={props.onItemSelect}
             >
-                <FormattedMessage 
-                    id="menu_doctor_admin_appts_info" 
-                    defaultMessage={'APPOINTMENTS INFO'}
-                />
+                <FormattedMessage id="doctor-admin-menu.appts_info" />
             </NavItemButtonAdminCSS>
 
             <NavItemButtonAdminCSS
@@ -67,10 +61,7 @@ const DoctorAdminMenu = (props: Props) => (
                 link={DoctorLinkLocationName.WORKING_TIME}
                 onClick={props.onItemSelect}
             >
-                <FormattedMessage 
-                    id="menu_doctor_admin_working_time" 
-                    defaultMessage={'WORKING TIME'}
-                />
+                <FormattedMessage id="doctor-admin-menu.working_time" />
             </NavItemButtonAdminCSS>
 
             <NavItemButtonAdminCSS
@@ -78,10 +69,7 @@ const DoctorAdminMenu = (props: Props) => (
                 link={DoctorLinkLocationName.LOG_EVENTS}
                 onClick={props.onItemSelect}
             >
-                <FormattedMessage 
-                    id="menu_doctor_admin_log_events" 
-                    defaultMessage={'LOG EVENTS'}
-                />
+                <FormattedMessage id="doctor-admin-menu.log_events" />
             </NavItemButtonAdminCSS>
 
             <NavItemButtonAdminCSS
@@ -89,10 +77,7 @@ const DoctorAdminMenu = (props: Props) => (
                 link={DoctorLinkLocationName.NOTIFICATION_MESSAGES}
                 onClick={props.onItemSelect}
             >
-                <FormattedMessage 
-                    id="menu_doctor_admin_notif_msgs" 
-                    defaultMessage={'NOTIFICATION MESSAGES'}
-                />
+                <FormattedMessage id="doctor-admin-menu.notif-msgs" />
             </NavItemButtonAdminCSS>
 
         </NavListView>

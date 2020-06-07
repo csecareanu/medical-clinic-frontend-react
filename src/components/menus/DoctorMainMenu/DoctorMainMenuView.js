@@ -36,8 +36,7 @@ const DoctorMainMenuView = (props: Props) => {
                 preventNav
                 onClick={props.onItemSelect}
             >
-                <FormattedMessage 
-                    id="menu_log_into_patient_account" defaultMessage={'LOG INTO PATIENT ACCOUNT'}/>
+                <FormattedMessage id="doctor-main-menu.log-into-patient-account" />
             </NavItemButtonCSS>
     );
 
@@ -48,8 +47,7 @@ const DoctorMainMenuView = (props: Props) => {
                 preventNav
                 onClick={props.onItemSelect}
             >
-                <FormattedMessage 
-                    id="menu_log_out_patient_account" defaultMessage={'LOG OUT PATIENT ACCOUNT'}/>
+                <FormattedMessage id="doctor-main-menu.log-out-patient-account" />
             </NavItemButtonCSS>
     );
 
@@ -63,7 +61,7 @@ const DoctorMainMenuView = (props: Props) => {
                 exact
                 onClick={props.onItemSelect}
             >
-                <FormattedMessage id="menu_administration" defaultMessage={'ADMINISTRATION'}/>
+                <FormattedMessage id="doctor-main-menu.administration" />
             </NavItemButtonCSS>
 
             { props.isUserConnectedToAPatientAccount 

@@ -45,12 +45,15 @@ const getFooterWhenCreateActionNotInPending = (props: Props) => (
 )
 
 const getCreateNewAccountLink = (props: Props): React.Node => {
-    const newAccountText = <FormattedMessage id="if_user_does_not_have_account"
-                                defaultMessage={"If you don't have an account"}/>
     return (
         <React.Fragment>
             {/* Button to switch to create a new account */}
-            <FormControl.Group name={newAccountText} stressedName>
+            <FormControl.Group 
+               name={ 
+                  <FormattedMessage id="pages.user.user-authentication-modal.if-no-user-account" /> 
+               } 
+               stressedName
+            >
                 <FormControl.HorizontalSep repeat={2}/>
                     <Button 
                         type={ButtonType.SUCCESS}
@@ -61,8 +64,7 @@ const getCreateNewAccountLink = (props: Props): React.Node => {
                         }}
                     >
                         <FormattedMessage 
-                            id="create_new_account" 
-                            defaultMessage={'Create new account'}
+                            id="pages.user.user-authentication-modal.btn-create-new-account" 
                         />
                     </Button>
             </FormControl.Group>
@@ -71,31 +73,29 @@ const getCreateNewAccountLink = (props: Props): React.Node => {
 }
 
 
-const getLoginExistingAccountLink = (props: Props): React.Node => {
-    const existingAccountText = <FormattedMessage id="if_user_have_account"
-                                defaultMessage={"If you already have an account"}/>
-    return (
-        <React.Fragment>
-            {/* Button to switch to login using an existing account */}
-            <FormControl.Group name={existingAccountText} stressedName>
-                <FormControl.HorizontalSep repeat={2}/>
-                    <Button 
-                        type={ButtonType.SUCCESS}
-                        fullWidth
-                        onClick={() => {
-                            props.onChangeDisplayedForm(
-                                UserAuthenticationFormType.LOGIN_FORM)
-                        }}
-                    >
-                        <FormattedMessage 
-                            id="login_existing_account" 
-                            defaultMessage={'Login using an existing account'}
-                        />
-                    </Button>
-            </FormControl.Group>
-        </React.Fragment>
-    );
-}
+const getLoginExistingAccountLink = (props: Props): React.Node => (
+   <React.Fragment>
+      {/* Button to switch to login using an existing account */}
+      <FormControl.Group 
+         name={ <FormattedMessage id="pages.user.user-authentication-modal.if-user-has-account" /> } 
+         stressedName
+      >
+            <FormControl.HorizontalSep repeat={2}/>
+               <Button 
+                  type={ButtonType.SUCCESS}
+                  fullWidth
+                  onClick={() => {
+                        props.onChangeDisplayedForm(
+                           UserAuthenticationFormType.LOGIN_FORM)
+                  }}
+               >
+                  <FormattedMessage 
+                     id="pages.user.user-authentication-modal.login-existing-account" 
+                  />
+               </Button>
+      </FormControl.Group>
+   </React.Fragment>
+);
 
 const UserAuthenticationView = (props: Props) => {
 

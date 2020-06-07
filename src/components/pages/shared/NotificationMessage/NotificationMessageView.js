@@ -19,23 +19,16 @@ const NotificationMessageView = (props: Props) => {
     let message = null;
 
     if (props.typeAccessNotAllowed) {
-        message = ( 
-            <FormattedMessage 
-                id="not_allowed_to_access_resource" 
-                defaultMessage={'You are not allowed to access this resource.'}
-        /> );
+        message = 
+            <FormattedMessage id="pages.notification-message.not-allowed-to-access-resource" />;
     } else if (props.typeNeedAuthentication) {
-        message = ( 
-            <FormattedMessage 
-                id="user_need_to_authenticate" 
-                defaultMessage={'You need to authenticate first.'}
-        /> );
+        message = 
+            <FormattedMessage id="pages.notification-message.user-need-to-authenticate" />;
     } else if (props.typeNotConnectedToPatientAccount) {
-        message = ( 
+        message =
             <FormattedMessage 
-                id="user_not_connected_to_patient_account" 
-                defaultMessage={'You are not connected to a patient account.'}
-        /> );        
+               id="pages.notification-message.user-not-connected-to-patient-account" 
+            />;
     } else { 
         console.log("NotificationMessage. Unknown message notification message type. Props: ", 
                 props);
@@ -52,10 +45,7 @@ const NotificationMessageView = (props: Props) => {
                     props.onClinicMenuItemSelect(ClinicMenuItem.HOME)
                 }}
             >
-                <FormattedMessage 
-                    id="navigate_to_home_page" 
-                    defaultMessage={'Navigate to home page'}
-                />
+                <FormattedMessage id="pages.notification-message.navigate-to-home-page" />
             </Button>
         </div>
     );
