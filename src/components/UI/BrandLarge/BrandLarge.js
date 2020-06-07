@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import {FormattedMessage} from 'react-intl';
 
 import classes from './BrandLarge.module.css';
 import imgBrand from '../../../static/images/brand.jpg';

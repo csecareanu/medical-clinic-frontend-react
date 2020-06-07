@@ -1,10 +1,10 @@
 // @flow
 
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import {FormattedMessage} from 'react-intl';
 
 import classes from './WrongSMSCode.module.css';
-import Button, { ButtonType } from '../../../../../UI/Button/Button';
+import Button, {ButtonType} from '../../../../../UI/Button/Button';
 import FormControl from '../../../../../UI/FormControl/FormControl';
 
 

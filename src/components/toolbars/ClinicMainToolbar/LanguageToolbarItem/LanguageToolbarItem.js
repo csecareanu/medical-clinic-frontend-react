@@ -1,8 +1,8 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import {FormattedMessage} from 'react-intl';
 
 import classes from './LanguageToolbarItem.module.css';
-import LinkButton, { LinkButtonType } from '../../../UI/LinkButton/LinkButton';
+import LinkButton, {LinkButtonType} from '../../../UI/LinkButton/LinkButton';
 import imgRoFlag from '../../../../static/images/ro_flag.jpg';
 import imgEnFlag from '../../../../static/images/uk_flag.jpg';
 

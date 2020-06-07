@@ -1,10 +1,10 @@
 // @flow
-import type { RouterHistory } from 'react-router';
+import type {RouterHistory} from 'react-router';
 import * as React from 'react';
-import { withRouter } from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 
 import UIStateContext from '../../../../react-context/UIState/UIState-context';
-import { UserAuthenticationFormType } from './UserAuthenticationModal';
+import {UserAuthenticationFormType} from './UserAuthenticationModal';
 
 export type ContainerData = {
     displayUserAuthenticationModal: boolean,

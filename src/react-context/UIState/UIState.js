@@ -2,7 +2,7 @@
 import * as React from 'react';
 
 import UIStateContext from './UIState-context';
-import { UserAuthType } from '../../shared/UserAuthType';
+import {UserAuthType} from '../../shared/UserAuthType';
 
 
 type Props = {

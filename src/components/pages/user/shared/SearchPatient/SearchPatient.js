@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 
-import SearchPatientContainer, { type ContainerData } from './SearchPatientContainer';
+import SearchPatientContainer, {type ContainerData} from './SearchPatientContainer';
 import SearchPatientView from './SearchPatientView';
 
 const hasSymbol = typeof Symbol === 'function';

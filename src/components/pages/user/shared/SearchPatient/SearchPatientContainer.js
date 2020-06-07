@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 
-import { SearchPatientFormType } from './SearchPatient';
+import {SearchPatientFormType} from './SearchPatient';
 
 /*
 export type ChoosePatientFormInfo = {

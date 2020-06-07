@@ -12,7 +12,7 @@ import ClinicMainToolbar from '../../toolbars/ClinicMainToolbar/ClinicMainToolba
 import UserToolbar from '../../toolbars/UserToolbar/UserToolbar';
 import MenuToolbar from '../../toolbars/MenuToolbar/MenuToolbar';
 import SideDrawerToolbar from '../../toolbars/SideDrawerToolbar/SideDrawerToolbar';
-import { UserAuthType } from '../../../shared/UserAuthType';
+import {UserAuthType} from '../../../shared/UserAuthType';
 
 type Props = {
     userAuthenticationStatus: number | Symbol,

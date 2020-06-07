@@ -1,14 +1,14 @@
 // @flow
 
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import {FormattedMessage} from 'react-intl';
 
 import classesMenu from '../menu.module.css';
-import { 
+import {
     DoctorMenuItem,
     ClinicMenuItem
 } from '../../../shared/MenuItemIdentifiers';
-import { 
+import {
     ClinicLinkLocationName,
     DoctorLinkLocationName
 } from '../../../shared/LinkLocationNames';

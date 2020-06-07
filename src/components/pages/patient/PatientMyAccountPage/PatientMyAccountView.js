@@ -1,13 +1,13 @@
 // @flow
 
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import {FormattedMessage} from 'react-intl';
 
 import classes from './PatientMyAccountView.module.css';
-import { PageHeaderType }  from '../../../../shared/PageHeaderType';
-import { UserAuthType } from '../../../../shared/UserAuthType';
-import { UserMenuItem }  from '../../../../shared/MenuItemIdentifiers';
-import LinkButton, { LinkButtonType } from '../../../UI/LinkButton/LinkButton';
+import {PageHeaderType}  from '../../../../shared/PageHeaderType';
+import {UserAuthType} from '../../../../shared/UserAuthType';
+import {UserMenuItem}  from '../../../../shared/MenuItemIdentifiers';
+import LinkButton, {LinkButtonType} from '../../../UI/LinkButton/LinkButton';
 import NotificationMessage from '../../shared/NotificationMessage/NotificationMessage';
 import MainLayout from '../../../layouts/MainLayout/MainLayout';
 import UnderConstruction from '../../shared/UnderConstruction/UnderConstruction';

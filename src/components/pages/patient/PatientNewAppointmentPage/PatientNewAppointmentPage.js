@@ -2,8 +2,8 @@
 
 import * as React from 'react';
 
-import { UserAuthType } from '../../../../shared/UserAuthType';
-import { DoctorMenuItem }  from '../../../../shared/MenuItemIdentifiers';
+import {UserAuthType} from '../../../../shared/UserAuthType';
+import {DoctorMenuItem}  from '../../../../shared/MenuItemIdentifiers';
 import NavContainer from '../../../NavContainer/NavContainer';
 import PatientNewAppointmentView from './PatientNewAppointmentView';
 

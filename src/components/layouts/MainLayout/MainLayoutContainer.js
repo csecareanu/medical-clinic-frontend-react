@@ -3,7 +3,7 @@
 import * as React from 'react';
 
 import UIStateContext from '../../../react-context/UIState/UIState-context';
-import { UserAuthType } from '../../../shared/UserAuthType';
+import {UserAuthType} from '../../../shared/UserAuthType';
 
 const containerData = {
     _uiStateContext: (null: null | UIStateContext),

@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-import { UserAuthType } from '../../../../shared/UserAuthType';
+import {UserAuthType} from '../../../../shared/UserAuthType';
 import NotificationMessage from '../../shared/NotificationMessage/NotificationMessage';
 import PatientMyAccountPage from '../../patient/PatientMyAccountPage/PatientMyAccountPage';
 import DoctorMyAccountPage from '../../doctor/DoctorMyAccountPage/DoctorMyAccountPage';

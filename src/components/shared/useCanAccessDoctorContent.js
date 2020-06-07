@@ -1,7 +1,7 @@
 // @flow
-import { useContext } from 'react';
+import {useContext} from 'react';
 import UIStateContext from '../../react-context/UIState/UIState-context';
-import { UserAuthType } from '../../shared/UserAuthType';
+import {UserAuthType} from '../../shared/UserAuthType';
 
 /**
  * Custom hook to check if the current authenticated / not authenticated user can access

@@ -1,11 +1,11 @@
 // @flow
 
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import {FormattedMessage} from 'react-intl';
 
 import classesMenu from '../menu.module.css';
-import { DoctorMenuItem } from '../../../shared/MenuItemIdentifiers';
-import { DoctorLinkLocationName } from '../../../shared/LinkLocationNames';
+import {DoctorMenuItem} from '../../../shared/MenuItemIdentifiers';
+import {DoctorLinkLocationName} from '../../../shared/LinkLocationNames';
 import NavListView from '../../UI/NavListView/NavListView';
 import NavItemButton from '../../UI/NavListView/NavItemButton/NavItemButton';
 import withProps from '../../hoc/withProps';

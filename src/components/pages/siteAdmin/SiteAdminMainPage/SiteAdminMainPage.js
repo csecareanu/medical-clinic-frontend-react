@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-import { PageHeaderType }  from '../../../../shared/PageHeaderType';
+import {PageHeaderType}  from '../../../../shared/PageHeaderType';
 import useCanAccessSiteAdminContent from '../../../shared/useCanAccessSiteAdminContent';
 import NotificationMessage from '../../shared/NotificationMessage/NotificationMessage';
 import MainLayout from '../../../layouts/MainLayout/MainLayout';

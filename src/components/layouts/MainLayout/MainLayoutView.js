@@ -3,7 +3,7 @@
 import * as React from 'react';
 
 import classes from './MainLayoutView.module.css';
-import { PageHeaderType } from '../../../shared/PageHeaderType';
+import {PageHeaderType} from '../../../shared/PageHeaderType';
 import MainHeader from '../../headers/MainHeader/MainHeader';
 import DoctorHeader from '../../headers/DoctorHeader/DoctorHeader';
 import SiteAdminHeader from '../../headers/SiteAdminHeader/SiteAdminHeader';

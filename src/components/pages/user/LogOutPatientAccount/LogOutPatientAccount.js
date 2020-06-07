@@ -3,7 +3,7 @@
 import React from 'react';
 
 import NavContainer from '../../../NavContainer/NavContainer';
-import { DoctorMenuItem } from '../../../../shared/MenuItemIdentifiers';
+import {DoctorMenuItem} from '../../../../shared/MenuItemIdentifiers';
 
 type Props = {
     onItemSelect?: () => void

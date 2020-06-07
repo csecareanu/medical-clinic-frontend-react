@@ -4,7 +4,7 @@ import * as React from 'react';
 
 import MainLayoutView from './MainLayoutView';
 import MainLayoutContainer from './MainLayoutContainer';
-import { PageHeaderType }  from '../../../shared/PageHeaderType';
+import {PageHeaderType}  from '../../../shared/PageHeaderType';
 
 type Props = {
     headerType: PageHeaderType,

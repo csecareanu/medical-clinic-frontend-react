@@ -2,9 +2,9 @@
 
 import * as React from 'react';
 
-import { CreateAccountStatus, NewAccountRegMode } from './CreatePatientAccount';
+import {CreateAccountStatus, NewAccountRegMode} from './CreatePatientAccount';
 import UIStateContext from '../../../../../react-context/UIState/UIState-context';
-import { UserAuthType } from '../../../../../shared/UserAuthType';
+import {UserAuthType} from '../../../../../shared/UserAuthType';
 
 export type ContainerData = {
     createAccountStatus: $Values<typeof CreateAccountStatus>,

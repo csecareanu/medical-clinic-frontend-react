@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react';
-import { typeof FormattedMessage } from 'react-intl';
+import {type FormattedMessage} from 'react-intl';
 
 import FormControl from '../../FormControl/FormControl';
 

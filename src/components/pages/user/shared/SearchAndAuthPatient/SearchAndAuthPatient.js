@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 
-import SearchAndAuthPatientContainer, { type ContainerData } from './SearchAndAuthPatientContainer';
+import SearchAndAuthPatientContainer, {type ContainerData} from './SearchAndAuthPatientContainer';
 import SearchAndAuthPatientView from './SearchAndAuthPatientView';
 
 type Props = {

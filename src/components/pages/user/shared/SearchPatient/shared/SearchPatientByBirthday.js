@@ -1,12 +1,12 @@
 // @flow
 
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import {FormattedMessage} from 'react-intl';
 
 import BirthdayUserEntryElement 
     from '../../../../../UI/userEntryElement/BirthdayUserEntryElement/BirthdayUserEntryElement';
 import FormControl from '../../../../../UI/FormControl/FormControl';
-import Button, { ButtonType } from '../../../../../UI/Button/Button';
+import Button, {ButtonType} from '../../../../../UI/Button/Button';
 
 type OnSearchPatientsType = (year: number, month: number, day: number) => void;
 

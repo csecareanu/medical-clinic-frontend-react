@@ -1,12 +1,12 @@
 // @flow
 
 import React from 'react';
-import { withRouter } from 'react-router-dom';
-import { FormattedMessage } from 'react-intl';
+import {withRouter} from 'react-router-dom';
+import {FormattedMessage} from 'react-intl';
 
 import classesMenu from '../menu.module.css';
-import { ClinicMenuItem } from '../../../shared/MenuItemIdentifiers';
-import { ClinicLinkLocationName } from '../../../shared/LinkLocationNames';
+import {ClinicMenuItem} from '../../../shared/MenuItemIdentifiers';
+import {ClinicLinkLocationName} from '../../../shared/LinkLocationNames';
 import NavListView from '../../UI/NavListView/NavListView';
 import NavItemButton from '../../UI/NavListView/NavItemButton/NavItemButton';
 import withProps from '../../hoc/withProps';

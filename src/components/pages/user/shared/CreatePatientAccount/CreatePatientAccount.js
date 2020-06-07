@@ -1,9 +1,9 @@
 // @flow
 
 import * as React from 'react';
-import { FormattedMessage } from 'react-intl';
+import {FormattedMessage} from 'react-intl';
 
-import type { ContainerData } from './CreatePatientAccountContainer';
+import type {ContainerData} from './CreatePatientAccountContainer';
 import CreatePatientAccountContainer from './CreatePatientAccountContainer';
 import CreatePatientAccountView from './CreatePatientAccountView';
 import CheckSMSCode from '../CheckSMSCode/CheckSMSCode';

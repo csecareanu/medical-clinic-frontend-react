@@ -1,12 +1,12 @@
 
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import {FormattedMessage} from 'react-intl';
 
 import classesMenu from '../menu.module.css';
 import NavListView from '../../UI/NavListView/NavListView';
 import NavItemButton_NoStyle from '../../UI/NavListView/NavItemButton/NavItemButton';
 import withProps from '../../hoc/withProps';
-import { SiteAdminLinkLocationName } from '../../../shared/LinkLocationNames';
+import {SiteAdminLinkLocationName} from '../../../shared/LinkLocationNames';
 
 
 const NavItemButton = withProps(NavItemButton_NoStyle, 

@@ -1,15 +1,15 @@
 // @flow
 
 import * as React from 'react';
-import { FormattedMessage } from 'react-intl';
+import {FormattedMessage} from 'react-intl';
 
 import classes from './SearchPatientView.module.css';
 import SearchPatientByBirthday from './shared/SearchPatientByBirthday';
 import SearchPatientByName from './shared/SearchPatientByName';
 import SearchPatientByPhoneNo from './shared/SearchPatientByPhoneNo';
-import LinkButton, { LinkButtonType } from '../../../../UI/LinkButton/LinkButton';
+import LinkButton, {LinkButtonType} from '../../../../UI/LinkButton/LinkButton';
 import FormControl from '../../../../UI/FormControl/FormControl';
-import { SearchPatientFormType } from './SearchPatient';
+import {SearchPatientFormType} from './SearchPatient';
 
 type Props = {
     displayedForm: $Values<typeof SearchPatientFormType>,

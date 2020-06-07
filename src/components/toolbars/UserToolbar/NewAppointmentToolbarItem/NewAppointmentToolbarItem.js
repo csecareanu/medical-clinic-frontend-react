@@ -1,10 +1,10 @@
 // @flow
 
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import {FormattedMessage} from 'react-intl';
 
 import classes from './NewAppointmentToolbarItem.module.css';
-import { PatientMenuItem } from '../../../../shared/MenuItemIdentifiers.js'
+import {PatientMenuItem} from '../../../../shared/MenuItemIdentifiers.js'
 import NavListView from '../../../UI/NavListView/NavListView';
 import NavItemButton from '../../../UI/NavListView/NavItemButton/NavItemButton';
 import withProps from '../../../hoc/withProps';

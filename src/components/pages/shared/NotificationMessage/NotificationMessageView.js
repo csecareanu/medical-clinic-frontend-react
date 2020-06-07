@@ -1,11 +1,11 @@
 // @flow
 
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import {FormattedMessage} from 'react-intl';
 
 import classes from './NotificationMessageView.module.css';
-import { ClinicMenuItem } from '../../../../shared/MenuItemIdentifiers';
-import Button, { ButtonType } from '../../../UI/Button/Button';
+import {ClinicMenuItem} from '../../../../shared/MenuItemIdentifiers';
+import Button, {ButtonType} from '../../../UI/Button/Button';
 
 type Props = {
     typeAccessNotAllowed?: boolean,

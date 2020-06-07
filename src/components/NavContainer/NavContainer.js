@@ -1,16 +1,16 @@
 // @flow
 
 import * as React from 'react';
-import { withRouter } from 'react-router-dom';
-import type { RouterHistory } from 'react-router';
+import {withRouter} from 'react-router-dom';
+import type {RouterHistory} from 'react-router';
 
-import { 
+import {
     UserMenuItem,
     PatientMenuItem,
     DoctorMenuItem,
     ClinicMenuItem
     }  from '../../shared/MenuItemIdentifiers';
-import { UserAuthType } from '../../shared/UserAuthType';
+import {UserAuthType} from '../../shared/UserAuthType';
 import {
     ClinicLinkLocationName,
     UserLinkLocationName,

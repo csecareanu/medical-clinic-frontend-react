@@ -3,7 +3,7 @@
 import React from 'react';
 
 import classes from './UserToolbarView.module.css';
-import { UserAuthType } from '../../../shared/UserAuthType';
+import {UserAuthType} from '../../../shared/UserAuthType';
 import NewAppointmentToolbarItem from './NewAppointmentToolbarItem/NewAppointmentToolbarItem';
 import LoginToolbarItem from './LoginToolbarItem/LoginToolbarItem';
 import LogoutToolbarItem from './LogoutToolbarItem/LogoutToolbarItem';

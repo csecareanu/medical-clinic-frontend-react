@@ -1,11 +1,11 @@
 // @flow
 
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import {FormattedMessage} from 'react-intl';
 
 import classes from './LoginToolbarItem.module.css';
-import { UserMenuItem } from '../../../../shared/MenuItemIdentifiers';
-import LinkButton, { LinkButtonType } from '../../../UI/LinkButton/LinkButton';
+import {UserMenuItem} from '../../../../shared/MenuItemIdentifiers';
+import LinkButton, {LinkButtonType} from '../../../UI/LinkButton/LinkButton';
 
 
 type Props = {

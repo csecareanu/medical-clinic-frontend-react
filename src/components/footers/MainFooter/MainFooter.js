@@ -1,8 +1,8 @@
 // @flow
 
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { FormattedMessage } from 'react-intl';
+import {NavLink} from 'react-router-dom';
+import {FormattedMessage} from 'react-intl';
 
 import classes from './MainFooter.module.css';
 

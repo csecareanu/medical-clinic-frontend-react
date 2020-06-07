@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import {FormattedMessage} from 'react-intl';
 
 import ClinicService from './ClinicService/ClinicService';
 import classes from './ClinicServices.module.css'

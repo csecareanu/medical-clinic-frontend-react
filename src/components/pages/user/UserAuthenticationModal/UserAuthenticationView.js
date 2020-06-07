@@ -1,17 +1,17 @@
 // @flow
 
 import * as React from 'react';
-import { FormattedMessage } from 'react-intl';
+import {FormattedMessage} from 'react-intl';
 
 import classes from './UserAuthenticationView.module.css';
-import { UserAuthenticationFormType } from './UserAuthenticationModal';
-import LoginExistingAccount, { ExistingAccountRegMode } 
+import {UserAuthenticationFormType} from './UserAuthenticationModal';
+import LoginExistingAccount, {ExistingAccountRegMode} 
         from '../shared/LoginExistingAccount/LoginExistingAccount';
-import CreatePatientAccount, { NewAccountRegMode } 
+import CreatePatientAccount, {NewAccountRegMode} 
         from '../shared/CreatePatientAccount/CreatePatientAccount'; 
 import Backdrop from '../../../UI/Backdrop/Backdrop';
 import FormControl from '../../../UI/FormControl/FormControl';
-import Button, { ButtonType } from '../../../UI/Button/Button';
+import Button, {ButtonType} from '../../../UI/Button/Button';
 
 type Props = {
     displayedForm: $Values<typeof UserAuthenticationFormType>,

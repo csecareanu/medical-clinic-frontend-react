@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-import type { ContainerData } from './UserAuthenticationContainer';
+import type {ContainerData} from './UserAuthenticationContainer';
 import UserAuthenticationView from './UserAuthenticationView';
 import UserAuthenticationContainer from './UserAuthenticationContainer';
 

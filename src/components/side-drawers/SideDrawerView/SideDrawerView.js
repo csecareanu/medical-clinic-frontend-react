@@ -3,7 +3,7 @@ import React from 'react';
 import classes from './SideDrawerView.module.css';
 import Backdrop from '../../UI/Backdrop/Backdrop';
 import BrandLarge from '../../UI/BrandLarge/BrandLarge';
-import SideDrawerToggleButton, { SideDrawerButtonType } from './SideDrawerToggleButton/SideDrawerToggleButton';
+import SideDrawerToggleButton, {SideDrawerButtonType} from './SideDrawerToggleButton/SideDrawerToggleButton';
 
 /**
  * Displays a sidebar which contains a header (composed from a logo and a close button) and a 

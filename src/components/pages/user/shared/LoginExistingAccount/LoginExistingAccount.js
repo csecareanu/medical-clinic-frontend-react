@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 
-import type { ContainerData } from './LoginExistingAccountContainer';
+import type {ContainerData} from './LoginExistingAccountContainer';
 import LoginExistingAccountContainer from './LoginExistingAccountContainer';
 import LoginExistingAccountView from './LoginExistingAccountView';
 

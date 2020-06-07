@@ -2,9 +2,9 @@
 
 import * as React from 'react';
 
-import { ExistingAccountRegMode } from './LoginExistingAccount';
+import {ExistingAccountRegMode} from './LoginExistingAccount';
 import UIStateContext from '../../../../../react-context/UIState/UIState-context';
-import { UserAuthType } from '../../../../../shared/UserAuthType';
+import {UserAuthType} from '../../../../../shared/UserAuthType';
 
 export type ContainerData = {
     onAuthenticate: (phoneNo: string, password: string) => void

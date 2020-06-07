@@ -2,8 +2,8 @@
 
 import React from 'react';
 
-import { PageHeaderType }  from '../../../../shared/PageHeaderType';
-import { UserAuthType } from '../../../../shared/UserAuthType';
+import {PageHeaderType}  from '../../../../shared/PageHeaderType';
+import {UserAuthType} from '../../../../shared/UserAuthType';
 import NotificationMessage from '../../shared/NotificationMessage/NotificationMessage';
 import MainLayout from '../../../layouts/MainLayout/MainLayout';
 import UnderConstruction from '../../shared/UnderConstruction/UnderConstruction';

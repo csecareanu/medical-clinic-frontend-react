@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
 
 import UIState from '../../react-context/UIState/UIState';
 
@@ -42,7 +42,7 @@ import SiteAdminSpecialtiesPage
   from '../pages/siteAdmin/SiteAdminSpecialtiesPage/SiteAdminSpecialtiesPage';
 
 
-import { 
+import {
   ClinicLinkLocationName,
   UserLinkLocationName,
   PatientLinkLocationName,

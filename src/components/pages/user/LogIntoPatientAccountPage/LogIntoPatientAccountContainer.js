@@ -1,11 +1,11 @@
 // @flow
 
 import * as React from 'react';
-import { withRouter } from 'react-router-dom';
-import type { RouterHistory } from 'react-router';
+import {withRouter} from 'react-router-dom';
+import type {RouterHistory} from 'react-router';
 
-import { LoginIntoAccountFormType } from './LogIntoPatientAccountPage';
-import { PatientLinkLocationName } from '../../../../shared/LinkLocationNames';
+import {LoginIntoAccountFormType} from './LogIntoPatientAccountPage';
+import {PatientLinkLocationName} from '../../../../shared/LinkLocationNames';
 
 
 export type ContainerData = {

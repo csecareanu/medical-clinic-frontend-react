@@ -1,11 +1,11 @@
 // @flow
 
 import * as React from 'react';
-import { FormattedMessage } from 'react-intl';
+import {FormattedMessage} from 'react-intl';
 
 import classes from './LoginExistingAccountView.module.css';
-import Button, { ButtonType } from '../../../../UI/Button/Button';
-import LinkButton, { LinkButtonType } from '../../../../UI/LinkButton/LinkButton';
+import Button, {ButtonType} from '../../../../UI/Button/Button';
+import LinkButton, {LinkButtonType} from '../../../../UI/LinkButton/LinkButton';
 import FormControl from '../../../../UI/FormControl/FormControl';
 
 

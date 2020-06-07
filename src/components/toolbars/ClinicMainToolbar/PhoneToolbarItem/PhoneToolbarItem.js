@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import {FormattedMessage} from 'react-intl';
 
 import classes from './PhoneToolbarItem.module.css';
 import imgPhone from '../../../../static/images/phone.jpg';
