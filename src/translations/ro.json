@@ -1,27 +1,141 @@
 {
+   "@{ GENERAL": "",
+   "app.copyright": "© 2020 Tai Chi Medical",
+
+   "<space>": " ",
+
    "week-day.Monday": "luni",
    "week-day.Tuesday": "marți",
    "week-day.Wednesday": "miercuri",
    "week-day.Thursday": "joi",
    "week-day.Friday": "vineri",
-   "week-day.Saturday": "sâmbătă", 
+   "week-day.Saturday": "sambătă", 
    "week-day.Sunday": "duminică",
 
-   "work-program.open": "Program",
-   "work-program.start-day-to-end-day": "{start_day} - {end_day} ",
+   "btn-cancel": "Anulează",
+   "btn-close": "Inchide",
+   "btn-login": "Conectare",
+   "btn-logout": "Deconectare",
 
-   "main-page.clinic-name": "TAI CHI MEDICAL",
-   "main-page.our-services": "SERVICIILE NOASTRE",
+   "input.label-first-name": "Prenume",
+   "input.label-last-name": "Nume",
+   "input.label-phone-no": "Telefon",
+   "input.label-password": "Parolă",
+   "input.label-repeat-password": "Repetă parola",
+   "input.label-city": "Oraș",
+   "input.label-county": "Judet",
+   "input.label-birthday": "Data nașterii",
+   "input.label-birthday.day": "Zi",
+   "input.label-birthday.month": "Lună",
+   "input.label-birthday.year": "An",
 
-   "main-footer.data-protection": "Protecția datelor",
-   "main-footer.privacy-policy": "Politica de confidențialitate",
-   "main-footer.data-security": "Securitatea datelor",
-   "main-footer.terms-and-conditions": "Termeni și condiții",
-   "main-footer.tai-chi-medical-clinic": "Tai Chi Medical Clinic",
+   "work-program.open": "Deschis",
+   "work-program.start-day-to-end-day": "de {start_day} până {end_day}",
+   "work-program.start-time-to-end-time": ", de la {start_time} până la {end_time} ",
+   "@} GENERAL": "",
+
+   "@{ UserInterface": "",
+   "ui.brand-large.clinic-incentive": "Medicină Traditională Chineză",
+   "ui.gender-user-entry-element.label-gender": "Sex",
+   "ui.gender-user-entry-element.gender-male": "Bărbat",
+   "ui.gender-user-entry-element.gender-female": "Femeie",
+   "@} UserInterface": "",
+  
+   "@{ MENU": "",
+   "clinic-menu.home": "PAGINA PRINCIPALĂ",
+   "clinic-menu.doctors": "MEDICI",
+   "clinic-menu.about-clinic": "DESPRE CLINICĂ",
+   "clinic-menu.contact": "CONTACT",
+   "clinic-menu.prices": "PREȚURI",
+
+   "doctor-admin-menu.home": "PAGINA PRINCIPALĂ",
+   "doctor-admin-menu.appts_info": "INFORMATII PROGRAMĂRI",
+   "doctor-admin-menu.working_time": "PROGRAM",
+   "doctor-admin-menu.log_events": "JURNAL EVENIMENTE",
+   "doctor-admin-menu.notif-msgs": "MESAJE DE NOTIFICARE",
+
+   "doctor-main-menu.log-into-patient-account": "CONECTARE ÎN CONT PACIENT",
+   "doctor-main-menu.log-out-patient-account": "DECONECTARE DIN CONT PACIENT",
+   "doctor-main-menu.administration": "ADMINISTRARE",
+
+   "site-admin-menu.doctors": "MEDICI",
+   "site-admin-menu.specialties": "SPECILITAȚI",
+   "site-admin-menu.services": "SERVICII",
+   "site-admin-menu.attach-services": "ACORDARE SERVICII",
+   "site-admin-menu.log-events": "JURNAL EVENIMENTE",
+   "site-admin-menu.settings": "SETARI",
+   "@} MENU": "",
+
+   "@{ TOOLBARS": "",
+   "toolbars.about-clinic-toolbar.phone-toolbar-item.contact_us": "Contactați-ne:",
+
+   "toolbars.user-toolbar.my-account-toolbar-item.btn-my-account": "Contul Meu",
+
+   "toolbars.user-toolbar.new-appointment-toolbar-item.btn-new-appointment": "Programare Nouă",
+
+   "toolbars.user-toolbar.patient-account-toolbar-item.patient-account": "Cont Pacient",
+   "@} TOOLBARS": "",
+
+   "@{ PAGES": "",
+   "pages.notification-message.not-allowed-to-access-resource": "Nu ai acces la această resursă.",
+   "pages.notification-message.user-need-to-authenticate": "Intai trebuie sa te conectezi.",
+   "pages.notification-message.user-not-connected-to-patient-account": "Nu esti conectat la un cont de pacient.",
+   "pages.notification-message.navigate-to-home-page": "Navigare la pagina principală",
+
+   "pages.user.check-sms-code.label-line1-enter-sms-code": "Introdu codul SMS primit la ",
+   "pages.user.check-sms-code.label-line2-enter-sms-code": "numărul de telefon {phone}:",
+   "pages.user.check-sms-code.btn-verify-code": "Verifică",
+   "pages.user.check-sms-code.wrong-sms-code.invalid-code": "Codul SMS nu este valid.",
+
+   "pages.user.create-patient-account.phone-validation": "Verificare număr de telefon",
+   "pages.user.create-patient-account.btn-create-without-phone-check": "Creează Cont Fara Verificare Telefon",
+   "pages.user.create-patient-account.btn-create-account": "Creează cont",
+   "pages.user.create-patient-account.account-created.success": "Contul a fost creat.",
+
+   "pages.user.login-existing-account.btn-ask-forgot-password": "Ai uitat parola?",
+
+   "pages.user.search-patient.search-by-birthday": "Căutare după data de naștere",
+   "pages.user.search-patient.search-by-name": "Căutare după nume",
+   "pages.user.search-patient.search-by-phone-no": "Căutare dupa număr de telefon",
+
+   "pages.user.search-patient.search-patient-by-birthday.btn-show-patients": "Afișeaza Pacienții",
+
+   "pages.user.search-patient.search-patient-by-name.btn-show-patients": "Afișeaza Pacienții",
+
+   "pages.user.search-patient.search-patient-by-phoneNo.btn-show-patients": "Afișeaza Pacienții",
+
+   "pages.user.user-authentication-modal.if-no-user-account": "Daca nu ai cont",
+   "pages.user.user-authentication-modal.if-user-has-account": "Daca nu ai cont",
+   "pages.user.user-authentication-modal.btn-create-new-account": "Creează un cont nou",
+   "pages.user.user-authentication-modal.login-existing-account": "Conectare folosind un cont existent",
+
+   "pages.user.user-authentication-modal.": "",
+
+   "pages.clinic-main-page.clinic-name": "TAI CHI MEDICAL",
+   "pages.clinic-main-page.our-services": "SERVICIILE NOASTRE",
+   "pages.clinic-main-page.clinic-description.paragraph-1": "Acupuncture is a complementary medical practice that entails stimulating certain points on the body, most often with a needle penetrating the skin, to alleviate pain or to help treat various health conditions.",
+   "pages.clinic-main-page.clinic-description.paragraph-2": "Acupuncture dates back to at least 100 B.C., which is when an organized system of diagnosis and treatment using needles was first described in writing in China.",
+   "pages.clinic-main-page.clinic-services.acupuncture": "ACUPUNCTURĂ",
+   "pages.clinic-main-page.clinic-services.cupping-therapy": "TERAPIE CU VENTUZE",
+   "pages.clinic-main-page.clinic-services.laser-therapy": "TERAPIE CU LASER",
+   "pages.clinic-main-page.clinic-services.massage": "MASAJ",
+
+   "pages.user.log-into-patient-account-page.title": "Conectare in cont pacient",
+   "pages.user.log-into-patient-account-page.label-find-patient": "Caută Pacient",
+   "pages.user.log-into-patient-account-page.label-create-new-account": "Creează Con ",
+   "pages.user.log-into-patient-account-page.if-not-account-yet": "Dacă pacientul nu are un cont",
+   "pages.user.log-into-patient-account-page.btn-create-new-account": "Creează cont nou",
+   "pages.user.log-into-patient-account-page.label-if-already-has-account": "Daca pcientul are cont",
+   "pages.user.log-into-patient-account-page.btn-search-existing-account": "Cauta contul pacientului",
+   "@} PAGES": "",
+
+   "main-footer.data-protection": "Protejarea Datelor",
+   "main-footer.privacy-policy": "Politica de Confidențialitate",
+   "main-footer.data-security": "Securitatea Datelor",
+   "main-footer.terms-and-conditions": "Termeni și Conditii",
+   "main-footer.tai-chi-medical-clinic": "Clinica Tai Chi Medical",
    "main-footer.services": "Servicii",
    "main-footer.prices": "Prețuri",
    "main-footer.contact": "Contact",
-   "main-footer.short-address": "Strada Ion Heliade Radulescu Nr. 19-21, Targoviste",
-
-   "app.copyright": "© 2020 Tai Chi Medical"
+   "main-footer.short-address": "Strada Ion Heliade Radulescu Nr. 19-21, Targoviste, Dambovita"
 }

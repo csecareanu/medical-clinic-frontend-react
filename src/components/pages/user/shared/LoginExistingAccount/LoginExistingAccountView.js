@@ -74,9 +74,6 @@ class LoginExistingAccountView extends React.Component<Props, State> {
     }
 
     render () {
-        //TODO 
-        const phoneNoText = "Phone No";
-        const passwordText = "Password";
         return (
             <React.Fragment>
                 <div className={classes.CancelButton}>
@@ -97,7 +94,7 @@ class LoginExistingAccountView extends React.Component<Props, State> {
                 <form onSubmit={ () => {this.onLogin(this.props.onAuthenticate)} }>
                     <FormControl.Text 
                         size={20}
-                        placeholder={phoneNoText}
+                        placeholderMsgId="input.label-phone-no"
                         value={this.state.elementsStatus[Elements.PHONE_NO].value}
                         autoFocus
                         onChange={(event) => {this.inputChangedHandler(event, Elements.PHONE_NO)}}
@@ -105,7 +102,7 @@ class LoginExistingAccountView extends React.Component<Props, State> {
 
                     <FormControl.Text 
                         size={20}
-                        placeholder={passwordText}
+                        placeholderMsgId="input.label-password"
                         value={this.state.elementsStatus[Elements.PASSWORD].value}
                         onChange={(event) => {this.inputChangedHandler(event, Elements.PASSWORD)}}
                     />

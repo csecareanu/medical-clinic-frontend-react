@@ -2,6 +2,8 @@
    "@{ GENERAL": "",
    "app.copyright": "© 2020 Tai Chi Medical",
 
+   "<space>": " ",
+
    "week-day.Monday": "Monday",
    "week-day.Tuesday": "Tuesday",
    "week-day.Wednesday": "Wednesday",
@@ -23,12 +25,13 @@
    "input.label-city": "City",
    "input.label-county": "County",
    "input.label-birthday": "Birthday",
-   "input.label-birthday.day": "day",
-   "input.label-birthday.month": "month",
-   "input.label-birthday.year": "year",
+   "input.label-birthday.day": "Day",
+   "input.label-birthday.month": "Month",
+   "input.label-birthday.year": "Year",
 
    "work-program.open": "Open",
-   "work-program.start-day-to-end-day": "{start_day} to {end_day} ",
+   "work-program.start-day-to-end-day": "{start_day} to {end_day}",
+   "work-program.start-time-to-end-time": ", from {start_time} to {end_time} ",
    "@} GENERAL": "",
 
    "@{ UserInterface": "",
@@ -126,9 +129,9 @@
    "pages.user.log-into-patient-account-page.btn-search-existing-account": "Search for existing patient account",
    "@} PAGES": "",
 
-   "main-footer.data-protection": "Data protection",
-   "main-footer.privacy-policy": "Privacy policy",
-   "main-footer.data-security": "Data security",
+   "main-footer.data-protection": "Data Protection",
+   "main-footer.privacy-policy": "Privacy Policy",
+   "main-footer.data-security": "Data Security",
    "main-footer.terms-and-conditions": "Terms and conditions",
    "main-footer.tai-chi-medical-clinic": "Tai Chi Medical Clinic",
    "main-footer.services": "Services",

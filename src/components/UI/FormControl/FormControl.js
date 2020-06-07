@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import { typeof FormattedMessage } from 'react-intl';
+import { FormattedMessage } from 'react-intl';
 
 import classes from './FormControl.module.css';
 
@@ -26,9 +26,9 @@ const FormControl = () =>{return null;}
  *                                  the group
  *                                     
  */
- type GroupProps = { 
-    name?: string | FormattedMessage,
-    nameLine2?: string | FormattedMessage,
+ type GroupProps = {
+    name?: typeof FormattedMessage,
+    nameLine2?: typeof FormattedMessage,
     stressedName?: boolean,
     contentPadding?: boolean,
     noHorizontalSepAfter?: boolean,
@@ -86,26 +86,34 @@ FormControl.Group = (props: GroupProps) => {
  */
  type TextProps = {
      size: number,
-     placeholder?: string | FormattedMessage,
+     placeholderMsgId?: string,
      value: string,
      autoFocus?: boolean,
      onChange: (event: SyntheticInputEvent<HTMLInputElement>) => void,
      noHorizontalSepAfter?: boolean
  }
 FormControl.Text = (props: TextProps) => {
-    let validationError = null;
-    const inputClasses = [classes.TextElement];
-    const placeholder = props.placeholder? props.placeholder : '';
+   let validationError = null;
+   const inputClasses = [classes.TextElement];
 
-    const inputElement = <input
-            type='text'
-            className={inputClasses.join(' ')}
-            size={props.size}
-            placeholder={placeholder}
-            value={props.value}
-            autoFocus={props.autoFocus? props.autoFocus : false}
-            onChange={props.onChange}
-        />;
+   const placeholderMsgId = props.placeholderMsgId? props.placeholderMsgId : '<space>';
+
+   const inputElement = 
+      <FormattedMessage id={placeholderMsgId}>
+      {
+         (msg) => (
+            <input
+               type='text'
+               className={inputClasses.join(' ')}
+               size={props.size}
+               placeholder={msg}
+               value={props.value}
+               autoFocus={props.autoFocus? props.autoFocus : false}
+               onChange={props.onChange}
+         />
+         )
+      }
+   </FormattedMessage>
     return (
         <React.Fragment>
             {inputElement}

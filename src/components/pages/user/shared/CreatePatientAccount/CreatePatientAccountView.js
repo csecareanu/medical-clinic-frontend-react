@@ -142,7 +142,7 @@ class CreatePatientAccount extends React.Component<Props, State> {
                 <form onSubmit={() => { this.onCreateAccount(this.props.onCreateAccount) } }>
                     <FormControl.Text
                         size={20}
-                        placeholder={<FormattedMessage id="input.label-first-name" />}
+                        placeholderMsgId="input.label-first-name"
                         value={this.state.elementsStatus[Elements.FIRST_NAME].value}
                         autoFocus
                         onChange={(event) => { this.inputChangedHandler(event, Elements.FIRST_NAME) }}
@@ -150,28 +150,28 @@ class CreatePatientAccount extends React.Component<Props, State> {
 
                     <FormControl.Text
                         size={20}
-                        placeholder={<FormattedMessage id="input.label-last-name" />}
+                        placeholderMsgId="input.label-last-name"
                         value={this.state.elementsStatus[Elements.LAST_NAME].value}
                         onChange={(event) => { this.inputChangedHandler(event, Elements.LAST_NAME) }}
                     />
 
                     <FormControl.Text
                         size={20}
-                        placeholder={<FormattedMessage id="input.label-phone-no" />}
+                        placeholderMsgId="input.label-phone-no"
                         value={this.state.elementsStatus[Elements.PHONE_NO].value}
                         onChange={(event) => { this.inputChangedHandler(event, Elements.PHONE_NO) }}
                     />
 
                     <FormControl.Text
                         size={20}
-                        placeholder={<FormattedMessage id="input.label-password" />}
+                        placeholderMsgId="input.label-password"
                         value={this.state.elementsStatus[Elements.PASSWORD].value}
                         onChange={(event) => { this.inputChangedHandler(event, Elements.PASSWORD) }}
                     />
 
                     <FormControl.Text
                         size={20}
-                        placeholder={<FormattedMessage id="input.label-repeat-password" />}
+                        placeholderMsgId="input.label-repeat-password"
                         value={this.state.elementsStatus[Elements.PASSWORD_REPEAT].value}
                         onChange={(event) => {
                             this.inputChangedHandler(event,
@@ -181,14 +181,14 @@ class CreatePatientAccount extends React.Component<Props, State> {
 
                     <FormControl.Text
                         size={20}
-                        placeholder={<FormattedMessage id="input.label-city" />}
+                        placeholderMsgId="input.label-city"
                         value={this.state.elementsStatus[Elements.CITY].value}
                         onChange={(event) => { this.inputChangedHandler(event, Elements.CITY) }}
                     />
 
                     <FormControl.Text
                         size={20}
-                        placeholder={<FormattedMessage id="input.label-county" />}
+                        placeholderMsgId="input.label-county"
                         value={this.state.elementsStatus[Elements.COUNTY].value}
                         onChange={(event) => { this.inputChangedHandler(event, Elements.COUNTY) }}
                     />

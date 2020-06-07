@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import {IntlProvider} from 'react-intl';
 import {BrowserRouter} from 'react-router-dom';
 import messages_en from './translations/en.json';
-//import messages_ro from './translations/ro.json';
+import messages_ro from './translations/ro.json';
 
 import './index.css';
 import App from './components/App/App';
@@ -11,7 +11,7 @@ import * as serviceWorker from './serviceWorker';
 
 
 const app = (
-    <IntlProvider locale='en' messages={messages_en}>  
+    <IntlProvider locale='ro' messages={messages_ro}>  
         <BrowserRouter>
             <App />
         </BrowserRouter>

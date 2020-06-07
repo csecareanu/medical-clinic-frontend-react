@@ -64,7 +64,7 @@ class BirthdayUserEntryElement extends React.Component<Props, State> {
                 <div className={classes.Birthday}>
                     <FormControl.Text 
                         size={6}
-                        placeholder={ <FormattedMessage id="input.label-birthday.day" /> }
+                        placeholderMsgId="input.label-birthday.day"
                         value={birthDayElem.value}
                         autoFocus={this.props.autoFocus? this.props.autoFocus : false}
                         onChange={
@@ -74,7 +74,7 @@ class BirthdayUserEntryElement extends React.Component<Props, State> {
                     <FormControl.VerticalSep/>
                     <FormControl.Text 
                         size={6} 
-                        placeholder= { <FormattedMessage id="input.label-birthday.month" /> }
+                        placeholderMsgId="input.label-birthday.month"
                         value={birthMonthElem.value}
                         onChange={
                             (event) => {this.inputChangedHandler(event, Elements.BIRTH_MONTH)}
@@ -83,7 +83,7 @@ class BirthdayUserEntryElement extends React.Component<Props, State> {
                     <FormControl.VerticalSep/>
                     <FormControl.Text 
                         size={12}
-                        placeholder={ <FormattedMessage id="input.label-birthday.year" /> }
+                        placeholderMsgId="input.label-birthday.year"
                         value={birthYearElem.value}
                         onChange={
                             (event) => {this.inputChangedHandler(event, Elements.BIRTH_YEAR)}

@@ -78,7 +78,9 @@ const CreatePatientAccount = (props: Props) => {
                     { accountData.createAccountStatus === CreateAccountStatus.CHECK_SMS_CODE
                         ? <CheckSMSCode 
                               title={
-                                 <FormattedMessage id="create-patient-account.phone-validation" />
+                                 <FormattedMessage 
+                                    id="pages.user.create-patient-account.phone-validation" 
+                                 />
                               }
                               phoneNoToCheck='44444444'
                               onCheckCode={accountData.onCheckSMSCode}
