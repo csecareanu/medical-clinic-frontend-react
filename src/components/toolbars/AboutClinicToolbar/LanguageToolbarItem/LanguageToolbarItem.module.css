@@ -1,0 +1,10 @@
+.Flag {
+   display: flex;
+   align-items: center;
+}
+
+.Img {
+   margin-right: 0.5rem;
+   object-fit: none;
+   object-position: 50% 50%;
+}

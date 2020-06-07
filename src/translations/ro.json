@@ -4,6 +4,9 @@
 
    "<space>": " ",
 
+   "language.btn-ro": "Ro",
+   "language.btn-en": "En",
+
    "week-day.Monday": "luni",
    "week-day.Tuesday": "marți",
    "week-day.Wednesday": "miercuri",
@@ -54,8 +57,8 @@
    "doctor-admin-menu.log_events": "JURNAL EVENIMENTE",
    "doctor-admin-menu.notif-msgs": "MESAJE DE NOTIFICARE",
 
-   "doctor-main-menu.log-into-patient-account": "CONECTARE ÎN CONT PACIENT",
-   "doctor-main-menu.log-out-patient-account": "DECONECTARE DIN CONT PACIENT",
+   "doctor-main-menu.log-into-patient-account": "CONECTARE LA CONT PACIENT",
+   "doctor-main-menu.log-out-patient-account": "DECONECTARE DE LA CONT PACIENT",
    "doctor-main-menu.administration": "ADMINISTRARE",
 
    "site-admin-menu.doctors": "MEDICI",

@@ -7,7 +7,12 @@
 
 .LeftItems {
     display: flex;
-    flex-flow: row;
+    flex-flow: column;
+}
+
+.LeftLanguage {
+   display: flex;
+   flex-flow: row;
 }
 
 .RightItems {
@@ -17,7 +22,7 @@
 }
 
 /*Contact and Email items*/
-.RightUp {
+.RightAbout {
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -26,7 +31,8 @@
 }
 
 /*Small logo item*/
-.RightDown{
+.RightBrand {
     display: flex;
     justify-content: flex-end;
+    flex-flow: row;
 }
