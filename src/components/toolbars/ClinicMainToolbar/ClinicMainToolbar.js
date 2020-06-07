@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-import classes from './AboutClinicToolbar.module.css';
+import classes from './ClinicMainToolbar.module.css';
 import commonClasses from '../../../common.module.css';
 import PhoneToolbarItem from './PhoneToolbarItem/PhoneToolbarItem';
 import EmailToolbarItem from './EmailToolbarItem/EmailToolbarItem';

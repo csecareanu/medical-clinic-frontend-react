@@ -8,7 +8,7 @@ import imgMain from '../../../static/images/main_hdr.jpg';
 import MainImageView from '../shared/MainImageView/MainImageView';
 import ClinicMenu from '../../menus/ClinicMenu/ClinicMenu';
 import DoctorMainMenu from '../../menus/DoctorMainMenu/DoctorMainMenu';
-import AboutClinicToolbar from '../../toolbars/AboutClinicToolbar/AboutClinicToolbar';
+import ClinicMainToolbar from '../../toolbars/ClinicMainToolbar/ClinicMainToolbar';
 import UserToolbar from '../../toolbars/UserToolbar/UserToolbar';
 import MenuToolbar from '../../toolbars/MenuToolbar/MenuToolbar';
 import SideDrawerToolbar from '../../toolbars/SideDrawerToolbar/SideDrawerToolbar';
@@ -23,7 +23,7 @@ const MainHeader = (props: Props) => {
     return (
         <header className={classes.Header}>
             <nav>
-                <AboutClinicToolbar />
+                <ClinicMainToolbar />
                 <div className={classes.ToolbarHSeparator} />
                 <div className={classes.MenuToggle_UserAccount_Toolbars}>
                     <div className={commonClasses.SmallScreenOnly}>
