@@ -3,14 +3,14 @@ import * as React from 'react';
 
 import UIStateContext from './UIState-context';
 import {UserAuthType} from '../../shared/UserAuthType';
-
+import {LanguageType} from '../../shared/LanguageType';
 
 type Props = {
   children?: React.Node
 };
 
 type State = {
-  userAuthenticationStatus: number | Symbol,
+  userAuthenticationStatus: $Values<typeof UserAuthType>,
 
   isUserConnectedToAPatientAccount: boolean,
 
@@ -20,7 +20,9 @@ type State = {
 
   displayUserLogoutModal: boolean,
 
-  displayMenuSideDrawerModal: boolean
+  displayMenuSideDrawerModal: boolean,
+
+  language: $Values<typeof LanguageType>
 };
 
 /**
@@ -46,7 +48,9 @@ class UIState extends React.Component<Props, State> {
 
         displayUserLogoutModal: false,
 
-        displayMenuSideDrawerModal: false
+        displayMenuSideDrawerModal: false,
+
+        language: LanguageType.EN
     }
 
     render () {
@@ -61,8 +65,10 @@ class UIState extends React.Component<Props, State> {
                     navigateToURIOnSuccessfullyAuth: this.state.navigateToURIOnSuccessfullyAuth,
                     displayUserLogoutModal: this.state.displayUserLogoutModal,
                     displayMenuSideDrawerModal: this.state.displayMenuSideDrawerModal,
+                    language: this.state.language,
                     // methods
-                    setUserAuthenticationStatus: (userAuthenticationType: number) => { 
+                    setUserAuthenticationStatus: (userAuthenticationType: number) => {
+                       //TODO add action log for every function
                         this.setState({userAuthenticationStatus: userAuthenticationType}) 
                     },
                     setUserConnectedToPatientAccount: (isConnected: boolean) => {
@@ -82,6 +88,9 @@ class UIState extends React.Component<Props, State> {
                     },
                     setDisplayMenuSideDrawerModal: (show: boolean) => {
                         this.setState({displayMenuSideDrawerModal: show})
+                    },
+                    setLanguage: (lang: $Values<typeof LanguageType>) => {
+                       this.setState({language: lang})
                     }
                 }}
             >

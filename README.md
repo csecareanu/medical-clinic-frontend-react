@@ -24,6 +24,12 @@
 17. XSTATE A state transition which defines what the next state is, given the current state and event: https://xstate.js.org/docs/guides/transitions.html#machine-transition-method
 --
 
+
+structura fisiere:
+   - daca un folder defineste o componenta atunci incepe cu litera mare
+   - daca un folder contine alte componente atunci componetele folosite in comun sunt puse intr-un folder "shared" (e.g: pages -> clinc -> ClinicAboutPage, ClinicContactPage; pages -> shared -> NotificationMessage)
+   - folder-ul shared apare doar in folder-ele ce nu sunt componente
+
 -
 View 
     - a view will not navigate to another page
@@ -53,8 +59,9 @@ From Presentational and Container Components by Dan Abramov: https://medium.com/
 - 
 
 Codul ce foloseste starea aplicatiei (UIStateContext) ar trebui izolat in cat mai putine containere. 
+Ca si exemplu: LanguageToolbarItem si SideDrawerToggleButton nu au fiecare cate un container. Ele primesc callback din 
 Daca complexitatea unui container creste atunci:
-    - sparte container-ul in mai multe containere in functie de functionalitate
+    - sparge container-ul in mai multe containere in functie de functionalitate
  
  Daca un view este folosit in mai multe containere, iar functionaliatea view-ului este 
  intr-un container, atunci muta functionalitatea din container in view (creeate container)

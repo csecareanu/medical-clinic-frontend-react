@@ -4,10 +4,19 @@ import * as React from 'react';
 
 import UIStateContext from '../../../react-context/UIState/UIState-context';
 import {UserAuthType} from '../../../shared/UserAuthType';
+import {LanguageType} from '../../../shared/LanguageType';
 
 const containerData = {
     _uiStateContext: (null: null | UIStateContext),
-    userAuthenticationStatus: (UserAuthType.UNAUTHENTICATED: number | Symbol),
+    userAuthenticationStatus: (UserAuthType.UNAUTHENTICATED: $Values<typeof UserAuthType>),
+    
+    onChangeLang: (lang: $Values<typeof LanguageType>) => {
+        if(containerData._uiStateContext == null) {
+            console.log("MainLayoutContainer. onChangeLang. uiStateContext not set");
+            return;
+        }        
+        containerData._uiStateContext.setLanguage(lang);
+    },
 
     onOpenMenuSideDrawer: () : void => {
         if(containerData._uiStateContext == null) {

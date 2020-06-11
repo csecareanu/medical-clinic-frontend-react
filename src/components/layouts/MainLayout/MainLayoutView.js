@@ -13,11 +13,14 @@ import UserAuthenticationModal
 import UserLogout from '../../pages/user/UserLogout/UserLogout';
 import MainMenuSideDrawer from '../../side-drawers/MainMenuSideDrawer/MainMenuSideDrawer';
 import DoctorMenuSideDrawer from '../../side-drawers/DoctorMenuSideDrawer/DoctorMenuSideDrawer';
+import {UserAuthType} from '../../../shared/UserAuthType';
+import {LanguageType} from '../../../shared/LanguageType';
 
 type Props = {
     headerType: PageHeaderType,
     onOpenMenuSideDrawer: () => void,
-    userAuthenticationStatus: number | Symbol,
+    userAuthenticationStatus: $Values<typeof UserAuthType>,
+    onChangeLang: (lang: $Values<typeof LanguageType>) => void,
     children: React.Node
 }
 
@@ -56,11 +59,13 @@ const getHeaderComponent = (props: Props) : React.Node => {
                 <MainHeader
                     userAuthenticationStatus={props.userAuthenticationStatus}
                     onOpenMenuSideDrawer={props.onOpenMenuSideDrawer}
+                    onChangeLang={props.onChangeLang}
             /> );
         case PageHeaderType.DOCTOR:
             return (
                 <DoctorHeader
                     onOpenMenuSideDrawer={props.onOpenMenuSideDrawer}
+                    onChangeLang={props.onChangeLang}
             /> );     
         case PageHeaderType.SYS_ADMIN:
             return <SiteAdminHeader />;

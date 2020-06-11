@@ -1,21 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {IntlProvider} from 'react-intl';
 import {BrowserRouter} from 'react-router-dom';
-//import messages_en from './translations/en.json';
-import messages_ro from './translations/ro.json';
 
 import './index.css';
+import UIState from './react-context/UIState/UIState';
 import App from './components/App/App';
 import * as serviceWorker from './serviceWorker';
 
-
 const app = (
-    <IntlProvider locale='ro' messages={messages_ro}>  
-        <BrowserRouter>
-            <App />
-        </BrowserRouter>
-    </IntlProvider>
+   <BrowserRouter>
+      <UIState>
+         <App />
+      </UIState>
+   </BrowserRouter>
  );
 
 ReactDOM.render(app, document.getElementById('root'));

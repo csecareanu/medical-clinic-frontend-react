@@ -9,19 +9,28 @@ import EmailToolbarItem from './EmailToolbarItem/EmailToolbarItem';
 import BrandLargeToolbarItemView from '../../UI/BrandLarge/BrandLarge';
 import BrandSmallToolbarItemView from '../../UI/SecondBrand/SecondBrand';
 import ToolbarGroup, {ToolbarSepPos} from '../shared/ToolbarGroup/ToolbarGroup';
-import LanguageToolbarItem, {Language} from './LanguageToolbarItem/LanguageToolbarItem';
+import LanguageToolbarItem from './LanguageToolbarItem/LanguageToolbarItem';
+import {LanguageType} from '../../../shared/LanguageType';
 
-export default () => {
+type Props = {
+   onChangeLang: (lang: $Values<typeof LanguageType>) => void
+}
+
+const ClinicMainToolbar = (props: Props) => {
     return (
         <div className={classes.Toolbar} >
 
-            <div className={classes.LeftItems} >
+            <div className={classes.LeftItems}>
                <ToolbarGroup separator={ToolbarSepPos.DOWN}>
                   <div className={classes.LeftLanguage}>
                      <ToolbarGroup separator={ToolbarSepPos.RIGHT}>
-                        <LanguageToolbarItem lang={Language.RO} />
+                        <LanguageToolbarItem
+                           lang={LanguageType.RO}
+                           onChangeLang={props.onChangeLang} />
                      </ToolbarGroup>
-                     <LanguageToolbarItem lang={Language.EN} />
+                     <LanguageToolbarItem 
+                        lang={LanguageType.EN}
+                        onChangeLang={props.onChangeLang} />
                   </div>
                </ToolbarGroup>
 
@@ -57,3 +66,5 @@ export default () => {
         </div>
     );
 }
+
+export default ClinicMainToolbar;

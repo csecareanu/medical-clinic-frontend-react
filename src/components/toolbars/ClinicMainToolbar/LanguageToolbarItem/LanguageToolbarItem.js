@@ -1,51 +1,47 @@
+// @flow
+
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
 
 import classes from './LanguageToolbarItem.module.css';
-import LinkButton, {LinkButtonType} from '../../../UI/LinkButton/LinkButton';
 import imgRoFlag from '../../../../static/images/ro_flag.jpg';
 import imgEnFlag from '../../../../static/images/uk_flag.jpg';
-
-const hasSymbol = typeof Symbol === 'function';
-
-export const Language = {
-   RO: hasSymbol? Symbol("Ro") : 1,
-   EN: hasSymbol? Symbol("En") : 2
-};
+import LinkButton, {LinkButtonType} from '../../../UI/LinkButton/LinkButton';
+import {LanguageType} from '../../../../shared/LanguageType';
 
 type Props = {
-   lang: $Values<typeof Language>
+   lang: $Values<typeof LanguageType>,
+   onChangeLang: (lang: $Values<typeof LanguageType>) => void
 }
 
 const LanguageToolbarItem = (props: Props) => {
    let img = null;
-   let msg_id = null;
+   let msgId = null;
 
-   if (props.lang === Language.RO) {
+   if (props.lang === LanguageType.RO) {
       img = imgRoFlag;
-      msg_id = "language.btn-ro";
+      msgId = "language.btn-ro";
+   }
+   else if (props.lang === LanguageType.EN) {
+      img = imgEnFlag;
+      msgId = "language.btn-en";
    }
    else {
-      img = imgEnFlag;
-      msg_id = "language.btn-en";
+      console.log("LanguageToolbarItem. Unknown language type: " + props.lang.toString())
    }
 
    return (
       <LinkButton
          type={LinkButtonType.SUCCESS}
          boldStyle
-         onClick={ () => { handleChangeLang(props.lang) }}
+         onClick={ () => { props.onChangeLang(props.lang) }}
       >
          <div className={classes.Flag} >
             <img src={img} alt="" className={classes.Img}/>
-            <FormattedMessage id={msg_id} />
+            <FormattedMessage id={msgId} />
          </div>
       </LinkButton>
    );
-}
-
-const handleChangeLang = (lang: $Values<typeof Language>) => {
-   console.log(lang);
 }
 
 export default LanguageToolbarItem;

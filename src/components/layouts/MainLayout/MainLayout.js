@@ -14,17 +14,18 @@ type Props = {
 const MainLayout = (props: Props) => {
     return (
         <MainLayoutContainer>
-            {
-                (containerData) => (
-                    <MainLayoutView
-                        onOpenMenuSideDrawer={containerData.onOpenMenuSideDrawer}
-                        userAuthenticationStatus={containerData.userAuthenticationStatus}
-                        headerType={props.headerType} 
-                    >
-                        {props.children}
-                    </MainLayoutView> 
-                )
-            }
+         {
+               (containerData) => (
+                  <MainLayoutView
+                     onOpenMenuSideDrawer={containerData.onOpenMenuSideDrawer}
+                     userAuthenticationStatus={containerData.userAuthenticationStatus}
+                     onChangeLang={containerData.onChangeLang}
+                     headerType={props.headerType} 
+                  >
+                     {props.children}
+                  </MainLayoutView> 
+               )
+         }
         </MainLayoutContainer>
     );
 }

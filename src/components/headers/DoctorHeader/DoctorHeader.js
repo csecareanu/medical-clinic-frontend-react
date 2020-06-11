@@ -9,15 +9,19 @@ import ClinicMainToolbar from '../../toolbars/ClinicMainToolbar/ClinicMainToolba
 import UserToolbar from '../../toolbars/UserToolbar/UserToolbar';
 import MenuToolbar from '../../toolbars/MenuToolbar/MenuToolbar';
 import SideDrawerToolbar from '../../toolbars/SideDrawerToolbar/SideDrawerToolbar';
+import {LanguageType} from '../../../shared/LanguageType';
 
 type Props = {
-    onOpenMenuSideDrawer: () => void
+    onOpenMenuSideDrawer: () => void,
+    onChangeLang: (lang: $Values<typeof LanguageType>) => void
 }
 
 const DoctorHeader = (props: Props) => (
     <header className={classes.Header}>
         <nav>
-            <ClinicMainToolbar />
+            <ClinicMainToolbar
+               onChangeLang={props.onChangeLang}
+            />
             <div className={classes.ToolbarHSeparator} />
             <div className={classes.MenuToggle_UserAccount_Toolbars}>
                 <div className={commonClasses.SmallScreenOnly}>

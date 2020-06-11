@@ -13,17 +13,21 @@ import UserToolbar from '../../toolbars/UserToolbar/UserToolbar';
 import MenuToolbar from '../../toolbars/MenuToolbar/MenuToolbar';
 import SideDrawerToolbar from '../../toolbars/SideDrawerToolbar/SideDrawerToolbar';
 import {UserAuthType} from '../../../shared/UserAuthType';
+import {LanguageType} from '../../../shared/LanguageType';
 
 type Props = {
-    userAuthenticationStatus: number | Symbol,
-    onOpenMenuSideDrawer: () => void
+   userAuthenticationStatus: $Values<typeof UserAuthType>,
+   onOpenMenuSideDrawer: () => void,
+   onChangeLang: (lang: $Values<typeof LanguageType>) => void
 }
 
 const MainHeader = (props: Props) => {
     return (
         <header className={classes.Header}>
             <nav>
-                <ClinicMainToolbar />
+                <ClinicMainToolbar 
+                  onChangeLang={props.onChangeLang}
+                />
                 <div className={classes.ToolbarHSeparator} />
                 <div className={classes.MenuToggle_UserAccount_Toolbars}>
                     <div className={commonClasses.SmallScreenOnly}>
@@ -37,8 +41,9 @@ const MainHeader = (props: Props) => {
 
                 <div className={commonClasses.LargeScreenOnly} >
                     <MenuToolbar>
-                        {props.userAuthenticationStatus === UserAuthType.DOCTOR ? 
-                            <DoctorMainMenu /> : null
+                        {props.userAuthenticationStatus === UserAuthType.DOCTOR
+                           ? <DoctorMainMenu /> 
+                           : null
                         }
                         <ClinicMenu />
                     </MenuToolbar>
