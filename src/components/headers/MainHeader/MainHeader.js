@@ -39,7 +39,6 @@ const MainHeader = (props: Props) => {
                </div>
                <div className={classes.ToolbarHSeparator} />
 
-
                <div className={commonClasses.LargeScreenOnly} >
                   <MenuToolbar>
                      <ClinicMenu />
