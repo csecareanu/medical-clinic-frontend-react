@@ -22,36 +22,39 @@ type Props = {
 }
 
 const MainHeader = (props: Props) => {
-    return (
-        <header className={classes.Header}>
-            <nav>
-                <ClinicMainToolbar 
-                  onChangeLang={props.onChangeLang}
-                />
-                <div className={classes.ToolbarHSeparator} />
-                <div className={classes.MenuToggle_UserAccount_Toolbars}>
-                    <div className={commonClasses.SmallScreenOnly}>
-                        <SideDrawerToolbar 
-                            onShowSideDrawer={ props.onOpenMenuSideDrawer }
-                        />
-                    </div>
-                    <UserToolbar />
-                </div>
-                <div className={classes.ToolbarHSeparator} />
+   return (
+      <header className={classes.Header}>
+         <nav>
+               <ClinicMainToolbar 
+               onChangeLang={props.onChangeLang}
+               />
+               <div className={classes.ToolbarHSeparator} />
+               <div className={classes.MenuToggle_UserAccount_Toolbars}>
+                  <div className={commonClasses.SmallScreenOnly}>
+                     <SideDrawerToolbar 
+                           onShowSideDrawer={ props.onOpenMenuSideDrawer }
+                     />
+                  </div>
+                  <UserToolbar />
+               </div>
+               <div className={classes.ToolbarHSeparator} />
 
-                <div className={commonClasses.LargeScreenOnly} >
-                    <MenuToolbar>
-                        {props.userAuthenticationStatus === UserAuthType.DOCTOR
-                           ? <DoctorMainMenu /> 
-                           : null
-                        }
-                        <ClinicMenu />
-                    </MenuToolbar>
-                </div>
-                <MainImageView src={imgMain} />
-            </nav>
-        </header>
-    );    
+
+               <div className={commonClasses.LargeScreenOnly} >
+                  <MenuToolbar>
+                     <ClinicMenu />
+                  </MenuToolbar>
+               </div>
+               <MainImageView src={imgMain} />
+               <MenuToolbar>
+                  {props.userAuthenticationStatus === UserAuthType.DOCTOR
+                     ? <DoctorMainMenu /> 
+                     : null
+                  }
+               </MenuToolbar>
+         </nav>
+      </header>
+   );    
 }
 
 
