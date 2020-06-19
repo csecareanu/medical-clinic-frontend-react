@@ -33,7 +33,7 @@
    "input.label-birthday.month": "Month",
    "input.label-birthday.year": "Year",
    
-   "input.validation.rules.first-name": "The first name should contain between {min_len} and {max_len} characters",
+   "input.validation.rules.name": "The name should contain between {min_len} and {max_len} characters",
 
    "work-program.open": "Open",
    "work-program.start-day-to-end-day": "{start_day} to {end_day}",

@@ -33,7 +33,7 @@
    "input.label-birthday.month": "Lună",
    "input.label-birthday.year": "An",
 
-   "input.validation.rules.first-name": "Prenumele trebuie să contină intre {min_len} și {max_len} caractere",
+   "input.validation.rules.name": "Numele trebuie să contină intre {min_len} și {max_len} caractere",
 
    "work-program.open": "Deschis",
    "work-program.start-day-to-end-day": "de {start_day} până {end_day}",

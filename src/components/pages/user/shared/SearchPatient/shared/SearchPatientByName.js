@@ -37,7 +37,7 @@ const FormValidation = {
       if (!value || value.trim().length === 0) {
          const errMsg = (
             <FormattedMessage
-               id="input.validation.rules.first-name"
+               id="input.validation.rules.name"
                values={{
                   min_len: FormValidation.MinLenFirstName,
                   max_len: FormValidation.MaxLenFirstName
