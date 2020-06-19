@@ -12,7 +12,7 @@
    "week-day.Wednesday": "Wednesday",
    "week-day.Thursday": "Thursday",
    "week-day.Friday": "Friday",
-   "week-day.Saturday": "Saturday", 
+   "week-day.Saturday": "Saturday",
    "week-day.Sunday": "Sunday",
 
    "btn-cancel": "Cancel",
@@ -20,6 +20,7 @@
    "btn-login": "Login",
    "btn-logout": "Logout",
 
+   "input.label-name": "Name",
    "input.label-first-name": "First name",
    "input.label-last-name": "Last name",
    "input.label-phone-no": "Phone no",
@@ -31,6 +32,8 @@
    "input.label-birthday.day": "Day",
    "input.label-birthday.month": "Month",
    "input.label-birthday.year": "Year",
+   
+   "input.validation.rules.first-name": "The first name should contain between {min_len} and {max_len} characters",
 
    "work-program.open": "Open",
    "work-program.start-day-to-end-day": "{start_day} to {end_day}",
@@ -43,7 +46,7 @@
    "ui.gender-user-entry-element.gender-male": "Male",
    "ui.gender-user-entry-element.gender-female": "Female",
    "@} UserInterface": "",
-  
+
    "@{ MENU": "",
    "clinic-menu.home": "HOME",
    "clinic-menu.doctors": "DOCTORS",

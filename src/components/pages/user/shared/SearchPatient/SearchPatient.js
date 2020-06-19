@@ -41,7 +41,7 @@ const SearchPatient = (props: Props) => (
                     }
                 onChangeSearchPatientForm={searchPatientData.onChangeSearchPatientForm}
                 onSearchPatientByBirthday={ () => { console.log("onSearchPatientByBirthday"); }}
-                onSearchPatientByName={ () => { console.log("onSearchPatientByName"); }}
+                onSearchPatientByName={ (name) => { console.log("onSearchPatientByName: " + name); }}
                 onSearchPatientByPhoneNo={ (phoneNo: string) => { console.log("onSearchPatientByPhoneNo:" + phoneNo);} }
             />
         )

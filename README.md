@@ -124,5 +124,5 @@ export default withProps;
 
 
 - In React, sharing state is accomplished by moving it up to the closest common ancestor. This is called “lifting state up”. 
-We can see that in UserEntryElement where there is no local state. 
+We can see that in UserEntryElement (the component was removed) where there is no local state. 
 The persistent information was moved in the parent component instead.

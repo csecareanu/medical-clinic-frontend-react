@@ -86,19 +86,23 @@ FormControl.Group = (props: GroupProps) => {
  */
  type TextProps = {
      size: number,
+     label?: string | typeof FormattedMessage,
      placeholderMsgId?: string,
      value: string,
+     isValid?: boolean,
+     errorMsg?: typeof FormattedMessage,
      autoFocus?: boolean,
      onChange: (event: SyntheticInputEvent<HTMLInputElement>) => void,
+     onBlur?: (event: SyntheticInputEvent<HTMLInputElement>) => void,
+     onFocus?: (event: SyntheticInputEvent<HTMLInputElement>) => void,
      noHorizontalSepAfter?: boolean
  }
 FormControl.Text = (props: TextProps) => {
-   let validationError = null;
    const inputClasses = [classes.TextElement];
-
    const placeholderMsgId = props.placeholderMsgId? props.placeholderMsgId : '<space>';
+   const addGroup = props.label != null;
 
-   const inputElement = 
+   const inputElement = (
       <FormattedMessage id={placeholderMsgId}>
       {
          (msg) => (
@@ -110,18 +114,43 @@ FormControl.Text = (props: TextProps) => {
                value={props.value}
                autoFocus={props.autoFocus? props.autoFocus : false}
                onChange={props.onChange}
+               onBlur={props.onBlur? props.onBlur : null}
+               onFocus={props.onFocus? props.onFocus : null}
          />
          )
       }
-   </FormattedMessage>
-    return (
-        <React.Fragment>
-            {inputElement}
-            {validationError}
-            {/* setting some margin to the bottom */}
-            {props.noHorizontalSepAfter? null : <FormControl.HorizontalSep/>}
-        </React.Fragment>
-    );
+      </FormattedMessage> 
+   );
+
+   let errorMsg = null;
+
+   if (!!props.isValid === false && props.errorMsg) {
+        errorMsg = (
+            <div className={classes.ErrorMsg}>
+               {props.errorMsg}
+            </div>
+      );
+   }
+
+   const element = (
+      <React.Fragment>
+         {inputElement}
+         {errorMsg}
+         {/* setting some margin to the bottom */}
+         {props.noHorizontalSepAfter? null : <FormControl.HorizontalSep/>}
+      </React.Fragment>
+   );
+
+   if(addGroup) {
+      return (
+            <FormControl.Group name={props.label}>
+               {element}
+            </FormControl.Group>
+      )
+   }
+   else {
+      return element;
+   }
 };
 
 /**
@@ -142,7 +171,7 @@ FormControl.Text = (props: TextProps) => {
      children: React.Node
  }
 FormControl.Radio = (props: RadioProps) => {
-    let validationError = null;
+    let errorMsg = null;
 
     return (
         <React.Fragment>
@@ -154,7 +183,7 @@ FormControl.Radio = (props: RadioProps) => {
                 />
                 {props.children}
             </label>
-            {validationError}
+            {errorMsg}
             {/* setting some margin to the bottom */}
             {props.noHorizontalSepAfter? null : <FormControl.HorizontalSep/>}            
         </React.Fragment>
