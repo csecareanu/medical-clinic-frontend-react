@@ -11,7 +11,9 @@ type UserEntryValidatorReturnType = {
    isValid: boolean,
    errMsg: typeof FormattedMessage | null
 }
-
+/**
+ * Class used to validate values entered by user.
+ */
 class UserEntryValidator {
    static GenericNameMinLen = 3;
    static GenericNameMaxLen = 20;
@@ -39,7 +41,7 @@ export const ElementErrorHandlerType = {
    UNKNOWN: hasSymbol? Symbol("UNKNOWN") : 0,
    GENERIC_NAME: hasSymbol? Symbol("GENERIC_NAME") : 1,
    FIRST_NAME: hasSymbol? Symbol("FIRST_NAME") : 2,
-   LAST_NAME: hasSymbol? Symbol("LAST_NAME") : 2
+   LAST_NAME: hasSymbol? Symbol("LAST_NAME") : 3
 }
 
 type ElementErrorHandlerStatus = {
@@ -49,6 +51,19 @@ type ElementErrorHandlerStatus = {
    checkForErr: boolean
 }
 
+/**
+ * Check user input elements for correct values.
+ *
+ * The content of the @param elementStatus parameter should be kept in the state of component
+ * which instantiate this class. This way the component will be re-rendered when 
+ * @param elementStatus changes.
+ * In order to be compatible with react state notification mechanism, the @param elementStatus 
+ * will change its pointer value any time a parameter form inside changes.
+ * 
+ * @param elementType      ElementErrorHandlerType       the type of the element being checked
+ * @param elementStatus    ElementErrorHandlerStatus     keep the current status of the checked 
+ *                                                       element.
+ */
 class ElementErrorHandler {
    elementType: $Values<typeof ElementErrorHandlerType>;
    elementStatus: ElementErrorHandlerStatus;
@@ -67,8 +82,8 @@ class ElementErrorHandler {
    checkValidity = (value: string): boolean => {
       let {isValid, errMsg} = this._validateElement(value);
 
-      // Updating the element status.
-      // A new object is created because the 'element' is kept in the state ??? scrie altfel
+      // change pointer value when a variable form inside changes 
+      // (keep compatibility with react state)
       this.elementStatus = {
          ...this.elementStatus,
          isValid: isValid,
@@ -89,6 +104,8 @@ class ElementErrorHandler {
          errMsg = _errMsg;
       }
 
+      // change pointer value when a variable form inside changes 
+      // (keep compatibility with react state)
       this.elementStatus = {
          ...this.elementStatus,
          isValid: isValid,
@@ -111,6 +128,8 @@ class ElementErrorHandler {
          touched = true;
       }
 
+      // change pointer value when a variable form inside changes 
+      // (keep compatibility with react state)
       this.elementStatus = {
          ...this.elementStatus,
          isValid: isValid,

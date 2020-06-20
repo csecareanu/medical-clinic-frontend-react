@@ -52,7 +52,7 @@
    display: block;
    white-space: wrap;
    color: red;
-   border: 1px solid red;
+   /* border: 1px solid red; */
    /* background-color: #fda49a; */
    margin: 5px 0;
 }
