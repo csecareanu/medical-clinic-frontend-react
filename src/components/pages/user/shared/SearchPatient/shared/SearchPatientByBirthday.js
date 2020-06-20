@@ -3,8 +3,8 @@
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
 
-import BirthdayUserEntryElement 
-    from '../../../../../UI/userEntryElement/BirthdayUserEntryElement/BirthdayUserEntryElement';
+import BirthdayUserInput 
+    from '../../../../../UI/userInput/BirthdayUserInput/BirthdayUserInput';
 import FormControl from '../../../../../UI/FormControl/FormControl';
 import Button, {ButtonType} from '../../../../../UI/Button/Button';
 
@@ -24,7 +24,7 @@ type Props = {
 
 const SearchPatientByBirthday = (props: Props) => (
    <React.Fragment>
-      <BirthdayUserEntryElement 
+      <BirthdayUserInput 
             label={ <FormattedMessage id="input.label-birthday" /> }
             autoFocus={props.autoFocus? props.autoFocus : false}
       />

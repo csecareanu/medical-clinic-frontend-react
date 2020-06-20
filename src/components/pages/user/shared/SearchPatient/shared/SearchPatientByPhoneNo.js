@@ -6,7 +6,7 @@ import {FormattedMessage} from 'react-intl';
 import FormControl from '../../../../../UI/FormControl/FormControl';
 import Button, {ButtonType} from '../../../../../UI/Button/Button';
 import UserEntryElement, {UserEntryType} 
-    from '../../../../../UI/userEntryElement/UserEntryElement/UserEntryElement';
+    from '../../../../../UI/userInput/UserEntryElement/UserEntryElement';
 
 type SearchPatientsCallbackType = (phoneNo: string) => void;
 

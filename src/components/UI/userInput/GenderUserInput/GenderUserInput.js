@@ -12,7 +12,7 @@ const GenderType = {
 
 const RadioGroupName='gender';
 
-const GenderUserEntryElement = () => {
+const GenderUserInput = () => {
 
     return (
         <React.Fragment>
@@ -42,4 +42,4 @@ const GenderUserEntryElement = () => {
     );
 }
 
-export default GenderUserEntryElement;
+export default GenderUserInput;

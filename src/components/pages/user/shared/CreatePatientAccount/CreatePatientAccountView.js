@@ -6,10 +6,10 @@ import {FormattedMessage} from 'react-intl';
 import classes from './CreatePatientAccountView.module.css';
 import Button, {ButtonType} from '../../../../UI/Button/Button';
 import FormControl from '../../../../UI/FormControl/FormControl';
-import BirthdayUserEntryElement 
-    from '../../../../UI/userEntryElement/BirthdayUserEntryElement/BirthdayUserEntryElement';
-import GenderUserEntryElement 
-    from '../../../../UI/userEntryElement/GenderUserEntryElement/GenderUserEntryElement';
+import BirthdayUserInput
+    from '../../../../UI/userInput/BirthdayUserInput/BirthdayUserInput';
+import GenderUserInput 
+    from '../../../../UI/userInput/GenderUserInput/GenderUserInput';
 
 const Elements = {
     FIRST_NAME: 1,
@@ -193,9 +193,9 @@ class CreatePatientAccount extends React.Component<Props, State> {
                         onChange={(event) => { this.inputChangedHandler(event, Elements.COUNTY) }}
                     />
 
-                    <BirthdayUserEntryElement />
+                    <BirthdayUserInput />
 
-                    <GenderUserEntryElement />
+                    <GenderUserInput />
 
                     <FormControl.HorizontalSep repeat={2} />
 
