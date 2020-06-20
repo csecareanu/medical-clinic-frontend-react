@@ -7,6 +7,7 @@
 
 .LoginContent {
     background-color: #ffffff;
+    width:100%;
     padding: 0.5rem;
     max-width: 30rem;  
 }

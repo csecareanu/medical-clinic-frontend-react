@@ -7,40 +7,25 @@ import FormControl from '../../../../../UI/FormControl/FormControl';
 import Button, {ButtonType} from '../../../../../UI/Button/Button';
 
 
-type Props = {
-    autoFocus?: boolean,
-    onSearchPatients: (firstName: string) => void
-}
-
-type State = {
-   nameElement: {
-      value: string,
-      isValid: boolean,
-      errMsg: string | null,
-      touched: boolean,
-      checkForErr: boolean
-   }
-}
-
-
-type FormValidationReturnType = {
+type UserEntryValidatorReturnType = {
    isValid: boolean,
    errMsg: typeof FormattedMessage | null
 }
 
-const FormValidation = {
-   MinLenFirstName: 3,
-   MaxLenFirstName: 20,
+class UserEntryValidator {
+   static GenericNameMinLen = 3;
+   static GenericNameMaxLen = 20;
 
-   ValidateFirstName: (value: string): FormValidationReturnType => {
+   static ValidateGenericName = (value: string):UserEntryValidatorReturnType => {
       // check if the string is null, not defined or empty
-      if (!value || value.trim().length === 0) {
+      const len = !value? 0 : value.trim().length;
+      if (len < this.GenericNameMinLen || len > this.GenericNameMaxLen) {
          const errMsg = (
             <FormattedMessage
-               id="input.validation.rules.name"
+               id="input.validation.rules.generic-name"
                values={{
-                  min_len: FormValidation.MinLenFirstName,
-                  max_len: FormValidation.MaxLenFirstName
+                  min_len: this.GenericNameMinLen,
+                  max_len: this.GenericNameMaxLen
                }}
             /> );
          return {isValid:false, errMsg: errMsg};
@@ -49,77 +34,158 @@ const FormValidation = {
    }
 }
 
-class SearchPatientByName extends React.Component<Props, State> {
+const hasSymbol = typeof Symbol === 'function';
+export const ElementErrorHandlerType = { 
+   UNKNOWN: hasSymbol? Symbol("UNKNOWN") : 0,
+   GENERIC_NAME: hasSymbol? Symbol("GENERIC_NAME") : 1,
+   FIRST_NAME: hasSymbol? Symbol("FIRST_NAME") : 2,
+   LAST_NAME: hasSymbol? Symbol("LAST_NAME") : 2
+}
 
-   state: State = {
-      nameElement: {
-         value: "",
+type ElementErrorHandlerStatus = {
+   isValid: boolean,
+   errMsg: string | null,
+   touched: boolean,
+   checkForErr: boolean
+}
+
+class ElementErrorHandler {
+   elementType: $Values<typeof ElementErrorHandlerType>;
+   elementStatus: ElementErrorHandlerStatus;
+
+   constructor(elementType: $Values<typeof ElementErrorHandlerType>) {
+      this.elementStatus = {
          isValid: true,
          errMsg: null,
          touched: false,
          checkForErr: false
       }
+
+      this.elementType = elementType? elementType : ElementErrorHandlerType.UNKNOWN;
+   }
+
+   checkValidity = (value: string): boolean => {
+      let {isValid, errMsg} = this._validateElement(value);
+
+      // Updating the element status.
+      // A new object is created because the 'element' is kept in the state ??? scrie altfel
+      this.elementStatus = {
+         ...this.elementStatus,
+         isValid: isValid,
+         errMsg: errMsg,
+         checkForErr: true
+      }
+
+      return isValid;
+   }
+
+   handleChange = (value: string): boolean => {
+      let isValid = true;
+      let errMsg = null;
+      
+      if (this.elementStatus.checkForErr) {
+         let { isValid: _isValid, errMsg: _errMsg } = this._validateElement(value);
+         isValid = _isValid;
+         errMsg = _errMsg;
+      }
+
+      this.elementStatus = {
+         ...this.elementStatus,
+         isValid: isValid,
+         errMsg: errMsg,
+         touched: true
+      }
+
+      return isValid;
+   }
+
+   handleBlur = (value: string): boolean => {
+      let touched = this.elementStatus.touched;
+      let isValid = true;
+      let errMsg = null;
+
+      if (value.length > 0) {
+         let {isValid: _isValid, errMsg: _errMsg} = this._validateElement(value);
+         isValid = _isValid;
+         errMsg = _errMsg;
+         touched = true;
+      }
+
+      this.elementStatus = {
+         ...this.elementStatus,
+         isValid: isValid,
+         errMsg: errMsg,
+         touched: touched
+      };
+
+      return isValid;
+   }
+
+   _validateElement = (value: string): UserEntryValidatorReturnType => {
+      
+      if( this.elementType === ElementErrorHandlerType.GENERIC_NAME ) {
+         return UserEntryValidator.ValidateGenericName(value);
+      }
+
+      return {isValid: true, errMsg: null };
+   }
+}
+
+
+type Props = {
+    autoFocus?: boolean,
+    onSearchPatients: (firstName: string) => void
+}
+
+type State = {
+   nameElemValue: string,
+   nameElemErrStatus: ElementErrorHandlerStatus
+}
+
+class SearchPatientByName extends React.Component<Props, State> {
+
+   nameErrHandler: ElementErrorHandler;
+   state: State;
+
+   constructor(props: Props) {
+      super(props);
+      this.nameErrHandler = new ElementErrorHandler(ElementErrorHandlerType.GENERIC_NAME);
+
+      this.state = {
+         nameElemValue: "sd",
+         nameElemErrStatus: this.nameErrHandler.elementStatus
+      }
    }
 
    handleSearchPatients = (props: Props) => {
-      let { isValid, errMsg } = FormValidation.ValidateFirstName(this.state.nameElement.value);
+      let isValid = this.nameErrHandler.checkValidity(this.state.nameElemValue);
+
       if (!isValid) {
          this.setState({
-            nameElement: {
-               ...this.state.nameElement,
-               isValid: isValid,
-               errMsg: errMsg,
-               checkForErr: true
-            }
+            nameElemErrStatus: this.nameErrHandler.elementStatus
          });
          return;
       }
-      props.onSearchPatients(this.state.nameElement.value);
+      props.onSearchPatients(this.state.nameElemValue);
    }
 
    handleNameChange = (event: SyntheticInputEvent<HTMLInputElement>): void => {
       const value = event.target.value;
 
-      let isValid = true;
-      let errMsg = null;
-
-      if (this.state.nameElement.checkForErr) {
-        let { isValid: validity, errMsg: message } = FormValidation.ValidateFirstName(value);
-        isValid = validity;
-        errMsg = message;
-      }
+      this.nameErrHandler.handleChange(value);
 
       this.setState({
-         nameElement: {
-            ...this.state.nameElement,
-            value: value,
-            isValid: isValid,
-            errMsg: errMsg,
-            touched: true
-         }
-      })
+         nameElemValue: value,
+         nameElemErrStatus: this.nameErrHandler.elementStatus
+      });
    }
 
    handleNameBlur = (event: SyntheticInputEvent<HTMLInputElement>): void => {
-      const name = this.state.nameElement.value;
-      let touched = this.state.nameElement.touched;
-      let isValid = true;
-      let errMsg = null;
-
-      if (name.length > 0) {
-        let { isValid: validity, errMsg: message } = FormValidation.ValidateFirstName(name);
-        isValid = validity;
-        errMsg = message;
-        touched = true;
-      }
+      
+      this.nameErrHandler.handleBlur(this.state.nameElemValue);
 
       this.setState({
-         nameElement: {
-            ...this.state.nameElement,
-            isValid: isValid,
-            errMsg: errMsg,
-            touched: touched
-         }
+         nameElemErrStatus: this.nameErrHandler.elementStatus
       });
    }
    render () {
@@ -128,9 +194,9 @@ class SearchPatientByName extends React.Component<Props, State> {
                <FormControl.Text
                   size={20}
                   label={ <FormattedMessage id="input.label-name"/> }
-                  value={this.state.nameElement.value}
-                  isValid={this.state.nameElement.isValid}
-                  errorMsg={this.state.nameElement.errMsg}
+                  value={this.state.nameElemValue}
+                  isValid={this.state.nameElemErrStatus.isValid}
+                  errorMsg={this.state.nameElemErrStatus.errMsg}
                   autoFocus={this.props.autoFocus? this.props.autoFocus : false}
                   onChange={this.handleNameChange}
                   onBlur={this.handleNameBlur}
@@ -138,14 +204,14 @@ class SearchPatientByName extends React.Component<Props, State> {
 
                <FormControl.HorizontalSep repeat={2}/>
                <Button
-                  type={ButtonType.SUCCESS} 
+                  type={ButtonType.SUCCESS}
                   fullWidth
                   onClick={ () => {
                      this.handleSearchPatients(this.props)
                   }}
                >
-                  <FormattedMessage 
-                     id="pages.user.search-patient.search-patient-by-name.btn-show-patients" 
+                  <FormattedMessage
+                     id="pages.user.search-patient.search-patient-by-name.btn-show-patients"
                   />
                </Button>
          </React.Fragment>
