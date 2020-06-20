@@ -47,7 +47,6 @@ export const ElementErrorHandlerType = {
 type ElementErrorHandlerStatus = {
    isValid: boolean,
    errMsg: string | null,
-   touched: boolean,
    checkForErr: boolean
 }
 
@@ -72,29 +71,28 @@ class ElementErrorHandler {
       this.elementStatus = {
          isValid: true,
          errMsg: null,
-         touched: false,
          checkForErr: false
       }
 
       this.elementType = elementType? elementType : ElementErrorHandlerType.UNKNOWN;
    }
 
-   checkValidity = (value: string): boolean => {
+   checkValidity = (value: string): void => {
       let {isValid, errMsg} = this._validateElement(value);
 
-      // change pointer value when a variable form inside changes 
-      // (keep compatibility with react state)
+      // once checkValidity has been called the element will be checked for errors on any user
+      // action (set checkForErr to true)
+
+      // create new object (keep compatibility with react state)
       this.elementStatus = {
          ...this.elementStatus,
          isValid: isValid,
          errMsg: errMsg,
          checkForErr: true
       }
-
-      return isValid;
    }
 
-   handleChange = (value: string): boolean => {
+   handleChange = (value: string): void => {
       let isValid = true;
       let errMsg = null;
       
@@ -104,44 +102,30 @@ class ElementErrorHandler {
          errMsg = _errMsg;
       }
 
-      // change pointer value when a variable form inside changes 
-      // (keep compatibility with react state)
+      // create new object (keep compatibility with react state)
       this.elementStatus = {
          ...this.elementStatus,
          isValid: isValid,
-         errMsg: errMsg,
-         touched: true
+         errMsg: errMsg
       }
-
-      return isValid;
    }
 
-   handleBlur = (value: string): boolean => {
-      let touched = this.elementStatus.touched;
-      let isValid = true;
-      let errMsg = null;
-
-      if (value.length > 0) {
-         let {isValid: _isValid, errMsg: _errMsg} = this._validateElement(value);
-         isValid = _isValid;
-         errMsg = _errMsg;
-         touched = true;
+   handleBlur = (value: string): void => {
+      if (!this.elementStatus.checkForErr) {
+         return;
       }
+      
+      let {isValid, errMsg} = this._validateElement(value);
 
-      // change pointer value when a variable form inside changes 
-      // (keep compatibility with react state)
+      // create new object (keep compatibility with react state)
       this.elementStatus = {
          ...this.elementStatus,
          isValid: isValid,
-         errMsg: errMsg,
-         touched: touched
+         errMsg: errMsg
       };
-
-      return isValid;
    }
 
    _validateElement = (value: string): UserEntryValidatorReturnType => {
-      
       if( this.elementType === ElementErrorHandlerType.GENERIC_NAME ) {
          return UserEntryValidator.ValidateGenericName(value);
       }
@@ -177,14 +161,15 @@ class SearchPatientByName extends React.Component<Props, State> {
    }
 
    handleSearchPatients = (props: Props) => {
-      let isValid = this.nameErrHandler.checkValidity(this.state.nameElemValue);
+      this.nameErrHandler.checkValidity(this.state.nameElemValue);
+      this.setState({
+         nameElemErrStatus: this.nameErrHandler.elementStatus
+      });
 
-      if (!isValid) {
-         this.setState({
-            nameElemErrStatus: this.nameErrHandler.elementStatus
-         });
+      if (!this.nameErrHandler.elementStatus.isValid) {
          return;
       }
+
       props.onSearchPatients(this.state.nameElemValue);
    }
 
@@ -192,7 +177,6 @@ class SearchPatientByName extends React.Component<Props, State> {
       const value = event.target.value;
 
       this.nameErrHandler.handleChange(value);
-
       this.setState({
          nameElemValue: value,
          nameElemErrStatus: this.nameErrHandler.elementStatus
@@ -202,7 +186,6 @@ class SearchPatientByName extends React.Component<Props, State> {
    handleNameBlur = (event: SyntheticInputEvent<HTMLInputElement>): void => {
       
       this.nameErrHandler.handleBlur(this.state.nameElemValue);
-
       this.setState({
          nameElemErrStatus: this.nameErrHandler.elementStatus
       });
