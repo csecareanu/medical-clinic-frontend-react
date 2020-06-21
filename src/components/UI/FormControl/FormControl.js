@@ -43,6 +43,9 @@ FormControl.Group = (props: GroupProps) => {
     const contentClasses = [];
     if(props.contentPadding) {
         contentClasses.push(classes.ContentPadding);
+    } 
+    else {
+       contentClasses.push(classes.MinContentPadding);
     }
 
     return (

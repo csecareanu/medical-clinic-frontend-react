@@ -1,8 +1,3 @@
-.ContentPadding {
-   /* have some distance to any elements sitting above, beneath, left and right */
-   padding: 0.5em;
-}
-
 .Group {
    display: flex;
    flex-flow: row;
@@ -12,6 +7,17 @@
 .StressedName {
    border-bottom: 1px solid #fcb671;
    font-weight: bold;
+}
+
+.ContentPadding {
+   /* have some distance to any elements sitting above, beneath, left and right */
+   padding: 0.5em;
+}
+
+.MinContentPadding {
+   /* even though there is no padding we still need a minimum distance 
+   between group name and the contained elements */
+   padding-top: 0.2em;
 }
 
 .TextElement {
