@@ -1,3 +1,5 @@
 .AlternativeSearchItem {
     width: 100%;
+   /* have some distance to any elements sitting beneath */
+   padding-bottom: 0.5em;
 }

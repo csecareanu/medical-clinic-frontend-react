@@ -25,7 +25,7 @@ const SearchPatientView = (props: Props) => {
 
     const searchByBirthdayLink = (
         <LinkButton
-            type={LinkButtonType.DANGER}
+            type={LinkButtonType.SUCCESS}
             onClick={ () => { 
                 props.onChangeSearchPatientForm(SearchPatientFormType.SEARCH_BY_BIRTHDAY) 
             }}
@@ -36,7 +36,7 @@ const SearchPatientView = (props: Props) => {
 
     const searchByNameLink = (
         <LinkButton
-            type={LinkButtonType.DANGER}
+            type={LinkButtonType.SUCCESS}
             onClick={ () => { 
                 props.onChangeSearchPatientForm(SearchPatientFormType.SEARCH_BY_NAME) 
             }}
@@ -47,7 +47,7 @@ const SearchPatientView = (props: Props) => {
 
     const searchByPhoneNoLink = (
         <LinkButton
-            type={LinkButtonType.DANGER}
+            type={LinkButtonType.SUCCESS}
             onClick={ () => { 
                 props.onChangeSearchPatientForm(SearchPatientFormType.SEARCH_BY_PHONE) 
             }}
