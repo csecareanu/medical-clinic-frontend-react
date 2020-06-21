@@ -16,6 +16,11 @@
     flex-flow: row;
 }
 
+.HSeparator {
+   display: inline-block;
+   margin-top: 0.5rem;
+   padding: 0;
+}
 
 @media (max-width: 700px) {
     .Toolbar {

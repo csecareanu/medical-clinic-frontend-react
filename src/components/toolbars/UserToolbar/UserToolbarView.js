@@ -24,6 +24,8 @@ const UserToolbarView = (props: Props) => (
                 onClick={props.onClinicMenuItemSelect} 
             />
 
+            <div className={classes.HSeparator} />
+
             <div className={classes.UserItems}>
                 { props.userAuthenticationStatus === UserAuthType.UNAUTHENTICATED
                     ? (
@@ -44,6 +46,8 @@ const UserToolbarView = (props: Props) => (
                     onClick={props.onClinicMenuItemSelect}
                 />
             </div>
+            
+            <div className={classes.HSeparator} />
             
             {props.isUserConnectedToAPatientAccount
             ? (
