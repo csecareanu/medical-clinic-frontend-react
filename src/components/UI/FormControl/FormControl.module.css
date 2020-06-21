@@ -7,11 +7,11 @@
    display: flex;
    flex-flow: row;
    color: #6B2022;
-   font-weight: bold;
 }
 
 .StressedName {
    border-bottom: 1px solid #fcb671;
+   font-weight: bold;
 }
 
 .TextElement {
