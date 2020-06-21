@@ -24,6 +24,13 @@
 17. XSTATE A state transition which defines what the next state is, given the current state and event: https://xstate.js.org/docs/guides/transitions.html#machine-transition-method
 --
 
+how to order imports for a clean approach:
+   - React import
+   - Library imports (Alphabetical order)
+   - Absolute imports from project (Alphabetical order)
+   - Relative imports (Alphabetical order)
+   - import * as
+   - import './<some file>.<some ext>'
 
 structura fisiere:
    - daca un folder defineste o componenta atunci incepe cu litera mare
