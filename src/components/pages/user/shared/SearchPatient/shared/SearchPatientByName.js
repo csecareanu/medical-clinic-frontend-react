@@ -59,13 +59,6 @@ class SearchPatientByName extends React.Component<Props, State> {
       });
    }
 
-   handleNameBlur = (event: SyntheticInputEvent<HTMLInputElement>): void => {
-      this.nameErrHandler.handleBlur(this.state.nameElemValue);
-      this.setState({
-         nameElemErrStatus: this.nameErrHandler.elementStatus
-      });
-   }
-
    render () {
       return (
          <React.Fragment>
@@ -77,7 +70,6 @@ class SearchPatientByName extends React.Component<Props, State> {
                   errorMsg={this.state.nameElemErrStatus.errMsg}
                   autoFocus={this.props.autoFocus? this.props.autoFocus : false}
                   onChange={this.handleInputChange}
-                  onBlur={this.handleNameBlur}
                />
 
                <FormControl.HorizontalSep repeat={2}/>

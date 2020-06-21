@@ -82,28 +82,7 @@ class userInputErrorHandler {
          ...this.elementStatus
       }
    }
-
-   handleBlur = (value: string): void => {
-      
-      if (this.elementStatus.touched && !this.elementStatus.checkForErr) {
-         this.elementStatus.checkForErr = true;
-      }
-
-      if (!this.elementStatus.checkForErr) {
-         return;
-      }
-      
-      let {isValid, errMsg} = this._validateElement(value);
-
-      this.elementStatus.isValid = isValid;
-      this.elementStatus.errMsg = errMsg;
-
-      // create new object (keep compatibility with react state)
-      this.elementStatus = {
-         ...this.elementStatus
-      };
-   }
-
+   
    _validateElement = (value: string): UserInputValidatorReturnType => {
       if( this.elementType === UserInputErrorHandlerType.GENERIC_NAME ) {
          return userInputValidator.ValidateGenericName(value);
