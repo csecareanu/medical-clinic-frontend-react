@@ -6,8 +6,8 @@ import {FormattedMessage} from 'react-intl';
 import FormControl from '../../../../../UI/FormControl/FormControl';
 import Button, {ButtonType} from '../../../../../UI/Button/Button';
 import 
-   userInputErrorHandler,
-   {type UserInputErrorHandlerStatus,
+   userInputErrorHandler, 
+   {type UserInputErrorHandlerStatus, 
    UserInputErrorHandlerType}
    from '../../../../../UI/userInput/utils/userInputErrorHandler';
 
@@ -50,9 +50,8 @@ class SearchPatientByName extends React.Component<Props, State> {
       props.onSearchPatients(this.state.nameElemValue);
    }
 
-   handleNameChange = (event: SyntheticInputEvent<HTMLInputElement>): void => {
+   handleInputChange = (event: SyntheticInputEvent<HTMLInputElement>): void => {
       const value = event.target.value;
-
       this.nameErrHandler.handleChange(value);
       this.setState({
          nameElemValue: value,
@@ -61,12 +60,12 @@ class SearchPatientByName extends React.Component<Props, State> {
    }
 
    handleNameBlur = (event: SyntheticInputEvent<HTMLInputElement>): void => {
-      
       this.nameErrHandler.handleBlur(this.state.nameElemValue);
       this.setState({
          nameElemErrStatus: this.nameErrHandler.elementStatus
       });
    }
+
    render () {
       return (
          <React.Fragment>
@@ -77,7 +76,7 @@ class SearchPatientByName extends React.Component<Props, State> {
                   isValid={this.state.nameElemErrStatus.isValid}
                   errorMsg={this.state.nameElemErrStatus.errMsg}
                   autoFocus={this.props.autoFocus? this.props.autoFocus : false}
-                  onChange={this.handleNameChange}
+                  onChange={this.handleInputChange}
                   onBlur={this.handleNameBlur}
                />
 

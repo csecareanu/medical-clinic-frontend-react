@@ -5,8 +5,11 @@ import {FormattedMessage} from 'react-intl';
 
 import FormControl from '../../../../../UI/FormControl/FormControl';
 import Button, {ButtonType} from '../../../../../UI/Button/Button';
-import UserEntryElement, {UserEntryType} 
-    from '../../../../../UI/userInput/UserEntryElement/UserEntryElement';
+import 
+   userInputErrorHandler, 
+   {type UserInputErrorHandlerStatus, 
+   UserInputErrorHandlerType}
+   from '../../../../../UI/userInput/utils/userInputErrorHandler';
 
 type SearchPatientsCallbackType = (phoneNo: string) => void;
 
@@ -16,41 +19,68 @@ type Props = {
 }
 
 type State = {
-   phoneNo: string,
-   isValid: boolean
+   phoneElemValue: string,
+   phoneElemErrStatus: UserInputErrorHandlerStatus
 }
 
 class SearchPatientByPhoneNo extends React.Component<Props, State> {
 
-   state: State = {
-      phoneNo: "",
-      isValid: true
+   phoneErrHandler: userInputErrorHandler;
+   state: State;
+
+   constructor(props: Props) {
+      super(props);
+      this.phoneErrHandler = new userInputErrorHandler(UserInputErrorHandlerType.GENERIC_NAME);
+
+      this.state = {
+         phoneElemValue: "",
+         phoneElemErrStatus: this.phoneErrHandler.elementStatus
+      }
    }
 
    handleSearchPatients = () => {
-      this.props.onSearchPatients(this.state.phoneNo);
+      this.phoneErrHandler.checkValidity(this.state.phoneElemValue);
+      this.setState({
+         phoneElemErrStatus: this.phoneErrHandler.elementStatus
+      });
+
+      if (!this.phoneErrHandler.elementStatus.isValid) {
+         return;
+      }
+
+      this.props.onSearchPatients(this.state.phoneElemValue);
    }
 
-   handleInputChange = (value: string, isValid: boolean) => {
+   handleInputChange = (event: SyntheticInputEvent<HTMLInputElement>): void => {
+      const value = event.target.value;
+      this.phoneErrHandler.handleChange(value);
       this.setState({
-         phoneNo: value,
-         isValid: isValid
-      })
+         phoneElemValue: value,
+         phoneElemErrStatus: this.phoneErrHandler.elementStatus
+      });
+   }
+
+   handleNameBlur = (event: SyntheticInputEvent<HTMLInputElement>): void => {
+      this.phoneErrHandler.handleBlur(this.state.phoneElemValue);
+      this.setState({
+         phoneElemErrStatus: this.phoneErrHandler.elementStatus
+      });
    }
 
    render() {
-      const patientNameLabel = 
-         <FormattedMessage id="input.label-phone-no" />
       return (
          <React.Fragment>
-            <UserEntryElement
-               label={patientNameLabel}
-               value={this.state.phoneNo}
-               isValid={this.state.isValid}
-               type={UserEntryType.PHONE_NUMBER}
+            <FormControl.Text
+               size={20}
+               label={ <FormattedMessage id="input.label-phone-no"/> }
+               value={this.state.phoneElemValue}
+               isValid={this.state.phoneElemErrStatus.isValid}
+               errorMsg={this.state.phoneElemErrStatus.errMsg}
                autoFocus={this.props.autoFocus? this.props.autoFocus : false}
-               onInputChange={this.handleInputChange}
+               onChange={this.handleInputChange}
+               onBlur={this.handleNameBlur}
             />
+
             <FormControl.HorizontalSep repeat={2}/>
             <Button
                type={ButtonType.SUCCESS}

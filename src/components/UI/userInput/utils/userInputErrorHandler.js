@@ -15,7 +15,8 @@ export const UserInputErrorHandlerType = {
 export type UserInputErrorHandlerStatus = {
    isValid: boolean,
    errMsg: string | null,
-   checkForErr: boolean
+   checkForErr: boolean,
+   touched: boolean
 }
 
 /**
@@ -39,10 +40,11 @@ class userInputErrorHandler {
       this.elementStatus = {
          isValid: true,
          errMsg: null,
-         checkForErr: false
+         checkForErr: false,
+         touched: false
       }
 
-      this.elementType = elementType? elementType : UserInputErrorHandlerType.UNKNOWN;
+      this.elementType = !!elementType? elementType : UserInputErrorHandlerType.UNKNOWN;
    }
 
    checkValidity = (value: string): void => {
@@ -51,12 +53,14 @@ class userInputErrorHandler {
       // once checkValidity has been called the element will be checked for errors on any user
       // action (set checkForErr to true)
 
+      this.elementStatus.isValid = isValid;
+      this.elementStatus.errMsg = errMsg;
+      this.elementStatus.checkForErr = true;
+      this.elementStatus.touched = true;
+
       // create new object (keep compatibility with react state)
       this.elementStatus = {
-         ...this.elementStatus,
-         isValid: isValid,
-         errMsg: errMsg,
-         checkForErr: true
+         ...this.elementStatus
       }
    }
 
@@ -70,26 +74,33 @@ class userInputErrorHandler {
          errMsg = _errMsg;
       }
 
+      this.elementStatus.isValid = isValid;
+      this.elementStatus.errMsg = errMsg;
+      this.elementStatus.touched = true;
       // create new object (keep compatibility with react state)
       this.elementStatus = {
-         ...this.elementStatus,
-         isValid: isValid,
-         errMsg: errMsg
+         ...this.elementStatus
       }
    }
 
    handleBlur = (value: string): void => {
+      
+      if (this.elementStatus.touched && !this.elementStatus.checkForErr) {
+         this.elementStatus.checkForErr = true;
+      }
+
       if (!this.elementStatus.checkForErr) {
          return;
       }
       
       let {isValid, errMsg} = this._validateElement(value);
 
+      this.elementStatus.isValid = isValid;
+      this.elementStatus.errMsg = errMsg;
+
       // create new object (keep compatibility with react state)
       this.elementStatus = {
-         ...this.elementStatus,
-         isValid: isValid,
-         errMsg: errMsg
+         ...this.elementStatus
       };
    }
 
