@@ -60,25 +60,17 @@ class SearchPatientByPhoneNo extends React.Component<Props, State> {
       });
    }
 
-   handleNameBlur = (event: SyntheticInputEvent<HTMLInputElement>): void => {
-      this.phoneErrHandler.handleBlur(this.state.phoneElemValue);
-      this.setState({
-         phoneElemErrStatus: this.phoneErrHandler.elementStatus
-      });
-   }
-
    render() {
       return (
          <React.Fragment>
             <FormControl.Text
                size={20}
-               label={ <FormattedMessage id="input.label-phone-no"/> }
+               label={ <FormattedMessage id="input.label-search-phone-no"/> }
                value={this.state.phoneElemValue}
                isValid={this.state.phoneElemErrStatus.isValid}
                errorMsg={this.state.phoneElemErrStatus.errMsg}
                autoFocus={this.props.autoFocus? this.props.autoFocus : false}
                onChange={this.handleInputChange}
-               onBlur={this.handleNameBlur}
             />
 
             <FormControl.HorizontalSep repeat={2}/>
