@@ -23,7 +23,7 @@
 ---
 17. XSTATE A state transition which defines what the next state is, given the current state and event: https://xstate.js.org/docs/guides/transitions.html#machine-transition-method
 --
-18 . Console.log: https://dev.to/ackshaey/level-up-your-javascript-browser-logs-with-these-console-log-tips-55o2?utm_source=digest_mailer&utm_medium=email&utm_campaign=digest_email
+18. Console.log: https://dev.to/ackshaey/level-up-your-javascript-browser-logs-with-these-console-log-tips-55o2?utm_source=digest_mailer&utm_medium=email&utm_campaign=digest_email
 
 how to order imports for a clean approach:
    - React import
